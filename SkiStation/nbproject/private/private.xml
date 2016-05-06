@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Config/hibernate.cfg.xml</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Controller/RegistrationController.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Config/hibernate.reveng.xml</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Model/TestClass.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/DBClasses/Users.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Tools/HibernateUtil.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/Controller/LoginController.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/View/MainWindow.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/DBClasses/Addresses.java</file>
+            <file>file:/G:/Studia/sem6/BDII%20and%20PP/Projekt/SkiStation/SkiStation/src/DBClasses/Addresses.hbm.xml</file>
+        </group>
     </open-files>
 </project-private>

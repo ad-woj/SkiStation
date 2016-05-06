@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.RegistrationController;
+import Model.TestClass;
 import java.awt.CardLayout;
 
 
@@ -39,11 +41,24 @@ public class MainWindow extends javax.swing.JFrame {
         CreateAccountLink = new javax.swing.JLabel();
         LoginBackgroundImage = new javax.swing.JLabel();
         Register = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         LoginTextField1 = new javax.swing.JTextField();
-        PasswordTextField1 = new javax.swing.JPasswordField();
-        LoginTextField2 = new javax.swing.JTextField();
-        LoginTextField3 = new javax.swing.JTextField();
-        LoginTextField4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        Password = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        Name = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        Surname = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        DocumentNumber = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        City = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        Country = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        Street = new javax.swing.JTextField();
+        BackButton = new javax.swing.JButton();
+        RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,6 +71,11 @@ public class MainWindow extends javax.swing.JFrame {
         Login.setLayout(null);
 
         LoginButton.setText("Zaloguj");
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
         Login.add(LoginButton);
         LoginButton.setBounds(430, 110, 80, 23);
 
@@ -104,45 +124,127 @@ public class MainWindow extends javax.swing.JFrame {
 
         Register.setLayout(null);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("Street");
+        Register.add(jLabel8);
+        jLabel8.setBounds(300, 340, 130, 30);
+
         LoginTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginTextField1ActionPerformed(evt);
             }
         });
         Register.add(LoginTextField1);
-        LoginTextField1.setBounds(430, 100, 220, 30);
+        LoginTextField1.setBounds(430, 40, 220, 30);
 
-        PasswordTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Password");
+        Register.add(jLabel1);
+        jLabel1.setBounds(300, 80, 130, 30);
+
+        Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordTextField1ActionPerformed(evt);
+                PasswordActionPerformed(evt);
             }
         });
-        Register.add(PasswordTextField1);
-        PasswordTextField1.setBounds(430, 70, 220, 30);
+        Register.add(Password);
+        Password.setBounds(430, 80, 220, 30);
 
-        LoginTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Name");
+        Register.add(jLabel2);
+        jLabel2.setBounds(300, 130, 130, 29);
+
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginTextField2ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
-        Register.add(LoginTextField2);
-        LoginTextField2.setBounds(430, 130, 220, 30);
+        Register.add(Name);
+        Name.setBounds(430, 130, 220, 30);
 
-        LoginTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Surname");
+        Register.add(jLabel3);
+        jLabel3.setBounds(300, 170, 130, 30);
+
+        Surname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginTextField3ActionPerformed(evt);
+                SurnameActionPerformed(evt);
             }
         });
-        Register.add(LoginTextField3);
-        LoginTextField3.setBounds(430, 160, 220, 30);
+        Register.add(Surname);
+        Surname.setBounds(430, 170, 220, 30);
 
-        LoginTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("DocumentNumber");
+        Register.add(jLabel4);
+        jLabel4.setBounds(200, 210, 230, 30);
+
+        DocumentNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginTextField4ActionPerformed(evt);
+                DocumentNumberActionPerformed(evt);
             }
         });
-        Register.add(LoginTextField4);
-        LoginTextField4.setBounds(430, 190, 220, 30);
+        Register.add(DocumentNumber);
+        DocumentNumber.setBounds(430, 210, 220, 30);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("City");
+        Register.add(jLabel5);
+        jLabel5.setBounds(300, 250, 130, 30);
+
+        City.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CityActionPerformed(evt);
+            }
+        });
+        Register.add(City);
+        City.setBounds(430, 250, 220, 30);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setText("Country");
+        Register.add(jLabel6);
+        jLabel6.setBounds(300, 300, 130, 30);
+
+        Country.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountryActionPerformed(evt);
+            }
+        });
+        Register.add(Country);
+        Country.setBounds(430, 300, 220, 30);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("Login");
+        Register.add(jLabel7);
+        jLabel7.setBounds(300, 40, 130, 30);
+
+        Street.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StreetActionPerformed(evt);
+            }
+        });
+        Register.add(Street);
+        Street.setBounds(430, 340, 220, 30);
+
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+        Register.add(BackButton);
+        BackButton.setBounds(320, 400, 120, 40);
+
+        RegisterButton.setText("Register !");
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
+        Register.add(RegisterButton);
+        RegisterButton.setBounds(490, 400, 120, 40);
 
         RegisterBackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
         Register.add(RegisterBackgroundImage1);
@@ -171,21 +273,53 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LoginTextField1ActionPerformed
 
-    private void PasswordTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextField1ActionPerformed
+    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTextField1ActionPerformed
+    }//GEN-LAST:event_PasswordActionPerformed
 
-    private void LoginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField2ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginTextField2ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void LoginTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField3ActionPerformed
+    private void SurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SurnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginTextField3ActionPerformed
+    }//GEN-LAST:event_SurnameActionPerformed
 
-    private void LoginTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField4ActionPerformed
+    private void DocumentNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginTextField4ActionPerformed
+    }//GEN-LAST:event_DocumentNumberActionPerformed
+
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+        TestClass.test();        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CityActionPerformed
+
+    private void CountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CountryActionPerformed
+
+    private void StreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StreetActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+        loginPaneLayout.show(getContentPane(), "login");
+    }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        RegistrationController regController = new RegistrationController();
+        Boolean isSuccess = regController.register(Name.getText(), Surname.getText(), City.getText(), Country.getText(), Street.getText(), LoginTextField1.getText(), new String(Password.getPassword()), DocumentNumber.getText());
+        if (isSuccess) {
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), "login");
+        }else{
+            LoginTextField1.setText("");
+        }
+    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,20 +357,33 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
+    private javax.swing.JTextField City;
+    private javax.swing.JTextField Country;
     private javax.swing.JLabel CreateAccountLink;
+    private javax.swing.JTextField DocumentNumber;
     private javax.swing.JPanel Login;
     private javax.swing.JLabel LoginBackgroundImage;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
-    private javax.swing.JTextField LoginTextField2;
-    private javax.swing.JTextField LoginTextField3;
-    private javax.swing.JTextField LoginTextField4;
+    private javax.swing.JTextField Name;
+    private javax.swing.JPasswordField Password;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
-    private javax.swing.JPasswordField PasswordTextField1;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
+    private javax.swing.JButton RegisterButton;
+    private javax.swing.JTextField Street;
+    private javax.swing.JTextField Surname;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
