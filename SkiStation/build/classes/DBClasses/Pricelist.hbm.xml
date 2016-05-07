@@ -6,7 +6,7 @@
     <class name="DBClasses.Pricelist" table="pricelist" schema="public" optimistic-lock="version">
         <id name="pricelistid" type="int">
             <column name="pricelistid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="startdate" type="timestamp">
             <column name="startdate" length="22" not-null="true" />

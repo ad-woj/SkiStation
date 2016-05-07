@@ -6,6 +6,7 @@
 package Controller;
 
 import Tools.HibernateUtil;
+import com.sun.media.jfxmedia.logging.Logger;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -21,11 +22,12 @@ public class LoginController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         String hashPass = HashingHelper.sha256(password);
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s' AND U.password = '%s'", login, hashPass ));
-        List results = query.list();
         if (query.list().isEmpty()){
+            System.out.println("Failed login");
             return false;
         } else {
             logged = true;
+            System.out.println("Successful login");
             return true;
         }
     }

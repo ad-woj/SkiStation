@@ -64,7 +64,7 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterBackgroundImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 700));
+        setMinimumSize(new java.awt.Dimension(700, 700));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -117,7 +117,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         LoginBackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
         Login.add(LoginBackgroundImage);
-        LoginBackgroundImage.setBounds(-6, -6, 1220, 890);
+        LoginBackgroundImage.setBounds(10, 0, 1310, 890);
 
         getContentPane().add(Login, "login");
         Login.getAccessibleContext().setAccessibleName("");

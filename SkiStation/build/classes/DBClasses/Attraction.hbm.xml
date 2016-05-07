@@ -6,7 +6,7 @@
     <class name="DBClasses.Attraction" table="attraction" schema="public" optimistic-lock="version">
         <id name="attractionid" type="int">
             <column name="attractionid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="string">
             <column name="name" length="20" not-null="true" />

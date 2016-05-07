@@ -6,7 +6,7 @@
     <class name="DBClasses.Boughtlist" table="boughtlist" schema="public" optimistic-lock="version">
         <id name="boughtlistid" type="int">
             <column name="boughtlistid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="cardusage" class="DBClasses.Cardusage" fetch="select">
             <column name="cardusage_useid" not-null="true" />
