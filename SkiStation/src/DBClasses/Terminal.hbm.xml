@@ -6,7 +6,7 @@
     <class name="DBClasses.Terminal" table="terminal" schema="public" optimistic-lock="version">
         <id name="terminalid" type="int">
             <column name="terminalid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="attraction" class="DBClasses.Attraction" fetch="select">
             <column name="attraction_attractionid" not-null="true" />

@@ -6,7 +6,7 @@
     <class name="DBClasses.Itemprice" table="itemprice" schema="public" optimistic-lock="version">
         <id name="itempriceid" type="int">
             <column name="itempriceid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="pricelist" class="DBClasses.Pricelist" fetch="select">
             <column name="pricelist_pricelistid" not-null="true" />
