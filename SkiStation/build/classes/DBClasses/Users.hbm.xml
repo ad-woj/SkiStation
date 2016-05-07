@@ -6,7 +6,7 @@
     <class name="DBClasses.Users" table="users" schema="public" optimistic-lock="version">
         <id name="userid" type="int">
             <column name="userid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="addresses" class="DBClasses.Addresses" fetch="select">
             <column name="addresses_addressid" not-null="true" />
