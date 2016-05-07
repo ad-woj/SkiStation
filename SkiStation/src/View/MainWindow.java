@@ -6,6 +6,7 @@
 package View;
 
 import Controller.RegistrationController;
+import Controller.LoginController;
 import Model.TestClass;
 import java.awt.CardLayout;
 
@@ -16,6 +17,7 @@ import java.awt.CardLayout;
  */
 public class MainWindow extends javax.swing.JFrame {
 
+    private boolean userLogged;
     /**
      * Creates new form MainWindow
      */
@@ -62,9 +64,7 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterBackgroundImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 1000));
         setMinimumSize(new java.awt.Dimension(600, 700));
-        setPreferredSize(new java.awt.Dimension(700, 700));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -290,7 +290,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_DocumentNumberActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        TestClass.test();        // TODO add your handling code here:
+        //TestClass.test();        // TODO add your handling code here:
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged))
+            ;//TODO change view x----DDDDDDDD
+        else
+            ;//TODO error message, wrong login and/or password
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityActionPerformed

@@ -5,6 +5,7 @@
 
 
 
+--ALTER TABLE users ALTER COLUMN password TYPE varchar(64);
 
 CREATE TABLE Addresses
   (
@@ -142,7 +143,7 @@ CREATE TABLE Users
   (
     userID              SERIAL NOT NULL ,
     login               VARCHAR (20) NOT NULL ,
-    password            VARCHAR (20) NOT NULL ,
+    password            VARCHAR (64) NOT NULL ,
     name                VARCHAR (50) NOT NULL ,
     surName             VARCHAR (50) NOT NULL ,
     documentNumber      VARCHAR (30) NOT NULL ,

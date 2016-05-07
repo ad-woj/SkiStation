@@ -14,13 +14,15 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import DBClasses.Users;
 import com.sun.security.ntlm.Client;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 /**
  *
- * @author Adam
+ * @author Adam, troche MG
  */
 public class RegistrationController {
     
@@ -34,7 +36,7 @@ public class RegistrationController {
           }
           else{
            Transaction tr = s.beginTransaction();
-       
+           
            Addresses newAddress = new Addresses();
            newAddress.setCity(city);
            newAddress.setCountry(country);
@@ -44,7 +46,7 @@ public class RegistrationController {
            
            Users newUser = new Users();
            newUser.setLogin(login);
-           newUser.setPassword(password);
+           newUser.setPassword(HashingHelper.sha256(password));
            newUser.setName(name);
            newUser.setSurname(surname);
            newUser.setDocumentnumber(documentNumber);
