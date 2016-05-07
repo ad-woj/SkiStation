@@ -6,7 +6,7 @@
     <class name="DBClasses.Addresses" table="addresses" schema="public" optimistic-lock="version">
         <id name="addressid" type="int">
             <column name="addressid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="city" type="string">
             <column name="city" length="50" />
