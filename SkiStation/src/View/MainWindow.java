@@ -44,10 +44,12 @@ public class MainWindow extends javax.swing.JFrame {
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
         PasswordTextField = new javax.swing.JPasswordField();
+        MessageLabel = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
         LoginLabel = new javax.swing.JLabel();
         CreateAccountLink = new javax.swing.JLabel();
-        LoginBackgroundImage = new javax.swing.JLabel();
+        BackgroundImageLabel = new javax.swing.JLabel();
+        ActionInfoLabel = new javax.swing.JLabel();
         Register = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         LoginTextField1 = new javax.swing.JTextField();
@@ -103,7 +105,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginButton);
-        LoginButton.setBounds(430, 110, 80, 23);
+        LoginButton.setBounds(490, 120, 80, 23);
 
         LoginTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +113,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginTextField);
-        LoginTextField.setBounds(430, 40, 220, 30);
+        LoginTextField.setBounds(450, 50, 220, 30);
 
         PasswordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,17 +121,23 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(PasswordTextField);
-        PasswordTextField.setBounds(430, 70, 220, 30);
+        PasswordTextField.setBounds(450, 80, 220, 30);
+
+        MessageLabel.setForeground(new java.awt.Color(51, 255, 0));
+        MessageLabel.setToolTipText("");
+        Login.add(MessageLabel);
+        MessageLabel.setBounds(430, 74, 220, 20);
+        MessageLabel.getAccessibleContext().setAccessibleName("MessageLabel");
 
         PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         PasswordLabel.setText("Hasło:");
         Login.add(PasswordLabel);
-        PasswordLabel.setBounds(380, 70, 50, 10);
+        PasswordLabel.setBounds(390, 90, 50, 10);
 
         LoginLabel.setForeground(new java.awt.Color(255, 255, 255));
         LoginLabel.setText("Login:");
         Login.add(LoginLabel);
-        LoginLabel.setBounds(380, 40, 50, 14);
+        LoginLabel.setBounds(390, 60, 50, 14);
 
         CreateAccountLink.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountLink.setText("Załóż konto");
@@ -139,21 +147,29 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(CreateAccountLink);
-        CreateAccountLink.setBounds(560, 120, 90, 14);
+        CreateAccountLink.setBounds(600, 120, 70, 20);
 
-        LoginBackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
-        Login.add(LoginBackgroundImage);
-        LoginBackgroundImage.setBounds(10, 0, 1310, 890);
+        BackgroundImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
+        BackgroundImageLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Login.add(BackgroundImageLabel);
+        BackgroundImageLabel.setBounds(10, 0, 1310, 890);
+
+        ActionInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ActionInfoLabel.setText("Trwa logowanie... [Tu będzie jakiś obrazek przedstawiający kręcące się coś albo status bar]");
+        ActionInfoLabel.setToolTipText("");
+        Login.add(ActionInfoLabel);
+        ActionInfoLabel.setBounds(10, 0, 750, 440);
 
         getContentPane().add(Login, "login");
         Login.getAccessibleContext().setAccessibleName("");
 
         Register.setLayout(null);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setText("Street");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Ulica");
         Register.add(jLabel8);
-        jLabel8.setBounds(300, 340, 130, 30);
+        jLabel8.setBounds(360, 240, 90, 30);
 
         LoginTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,12 +177,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(LoginTextField1);
-        LoginTextField1.setBounds(430, 40, 220, 30);
+        LoginTextField1.setBounds(450, 30, 220, 30);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Password");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Hasło");
         Register.add(jLabel1);
-        jLabel1.setBounds(300, 80, 130, 30);
+        jLabel1.setBounds(360, 60, 90, 30);
 
         Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,12 +191,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Password);
-        Password.setBounds(430, 80, 220, 30);
+        Password.setBounds(450, 60, 220, 30);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Name");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Imię");
         Register.add(jLabel2);
-        jLabel2.setBounds(300, 130, 130, 29);
+        jLabel2.setBounds(360, 90, 90, 30);
 
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,12 +205,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Name);
-        Name.setBounds(430, 130, 220, 30);
+        Name.setBounds(450, 90, 220, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Surname");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nazwisko");
         Register.add(jLabel3);
-        jLabel3.setBounds(300, 170, 130, 30);
+        jLabel3.setBounds(360, 120, 90, 30);
 
         Surname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,12 +219,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Surname);
-        Surname.setBounds(430, 170, 220, 30);
+        Surname.setBounds(450, 120, 220, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("DocumentNumber");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Nr dokumentu");
         Register.add(jLabel4);
-        jLabel4.setBounds(200, 210, 230, 30);
+        jLabel4.setBounds(360, 150, 90, 30);
 
         DocumentNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,12 +233,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(DocumentNumber);
-        DocumentNumber.setBounds(430, 210, 220, 30);
+        DocumentNumber.setBounds(450, 150, 220, 30);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("City");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Miasto");
         Register.add(jLabel5);
-        jLabel5.setBounds(300, 250, 130, 30);
+        jLabel5.setBounds(360, 180, 70, 30);
 
         City.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,12 +247,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(City);
-        City.setBounds(430, 250, 220, 30);
+        City.setBounds(450, 180, 220, 30);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("Country");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Państwo");
         Register.add(jLabel6);
-        jLabel6.setBounds(300, 300, 130, 30);
+        jLabel6.setBounds(360, 210, 90, 30);
 
         Country.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,12 +261,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Country);
-        Country.setBounds(430, 300, 220, 30);
+        Country.setBounds(450, 210, 220, 30);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Login");
         Register.add(jLabel7);
-        jLabel7.setBounds(300, 40, 130, 30);
+        jLabel7.setBounds(360, 30, 90, 30);
 
         Street.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,27 +275,28 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Street);
-        Street.setBounds(430, 340, 220, 30);
+        Street.setBounds(450, 240, 220, 30);
 
-        BackButton.setText("Back");
+        BackButton.setText("Powrót");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
         Register.add(BackButton);
-        BackButton.setBounds(320, 400, 120, 40);
+        BackButton.setBounds(480, 280, 90, 30);
 
-        RegisterButton.setText("Register !");
+        RegisterButton.setText("Załóż konto");
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
             }
         });
         Register.add(RegisterButton);
-        RegisterButton.setBounds(490, 400, 120, 40);
+        RegisterButton.setBounds(570, 280, 100, 30);
 
         RegisterBackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
+        RegisterBackgroundImage1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Register.add(RegisterBackgroundImage1);
         RegisterBackgroundImage1.setBounds(-6, -6, 1220, 890);
 
@@ -588,10 +612,12 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ActionInfoLabel;
     private javax.swing.JPanel AdminMainPanel;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
+    private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
     private javax.swing.JTextField Country;
@@ -601,11 +627,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindUser;
     private javax.swing.JPanel Login;
-    private javax.swing.JLabel LoginBackgroundImage;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
+    private javax.swing.JLabel MessageLabel;
     private javax.swing.JTextField Name;
     private javax.swing.JPasswordField Password;
     private javax.swing.JLabel PasswordLabel;
