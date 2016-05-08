@@ -62,7 +62,7 @@ public class MainWindow extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
-        AdminPanel = new javax.swing.JPanel();
+        AdminMainPanel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -71,6 +71,17 @@ public class MainWindow extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         RegisterBackgroundImage2 = new javax.swing.JLabel();
+        UserManagmenAdmintPanel = new javax.swing.JPanel();
+        UpdateUser = new javax.swing.JButton();
+        RemoveUser = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        FindLoginTextField = new javax.swing.JTextField();
+        FindUser = new javax.swing.JButton();
+        FindResultLabel = new javax.swing.JLabel();
+        UserRadio = new javax.swing.JRadioButton();
+        CashierRadio = new javax.swing.JRadioButton();
+        AdminRadio = new javax.swing.JRadioButton();
+        UpdateResultLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -261,50 +272,124 @@ public class MainWindow extends javax.swing.JFrame {
 
         getContentPane().add(Register, "register");
 
-        AdminPanel.setLayout(null);
+        AdminMainPanel.setLayout(null);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Stok");
-        AdminPanel.add(jButton2);
+        AdminMainPanel.add(jButton2);
         jButton2.setBounds(180, 370, 160, 80);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("Punkty");
         jButton3.setToolTipText("");
-        AdminPanel.add(jButton3);
+        AdminMainPanel.add(jButton3);
         jButton3.setBounds(350, 280, 160, 80);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("Tryb Kasjera");
-        AdminPanel.add(jButton4);
+        AdminMainPanel.add(jButton4);
         jButton4.setBounds(180, 460, 160, 80);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel9.setText("Panel Administratora");
-        AdminPanel.add(jLabel9);
+        AdminMainPanel.add(jLabel9);
         jLabel9.setBounds(210, 210, 290, 37);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton5.setText("Bramki");
-        AdminPanel.add(jButton5);
+        AdminMainPanel.add(jButton5);
         jButton5.setBounds(350, 370, 160, 80);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton6.setText("Tryb Klienta");
-        AdminPanel.add(jButton6);
+        AdminMainPanel.add(jButton6);
         jButton6.setBounds(350, 460, 160, 80);
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton7.setText("Użytkownicy");
-        AdminPanel.add(jButton7);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        AdminMainPanel.add(jButton7);
         jButton7.setBounds(180, 280, 160, 80);
 
         RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
         RegisterBackgroundImage2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        AdminPanel.add(RegisterBackgroundImage2);
+        AdminMainPanel.add(RegisterBackgroundImage2);
         RegisterBackgroundImage2.setBounds(-6, -6, 1220, 890);
 
-        getContentPane().add(AdminPanel, "adminPanelMain");
+        getContentPane().add(AdminMainPanel, "adminPanelMain");
+
+        UserManagmenAdmintPanel.setLayout(null);
+
+        UpdateUser.setText("jButton1");
+        UpdateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateUserActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(UpdateUser);
+        UpdateUser.setBounds(180, 180, 73, 30);
+
+        RemoveUser.setText("jButton1");
+        RemoveUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveUserActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(RemoveUser);
+        RemoveUser.setBounds(70, 180, 73, 30);
+
+        Back.setText("jButton1");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(Back);
+        Back.setBounds(10, 260, 73, 23);
+
+        FindLoginTextField.setText("jTextField1");
+        FindLoginTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindLoginTextFieldActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(FindLoginTextField);
+        FindLoginTextField.setBounds(40, 50, 59, 20);
+
+        FindUser.setText("jButton1");
+        FindUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindUserActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(FindUser);
+        FindUser.setBounds(100, 50, 73, 23);
+
+        FindResultLabel.setText("jLabel10");
+        UserManagmenAdmintPanel.add(FindResultLabel);
+        FindResultLabel.setBounds(260, 50, 40, 14);
+
+        UserRadio.setText("jRadioButton1");
+        UserManagmenAdmintPanel.add(UserRadio);
+        UserRadio.setBounds(130, 90, 93, 23);
+
+        CashierRadio.setText("jRadioButton2");
+        UserManagmenAdmintPanel.add(CashierRadio);
+        CashierRadio.setBounds(130, 120, 93, 23);
+
+        AdminRadio.setText("jRadioButton3");
+        UserManagmenAdmintPanel.add(AdminRadio);
+        AdminRadio.setBounds(130, 150, 93, 23);
+
+        UpdateResultLabel.setText("jLabel10");
+        UserManagmenAdmintPanel.add(UpdateResultLabel);
+        UpdateResultLabel.setBounds(160, 230, 40, 14);
+
+        getContentPane().add(UserManagmenAdmintPanel, "userManagmentAdminPanel");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -382,6 +467,31 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
+    private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UpdateUserActionPerformed
+
+    private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveUserActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackActionPerformed
+
+    private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FindLoginTextFieldActionPerformed
+
+    private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FindUserActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,12 +528,18 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AdminPanel;
+    private javax.swing.JPanel AdminMainPanel;
+    private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
+    private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
     private javax.swing.JTextField Country;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JTextField FindLoginTextField;
+    private javax.swing.JLabel FindResultLabel;
+    private javax.swing.JButton FindUser;
     private javax.swing.JPanel Login;
     private javax.swing.JLabel LoginBackgroundImage;
     private javax.swing.JButton LoginButton;
@@ -438,8 +554,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JLabel RegisterBackgroundImage2;
     private javax.swing.JButton RegisterButton;
+    private javax.swing.JButton RemoveUser;
     private javax.swing.JTextField Street;
     private javax.swing.JTextField Surname;
+    private javax.swing.JLabel UpdateResultLabel;
+    private javax.swing.JButton UpdateUser;
+    private javax.swing.JPanel UserManagmenAdmintPanel;
+    private javax.swing.JRadioButton UserRadio;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
