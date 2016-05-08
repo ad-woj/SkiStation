@@ -317,10 +317,11 @@ public class MainWindow extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         //TestClass.test();        // TODO add your handling code here:
         StringBuilder viewPanel = new StringBuilder();
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel))
-            System.out.println(viewPanel);
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel)){
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), viewPanel.toString());
             //TODO change view x----DDDDDDDD
-        else
+        } else
             ;//TODO error message, wrong login and/or password
     }//GEN-LAST:event_LoginButtonActionPerformed
 
