@@ -41,7 +41,7 @@ public class LoginController {
             }
 
             if (employee == null) {
-                viewName.append("userPanel");
+                viewName.append("UserMainPanel");
             }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Admin.toString()) ) {
                 viewName.append("adminPanelMain");
             }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
