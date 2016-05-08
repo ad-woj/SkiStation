@@ -7,8 +7,12 @@ package View;
 
 import Controller.RegistrationController;
 import Controller.LoginController;
+import Controller.UserManagmanetAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 
 /**
@@ -18,6 +22,7 @@ import java.awt.CardLayout;
 public class MainWindow extends javax.swing.JFrame {
 
     private boolean userLogged;
+    private StringBuilder loginStatusMessage = new StringBuilder();
     /**
      * Creates new form MainWindow
      */
@@ -34,6 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        UserRoleChooseGroup = new javax.swing.ButtonGroup();
         Login = new javax.swing.JPanel();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
@@ -62,27 +68,26 @@ public class MainWindow extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
-        ClientPage = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        AdminMainPanel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        ClientPageBackground = new javax.swing.JLabel();
+        RegisterBackgroundImage2 = new javax.swing.JLabel();
+        UserManagmenAdmintPanel = new javax.swing.JPanel();
+        UpdateUser = new javax.swing.JButton();
+        RemoveUser = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        FindLoginTextField = new javax.swing.JTextField();
+        FindUser = new javax.swing.JButton();
+        FindResultLabel = new javax.swing.JLabel();
+        UserRadio = new javax.swing.JRadioButton();
+        CashierRadio = new javax.swing.JRadioButton();
+        AdminRadio = new javax.swing.JRadioButton();
+        UpdateResultLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -98,7 +103,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginButton);
-        LoginButton.setBounds(440, 110, 80, 23);
+        LoginButton.setBounds(430, 110, 80, 23);
 
         LoginTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +111,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginTextField);
-        LoginTextField.setBounds(440, 40, 220, 30);
+        LoginTextField.setBounds(430, 40, 220, 30);
 
         PasswordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,20 +119,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(PasswordTextField);
-        PasswordTextField.setBounds(440, 70, 220, 30);
+        PasswordTextField.setBounds(430, 70, 220, 30);
 
         PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         PasswordLabel.setText("Hasło:");
-        PasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        PasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        PasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
         Login.add(PasswordLabel);
-        PasswordLabel.setBounds(370, 80, 50, 14);
+        PasswordLabel.setBounds(380, 70, 50, 10);
 
         LoginLabel.setForeground(new java.awt.Color(255, 255, 255));
         LoginLabel.setText("Login:");
         Login.add(LoginLabel);
-        LoginLabel.setBounds(370, 50, 50, 14);
+        LoginLabel.setBounds(380, 40, 50, 14);
 
         CreateAccountLink.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountLink.setText("Załóż konto");
@@ -137,24 +139,21 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(CreateAccountLink);
-        CreateAccountLink.setBounds(590, 110, 90, 14);
+        CreateAccountLink.setBounds(560, 120, 90, 14);
 
         LoginBackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
         Login.add(LoginBackgroundImage);
-        LoginBackgroundImage.setBounds(0, -330, 740, 1350);
+        LoginBackgroundImage.setBounds(10, 0, 1310, 890);
 
         getContentPane().add(Login, "login");
         Login.getAccessibleContext().setAccessibleName("");
 
         Register.setLayout(null);
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Ulica:");
-        jLabel8.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel8.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel8.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("Street");
         Register.add(jLabel8);
-        jLabel8.setBounds(370, 260, 50, 14);
+        jLabel8.setBounds(300, 340, 130, 30);
 
         LoginTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,15 +161,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(LoginTextField1);
-        LoginTextField1.setBounds(440, 40, 220, 30);
+        LoginTextField1.setBounds(430, 40, 220, 30);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Hasło:");
-        jLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Password");
         Register.add(jLabel1);
-        jLabel1.setBounds(370, 80, 50, 14);
+        jLabel1.setBounds(300, 80, 130, 30);
 
         Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,15 +174,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Password);
-        Password.setBounds(440, 70, 220, 30);
+        Password.setBounds(430, 80, 220, 30);
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Imię:");
-        jLabel2.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel2.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel2.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Name");
         Register.add(jLabel2);
-        jLabel2.setBounds(370, 110, 50, 14);
+        jLabel2.setBounds(300, 130, 130, 29);
 
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,15 +187,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Name);
-        Name.setBounds(440, 100, 220, 30);
+        Name.setBounds(430, 130, 220, 30);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nazwisko:");
-        jLabel3.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel3.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel3.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Surname");
         Register.add(jLabel3);
-        jLabel3.setBounds(370, 140, 60, 14);
+        jLabel3.setBounds(300, 170, 130, 30);
 
         Surname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,12 +200,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Surname);
-        Surname.setBounds(440, 130, 220, 30);
+        Surname.setBounds(430, 170, 220, 30);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Pesel:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("DocumentNumber");
         Register.add(jLabel4);
-        jLabel4.setBounds(370, 170, 50, 14);
+        jLabel4.setBounds(200, 210, 230, 30);
 
         DocumentNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,15 +213,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(DocumentNumber);
-        DocumentNumber.setBounds(440, 160, 220, 30);
+        DocumentNumber.setBounds(430, 210, 220, 30);
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Miasto:");
-        jLabel5.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel5.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel5.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("City");
         Register.add(jLabel5);
-        jLabel5.setBounds(370, 200, 50, 14);
+        jLabel5.setBounds(300, 250, 130, 30);
 
         City.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,15 +226,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(City);
-        City.setBounds(440, 190, 220, 30);
+        City.setBounds(430, 250, 220, 30);
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Kraj:");
-        jLabel6.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel6.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel6.setPreferredSize(new java.awt.Dimension(29, 14));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setText("Country");
         Register.add(jLabel6);
-        jLabel6.setBounds(370, 230, 50, 14);
+        jLabel6.setBounds(300, 300, 130, 30);
 
         Country.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,12 +239,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Country);
-        Country.setBounds(440, 220, 220, 30);
+        Country.setBounds(430, 300, 220, 30);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Login:");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("Login");
         Register.add(jLabel7);
-        jLabel7.setBounds(370, 50, 50, 14);
+        jLabel7.setBounds(300, 40, 130, 30);
 
         Street.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,202 +252,158 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(Street);
-        Street.setBounds(440, 250, 220, 30);
+        Street.setBounds(430, 340, 220, 30);
 
-        BackButton.setText("Powrót");
+        BackButton.setText("Back");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButtonActionPerformed(evt);
             }
         });
         Register.add(BackButton);
-        BackButton.setBounds(480, 290, 80, 23);
+        BackButton.setBounds(320, 400, 120, 40);
 
-        RegisterButton.setText("Załóż konto");
-        RegisterButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        RegisterButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        RegisterButton.setText("Register !");
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
             }
         });
         Register.add(RegisterButton);
-        RegisterButton.setBounds(560, 290, 100, 23);
+        RegisterButton.setBounds(490, 400, 120, 40);
 
         RegisterBackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
         Register.add(RegisterBackgroundImage1);
-        RegisterBackgroundImage1.setBounds(0, -100, 1220, 890);
+        RegisterBackgroundImage1.setBounds(-6, -6, 1220, 890);
 
         getContentPane().add(Register, "register");
 
-        ClientPage.setMinimumSize(new java.awt.Dimension(0, 0));
-        ClientPage.setPreferredSize(new java.awt.Dimension(0, 0));
-        ClientPage.setLayout(null);
+        AdminMainPanel.setLayout(null);
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setToolTipText("");
-        jTextField2.setEnabled(false);
-        jTextField2.setRequestFocusEnabled(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("Stok");
+        AdminMainPanel.add(jButton2);
+        jButton2.setBounds(180, 370, 160, 80);
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setText("Punkty");
+        jButton3.setToolTipText("");
+        AdminMainPanel.add(jButton3);
+        jButton3.setBounds(350, 280, 160, 80);
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4.setText("Tryb Kasjera");
+        AdminMainPanel.add(jButton4);
+        jButton4.setBounds(180, 460, 160, 80);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel9.setText("Panel Administratora");
+        AdminMainPanel.add(jLabel9);
+        jLabel9.setBounds(210, 210, 290, 37);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton5.setText("Bramki");
+        AdminMainPanel.add(jButton5);
+        jButton5.setBounds(350, 370, 160, 80);
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton6.setText("Tryb Klienta");
+        AdminMainPanel.add(jButton6);
+        jButton6.setBounds(350, 460, 160, 80);
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton7.setText("Użytkownicy");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
-        ClientPage.add(jTextField2);
-        jTextField2.setBounds(320, 150, 50, 20);
+        AdminMainPanel.add(jButton7);
+        jButton7.setBounds(180, 280, 160, 80);
 
-        jButton1.setText("Moje konto");
-        jButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton1);
-        jButton1.setBounds(480, 10, 100, 23);
+        RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
+        RegisterBackgroundImage2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AdminMainPanel.add(RegisterBackgroundImage2);
+        RegisterBackgroundImage2.setBounds(-6, -6, 1220, 890);
 
-        jButton2.setText("Wyloguj");
-        jButton2.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton2.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton2.setPreferredSize(new java.awt.Dimension(67, 23));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        getContentPane().add(AdminMainPanel, "adminPanelMain");
+
+        UserManagmenAdmintPanel.setLayout(null);
+
+        UpdateUser.setText("jButton1");
+        UpdateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                UpdateUserActionPerformed(evt);
             }
         });
-        ClientPage.add(jButton2);
-        jButton2.setBounds(580, 10, 80, 23);
+        UserManagmenAdmintPanel.add(UpdateUser);
+        UpdateUser.setBounds(180, 180, 73, 30);
 
-        jButton3.setText("Kontakt");
-        jButton3.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton3.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton3.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton3);
-        jButton3.setBounds(20, 120, 110, 23);
-
-        jButton4.setText("Natężenie stoku");
-        jButton4.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton4.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton4.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton4);
-        jButton4.setBounds(20, 90, 110, 23);
-
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nieprzydzielone punkty:");
-        jLabel10.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel10.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel10.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientPage.add(jLabel10);
-        jLabel10.setBounds(200, 150, 120, 14);
-
-        jButton5.setText("Dodaj kartę");
-        jButton5.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton5.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton5.setPreferredSize(new java.awt.Dimension(67, 23));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        RemoveUser.setText("jButton1");
+        RemoveUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                RemoveUserActionPerformed(evt);
             }
         });
-        ClientPage.add(jButton5);
-        jButton5.setBounds(560, 150, 100, 23);
+        UserManagmenAdmintPanel.add(RemoveUser);
+        RemoveUser.setBounds(70, 180, 73, 30);
 
-        jButton9.setText("Moje karty");
-        jButton9.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton9.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton9.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton9);
-        jButton9.setBounds(20, 60, 110, 23);
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("ID");
-        jLabel9.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel9.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel9.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientPage.add(jLabel9);
-        jLabel9.setBounds(180, 190, 50, 14);
-
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Data aktywacji");
-        jLabel11.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel11.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel11.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientPage.add(jLabel11);
-        jLabel11.setBounds(240, 190, 80, 14);
-
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Data ważności");
-        jLabel12.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel12.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel12.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientPage.add(jLabel12);
-        jLabel12.setBounds(330, 190, 80, 14);
-
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Punkty");
-        jLabel13.setMaximumSize(new java.awt.Dimension(29, 14));
-        jLabel13.setMinimumSize(new java.awt.Dimension(29, 14));
-        jLabel13.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientPage.add(jLabel13);
-        jLabel13.setBounds(420, 190, 50, 14);
-
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setToolTipText("");
-        jTextField1.setEnabled(false);
-        jTextField1.setPreferredSize(new java.awt.Dimension(29, 20));
-        ClientPage.add(jTextField1);
-        jTextField1.setBounds(180, 210, 50, 20);
-
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setEnabled(false);
-        jTextField3.setPreferredSize(new java.awt.Dimension(29, 20));
-        ClientPage.add(jTextField3);
-        jTextField3.setBounds(240, 210, 80, 20);
-
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setEnabled(false);
-        jTextField4.setPreferredSize(new java.awt.Dimension(29, 20));
-        ClientPage.add(jTextField4);
-        jTextField4.setBounds(330, 210, 80, 20);
-
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setPreferredSize(new java.awt.Dimension(29, 20));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        Back.setText("jButton1");
+        Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                BackActionPerformed(evt);
             }
         });
-        ClientPage.add(jTextField5);
-        jTextField5.setBounds(420, 210, 50, 20);
+        UserManagmenAdmintPanel.add(Back);
+        Back.setBounds(10, 260, 73, 23);
 
-        jButton6.setText("+");
-        jButton6.setToolTipText("");
-        jButton6.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton6.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton6.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton6);
-        jButton6.setBounds(470, 210, 40, 20);
+        FindLoginTextField.setText("jTextField1");
+        FindLoginTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindLoginTextFieldActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(FindLoginTextField);
+        FindLoginTextField.setBounds(40, 50, 59, 20);
 
-        jButton7.setText("-");
-        jButton7.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton7.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton7.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton7);
-        jButton7.setBounds(510, 210, 40, 20);
+        FindUser.setText("jButton1");
+        FindUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindUserActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(FindUser);
+        FindUser.setBounds(100, 50, 73, 23);
 
-        jButton8.setText("Usuń kartę");
-        jButton8.setMaximumSize(new java.awt.Dimension(67, 23));
-        jButton8.setMinimumSize(new java.awt.Dimension(67, 23));
-        jButton8.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientPage.add(jButton8);
-        jButton8.setBounds(560, 210, 100, 23);
+        FindResultLabel.setText("jLabel10");
+        UserManagmenAdmintPanel.add(FindResultLabel);
+        FindResultLabel.setBounds(220, 50, 160, 14);
 
-        ClientPageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
-        ClientPage.add(ClientPageBackground);
-        ClientPageBackground.setBounds(0, -100, 1220, 890);
+        UserRoleChooseGroup.add(UserRadio);
+        UserRadio.setText("User");
+        UserRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserRadioActionPerformed(evt);
+            }
+        });
+        UserManagmenAdmintPanel.add(UserRadio);
+        UserRadio.setBounds(130, 90, 47, 23);
 
-        getContentPane().add(ClientPage, "clientPage");
+        UserRoleChooseGroup.add(CashierRadio);
+        CashierRadio.setText("Cashier");
+        UserManagmenAdmintPanel.add(CashierRadio);
+        CashierRadio.setBounds(130, 120, 61, 23);
+
+        UserRoleChooseGroup.add(AdminRadio);
+        AdminRadio.setText("Admin");
+        UserManagmenAdmintPanel.add(AdminRadio);
+        AdminRadio.setBounds(130, 150, 55, 23);
+
+        UpdateResultLabel.setText("jLabel10");
+        UserManagmenAdmintPanel.add(UpdateResultLabel);
+        UpdateResultLabel.setBounds(160, 230, 40, 14);
+
+        getContentPane().add(UserManagmenAdmintPanel, "userManagmentAdminPanel");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -504,9 +444,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         //TestClass.test();        // TODO add your handling code here:
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged))
-            ;//TODO change view x----DDDDDDDD
-        else
+        StringBuilder viewPanel = new StringBuilder();
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel, loginStatusMessage)){
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), viewPanel.toString());
+            //TODO change view x----DDDDDDDD
+        } else
             ;//TODO error message, wrong login and/or password
     }//GEN-LAST:event_LoginButtonActionPerformed
 
@@ -538,21 +481,76 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
+            if (controller.exist(FindLoginTextField.getText())) {
+            controller.updateUser(FindLoginTextField.getText(), choosingRole);
+            UpdateResultLabel.setText("Updated!");
+        }else{
+                UpdateResultLabel.setText("UserNotExist!");
+            }
+    }//GEN-LAST:event_UpdateUserActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            if (controller.removeUser(FindLoginTextField.getText())) {
+                UpdateResultLabel.setText("Removed");
+            }else{
+                UpdateResultLabel.setText("User Not Exist!");
+            }
+    }//GEN-LAST:event_RemoveUserActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), "adminPanelMain");
+    }//GEN-LAST:event_BackActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_FindLoginTextFieldActionPerformed
+
+    private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            
+            if (controller.exist(FindLoginTextField.getText())) {
+                FindResultLabel.setText("User Exist!");
+                String roleName = controller.getUserRole(FindLoginTextField.getText());
+
+                if (roleName=="User") {
+                   UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
+                }else if (roleName.equals(RegistrationController.EmployeeTypes.Admin.toString())) {
+                   UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
+                }else if (roleName.equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
+                   UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
+                }
+            }else{
+                UserRoleChooseGroup.clearSelection();
+                FindResultLabel.setText("User Not Exist!");
+            }
+            
+    }//GEN-LAST:event_FindUserActionPerformed
+
+    private String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
+        
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,13 +588,18 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AdminMainPanel;
+    private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
+    private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
-    private javax.swing.JPanel ClientPage;
-    private javax.swing.JLabel ClientPageBackground;
     private javax.swing.JTextField Country;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JTextField FindLoginTextField;
+    private javax.swing.JLabel FindResultLabel;
+    private javax.swing.JButton FindUser;
     private javax.swing.JPanel Login;
     private javax.swing.JLabel LoginBackgroundImage;
     private javax.swing.JButton LoginButton;
@@ -609,23 +612,23 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
+    private javax.swing.JLabel RegisterBackgroundImage2;
     private javax.swing.JButton RegisterButton;
+    private javax.swing.JButton RemoveUser;
     private javax.swing.JTextField Street;
     private javax.swing.JTextField Surname;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel UpdateResultLabel;
+    private javax.swing.JButton UpdateUser;
+    private javax.swing.JPanel UserManagmenAdmintPanel;
+    private javax.swing.JRadioButton UserRadio;
+    private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -634,10 +637,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
