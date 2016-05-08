@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import DBClasses.Users;
+//import com.sun.security.ntlm.Client;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
@@ -69,5 +70,6 @@ public class RegistrationController {
     {
         // Validating inputs ...
         // Triggering inserting new rows in DB ...
+        loginPanel.getName();
     }
 }
