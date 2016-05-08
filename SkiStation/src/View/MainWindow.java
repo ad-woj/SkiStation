@@ -100,6 +100,32 @@ public class MainWindow extends javax.swing.JFrame {
         MyCardsButton = new javax.swing.JButton();
         SlopeTrafficButton = new javax.swing.JButton();
         UserBackgroundLabel = new javax.swing.JLabel();
+        MyAccountPanel = new javax.swing.JPanel();
+        UserMyAccountButton2 = new javax.swing.JButton();
+        UserLogoutButton2 = new javax.swing.JButton();
+        MyAccountLabel = new javax.swing.JLabel();
+        EditLoginLabel = new javax.swing.JLabel();
+        EditPasswordLabel = new javax.swing.JLabel();
+        LoginEditTextfield = new javax.swing.JTextField();
+        PasswordEditTextfield = new javax.swing.JTextField();
+        NameEditTextfield = new javax.swing.JTextField();
+        SurnameEditTextfield = new javax.swing.JTextField();
+        NameEditLabel = new javax.swing.JLabel();
+        SurnameEditLabel = new javax.swing.JLabel();
+        IDEditLabel = new javax.swing.JLabel();
+        IDEditTextfield = new javax.swing.JTextField();
+        StreetEditTextfield = new javax.swing.JTextField();
+        CityEditTextfield = new javax.swing.JTextField();
+        CountryEditTextfield = new javax.swing.JTextField();
+        StreetEditLabel = new javax.swing.JLabel();
+        CityEditLabel = new javax.swing.JLabel();
+        CountryEditLabel = new javax.swing.JLabel();
+        EditDetailsButton = new javax.swing.JButton();
+        SaveDetailsButton = new javax.swing.JButton();
+        MyCardsButton2 = new javax.swing.JButton();
+        SlopeTrafficButton2 = new javax.swing.JButton();
+        ContactButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -187,7 +213,7 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RegisterMessageLabel.setForeground(new java.awt.Color(255, 0, 0));
         Register.add(RegisterMessageLabel);
-        RegisterMessageLabel.setBounds(450, 20, 220, 20);
+        RegisterMessageLabel.setBounds(450, 30, 220, 20);
 
         LoginTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,6 +507,11 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.setLayout(null);
 
         UserMyAccountButton.setText("Moje Konto");
+        UserMyAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserMyAccountButtonActionPerformed(evt);
+            }
+        });
         UserMainPanel.add(UserMyAccountButton);
         UserMyAccountButton.setBounds(500, 10, 90, 23);
 
@@ -510,6 +541,125 @@ public class MainWindow extends javax.swing.JFrame {
         UserBackgroundLabel.setBounds(-10, -6, 700, 700);
 
         getContentPane().add(UserMainPanel, "UserMainPanel");
+
+        MyAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        MyAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        MyAccountPanel.setName(""); // NOI18N
+        MyAccountPanel.setLayout(null);
+
+        UserMyAccountButton2.setText("Moje Konto");
+        UserMyAccountButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserMyAccountButton2ActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(UserMyAccountButton2);
+        UserMyAccountButton2.setBounds(510, 40, 90, 23);
+
+        UserLogoutButton2.setText("Wyloguj");
+        UserLogoutButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserLogoutButton2ActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(UserLogoutButton2);
+        UserLogoutButton2.setBounds(600, 40, 80, 23);
+
+        MyAccountLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        MyAccountLabel.setText("Moje Konto");
+        MyAccountPanel.add(MyAccountLabel);
+        MyAccountLabel.setBounds(360, 160, 140, 30);
+
+        EditLoginLabel.setText("Login");
+        MyAccountPanel.add(EditLoginLabel);
+        EditLoginLabel.setBounds(200, 230, 60, 20);
+
+        EditPasswordLabel.setText("Hasło");
+        MyAccountPanel.add(EditPasswordLabel);
+        EditPasswordLabel.setBounds(200, 250, 60, 20);
+        MyAccountPanel.add(LoginEditTextfield);
+        LoginEditTextfield.setBounds(300, 230, 130, 20);
+
+        PasswordEditTextfield.setText("*****");
+        PasswordEditTextfield.setEnabled(false);
+        MyAccountPanel.add(PasswordEditTextfield);
+        PasswordEditTextfield.setBounds(300, 250, 130, 20);
+        MyAccountPanel.add(NameEditTextfield);
+        NameEditTextfield.setBounds(300, 270, 130, 20);
+        MyAccountPanel.add(SurnameEditTextfield);
+        SurnameEditTextfield.setBounds(300, 290, 130, 20);
+
+        NameEditLabel.setText("Imię");
+        MyAccountPanel.add(NameEditLabel);
+        NameEditLabel.setBounds(200, 270, 50, 20);
+
+        SurnameEditLabel.setText("Nazwisko");
+        MyAccountPanel.add(SurnameEditLabel);
+        SurnameEditLabel.setBounds(200, 290, 60, 20);
+
+        IDEditLabel.setText("ID");
+        MyAccountPanel.add(IDEditLabel);
+        IDEditLabel.setBounds(200, 210, 60, 20);
+
+        IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(IDEditTextfield);
+        IDEditTextfield.setBounds(300, 210, 130, 20);
+        MyAccountPanel.add(StreetEditTextfield);
+        StreetEditTextfield.setBounds(300, 310, 130, 20);
+        MyAccountPanel.add(CityEditTextfield);
+        CityEditTextfield.setBounds(300, 330, 130, 20);
+        MyAccountPanel.add(CountryEditTextfield);
+        CountryEditTextfield.setBounds(300, 350, 130, 20);
+
+        StreetEditLabel.setText("Ulica");
+        MyAccountPanel.add(StreetEditLabel);
+        StreetEditLabel.setBounds(200, 310, 50, 20);
+
+        CityEditLabel.setText("Miasto");
+        MyAccountPanel.add(CityEditLabel);
+        CityEditLabel.setBounds(200, 330, 50, 20);
+
+        CountryEditLabel.setText("Kraj");
+        MyAccountPanel.add(CountryEditLabel);
+        CountryEditLabel.setBounds(200, 350, 40, 20);
+
+        EditDetailsButton.setText("Edytuj Dane");
+        MyAccountPanel.add(EditDetailsButton);
+        EditDetailsButton.setBounds(300, 390, 130, 23);
+
+        SaveDetailsButton.setText("Zapisz");
+        SaveDetailsButton.setEnabled(false);
+        MyAccountPanel.add(SaveDetailsButton);
+        SaveDetailsButton.setBounds(300, 420, 80, 23);
+
+        MyCardsButton2.setText("Moje Karty");
+        MyCardsButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MyCardsButton2ActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(MyCardsButton2);
+        MyCardsButton2.setBounds(10, 160, 140, 30);
+
+        SlopeTrafficButton2.setText("Natężenie Stoku");
+        MyAccountPanel.add(SlopeTrafficButton2);
+        SlopeTrafficButton2.setBounds(10, 190, 140, 30);
+
+        ContactButton2.setText("Kontakt");
+        MyAccountPanel.add(ContactButton2);
+        ContactButton2.setBounds(10, 220, 140, 30);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\myacoount.jpg")); // NOI18N
+        jLabel9.setText("jLabel9");
+        MyAccountPanel.add(jLabel9);
+        jLabel9.setBounds(0, 0, 700, 700);
+
+        getContentPane().add(MyAccountPanel, "myAccountPanel");
+        MyAccountPanel.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -690,6 +840,28 @@ public class MainWindow extends javax.swing.JFrame {
         LoginTextField.setText("");
     }//GEN-LAST:event_UserLogoutButtonActionPerformed
 
+    private void UserLogoutButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton2ActionPerformed
+        UserLogoutButtonActionPerformed(evt);
+    }//GEN-LAST:event_UserLogoutButton2ActionPerformed
+
+    private void UserMyAccountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserMyAccountButton2ActionPerformed
+
+    private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+        loginPaneLayout.show(getContentPane(), "UserMainPanel");
+    }//GEN-LAST:event_MyCardsButton2ActionPerformed
+
+    private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+        loginPaneLayout.show(getContentPane(), "myAccountPanel");
+    }//GEN-LAST:event_UserMyAccountButtonActionPerformed
+
+    private void IDEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDEditTextfieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -738,24 +910,41 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
+    private javax.swing.JLabel CityEditLabel;
+    private javax.swing.JTextField CityEditTextfield;
     private javax.swing.JButton ClientModeButton;
     private javax.swing.JButton ContactButton;
+    private javax.swing.JButton ContactButton2;
     private javax.swing.JTextField Country;
+    private javax.swing.JLabel CountryEditLabel;
+    private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JButton EditDetailsButton;
+    private javax.swing.JLabel EditLoginLabel;
+    private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindUser;
     private javax.swing.JButton GatesButton;
+    private javax.swing.JLabel IDEditLabel;
+    private javax.swing.JTextField IDEditTextfield;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
+    private javax.swing.JTextField LoginEditTextfield;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JLabel MessageLabel;
+    private javax.swing.JLabel MyAccountLabel;
+    private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JButton MyCardsButton;
+    private javax.swing.JButton MyCardsButton2;
     private javax.swing.JTextField Name;
+    private javax.swing.JLabel NameEditLabel;
+    private javax.swing.JTextField NameEditTextfield;
     private javax.swing.JPasswordField Password;
+    private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JButton PriceListButton;
@@ -764,18 +953,26 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel RegisterMessageLabel;
     private javax.swing.JButton RemoveUser;
+    private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SlopeButton;
     private javax.swing.JButton SlopeTrafficButton;
+    private javax.swing.JButton SlopeTrafficButton2;
     private javax.swing.JTextField Street;
+    private javax.swing.JLabel StreetEditLabel;
+    private javax.swing.JTextField StreetEditTextfield;
     private javax.swing.JTextField Surname;
+    private javax.swing.JLabel SurnameEditLabel;
+    private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
     private javax.swing.JLabel UserBackgroundLabel;
     private javax.swing.JButton UserLogoutButton;
+    private javax.swing.JButton UserLogoutButton2;
     private javax.swing.JPanel UserMainPanel;
     private javax.swing.JLabel UserManagePanelBackgroud;
     private javax.swing.JPanel UserManagmenAdmintPanel;
     private javax.swing.JButton UserMyAccountButton;
+    private javax.swing.JButton UserMyAccountButton2;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
@@ -787,5 +984,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
