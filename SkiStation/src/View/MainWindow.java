@@ -71,14 +71,16 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
         AdminMainPanel = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        RegisterBackgroundImage2 = new javax.swing.JLabel();
+        SlopeButton = new javax.swing.JButton();
+        PriceListButton = new javax.swing.JButton();
+        CashierModeButton = new javax.swing.JButton();
+        AdminPanelLabel = new javax.swing.JLabel();
+        GatesButton = new javax.swing.JButton();
+        ClientModeButton = new javax.swing.JButton();
+        UsersButton = new javax.swing.JButton();
+        AdminLogoutButton = new javax.swing.JButton();
+        AdminMyAccountButton = new javax.swing.JButton();
+        AdminBackgroundLabel = new javax.swing.JLabel();
         UserManagmenAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         RemoveUser = new javax.swing.JButton();
@@ -90,6 +92,13 @@ public class MainWindow extends javax.swing.JFrame {
         CashierRadio = new javax.swing.JRadioButton();
         AdminRadio = new javax.swing.JRadioButton();
         UpdateResultLabel = new javax.swing.JLabel();
+        UseMainrPanel = new javax.swing.JPanel();
+        UserMyAccountButton = new javax.swing.JButton();
+        UserLogoutButton = new javax.swing.JButton();
+        ContactButton = new javax.swing.JButton();
+        MyCardsButton = new javax.swing.JButton();
+        SlopeTrafficButton = new javax.swing.JButton();
+        UserBackgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -304,51 +313,59 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminMainPanel.setLayout(null);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Stok");
-        AdminMainPanel.add(jButton2);
-        jButton2.setBounds(180, 370, 160, 80);
+        SlopeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SlopeButton.setText("Stok");
+        AdminMainPanel.add(SlopeButton);
+        SlopeButton.setBounds(180, 370, 160, 80);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Punkty");
-        jButton3.setToolTipText("");
-        AdminMainPanel.add(jButton3);
-        jButton3.setBounds(350, 280, 160, 80);
+        PriceListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        PriceListButton.setText("Cennik");
+        PriceListButton.setToolTipText("");
+        AdminMainPanel.add(PriceListButton);
+        PriceListButton.setBounds(350, 280, 160, 80);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton4.setText("Tryb Kasjera");
-        AdminMainPanel.add(jButton4);
-        jButton4.setBounds(180, 460, 160, 80);
+        CashierModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CashierModeButton.setText("Tryb Kasjera");
+        AdminMainPanel.add(CashierModeButton);
+        CashierModeButton.setBounds(180, 460, 160, 80);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel9.setText("Panel Administratora");
-        AdminMainPanel.add(jLabel9);
-        jLabel9.setBounds(210, 210, 290, 37);
+        AdminPanelLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        AdminPanelLabel.setText("Panel Administratora");
+        AdminMainPanel.add(AdminPanelLabel);
+        AdminPanelLabel.setBounds(210, 210, 290, 37);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setText("Bramki");
-        AdminMainPanel.add(jButton5);
-        jButton5.setBounds(350, 370, 160, 80);
+        GatesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        GatesButton.setText("Bramki");
+        AdminMainPanel.add(GatesButton);
+        GatesButton.setBounds(350, 370, 160, 80);
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("Tryb Klienta");
-        AdminMainPanel.add(jButton6);
-        jButton6.setBounds(350, 460, 160, 80);
+        ClientModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ClientModeButton.setText("Tryb Klienta");
+        AdminMainPanel.add(ClientModeButton);
+        ClientModeButton.setBounds(350, 460, 160, 80);
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton7.setText("Użytkownicy");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        UsersButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UsersButton.setText("Użytkownicy");
+        UsersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                UsersButtonActionPerformed(evt);
             }
         });
-        AdminMainPanel.add(jButton7);
-        jButton7.setBounds(180, 280, 160, 80);
+        AdminMainPanel.add(UsersButton);
+        UsersButton.setBounds(180, 280, 160, 80);
 
-        RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
-        RegisterBackgroundImage2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        AdminMainPanel.add(RegisterBackgroundImage2);
-        RegisterBackgroundImage2.setBounds(-6, -6, 1220, 890);
+        AdminLogoutButton.setText("Wyloguj");
+        AdminMainPanel.add(AdminLogoutButton);
+        AdminLogoutButton.setBounds(610, 30, 71, 23);
+
+        AdminMyAccountButton.setText("Moje Konto");
+        AdminMainPanel.add(AdminMyAccountButton);
+        AdminMyAccountButton.setBounds(513, 30, 90, 23);
+
+        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
+        AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AdminMainPanel.add(AdminBackgroundLabel);
+        AdminBackgroundLabel.setBounds(-6, -6, 1220, 890);
 
         getContentPane().add(AdminMainPanel, "adminPanelMain");
 
@@ -428,6 +445,36 @@ public class MainWindow extends javax.swing.JFrame {
         UpdateResultLabel.setBounds(160, 230, 40, 14);
 
         getContentPane().add(UserManagmenAdmintPanel, "userManagmentAdminPanel");
+
+        UseMainrPanel.setPreferredSize(new java.awt.Dimension(700, 700));
+        UseMainrPanel.setLayout(null);
+
+        UserMyAccountButton.setText("Moje Konto");
+        UseMainrPanel.add(UserMyAccountButton);
+        UserMyAccountButton.setBounds(500, 10, 90, 23);
+
+        UserLogoutButton.setText("Wyloguj");
+        UseMainrPanel.add(UserLogoutButton);
+        UserLogoutButton.setBounds(600, 10, 71, 23);
+
+        ContactButton.setText("Kontakt");
+        UseMainrPanel.add(ContactButton);
+        ContactButton.setBounds(10, 180, 140, 30);
+
+        MyCardsButton.setText("Moje Karty");
+        UseMainrPanel.add(MyCardsButton);
+        MyCardsButton.setBounds(10, 120, 140, 30);
+
+        SlopeTrafficButton.setText("Natężenie Stoku");
+        UseMainrPanel.add(SlopeTrafficButton);
+        SlopeTrafficButton.setBounds(10, 150, 140, 30);
+
+        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\clientPage.jpg")); // NOI18N
+        UserBackgroundLabel.setText("jLabel10");
+        UseMainrPanel.add(UserBackgroundLabel);
+        UserBackgroundLabel.setBounds(-10, -6, 700, 700);
+
+        getContentPane().add(UseMainrPanel, "card6");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -567,10 +614,10 @@ public class MainWindow extends javax.swing.JFrame {
         return null;
     }
         
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
             loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
         // TODO add your handling code here:
@@ -613,47 +660,57 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionInfoLabel;
+    private javax.swing.JLabel AdminBackgroundLabel;
+    private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
+    private javax.swing.JButton AdminMyAccountButton;
+    private javax.swing.JLabel AdminPanelLabel;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
+    private javax.swing.JButton CashierModeButton;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
+    private javax.swing.JButton ClientModeButton;
+    private javax.swing.JButton ContactButton;
     private javax.swing.JTextField Country;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JTextField DocumentNumber;
     private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindUser;
+    private javax.swing.JButton GatesButton;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JLabel MessageLabel;
+    private javax.swing.JButton MyCardsButton;
     private javax.swing.JTextField Name;
     private javax.swing.JPasswordField Password;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
+    private javax.swing.JButton PriceListButton;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
-    private javax.swing.JLabel RegisterBackgroundImage2;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton RemoveUser;
+    private javax.swing.JButton SlopeButton;
+    private javax.swing.JButton SlopeTrafficButton;
     private javax.swing.JTextField Street;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
+    private javax.swing.JPanel UseMainrPanel;
+    private javax.swing.JLabel UserBackgroundLabel;
+    private javax.swing.JButton UserLogoutButton;
     private javax.swing.JPanel UserManagmenAdmintPanel;
+    private javax.swing.JButton UserMyAccountButton;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton UsersButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -662,6 +719,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
