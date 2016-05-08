@@ -22,6 +22,7 @@ import javax.swing.ButtonGroup;
 public class MainWindow extends javax.swing.JFrame {
 
     private boolean userLogged;
+    private StringBuilder loginStatusMessage = new StringBuilder();
     /**
      * Creates new form MainWindow
      */
@@ -444,7 +445,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         //TestClass.test();        // TODO add your handling code here:
         StringBuilder viewPanel = new StringBuilder();
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel)){
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel, loginStatusMessage)){
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
             //TODO change view x----DDDDDDDD
