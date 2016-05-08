@@ -41,7 +41,7 @@ public class RegistrationController {
     {
           Session s = HibernateUtil.getSessionFactory().openSession();
           if (s.createCriteria(Users.class).add(Restrictions.like("login", login)).list().size()>0) {
-            // not corrent login
+            // not correct login
             return false;
           
           }
