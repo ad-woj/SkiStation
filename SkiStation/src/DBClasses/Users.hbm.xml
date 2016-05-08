@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <many-to-one name="addresses" class="DBClasses.Addresses" fetch="select">
-            <column name="addresses_addressid" not-null="true" />
+            <column name="addresses_addressid" not-null="false" />
         </many-to-one>
         <property name="login" type="string">
             <column name="login" length="20" not-null="true" />

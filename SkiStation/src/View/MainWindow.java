@@ -7,8 +7,12 @@ package View;
 
 import Controller.RegistrationController;
 import Controller.LoginController;
+import Controller.UserManagmanetAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 
 /**
@@ -34,6 +38,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        UserRoleChooseGroup = new javax.swing.ButtonGroup();
         Login = new javax.swing.JPanel();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
@@ -371,19 +376,27 @@ public class MainWindow extends javax.swing.JFrame {
 
         FindResultLabel.setText("jLabel10");
         UserManagmenAdmintPanel.add(FindResultLabel);
-        FindResultLabel.setBounds(260, 50, 40, 14);
+        FindResultLabel.setBounds(220, 50, 160, 14);
 
-        UserRadio.setText("jRadioButton1");
+        UserRoleChooseGroup.add(UserRadio);
+        UserRadio.setText("User");
+        UserRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserRadioActionPerformed(evt);
+            }
+        });
         UserManagmenAdmintPanel.add(UserRadio);
-        UserRadio.setBounds(130, 90, 93, 23);
+        UserRadio.setBounds(130, 90, 47, 23);
 
-        CashierRadio.setText("jRadioButton2");
+        UserRoleChooseGroup.add(CashierRadio);
+        CashierRadio.setText("Cashier");
         UserManagmenAdmintPanel.add(CashierRadio);
-        CashierRadio.setBounds(130, 120, 93, 23);
+        CashierRadio.setBounds(130, 120, 61, 23);
 
-        AdminRadio.setText("jRadioButton3");
+        UserRoleChooseGroup.add(AdminRadio);
+        AdminRadio.setText("Admin");
         UserManagmenAdmintPanel.add(AdminRadio);
-        AdminRadio.setBounds(130, 150, 93, 23);
+        AdminRadio.setBounds(130, 150, 55, 23);
 
         UpdateResultLabel.setText("jLabel10");
         UserManagmenAdmintPanel.add(UpdateResultLabel);
@@ -468,15 +481,28 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
-        // TODO add your handling code here:
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
+            if (controller.exist(FindLoginTextField.getText())) {
+            controller.updateUser(FindLoginTextField.getText(), choosingRole);
+            UpdateResultLabel.setText("Updated!");
+        }else{
+                UpdateResultLabel.setText("UserNotExist!");
+            }
     }//GEN-LAST:event_UpdateUserActionPerformed
 
     private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
-        // TODO add your handling code here:
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            if (controller.removeUser(FindLoginTextField.getText())) {
+                UpdateResultLabel.setText("Removed");
+            }else{
+                UpdateResultLabel.setText("User Not Exist!");
+            }
     }//GEN-LAST:event_RemoveUserActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        // TODO add your handling code here:
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            loginPaneLayout.show(getContentPane(), "adminPanelMain");
     }//GEN-LAST:event_BackActionPerformed
 
     private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
@@ -484,13 +510,45 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_FindLoginTextFieldActionPerformed
 
     private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
-        // TODO add your handling code here:
+            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            
+            if (controller.exist(FindLoginTextField.getText())) {
+                FindResultLabel.setText("User Exist!");
+                String roleName = controller.getUserRole(FindLoginTextField.getText());
+
+                if (roleName=="User") {
+                   UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
+                }else if (roleName.equals(RegistrationController.EmployeeTypes.Admin.toString())) {
+                   UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
+                }else if (roleName.equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
+                   UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
+                }
+            }else{
+                FindResultLabel.setText("User Not Exist!");
+            }
+            
     }//GEN-LAST:event_FindUserActionPerformed
 
+    private String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
+        
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
             loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -561,6 +619,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton UpdateUser;
     private javax.swing.JPanel UserManagmenAdmintPanel;
     private javax.swing.JRadioButton UserRadio;
+    private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
