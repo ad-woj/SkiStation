@@ -8,25 +8,22 @@ package Controller;
 import DBClasses.Employees;
 import DBClasses.Users;
 import Tools.HibernateUtil;
-import com.sun.media.jfxmedia.logging.Logger;
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-import Controller.RegistrationController;
 /**
  *
  * @author MG
  */
 public class LoginController {
     
-    public static boolean logIn(String login, String password, boolean logged, StringBuilder viewName){
+    public static boolean logIn(String login, String password, boolean logged, StringBuilder viewName, StringBuilder loginStatusMessage){
         
         Session s = HibernateUtil.getSessionFactory().openSession();
         String hashPass = HashingHelper.sha256(password);
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s' AND U.password = '%s'", login, hashPass ));
         if (query.list().isEmpty() || login.equals("") || password.equals("")){
             System.out.println("Failed login");
+            loginStatusMessage.append("Failed login");
             return false;
         } else {
             logged = true;
@@ -51,7 +48,8 @@ public class LoginController {
                 viewName.append("cashierPanel");
             }
             
-            System.out.println("Successful login");  
+            System.out.println("Successful login"); 
+            loginStatusMessage.append("Successful login");
             return true;
         }
     }
