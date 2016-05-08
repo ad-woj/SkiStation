@@ -7,6 +7,7 @@ package Controller;
 
 import DBClasses.Addresses;
 import DBClasses.Clients;
+import DBClasses.Employees;
 import Tools.HibernateUtil;
 import View.MainWindow;
 import javax.swing.JPanel;
@@ -24,8 +25,17 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Adam, troche MG
  */
+
+
+
 public class RegistrationController {
     
+    private final String ADMIN_LOGIN = "Rav";
+    
+    public enum EmployeeTypes{
+        Admin,
+        Cashier
+    }
     
     public Boolean register(String name, String surname, String city, String country, String street, String login, String password, String documentNumber)
     {
@@ -33,6 +43,7 @@ public class RegistrationController {
           if (s.createCriteria(Users.class).add(Restrictions.like("login", login)).list().size()>0) {
             // not corrent login
             return false;
+          
           }
           else{
            Transaction tr = s.beginTransaction();
@@ -59,6 +70,14 @@ public class RegistrationController {
            newClient.setUsers(newUser);  
            
            s.saveOrUpdate(newClient);
+           
+           if (login.equals(ADMIN_LOGIN)) {
+             Employees newEmployee = new Employees();
+             newEmployee.setRole(EmployeeTypes.Admin.toString());
+             newEmployee.setUsers(newUser);
+             s.saveOrUpdate(newEmployee);
+           }
+           
            tr.commit();
       
            return true;

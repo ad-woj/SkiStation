@@ -5,19 +5,22 @@
  */
 package Controller;
 
+import DBClasses.Employees;
+import DBClasses.Users;
 import Tools.HibernateUtil;
 import com.sun.media.jfxmedia.logging.Logger;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
+import org.hibernate.criterion.Restrictions;
+import Controller.RegistrationController;
 /**
  *
  * @author MG
  */
 public class LoginController {
     
-    public static boolean logIn(String login, String password, boolean logged){
+    public static boolean logIn(String login, String password, boolean logged, StringBuilder viewName){
         
         Session s = HibernateUtil.getSessionFactory().openSession();
         String hashPass = HashingHelper.sha256(password);
@@ -27,7 +30,19 @@ public class LoginController {
             return false;
         } else {
             logged = true;
-            System.out.println("Successful login");        
+            Users user = (Users)query.list().get(0);
+            Query query2 = s.createQuery(String.format("FROM Employees E WHERE E.users = '%d'",user.getUserid()));
+            Employees employee = (Employees)query2.list().get(0);
+            
+            if (employee == null) {
+                viewName.append("userPanel");
+            }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Admin.toString()) ) {
+                viewName.append("adminMainPanel");
+            }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
+                viewName.append("cashierPanel");
+            }
+            
+            System.out.println("Successful login");  
             return true;
         }
     }
