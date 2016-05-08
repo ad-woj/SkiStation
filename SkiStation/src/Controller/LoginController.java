@@ -30,10 +30,19 @@ public class LoginController {
             return false;
         } else {
             logged = true;
-            Users user = (Users)query.list().get(0);
-            Query query2 = s.createQuery(String.format("FROM Employees E WHERE E.users = '%d'",user.getUserid()));
-            Employees employee = (Employees)query2.list().get(0);
             
+            Users user;
+            Employees employee= null;
+            
+            user = (Users)query.list().get(0);
+        
+            Query query2 = s.createQuery(String.format("FROM Employees E WHERE E.users = '%d'",user.getUserid()));
+            
+            if(query2.list().size() > 0)
+            {
+                employee =  (Employees)query2.list().get(0);
+            }
+
             if (employee == null) {
                 viewName.append("userPanel");
             }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Admin.toString()) ) {
