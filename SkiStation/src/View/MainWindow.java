@@ -62,6 +62,10 @@ public class MainWindow extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
+        AdminPanel = new javax.swing.JPanel();
+        LoginTextField2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        RegisterBackgroundImage2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -252,6 +256,27 @@ public class MainWindow extends javax.swing.JFrame {
 
         getContentPane().add(Register, "register");
 
+        AdminPanel.setLayout(null);
+
+        LoginTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginTextField2ActionPerformed(evt);
+            }
+        });
+        AdminPanel.add(LoginTextField2);
+        LoginTextField2.setBounds(430, 40, 220, 30);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel10.setText("Password");
+        AdminPanel.add(jLabel10);
+        jLabel10.setBounds(300, 40, 130, 30);
+
+        RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
+        AdminPanel.add(RegisterBackgroundImage2);
+        RegisterBackgroundImage2.setBounds(-6, -6, 1220, 890);
+
+        getContentPane().add(AdminPanel, "adminPanelMain");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -291,8 +316,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         //TestClass.test();        // TODO add your handling code here:
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged))
-            ;//TODO change view x----DDDDDDDD
+        StringBuilder viewPanel = new StringBuilder();
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel))
+            System.out.println(viewPanel);
+            //TODO change view x----DDDDDDDD
         else
             ;//TODO error message, wrong login and/or password
     }//GEN-LAST:event_LoginButtonActionPerformed
@@ -324,6 +351,10 @@ public class MainWindow extends javax.swing.JFrame {
             LoginTextField1.setText("");
         }
     }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void LoginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,6 +392,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AdminPanel;
     private javax.swing.JButton BackButton;
     private javax.swing.JTextField City;
     private javax.swing.JTextField Country;
@@ -372,16 +404,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
+    private javax.swing.JTextField LoginTextField2;
     private javax.swing.JTextField Name;
     private javax.swing.JPasswordField Password;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
+    private javax.swing.JLabel RegisterBackgroundImage2;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JTextField Street;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
