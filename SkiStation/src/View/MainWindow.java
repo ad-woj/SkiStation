@@ -75,7 +75,6 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeButton = new javax.swing.JButton();
         PriceListButton = new javax.swing.JButton();
         CashierModeButton = new javax.swing.JButton();
-        AdminPanelLabel = new javax.swing.JLabel();
         GatesButton = new javax.swing.JButton();
         ClientModeButton = new javax.swing.JButton();
         UsersButton = new javax.swing.JButton();
@@ -115,7 +114,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginButton);
-        LoginButton.setBounds(490, 120, 80, 23);
+        LoginButton.setBounds(450, 110, 80, 23);
 
         LoginTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +122,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(LoginTextField);
-        LoginTextField.setBounds(450, 50, 220, 30);
+        LoginTextField.setBounds(450, 40, 220, 30);
 
         MessageLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MessageLabel.setForeground(new java.awt.Color(255, 0, 0));
@@ -138,17 +137,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(PasswordTextField);
-        PasswordTextField.setBounds(450, 80, 220, 30);
+        PasswordTextField.setBounds(450, 70, 220, 30);
 
         PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         PasswordLabel.setText("Hasło:");
         Login.add(PasswordLabel);
-        PasswordLabel.setBounds(390, 90, 50, 10);
+        PasswordLabel.setBounds(370, 80, 50, 14);
 
         LoginLabel.setForeground(new java.awt.Color(255, 255, 255));
         LoginLabel.setText("Login:");
         Login.add(LoginLabel);
-        LoginLabel.setBounds(390, 60, 50, 14);
+        LoginLabel.setBounds(370, 50, 50, 14);
 
         CreateAccountLink.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountLink.setText("Załóż konto");
@@ -158,7 +157,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Login.add(CreateAccountLink);
-        CreateAccountLink.setBounds(600, 120, 70, 20);
+        CreateAccountLink.setBounds(600, 110, 70, 20);
 
         ActionInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ActionInfoLabel.setText("Trwa logowanie... [Tu będzie jakiś obrazek przedstawiający kręcące się coś albo status bar]");
@@ -176,11 +175,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         Register.setLayout(null);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Ulica");
+        jLabel8.setText("Ulica:");
+        jLabel8.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel8.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel8.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel8);
-        jLabel8.setBounds(360, 250, 90, 30);
+        jLabel8.setBounds(370, 260, 50, 14);
 
         RegisterMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RegisterMessageLabel.setForeground(new java.awt.Color(255, 0, 0));
@@ -195,11 +196,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(LoginTextField1);
         LoginTextField1.setBounds(450, 40, 220, 30);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Hasło");
+        jLabel1.setText("Hasło:");
+        jLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel1);
-        jLabel1.setBounds(360, 70, 90, 30);
+        jLabel1.setBounds(370, 80, 50, 14);
 
         Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,11 +212,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(Password);
         Password.setBounds(450, 70, 220, 30);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Imię");
+        jLabel2.setText("Imię:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel2.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel2.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel2);
-        jLabel2.setBounds(360, 100, 90, 30);
+        jLabel2.setBounds(370, 110, 50, 14);
 
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,11 +228,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(Name);
         Name.setBounds(450, 100, 220, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nazwisko");
+        jLabel3.setText("Nazwisko:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel3.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel3.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel3);
-        jLabel3.setBounds(360, 130, 90, 30);
+        jLabel3.setBounds(370, 140, 60, 14);
 
         Surname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,11 +244,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(Surname);
         Surname.setBounds(450, 130, 220, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nr dokumentu");
+        jLabel4.setText("Nr dokumentu:");
+        jLabel4.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel4.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel4.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel4);
-        jLabel4.setBounds(360, 160, 90, 30);
+        jLabel4.setBounds(370, 170, 90, 14);
 
         DocumentNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,11 +260,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(DocumentNumber);
         DocumentNumber.setBounds(450, 160, 220, 30);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Miasto");
+        jLabel5.setText("Miasto:");
+        jLabel5.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel5.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel5.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel5);
-        jLabel5.setBounds(360, 190, 90, 30);
+        jLabel5.setBounds(370, 200, 50, 14);
 
         City.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,11 +276,13 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(City);
         City.setBounds(450, 190, 220, 30);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Państwo");
+        jLabel6.setText("Państwo:");
+        jLabel6.setMaximumSize(new java.awt.Dimension(29, 14));
+        jLabel6.setMinimumSize(new java.awt.Dimension(29, 14));
+        jLabel6.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel6);
-        jLabel6.setBounds(360, 220, 90, 30);
+        jLabel6.setBounds(370, 230, 60, 14);
 
         Country.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,11 +292,10 @@ public class MainWindow extends javax.swing.JFrame {
         Register.add(Country);
         Country.setBounds(450, 220, 220, 30);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Login");
+        jLabel7.setText("Login:");
         Register.add(jLabel7);
-        jLabel7.setBounds(360, 40, 90, 30);
+        jLabel7.setBounds(370, 50, 50, 14);
 
         Street.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,21 +312,24 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         Register.add(BackButton);
-        BackButton.setBounds(480, 290, 90, 30);
+        BackButton.setBounds(490, 290, 80, 23);
 
         RegisterButton.setText("Załóż konto");
+        RegisterButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        RegisterButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        RegisterButton.setPreferredSize(new java.awt.Dimension(67, 23));
         RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterButtonActionPerformed(evt);
             }
         });
         Register.add(RegisterButton);
-        RegisterButton.setBounds(570, 290, 100, 30);
+        RegisterButton.setBounds(570, 290, 100, 23);
 
         RegisterBackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
         RegisterBackgroundImage1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Register.add(RegisterBackgroundImage1);
-        RegisterBackgroundImage1.setBounds(-6, -6, 1220, 890);
+        RegisterBackgroundImage1.setBounds(0, 0, 1220, 890);
 
         getContentPane().add(Register, "register");
 
@@ -332,14 +347,9 @@ public class MainWindow extends javax.swing.JFrame {
         PriceListButton.setBounds(350, 280, 160, 80);
 
         CashierModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        CashierModeButton.setText("Tryb Kasjera");
+        CashierModeButton.setText("Tryb kasjera");
         AdminMainPanel.add(CashierModeButton);
         CashierModeButton.setBounds(180, 460, 160, 80);
-
-        AdminPanelLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        AdminPanelLabel.setText("Panel Administratora");
-        AdminMainPanel.add(AdminPanelLabel);
-        AdminPanelLabel.setBounds(210, 210, 290, 37);
 
         GatesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         GatesButton.setText("Bramki");
@@ -347,7 +357,7 @@ public class MainWindow extends javax.swing.JFrame {
         GatesButton.setBounds(350, 370, 160, 80);
 
         ClientModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ClientModeButton.setText("Tryb Klienta");
+        ClientModeButton.setText("Tryb klienta");
         AdminMainPanel.add(ClientModeButton);
         ClientModeButton.setBounds(350, 460, 160, 80);
 
@@ -363,16 +373,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminLogoutButton.setText("Wyloguj");
         AdminMainPanel.add(AdminLogoutButton);
-        AdminLogoutButton.setBounds(610, 30, 71, 23);
+        AdminLogoutButton.setBounds(600, 40, 80, 23);
 
-        AdminMyAccountButton.setText("Moje Konto");
+        AdminMyAccountButton.setText("Moje konto");
         AdminMainPanel.add(AdminMyAccountButton);
-        AdminMyAccountButton.setBounds(513, 30, 90, 23);
+        AdminMyAccountButton.setBounds(510, 40, 90, 23);
 
         AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
         AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         AdminMainPanel.add(AdminBackgroundLabel);
-        AdminBackgroundLabel.setBounds(-6, -6, 1220, 890);
+        AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
 
         getContentPane().add(AdminMainPanel, "adminPanelMain");
 
@@ -476,7 +486,6 @@ public class MainWindow extends javax.swing.JFrame {
         UseMainrPanel.add(SlopeTrafficButton);
         SlopeTrafficButton.setBounds(10, 150, 140, 30);
 
-        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\clientPage.jpg")); // NOI18N
         UserBackgroundLabel.setText("jLabel10");
         UseMainrPanel.add(UserBackgroundLabel);
         UserBackgroundLabel.setBounds(-10, -6, 700, 700);
@@ -676,7 +685,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
     private javax.swing.JButton AdminMyAccountButton;
-    private javax.swing.JLabel AdminPanelLabel;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
