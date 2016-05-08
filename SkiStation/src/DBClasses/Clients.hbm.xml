@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <many-to-one name="users" class="DBClasses.Users" fetch="select">
-            <column name="users_userid" not-null="true" />
+            <column name="users_userid" not-null="false" />
         </many-to-one>
         <property name="registrationdate" type="timestamp">
             <column name="registrationdate" length="22" />

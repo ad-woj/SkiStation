@@ -147,7 +147,7 @@ CREATE TABLE Users
     name                VARCHAR (50) NOT NULL ,
     surName             VARCHAR (50) NOT NULL ,
     documentNumber      VARCHAR (30) NOT NULL ,
-    Addresses_addressID INTEGER NOT NULL
+    Addresses_addressID INTEGER
   ) ;
 ALTER TABLE Users ADD CONSTRAINT Users_PK PRIMARY KEY ( userID ) ;
 
