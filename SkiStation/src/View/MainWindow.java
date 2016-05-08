@@ -10,6 +10,7 @@ import Controller.LoginController;
 import Controller.UserManagmanetAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -49,7 +50,6 @@ public class MainWindow extends javax.swing.JFrame {
         LoginLabel = new javax.swing.JLabel();
         CreateAccountLink = new javax.swing.JLabel();
         BackgroundImageLabel = new javax.swing.JLabel();
-        ActionInfoLabel = new javax.swing.JLabel();
         Register = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         LoginTextField1 = new javax.swing.JTextField();
@@ -135,7 +135,7 @@ public class MainWindow extends javax.swing.JFrame {
         MessageLabel.setForeground(new java.awt.Color(51, 255, 0));
         MessageLabel.setToolTipText("");
         Login.add(MessageLabel);
-        MessageLabel.setBounds(430, 74, 220, 20);
+        MessageLabel.setBounds(450, 30, 250, 20);
         MessageLabel.getAccessibleContext().setAccessibleName("MessageLabel");
 
         PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,12 +162,6 @@ public class MainWindow extends javax.swing.JFrame {
         BackgroundImageLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Login.add(BackgroundImageLabel);
         BackgroundImageLabel.setBounds(10, 0, 1310, 890);
-
-        ActionInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ActionInfoLabel.setText("Trwa logowanie... [Tu będzie jakiś obrazek przedstawiający kręcące się coś albo status bar]");
-        ActionInfoLabel.setToolTipText("");
-        Login.add(ActionInfoLabel);
-        ActionInfoLabel.setBounds(10, 0, 750, 440);
 
         getContentPane().add(Login, "login");
         Login.getAccessibleContext().setAccessibleName("");
@@ -469,7 +463,6 @@ public class MainWindow extends javax.swing.JFrame {
         UseMainrPanel.add(SlopeTrafficButton);
         SlopeTrafficButton.setBounds(10, 150, 140, 30);
 
-        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\clientPage.jpg")); // NOI18N
         UserBackgroundLabel.setText("jLabel10");
         UseMainrPanel.add(UserBackgroundLabel);
         UserBackgroundLabel.setBounds(-10, -6, 700, 700);
@@ -514,14 +507,27 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_DocumentNumberActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        //TestClass.test();        // TODO add your handling code here:
+        // TODO add your handling code here:
+
+        
+        MessageLabel.setText("Trwa logowanie...");
+        MessageLabel.setForeground(Color.green);
+        
         StringBuilder viewPanel = new StringBuilder();
+
         if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel, loginStatusMessage)){
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
+            MessageLabel.setForeground(Color.green); // Setting message color depending on login status
             //TODO change view x----DDDDDDDD
-        } else
-            ;//TODO error message, wrong login and/or password
+        } else {
+            MessageLabel.setForeground(Color.red); // Setting message color depending on login status
+        }
+        
+        MessageLabel.setText(loginStatusMessage.toString()); // Always set feedback message, either success or login failed
+        loginStatusMessage.setLength(0); // Resetting message
+        
+          //TODO extend message details pointing real cause of login failure, not just "login failed"
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityActionPerformed
@@ -659,7 +665,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ActionInfoLabel;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
