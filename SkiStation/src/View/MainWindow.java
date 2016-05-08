@@ -524,6 +524,7 @@ public class MainWindow extends javax.swing.JFrame {
                    UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
                 }
             }else{
+                UserRoleChooseGroup.clearSelection();
                 FindResultLabel.setText("User Not Exist!");
             }
             
