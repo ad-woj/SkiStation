@@ -63,8 +63,13 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
         AdminPanel = new javax.swing.JPanel();
-        LoginTextField2 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         RegisterBackgroundImage2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -258,20 +263,44 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminPanel.setLayout(null);
 
-        LoginTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginTextField2ActionPerformed(evt);
-            }
-        });
-        AdminPanel.add(LoginTextField2);
-        LoginTextField2.setBounds(430, 40, 220, 30);
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("Stok");
+        AdminPanel.add(jButton2);
+        jButton2.setBounds(180, 370, 160, 80);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel10.setText("Password");
-        AdminPanel.add(jLabel10);
-        jLabel10.setBounds(300, 40, 130, 30);
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setText("Punkty");
+        jButton3.setToolTipText("");
+        AdminPanel.add(jButton3);
+        jButton3.setBounds(350, 280, 160, 80);
 
-        RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/register.jpg"))); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4.setText("Tryb Kasjera");
+        AdminPanel.add(jButton4);
+        jButton4.setBounds(180, 460, 160, 80);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel9.setText("Panel Administratora");
+        AdminPanel.add(jLabel9);
+        jLabel9.setBounds(210, 210, 290, 37);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton5.setText("Bramki");
+        AdminPanel.add(jButton5);
+        jButton5.setBounds(350, 370, 160, 80);
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton6.setText("Tryb Klienta");
+        AdminPanel.add(jButton6);
+        jButton6.setBounds(350, 460, 160, 80);
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton7.setText("Użytkownicy");
+        AdminPanel.add(jButton7);
+        jButton7.setBounds(180, 280, 160, 80);
+
+        RegisterBackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
+        RegisterBackgroundImage2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         AdminPanel.add(RegisterBackgroundImage2);
         RegisterBackgroundImage2.setBounds(-6, -6, 1220, 890);
 
@@ -353,10 +382,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
-    private void LoginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginTextField2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -405,7 +430,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
-    private javax.swing.JTextField LoginTextField2;
     private javax.swing.JTextField Name;
     private javax.swing.JPasswordField Password;
     private javax.swing.JLabel PasswordLabel;
@@ -416,8 +440,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RegisterButton;
     private javax.swing.JTextField Street;
     private javax.swing.JTextField Surname;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -425,5 +454,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
