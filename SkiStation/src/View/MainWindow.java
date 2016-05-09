@@ -7,7 +7,7 @@ package View;
 
 import Controller.RegistrationController;
 import Controller.LoginController;
-import Controller.UserManagmanetAdminController;
+import Controller.UserManagementAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
 import java.util.Enumeration;
@@ -747,7 +747,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
             if (controller.exist(FindLoginTextField.getText())) {
             controller.updateUser(FindLoginTextField.getText(), choosingRole);
@@ -758,7 +758,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdateUserActionPerformed
 
     private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             if (controller.removeUser(FindLoginTextField.getText())) {
                 UpdateResultLabel.setText("Removed");
             }else{
@@ -776,7 +776,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_FindLoginTextFieldActionPerformed
 
     private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             
             if (controller.exist(FindLoginTextField.getText())) {
                 FindResultLabel.setText("User exists!");
