@@ -536,7 +536,7 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.add(SlopeTrafficButton);
         SlopeTrafficButton.setBounds(10, 150, 140, 30);
 
-        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/clientPage.jpg"))); // NOI18N
+        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
         UserMainPanel.add(UserBackgroundLabel);
         UserBackgroundLabel.setBounds(-10, -6, 700, 700);
 

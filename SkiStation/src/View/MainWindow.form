@@ -853,7 +853,7 @@
         <Component class="javax.swing.JLabel" name="UserBackgroundLabel">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/View/clientPage.jpg"/>
+              <Image iconType="3" name="/Images/clientPage.jpg"/>
             </Property>
           </Properties>
           <Constraints>
