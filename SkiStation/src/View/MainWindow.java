@@ -9,7 +9,7 @@ import Controller.RegistrationController;
 import Controller.LoginController;
 import Controller.MyAccountController;
 import Controller.SessionController;
-import Controller.UserManagmanetAdminController;
+import Controller.UserManagementAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
 import java.util.Enumeration;
@@ -780,7 +780,7 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "login");
             return;
         }
-        UserManagmanetAdminController controller = new UserManagmanetAdminController();
+        UserManagementAdminController controller = new UserManagementAdminController();
         String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
         if (controller.exist(FindLoginTextField.getText())) {
             controller.updateUser(FindLoginTextField.getText(), choosingRole);
@@ -799,7 +799,7 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "login");
             return;
         }    
-        UserManagmanetAdminController controller = new UserManagmanetAdminController();
+        UserManagementAdminController controller = new UserManagementAdminController();
         if (controller.removeUser(FindLoginTextField.getText())) {
             UpdateResultLabel.setText("Removed");
         }else{
@@ -832,7 +832,7 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "login");
             return;
         }    
-        UserManagmanetAdminController controller = new UserManagmanetAdminController();
+        UserManagementAdminController controller = new UserManagementAdminController();
             
             if (controller.exist(FindLoginTextField.getText())) {
                 FindResultLabel.setText("User exists!");
