@@ -10,7 +10,7 @@ import Controller.LoginController;
 import Controller.MyAccountController;
 import Controller.SessionController;
 import Controller.UserManagementAdminController;
-import DBClasses.Users;
+import DBClasses.*;
 import java.awt.CardLayout;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
@@ -23,7 +23,6 @@ import javax.swing.ButtonGroup;
  */
 public class MainWindow extends javax.swing.JFrame {
 
-    private boolean userLogged;
     private StringBuilder loginStatusMessage = new StringBuilder();
     /**
      * Creates new form MainWindow
@@ -127,6 +126,10 @@ public class MainWindow extends javax.swing.JFrame {
         MyCardsButton2 = new javax.swing.JButton();
         SlopeTrafficButton2 = new javax.swing.JButton();
         ContactButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        CancelButton = new javax.swing.JButton();
+        EditMessageLabel = new javax.swing.JLabel();
+        DocumentEditTextfield = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -580,12 +583,12 @@ public class MainWindow extends javax.swing.JFrame {
         EditLoginLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditLoginLabel.setText("Login");
         MyAccountPanel.add(EditLoginLabel);
-        EditLoginLabel.setBounds(220, 240, 80, 30);
+        EditLoginLabel.setBounds(200, 240, 80, 30);
 
         EditPasswordLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditPasswordLabel.setText("Hasło");
         MyAccountPanel.add(EditPasswordLabel);
-        EditPasswordLabel.setBounds(220, 270, 80, 30);
+        EditPasswordLabel.setBounds(200, 270, 80, 30);
         MyAccountPanel.add(LoginEditTextfield);
         LoginEditTextfield.setBounds(300, 240, 180, 30);
 
@@ -601,17 +604,17 @@ public class MainWindow extends javax.swing.JFrame {
         NameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NameEditLabel.setText("Imię");
         MyAccountPanel.add(NameEditLabel);
-        NameEditLabel.setBounds(220, 300, 80, 30);
+        NameEditLabel.setBounds(200, 300, 80, 30);
 
         SurnameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SurnameEditLabel.setText("Nazwisko");
         MyAccountPanel.add(SurnameEditLabel);
-        SurnameEditLabel.setBounds(220, 330, 80, 30);
+        SurnameEditLabel.setBounds(200, 330, 80, 30);
 
         IDEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IDEditLabel.setText("ID");
         MyAccountPanel.add(IDEditLabel);
-        IDEditLabel.setBounds(220, 210, 80, 30);
+        IDEditLabel.setBounds(200, 210, 80, 30);
 
         IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -621,26 +624,26 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel.add(IDEditTextfield);
         IDEditTextfield.setBounds(300, 210, 180, 30);
         MyAccountPanel.add(StreetEditTextfield);
-        StreetEditTextfield.setBounds(300, 360, 180, 30);
+        StreetEditTextfield.setBounds(300, 390, 180, 30);
         MyAccountPanel.add(CityEditTextfield);
-        CityEditTextfield.setBounds(300, 390, 180, 30);
+        CityEditTextfield.setBounds(300, 420, 180, 30);
         MyAccountPanel.add(CountryEditTextfield);
-        CountryEditTextfield.setBounds(300, 420, 180, 30);
+        CountryEditTextfield.setBounds(300, 450, 180, 30);
 
         StreetEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StreetEditLabel.setText("Ulica");
         MyAccountPanel.add(StreetEditLabel);
-        StreetEditLabel.setBounds(220, 360, 80, 30);
+        StreetEditLabel.setBounds(200, 390, 80, 30);
 
         CityEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CityEditLabel.setText("Miasto");
         MyAccountPanel.add(CityEditLabel);
-        CityEditLabel.setBounds(220, 390, 80, 30);
+        CityEditLabel.setBounds(200, 420, 80, 30);
 
         CountryEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CountryEditLabel.setText("Kraj");
         MyAccountPanel.add(CountryEditLabel);
-        CountryEditLabel.setBounds(220, 420, 80, 30);
+        CountryEditLabel.setBounds(200, 450, 80, 30);
 
         EditDetailsButton.setText("Edytuj Dane");
         EditDetailsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -649,7 +652,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(EditDetailsButton);
-        EditDetailsButton.setBounds(300, 470, 130, 23);
+        EditDetailsButton.setBounds(300, 500, 180, 23);
 
         SaveDetailsButton.setText("Zapisz");
         SaveDetailsButton.setEnabled(false);
@@ -659,7 +662,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(SaveDetailsButton);
-        SaveDetailsButton.setBounds(300, 500, 80, 23);
+        SaveDetailsButton.setBounds(400, 530, 80, 23);
 
         MyCardsButton2.setText("Moje Karty");
         MyCardsButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -677,6 +680,27 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton2.setText("Kontakt");
         MyAccountPanel.add(ContactButton2);
         ContactButton2.setBounds(10, 220, 140, 30);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Nr dokumentu");
+        MyAccountPanel.add(jLabel10);
+        jLabel10.setBounds(200, 360, 100, 30);
+
+        CancelButton.setText("Anuluj");
+        CancelButton.setEnabled(false);
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(CancelButton);
+        CancelButton.setBounds(300, 530, 73, 23);
+
+        EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MyAccountPanel.add(EditMessageLabel);
+        EditMessageLabel.setBounds(300, 560, 180, 20);
+        MyAccountPanel.add(DocumentEditTextfield);
+        DocumentEditTextfield.setBounds(300, 360, 180, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -727,7 +751,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         //TestClass.test();        // TODO add your handling code here:
         StringBuilder viewPanel = new StringBuilder();
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), userLogged, viewPanel, loginStatusMessage)){
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), viewPanel, loginStatusMessage)){
             MessageLabel.setText("");
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
@@ -773,11 +797,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
         if( !SessionController.IsUserLogged() ){
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
             return;
         }
         UserManagementAdminController controller = new UserManagementAdminController();
@@ -792,11 +812,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
         if( !SessionController.IsUserLogged() ){
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
             return;
         }    
         UserManagementAdminController controller = new UserManagementAdminController();
@@ -810,26 +826,22 @@ public class MainWindow extends javax.swing.JFrame {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         if( !SessionController.IsUserLogged() ){
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
             return;
         }
         loginPaneLayout.show(getContentPane(), "adminPanelMain");
     }//GEN-LAST:event_BackActionPerformed
 
     private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
-        // TODO add your handling code here:
+        if( !SessionController.IsUserLogged() ){
+            ExitSession();
+            return;
+        }
     }//GEN-LAST:event_FindLoginTextFieldActionPerformed
 
     private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
         if( !SessionController.IsUserLogged() ){
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
             return;
         }    
         UserManagementAdminController controller = new UserManagementAdminController();
@@ -870,20 +882,13 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
         }
         else {
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
         }
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
         if( !SessionController.IsUserLogged() ){
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
         }
     }//GEN-LAST:event_UserRadioActionPerformed
 
@@ -892,7 +897,6 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ClientModeButtonActionPerformed
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
-        userLogged = false;
         SessionController.ResetSession();
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         loginPaneLayout.show(getContentPane(), "login");
@@ -918,10 +922,7 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "UserMainPanel");
         }
         else {
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
         }
     }//GEN-LAST:event_MyCardsButton2ActionPerformed
 
@@ -932,10 +933,7 @@ public class MainWindow extends javax.swing.JFrame {
             loginPaneLayout.show(getContentPane(), "myAccountPanel");
         }
         else {
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
         }
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
@@ -958,6 +956,8 @@ public class MainWindow extends javax.swing.JFrame {
         CityEditTextfield.setEditable(false);
         CountryEditTextfield.setText(user.getAddresses().getCountry());
         CountryEditTextfield.setEditable(false);
+        DocumentEditTextfield.setText(user.getAddresses().getCountry());
+        DocumentEditTextfield.setEditable(false);
     }
     
     private void IDEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfieldActionPerformed
@@ -966,13 +966,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void SaveDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButtonActionPerformed
         if( !SessionController.IsUserLogged() ){
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
             return;
         }
+        EditMessageLabel.setText( MyAccountController.UpdateAccountDetails( GetDataFromTextfields()) );
         PasswordEditTextfield.setEnabled(false);
         LoginEditTextfield.setEditable(false);
         NameEditTextfield.setEditable(false);
@@ -981,12 +978,27 @@ public class MainWindow extends javax.swing.JFrame {
         CityEditTextfield.setEditable(false);
         CountryEditTextfield.setEditable(false);
         SaveDetailsButton.setEnabled(false);
+        CancelButton.setEnabled(false);
+        DocumentEditTextfield.setEnabled(false);
     }//GEN-LAST:event_SaveDetailsButtonActionPerformed
 
+    private Users GetDataFromTextfields(){
+        Users user = new Users();
+        Addresses address = new Addresses();
+        user.setLogin(LoginEditTextfield.getText());
+        user.setPassword(PasswordEditTextfield.getText());
+        user.setName(NameEditTextfield.getText());
+        user.setSurname(SurnameEditTextfield.getText());
+        user.setDocumentnumber(DocumentEditTextfield.getText());
+        address.setStreet(StreetEditTextfield.getText());
+        address.setCity(CityEditTextfield.getText());
+        address.setCountry(CountryEditTextfield.getText());
+        user.setAddresses(address);
+        return user;
+    }
     private void EditDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButtonActionPerformed
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         if( SessionController.IsUserLogged() ){
-            LoginEditTextfield.setEditable(true);
+            LoginEditTextfield.setEditable(false);
             PasswordEditTextfield.setEditable(true);
             NameEditTextfield.setEditable(true);
             SurnameEditTextfield.setEditable(true);
@@ -994,12 +1006,11 @@ public class MainWindow extends javax.swing.JFrame {
             CityEditTextfield.setEditable(true);
             CountryEditTextfield.setEditable(true);
             SaveDetailsButton.setEnabled(true);
+            CancelButton.setEnabled(true);
+            DocumentEditTextfield.setEnabled(true);
         }
         else {
-            userLogged = false;
-            PasswordTextField.setText("");
-            MessageLabel.setText("Sesja wygasła");
-            loginPaneLayout.show(getContentPane(), "login");
+            ExitSession();
         }
     }//GEN-LAST:event_EditDetailsButtonActionPerformed
 
@@ -1007,6 +1018,20 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyAccountButtonActionPerformed( evt );
     }//GEN-LAST:event_AdminMyAccountButtonActionPerformed
 
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        if( !SessionController.IsUserLogged() ){
+            ExitSession();
+            return;
+        }
+        SetAccountInfo();
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void ExitSession(){
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+        PasswordTextField.setText("");
+        MessageLabel.setText("Sesja wygasła");
+        loginPaneLayout.show(getContentPane(), "login");
+    }
     /**
      * @param args the command line arguments
      */
@@ -1052,6 +1077,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
+    private javax.swing.JButton CancelButton;
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
@@ -1064,9 +1090,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel CountryEditLabel;
     private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JLabel CreateAccountLink;
+    private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentNumber;
     private javax.swing.JButton EditDetailsButton;
     private javax.swing.JLabel EditLoginLabel;
+    private javax.swing.JLabel EditMessageLabel;
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JLabel FindResultLabel;
@@ -1122,6 +1150,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

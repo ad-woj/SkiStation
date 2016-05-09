@@ -10,6 +10,7 @@ import DBClasses.Users;
 import Tools.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -39,5 +40,23 @@ public class MyAccountController {
         }
         
         return user;
+    }
+    
+    public static String UpdateAccountDetails( Users newUser ){
+        Users oldUser = MyAccountController.GetAccountDetails();
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        if( newUser.getLogin().equals("") )
+            return "Nieprawidłowy login";
+        if( !( oldUser.getLogin().equals(newUser.getLogin()) ) )
+        {
+            if (s.createCriteria(Users.class).add(Restrictions.like("login", newUser.getLogin())).list().size()>0) {
+            // not correct login
+            return "Login zajęty";
+          
+          }
+        }
+        newUser.setPassword(HashingHelper.sha256(newUser.getPassword()));
+        //s.saveOrUpdate(newUser);
+        return "Dane zaktualizowane";
     }
 }
