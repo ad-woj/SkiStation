@@ -47,7 +47,7 @@ public class LoginController {
             }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
                 viewName.append("cashierPanel");
             }
-            
+            SessionController.SetUserLogged(login);
             System.out.println("Successful login"); 
             loginStatusMessage.append("Successful login");
             return true;
