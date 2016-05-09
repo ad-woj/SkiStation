@@ -10,7 +10,7 @@ import Controller.LoginController;
 import Controller.MyAccountController;
 import Controller.SessionController;
 import Controller.UserManagementAdminController;
-import Model.TestClass;
+import DBClasses.Users;
 import java.awt.CardLayout;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
@@ -940,24 +940,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
     private void SetAccountInfo(){
-        StringBuilder login = new StringBuilder(), name = new StringBuilder(), surname = new StringBuilder(), 
-                street = new StringBuilder(), city = new StringBuilder(), country = new StringBuilder();
-        Integer id = 0;
-        MyAccountController.GetAccountDetails(id, login, name, surname, street, city, country);
+        Users user = MyAccountController.GetAccountDetails();
+        if( user == null )
+            return;
         IDEditTextfield.setEnabled(true);
-        IDEditTextfield.setText(id.toString());
+        IDEditTextfield.setText(Integer.toString((user.getUserid())) );
         IDEditTextfield.setEnabled(false);
-        LoginEditTextfield.setText(login.toString());
+        LoginEditTextfield.setText(user.getLogin());
         LoginEditTextfield.setEditable(false);
-        NameEditTextfield.setText(name.toString());
+        NameEditTextfield.setText(user.getName());
         NameEditTextfield.setEditable(false);
-        SurnameEditTextfield.setText(surname.toString());
+        SurnameEditTextfield.setText(user.getSurname());
         SurnameEditTextfield.setEditable(false);
-        StreetEditTextfield.setText(street.toString());
+        StreetEditTextfield.setText(user.getAddresses().getStreet());
         StreetEditTextfield.setEditable(false);
-        CityEditTextfield.setText(city.toString());
+        CityEditTextfield.setText(user.getAddresses().getCity());
         CityEditTextfield.setEditable(false);
-        CountryEditTextfield.setText(country.toString());
+        CountryEditTextfield.setText(user.getAddresses().getCountry());
         CountryEditTextfield.setEditable(false);
     }
     
@@ -966,11 +965,42 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_IDEditTextfieldActionPerformed
 
     private void SaveDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButtonActionPerformed
-        // TODO add your handling code here:
+        if( !SessionController.IsUserLogged() ){
+            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            userLogged = false;
+            PasswordTextField.setText("");
+            MessageLabel.setText("Sesja wygasła");
+            loginPaneLayout.show(getContentPane(), "login");
+            return;
+        }
+        PasswordEditTextfield.setEnabled(false);
+        LoginEditTextfield.setEditable(false);
+        NameEditTextfield.setEditable(false);
+        SurnameEditTextfield.setEditable(false);
+        StreetEditTextfield.setEditable(false);
+        CityEditTextfield.setEditable(false);
+        CountryEditTextfield.setEditable(false);
+        SaveDetailsButton.setEnabled(false);
     }//GEN-LAST:event_SaveDetailsButtonActionPerformed
 
     private void EditDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButtonActionPerformed
-        // TODO add your handling code here:
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+        if( SessionController.IsUserLogged() ){
+            LoginEditTextfield.setEditable(true);
+            PasswordEditTextfield.setEditable(true);
+            NameEditTextfield.setEditable(true);
+            SurnameEditTextfield.setEditable(true);
+            StreetEditTextfield.setEditable(true);
+            CityEditTextfield.setEditable(true);
+            CountryEditTextfield.setEditable(true);
+            SaveDetailsButton.setEnabled(true);
+        }
+        else {
+            userLogged = false;
+            PasswordTextField.setText("");
+            MessageLabel.setText("Sesja wygasła");
+            loginPaneLayout.show(getContentPane(), "login");
+        }
     }//GEN-LAST:event_EditDetailsButtonActionPerformed
 
     private void AdminMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminMyAccountButtonActionPerformed

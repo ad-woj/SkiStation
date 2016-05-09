@@ -17,14 +17,13 @@ import org.hibernate.Session;
  */
 public class MyAccountController {
     
-    public static void GetAccountDetails( Integer id, StringBuilder login, StringBuilder name, 
-                StringBuilder surname, StringBuilder street, StringBuilder city, StringBuilder country ) {
+    public static Users GetAccountDetails() {
         
-        login.append( SessionController.GetUserLogged() );
+        String login = SessionController.GetUserLogged();
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s'", login) );
         if( query.list().isEmpty() || login.equals("") )
-            return;
+            return new Users();
         Users user;
         Employees employee= null;
             
@@ -35,15 +34,10 @@ public class MyAccountController {
         {
             employee =  (Employees)query2.list().get(0);
         }
-        if (employee == null) {
-            id = user.getUserid();
-        }else {
-            id = employee.getEmployeeid();
+        if (employee != null) {
+            user.setUserid( employee.getEmployeeid() );
         }
-        name.append( user.getName() );
-        surname.append( user.getSurname() );
-        street.append( user.getAddresses().getStreet() );
-        city.append( user.getAddresses().getCity() );
-        country.append( user.getAddresses().getCountry() );
+        
+        return user;
     }
 }
