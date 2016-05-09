@@ -496,7 +496,7 @@ public class MainWindow extends javax.swing.JFrame {
         UserManagmenAdmintPanel.add(UpdateResultLabel);
         UpdateResultLabel.setBounds(180, 510, 80, 20);
 
-        UserManagePanelBackgroud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\skibackgroundAdmin.jpg")); // NOI18N
+        UserManagePanelBackgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
         UserManagePanelBackgroud.setText("jLabel9");
         UserManagmenAdmintPanel.add(UserManagePanelBackgroud);
         UserManagePanelBackgroud.setBounds(0, 0, 700, 700);
@@ -653,7 +653,7 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel.add(ContactButton2);
         ContactButton2.setBounds(10, 220, 140, 30);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marzena\\Documents\\NetBeansProjects\\SkiStation\\SkiStation\\src\\Images\\myacoount.jpg")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
         MyAccountPanel.add(jLabel9);
         jLabel9.setBounds(0, 0, 700, 700);
