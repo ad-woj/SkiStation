@@ -1,5 +1,5 @@
 package DBClasses;
-// Generated 2016-05-01 18:16:39 by Hibernate Tools 4.3.1
+// Generated 2016-05-09 22:48:43 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,25 +14,23 @@ public class Cardusage  implements java.io.Serializable {
 
      private int useid;
      private Cards cards;
+     private Terminal terminal;
      private Date usedate;
-     private Set terminals = new HashSet(0);
      private Set boughtlists = new HashSet(0);
 
     public Cardusage() {
     }
 
 	
-    public Cardusage(int useid, Cards cards, Date usedate) {
-        this.useid = useid;
+    public Cardusage(Cards cards, Date usedate) {
         this.cards = cards;
         this.usedate = usedate;
     }
-    public Cardusage(int useid, Cards cards, Date usedate, Set terminals, Set boughtlists) {
-       this.useid = useid;
+    public Cardusage(Cards cards, Terminal terminal, Date usedate, Set terminals, Set boughtlists) {
        this.cards = cards;
        this.usedate = usedate;
-       this.terminals = terminals;
        this.boughtlists = boughtlists;
+       this.terminal = terminal;
     }
    
     public int getUseid() {
@@ -56,12 +54,12 @@ public class Cardusage  implements java.io.Serializable {
     public void setUsedate(Date usedate) {
         this.usedate = usedate;
     }
-    public Set getTerminals() {
-        return this.terminals;
+    public Terminal getTerminal() {
+        return this.terminal;
     }
     
-    public void setTerminals(Set terminals) {
-        this.terminals = terminals;
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
     }
     public Set getBoughtlists() {
         return this.boughtlists;

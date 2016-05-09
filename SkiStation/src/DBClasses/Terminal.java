@@ -1,5 +1,5 @@
 package DBClasses;
-// Generated 2016-05-01 18:16:39 by Hibernate Tools 4.3.1
+// Generated 2016-05-09 22:48:43 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,20 +16,18 @@ public class Terminal  implements java.io.Serializable {
      private Cardusage cardusage;
      private Integer locktime;
      private Set productlists = new HashSet(0);
+     private Set cardusages = new HashSet(0);
+
 
     public Terminal() {
     }
 
 	
-    public Terminal(int terminalid, Attraction attraction, Cardusage cardusage) {
-        this.terminalid = terminalid;
+    public Terminal(Attraction attraction) {
         this.attraction = attraction;
-        this.cardusage = cardusage;
     }
-    public Terminal(int terminalid, Attraction attraction, Cardusage cardusage, Integer locktime, Set productlists) {
-       this.terminalid = terminalid;
+    public Terminal(Attraction attraction, Cardusage cardusage, Integer locktime) {
        this.attraction = attraction;
-       this.cardusage = cardusage;
        this.locktime = locktime;
        this.productlists = productlists;
     }
@@ -48,6 +46,7 @@ public class Terminal  implements java.io.Serializable {
     public void setAttraction(Attraction attraction) {
         this.attraction = attraction;
     }
+    
     public Cardusage getCardusage() {
         return this.cardusage;
     }
@@ -69,10 +68,14 @@ public class Terminal  implements java.io.Serializable {
     public void setProductlists(Set productlists) {
         this.productlists = productlists;
     }
-
-
-
-
+    
+    public Set getCardusages(){
+        return this.cardusages;
+    }
+    
+    public void setCardusages(Set cardusages){
+            this.cardusages = cardusages;
+    }
 }
 
 
