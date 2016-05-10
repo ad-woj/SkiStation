@@ -49,8 +49,8 @@ public class MainWindow extends javax.swing.JFrame {
         PasswordLabel = new javax.swing.JLabel();
         LoginLabel = new javax.swing.JLabel();
         CreateAccountLink = new javax.swing.JLabel();
-        ActionInfoLabel = new javax.swing.JLabel();
         BackgroundImageLabel = new javax.swing.JLabel();
+        ActionInfoLabel = new javax.swing.JLabel();
         Register = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         RegisterMessageLabel = new javax.swing.JLabel();
@@ -191,16 +191,16 @@ public class MainWindow extends javax.swing.JFrame {
         Login.add(CreateAccountLink);
         CreateAccountLink.setBounds(600, 120, 70, 20);
 
+        BackgroundImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
+        BackgroundImageLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Login.add(BackgroundImageLabel);
+        BackgroundImageLabel.setBounds(0, 0, 1310, 890);
+
         ActionInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ActionInfoLabel.setText("Trwa logowanie... [Tu będzie jakiś obrazek przedstawiający kręcące się coś albo status bar]");
         ActionInfoLabel.setToolTipText("");
         Login.add(ActionInfoLabel);
         ActionInfoLabel.setBounds(0, 0, 750, 440);
-
-        BackgroundImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
-        BackgroundImageLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Login.add(BackgroundImageLabel);
-        BackgroundImageLabel.setBounds(0, 0, 1310, 890);
 
         getContentPane().add(Login, "login");
         Login.getAccessibleContext().setAccessibleName("");
@@ -1024,6 +1024,8 @@ public class MainWindow extends javax.swing.JFrame {
             return;
         }
         SetAccountInfo();
+        SaveDetailsButton.setEnabled(false);
+        CancelButton.setEnabled(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void ExitSession(){
