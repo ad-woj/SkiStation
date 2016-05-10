@@ -45,8 +45,6 @@ public class UserManagementAdminController {
           }
           return user;     
     }
-    
-
         
     private Employees getUserRole(Users user)
     {
@@ -63,18 +61,6 @@ public class UserManagementAdminController {
           }
 
           return role;   
-    }
-    
-    public String getUserRole(String login)
-    {
-         Users user = findUser(login);
-         Employees role =  getUserRole(user);
-                 
-         if (role == null) {
-            return "User";
-        }else{
-             return role.getRole();
-         }
     }
     
     private boolean setUserRole(Users user, String role)
@@ -97,6 +83,20 @@ public class UserManagementAdminController {
          tr.commit();
 
          return true;         
+    }
+    
+
+        
+    public String getUserRole(String login)
+    {
+         Users user = findUser(login);
+         Employees role =  getUserRole(user);
+                 
+         if (role == null) {
+            return "User";
+        }else{
+             return role.getRole();
+         }
     }
 
     

@@ -218,3 +218,4 @@ pip-log.txt
 #Netbeans
 SkiStation/nbproject/private/*
 build
+/SkiStation/src/View/clientPage.jpg

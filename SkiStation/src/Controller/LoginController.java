@@ -16,7 +16,7 @@ import org.hibernate.Session;
  */
 public class LoginController {
     
-    public static boolean logIn(String login, String password, boolean logged, StringBuilder viewName, StringBuilder loginStatusMessage){
+    public static boolean logIn(String login, String password, StringBuilder viewName, StringBuilder loginStatusMessage){
         
         Session s = HibernateUtil.getSessionFactory().openSession();
         String hashPass = HashingHelper.sha256(password);
@@ -26,7 +26,6 @@ public class LoginController {
             loginStatusMessage.append("Failed login");
             return false;
         } else {
-            logged = true;
             
             Users user;
             Employees employee= null;
@@ -47,7 +46,7 @@ public class LoginController {
             }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
                 viewName.append("cashierPanel");
             }
-            
+            SessionController.SetUserLogged(login);
             System.out.println("Successful login"); 
             loginStatusMessage.append("Successful login");
             return true;

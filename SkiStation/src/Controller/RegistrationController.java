@@ -9,17 +9,11 @@ import DBClasses.Addresses;
 import DBClasses.Clients;
 import DBClasses.Employees;
 import Tools.HibernateUtil;
-import View.MainWindow;
 import javax.swing.JPanel;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import DBClasses.Users;
-//import com.sun.security.ntlm.Client;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 /**
  *
