@@ -7,7 +7,7 @@ package View;
 
 import Controller.RegistrationController;
 import Controller.LoginController;
-import Controller.UserManagmanetAdminController;
+import Controller.UserManagementAdminController;
 import Model.TestClass;
 import java.awt.CardLayout;
 import java.util.Enumeration;
@@ -85,6 +85,8 @@ public class MainWindow extends javax.swing.JFrame {
         UpdateUser = new javax.swing.JButton();
         RemoveUser = new javax.swing.JButton();
         Back = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         FindLoginTextField = new javax.swing.JTextField();
         FindUser = new javax.swing.JButton();
         FindResultLabel = new javax.swing.JLabel();
@@ -99,6 +101,20 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton = new javax.swing.JButton();
         MyCardsButton = new javax.swing.JButton();
         SlopeTrafficButton = new javax.swing.JButton();
+        AvailablePointsLabel = new javax.swing.JLabel();
+        IDLabel = new javax.swing.JLabel();
+        ActivationDateLabel = new javax.swing.JLabel();
+        ExpirationDateLabel = new javax.swing.JLabel();
+        PointsLabel = new javax.swing.JLabel();
+        AvailablePointsTextField = new javax.swing.JTextField();
+        IDTextField = new javax.swing.JTextField();
+        ActivationDateTextField = new javax.swing.JTextField();
+        ExpirationDateTextField = new javax.swing.JTextField();
+        PointsTextField = new javax.swing.JTextField();
+        AddPointsButton = new javax.swing.JButton();
+        SubtractPointsButton = new javax.swing.JButton();
+        AddCardButton = new javax.swing.JButton();
+        RemoveCardButton = new javax.swing.JButton();
         UserBackgroundLabel = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
         UserMyAccountButton2 = new javax.swing.JButton();
@@ -432,7 +448,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserManagmenAdmintPanel.add(UpdateUser);
-        UpdateUser.setBounds(280, 470, 90, 30);
+        UpdateUser.setBounds(260, 500, 80, 23);
 
         RemoveUser.setText("Usuń");
         RemoveUser.addActionListener(new java.awt.event.ActionListener() {
@@ -441,7 +457,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserManagmenAdmintPanel.add(RemoveUser);
-        RemoveUser.setBounds(180, 470, 90, 30);
+        RemoveUser.setBounds(180, 500, 80, 23);
 
         Back.setText("Wstecz");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -450,7 +466,18 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserManagmenAdmintPanel.add(Back);
-        Back.setBounds(110, 560, 67, 23);
+        Back.setBounds(110, 560, 80, 23);
+
+        jButton1.setText("Moje konto");
+        jButton1.setMaximumSize(new java.awt.Dimension(85, 23));
+        jButton1.setMinimumSize(new java.awt.Dimension(85, 23));
+        jButton1.setPreferredSize(new java.awt.Dimension(85, 23));
+        UserManagmenAdmintPanel.add(jButton1);
+        jButton1.setBounds(510, 40, 90, 23);
+
+        jButton2.setText("Wyloguj");
+        UserManagmenAdmintPanel.add(jButton2);
+        jButton2.setBounds(600, 40, 80, 23);
 
         FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
         FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
@@ -461,16 +488,19 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserManagmenAdmintPanel.add(FindLoginTextField);
-        FindLoginTextField.setBounds(180, 280, 142, 23);
+        FindLoginTextField.setBounds(180, 310, 142, 23);
 
         FindUser.setText("Szukaj");
+        FindUser.setMaximumSize(new java.awt.Dimension(67, 23));
+        FindUser.setMinimumSize(new java.awt.Dimension(67, 23));
+        FindUser.setPreferredSize(new java.awt.Dimension(67, 23));
         FindUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FindUserActionPerformed(evt);
             }
         });
         UserManagmenAdmintPanel.add(FindUser);
-        FindUser.setBounds(320, 280, 70, 23);
+        FindUser.setBounds(320, 310, 80, 23);
         UserManagmenAdmintPanel.add(FindResultLabel);
         FindResultLabel.setBounds(180, 300, 140, 20);
 
@@ -482,17 +512,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserManagmenAdmintPanel.add(UserRadio);
-        UserRadio.setBounds(180, 333, 80, 30);
+        UserRadio.setBounds(180, 443, 80, 30);
 
         UserRoleChooseGroup.add(CashierRadio);
         CashierRadio.setText("Cashier");
         UserManagmenAdmintPanel.add(CashierRadio);
-        CashierRadio.setBounds(180, 373, 80, 30);
+        CashierRadio.setBounds(180, 403, 80, 30);
 
         UserRoleChooseGroup.add(AdminRadio);
         AdminRadio.setText("Admin");
         UserManagmenAdmintPanel.add(AdminRadio);
-        AdminRadio.setBounds(180, 413, 80, 30);
+        AdminRadio.setBounds(180, 363, 80, 30);
         UserManagmenAdmintPanel.add(UpdateResultLabel);
         UpdateResultLabel.setBounds(180, 510, 80, 20);
 
@@ -506,39 +536,154 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.setPreferredSize(new java.awt.Dimension(700, 700));
         UserMainPanel.setLayout(null);
 
-        UserMyAccountButton.setText("Moje Konto");
+        UserMyAccountButton.setText("Moje konto");
+        UserMyAccountButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        UserMyAccountButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        UserMyAccountButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMyAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserMyAccountButtonActionPerformed(evt);
             }
         });
         UserMainPanel.add(UserMyAccountButton);
-        UserMyAccountButton.setBounds(500, 10, 90, 23);
+        UserMyAccountButton.setBounds(480, 10, 100, 23);
 
         UserLogoutButton.setText("Wyloguj");
+        UserLogoutButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        UserLogoutButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        UserLogoutButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserLogoutButtonActionPerformed(evt);
             }
         });
         UserMainPanel.add(UserLogoutButton);
-        UserLogoutButton.setBounds(600, 10, 71, 23);
+        UserLogoutButton.setBounds(580, 10, 80, 23);
 
         ContactButton.setText("Kontakt");
+        ContactButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        ContactButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        ContactButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(ContactButton);
-        ContactButton.setBounds(10, 180, 140, 30);
+        ContactButton.setBounds(20, 130, 110, 23);
 
-        MyCardsButton.setText("Moje Karty");
+        MyCardsButton.setText("Moje karty");
+        MyCardsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        MyCardsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        MyCardsButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(MyCardsButton);
-        MyCardsButton.setBounds(10, 120, 140, 30);
+        MyCardsButton.setBounds(20, 70, 110, 23);
 
-        SlopeTrafficButton.setText("Natężenie Stoku");
+        SlopeTrafficButton.setText("Natężenie stoku");
+        SlopeTrafficButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(SlopeTrafficButton);
-        SlopeTrafficButton.setBounds(10, 150, 140, 30);
+        SlopeTrafficButton.setBounds(20, 100, 110, 23);
+
+        AvailablePointsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        AvailablePointsLabel.setText("Nieprzydzielone punkty:");
+        AvailablePointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        UserMainPanel.add(AvailablePointsLabel);
+        AvailablePointsLabel.setBounds(200, 150, 120, 14);
+
+        IDLabel.setForeground(new java.awt.Color(255, 255, 255));
+        IDLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDLabel.setText("ID");
+        IDLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        IDLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        IDLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        UserMainPanel.add(IDLabel);
+        IDLabel.setBounds(180, 190, 50, 14);
+
+        ActivationDateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ActivationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ActivationDateLabel.setText("Data aktywacji");
+        ActivationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        UserMainPanel.add(ActivationDateLabel);
+        ActivationDateLabel.setBounds(240, 190, 80, 14);
+
+        ExpirationDateLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ExpirationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExpirationDateLabel.setText("Data ważności");
+        ExpirationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        UserMainPanel.add(ExpirationDateLabel);
+        ExpirationDateLabel.setBounds(330, 190, 80, 14);
+
+        PointsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        PointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PointsLabel.setText("Punkty");
+        PointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        PointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        PointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        UserMainPanel.add(PointsLabel);
+        PointsLabel.setBounds(420, 190, 50, 14);
+
+        AvailablePointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        AvailablePointsTextField.setEnabled(false);
+        AvailablePointsTextField.setPreferredSize(new java.awt.Dimension(6, 20));
+        UserMainPanel.add(AvailablePointsTextField);
+        AvailablePointsTextField.setBounds(320, 150, 50, 20);
+
+        IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        IDTextField.setEnabled(false);
+        IDTextField.setPreferredSize(new java.awt.Dimension(6, 20));
+        UserMainPanel.add(IDTextField);
+        IDTextField.setBounds(180, 210, 50, 20);
+
+        ActivationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ActivationDateTextField.setEnabled(false);
+        ActivationDateTextField.setPreferredSize(new java.awt.Dimension(6, 20));
+        UserMainPanel.add(ActivationDateTextField);
+        ActivationDateTextField.setBounds(240, 210, 80, 20);
+
+        ExpirationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ExpirationDateTextField.setEnabled(false);
+        ExpirationDateTextField.setPreferredSize(new java.awt.Dimension(6, 20));
+        UserMainPanel.add(ExpirationDateTextField);
+        ExpirationDateTextField.setBounds(330, 210, 80, 20);
+
+        PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        UserMainPanel.add(PointsTextField);
+        PointsTextField.setBounds(420, 210, 50, 20);
+
+        AddPointsButton.setText("+");
+        AddPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMainPanel.add(AddPointsButton);
+        AddPointsButton.setBounds(470, 210, 40, 20);
+
+        SubtractPointsButton.setText("-");
+        SubtractPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        SubtractPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        SubtractPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMainPanel.add(SubtractPointsButton);
+        SubtractPointsButton.setBounds(510, 210, 40, 20);
+
+        AddCardButton.setText("Dodaj kartę");
+        AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMainPanel.add(AddCardButton);
+        AddCardButton.setBounds(560, 150, 100, 23);
+
+        RemoveCardButton.setText("Usuń kartę");
+        RemoveCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMainPanel.add(RemoveCardButton);
+        RemoveCardButton.setBounds(560, 210, 100, 23);
 
         UserBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
         UserMainPanel.add(UserBackgroundLabel);
-        UserBackgroundLabel.setBounds(-10, -6, 700, 700);
+        UserBackgroundLabel.setBounds(0, 0, 700, 700);
 
         getContentPane().add(UserMainPanel, "UserMainPanel");
 
@@ -653,7 +798,7 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel.add(ContactButton2);
         ContactButton2.setBounds(10, 220, 140, 30);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myAccountPage.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
         MyAccountPanel.add(jLabel9);
         jLabel9.setBounds(0, 0, 700, 700);
@@ -747,7 +892,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
             if (controller.exist(FindLoginTextField.getText())) {
             controller.updateUser(FindLoginTextField.getText(), choosingRole);
@@ -758,7 +903,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UpdateUserActionPerformed
 
     private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             if (controller.removeUser(FindLoginTextField.getText())) {
                 UpdateResultLabel.setText("Removed");
             }else{
@@ -776,7 +921,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_FindLoginTextFieldActionPerformed
 
     private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
-            UserManagmanetAdminController controller = new UserManagmanetAdminController();
+            UserManagementAdminController controller = new UserManagementAdminController();
             
             if (controller.exist(FindLoginTextField.getText())) {
                 FindResultLabel.setText("User exists!");
@@ -899,11 +1044,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionInfoLabel;
+    private javax.swing.JLabel ActivationDateLabel;
+    private javax.swing.JTextField ActivationDateTextField;
+    private javax.swing.JButton AddCardButton;
+    private javax.swing.JButton AddPointsButton;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
     private javax.swing.JButton AdminMyAccountButton;
     private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JLabel AvailablePointsLabel;
+    private javax.swing.JTextField AvailablePointsTextField;
     private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
@@ -923,12 +1074,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton EditDetailsButton;
     private javax.swing.JLabel EditLoginLabel;
     private javax.swing.JLabel EditPasswordLabel;
+    private javax.swing.JLabel ExpirationDateLabel;
+    private javax.swing.JTextField ExpirationDateTextField;
     private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindUser;
     private javax.swing.JButton GatesButton;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JTextField IDEditTextfield;
+    private javax.swing.JLabel IDLabel;
+    private javax.swing.JTextField IDTextField;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginEditTextfield;
@@ -947,11 +1102,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
+    private javax.swing.JLabel PointsLabel;
+    private javax.swing.JTextField PointsTextField;
     private javax.swing.JButton PriceListButton;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel RegisterMessageLabel;
+    private javax.swing.JButton RemoveCardButton;
     private javax.swing.JButton RemoveUser;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SlopeButton;
@@ -960,6 +1118,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField Street;
     private javax.swing.JLabel StreetEditLabel;
     private javax.swing.JTextField StreetEditTextfield;
+    private javax.swing.JButton SubtractPointsButton;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel SurnameEditLabel;
     private javax.swing.JTextField SurnameEditTextfield;
@@ -976,6 +1135,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

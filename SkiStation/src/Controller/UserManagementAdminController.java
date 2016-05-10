@@ -20,11 +20,11 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Rafał
  */
-public class UserManagmanetAdminController {
+public class UserManagementAdminController {
     
     private Session s;
     
-    public UserManagmanetAdminController()
+    public UserManagementAdminController()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
