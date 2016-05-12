@@ -83,7 +83,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jLabel13 = new javax.swing.JLabel();
         ContactButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -190,7 +190,6 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel = new javax.swing.JPanel();
         UserMyAccountButton2 = new javax.swing.JButton();
         UserLogoutButton2 = new javax.swing.JButton();
-        MyAccountLabel = new javax.swing.JLabel();
         EditLoginLabel = new javax.swing.JLabel();
         EditPasswordLabel = new javax.swing.JLabel();
         LoginEditTextfield = new javax.swing.JTextField();
@@ -501,10 +500,10 @@ public class MainWindow extends javax.swing.JFrame {
         MainPanel.add(jButton3);
         jButton3.setBounds(620, 210, 70, 40);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -536,7 +535,7 @@ public class MainWindow extends javax.swing.JFrame {
         MainPanel.add(jButton4);
         jButton4.setBounds(510, 210, 100, 40);
 
-        UserBackgroundLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
+        UserBackgroundLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/universalBackground.jpg"))); // NOI18N
         MainPanel.add(UserBackgroundLabel1);
         UserBackgroundLabel1.setBounds(0, 0, 700, 700);
 
@@ -1002,10 +1001,13 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserManagmenAdmintPanel.add(FindUser);
         FindUser.setBounds(320, 310, 80, 23);
+
+        FindResultLabel.setForeground(new java.awt.Color(255, 255, 255));
         UserManagmenAdmintPanel.add(FindResultLabel);
-        FindResultLabel.setBounds(180, 300, 140, 20);
+        FindResultLabel.setBounds(180, 340, 140, 20);
 
         UserRoleChooseGroup.add(UserRadio);
+        UserRadio.setForeground(new java.awt.Color(255, 255, 255));
         UserRadio.setText("User");
         UserRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1016,11 +1018,13 @@ public class MainWindow extends javax.swing.JFrame {
         UserRadio.setBounds(180, 443, 80, 30);
 
         UserRoleChooseGroup.add(CashierRadio);
+        CashierRadio.setForeground(new java.awt.Color(255, 255, 255));
         CashierRadio.setText("Cashier");
         UserManagmenAdmintPanel.add(CashierRadio);
         CashierRadio.setBounds(180, 403, 80, 30);
 
         UserRoleChooseGroup.add(AdminRadio);
+        AdminRadio.setForeground(new java.awt.Color(255, 255, 255));
         AdminRadio.setText("Admin");
         UserManagmenAdmintPanel.add(AdminRadio);
         AdminRadio.setBounds(180, 363, 80, 30);
@@ -1066,21 +1070,21 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton.setMinimumSize(new java.awt.Dimension(67, 23));
         ContactButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(ContactButton);
-        ContactButton.setBounds(20, 130, 110, 23);
+        ContactButton.setBounds(20, 130, 125, 23);
 
         MyCardsButton.setText("Moje karty");
         MyCardsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         MyCardsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         MyCardsButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(MyCardsButton);
-        MyCardsButton.setBounds(20, 70, 110, 23);
+        MyCardsButton.setBounds(20, 70, 125, 23);
 
         SlopeTrafficButton.setText("Natężenie stoku");
         SlopeTrafficButton.setMaximumSize(new java.awt.Dimension(67, 23));
         SlopeTrafficButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SlopeTrafficButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(SlopeTrafficButton);
-        SlopeTrafficButton.setBounds(20, 100, 110, 23);
+        SlopeTrafficButton.setBounds(20, 100, 125, 23);
 
         AvailablePointsLabel.setForeground(new java.awt.Color(255, 255, 255));
         AvailablePointsLabel.setText("Nieprzydzielone punkty:");
@@ -1196,7 +1200,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(UserMyAccountButton2);
-        UserMyAccountButton2.setBounds(510, 40, 90, 23);
+        UserMyAccountButton2.setBounds(480, 10, 100, 23);
 
         UserLogoutButton2.setText("Wyloguj");
         UserLogoutButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1205,48 +1209,46 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(UserLogoutButton2);
-        UserLogoutButton2.setBounds(600, 40, 80, 23);
+        UserLogoutButton2.setBounds(580, 10, 80, 23);
 
-        MyAccountLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        MyAccountLabel.setText("Moje Konto");
-        MyAccountPanel.add(MyAccountLabel);
-        MyAccountLabel.setBounds(370, 160, 140, 30);
-
-        EditLoginLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        EditLoginLabel.setText("Login");
+        EditLoginLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EditLoginLabel.setText("Login:");
         MyAccountPanel.add(EditLoginLabel);
-        EditLoginLabel.setBounds(200, 240, 80, 30);
+        EditLoginLabel.setBounds(330, 200, 50, 14);
 
-        EditPasswordLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        EditPasswordLabel.setText("Hasło");
+        EditPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EditPasswordLabel.setText("Hasło:");
+        EditPasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        EditPasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        EditPasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
         MyAccountPanel.add(EditPasswordLabel);
-        EditPasswordLabel.setBounds(200, 270, 80, 30);
+        EditPasswordLabel.setBounds(330, 230, 50, 17);
         MyAccountPanel.add(LoginEditTextfield);
-        LoginEditTextfield.setBounds(300, 240, 180, 30);
+        LoginEditTextfield.setBounds(420, 190, 220, 30);
 
         PasswordEditTextfield.setEditable(false);
         PasswordEditTextfield.setText("*****");
         MyAccountPanel.add(PasswordEditTextfield);
-        PasswordEditTextfield.setBounds(300, 270, 180, 30);
+        PasswordEditTextfield.setBounds(420, 220, 220, 30);
         MyAccountPanel.add(NameEditTextfield);
-        NameEditTextfield.setBounds(300, 300, 180, 30);
+        NameEditTextfield.setBounds(420, 250, 220, 30);
         MyAccountPanel.add(SurnameEditTextfield);
-        SurnameEditTextfield.setBounds(300, 330, 180, 30);
+        SurnameEditTextfield.setBounds(420, 280, 220, 30);
 
-        NameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        NameEditLabel.setText("Imię");
+        NameEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        NameEditLabel.setText("Imię:");
         MyAccountPanel.add(NameEditLabel);
-        NameEditLabel.setBounds(200, 300, 80, 30);
+        NameEditLabel.setBounds(330, 260, 50, 14);
 
-        SurnameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SurnameEditLabel.setText("Nazwisko");
+        SurnameEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SurnameEditLabel.setText("Nazwisko:");
         MyAccountPanel.add(SurnameEditLabel);
-        SurnameEditLabel.setBounds(200, 330, 80, 30);
+        SurnameEditLabel.setBounds(330, 290, 80, 14);
 
-        IDEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        IDEditLabel.setText("ID");
+        IDEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        IDEditLabel.setText("ID:");
         MyAccountPanel.add(IDEditLabel);
-        IDEditLabel.setBounds(200, 210, 80, 30);
+        IDEditLabel.setBounds(330, 170, 50, 14);
 
         IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1254,28 +1256,28 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(IDEditTextfield);
-        IDEditTextfield.setBounds(300, 210, 180, 30);
+        IDEditTextfield.setBounds(420, 160, 220, 30);
         MyAccountPanel.add(StreetEditTextfield);
-        StreetEditTextfield.setBounds(300, 390, 180, 30);
+        StreetEditTextfield.setBounds(420, 340, 220, 30);
         MyAccountPanel.add(CityEditTextfield);
-        CityEditTextfield.setBounds(300, 420, 180, 30);
+        CityEditTextfield.setBounds(420, 370, 220, 30);
         MyAccountPanel.add(CountryEditTextfield);
-        CountryEditTextfield.setBounds(300, 450, 180, 30);
+        CountryEditTextfield.setBounds(420, 400, 220, 30);
 
-        StreetEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        StreetEditLabel.setText("Ulica");
+        StreetEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        StreetEditLabel.setText("Ulica:");
         MyAccountPanel.add(StreetEditLabel);
-        StreetEditLabel.setBounds(200, 390, 80, 30);
+        StreetEditLabel.setBounds(330, 350, 50, 14);
 
-        CityEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        CityEditLabel.setText("Miasto");
+        CityEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CityEditLabel.setText("Miasto:");
         MyAccountPanel.add(CityEditLabel);
-        CityEditLabel.setBounds(200, 420, 80, 30);
+        CityEditLabel.setBounds(330, 380, 50, 14);
 
-        CountryEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        CountryEditLabel.setText("Kraj");
+        CountryEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CountryEditLabel.setText("Kraj:");
         MyAccountPanel.add(CountryEditLabel);
-        CountryEditLabel.setBounds(200, 450, 80, 30);
+        CountryEditLabel.setBounds(330, 410, 50, 14);
 
         EditDetailsButton.setText("Edytuj Dane");
         EditDetailsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1284,7 +1286,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(EditDetailsButton);
-        EditDetailsButton.setBounds(300, 500, 180, 23);
+        EditDetailsButton.setBounds(420, 440, 220, 23);
 
         SaveDetailsButton.setText("Zapisz");
         SaveDetailsButton.setEnabled(false);
@@ -1294,29 +1296,29 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(SaveDetailsButton);
-        SaveDetailsButton.setBounds(400, 530, 80, 23);
+        SaveDetailsButton.setBounds(560, 470, 80, 23);
 
-        MyCardsButton2.setText("Moje Karty");
+        MyCardsButton2.setText("Moje karty");
         MyCardsButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MyCardsButton2ActionPerformed(evt);
             }
         });
         MyAccountPanel.add(MyCardsButton2);
-        MyCardsButton2.setBounds(10, 160, 140, 30);
+        MyCardsButton2.setBounds(20, 70, 125, 23);
 
-        SlopeTrafficButton2.setText("Natężenie Stoku");
+        SlopeTrafficButton2.setText("Natężenie stoku");
         MyAccountPanel.add(SlopeTrafficButton2);
-        SlopeTrafficButton2.setBounds(10, 190, 140, 30);
+        SlopeTrafficButton2.setBounds(20, 100, 125, 23);
 
         ContactButton2.setText("Kontakt");
         MyAccountPanel.add(ContactButton2);
-        ContactButton2.setBounds(10, 220, 140, 30);
+        ContactButton2.setBounds(20, 130, 125, 23);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Nr dokumentu");
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nr dokumentu:");
         MyAccountPanel.add(jLabel10);
-        jLabel10.setBounds(200, 360, 100, 30);
+        jLabel10.setBounds(330, 320, 90, 14);
 
         CancelButton.setText("Anuluj");
         CancelButton.setEnabled(false);
@@ -1326,13 +1328,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(CancelButton);
-        CancelButton.setBounds(300, 530, 73, 23);
+        CancelButton.setBounds(490, 470, 73, 23);
 
         EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MyAccountPanel.add(EditMessageLabel);
         EditMessageLabel.setBounds(300, 560, 180, 20);
         MyAccountPanel.add(DocumentEditTextfield);
-        DocumentEditTextfield.setBounds(300, 360, 180, 30);
+        DocumentEditTextfield.setBounds(420, 310, 220, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myAccountPage.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -1704,7 +1706,7 @@ public class MainWindow extends javax.swing.JFrame {
         //ClientAccountPanel
         
         //CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().get
+        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         
         if( SessionController.IsUserLogged() ){
             loginPaneLayout.show(getContentPane(), "ClientAccountPanel");
@@ -1858,7 +1860,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel MessageLabel;
-    private javax.swing.JLabel MyAccountLabel;
     private javax.swing.JLabel MyAccountLabel1;
     private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JButton MyCardsButton;
