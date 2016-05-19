@@ -1257,7 +1257,7 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel.add(DocumentEditTextfield);
         DocumentEditTextfield.setBounds(300, 360, 180, 30);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myAccountPage.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
         MyAccountPanel.add(jLabel9);
         jLabel9.setBounds(0, 0, 700, 700);
