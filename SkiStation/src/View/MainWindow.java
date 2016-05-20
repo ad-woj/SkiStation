@@ -214,6 +214,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         CancelButton = new javax.swing.JButton();
         EditMessageLabel = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         DocumentEditTextfield = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
@@ -935,7 +936,7 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.add(AdminMyAccountButton);
         AdminMyAccountButton.setBounds(510, 40, 90, 23);
 
-        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
+        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
         AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         AdminMainPanel.add(AdminBackgroundLabel);
         AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
@@ -1001,13 +1002,10 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserManagmenAdmintPanel.add(FindUser);
         FindUser.setBounds(320, 310, 80, 23);
-
-        FindResultLabel.setForeground(new java.awt.Color(255, 255, 255));
         UserManagmenAdmintPanel.add(FindResultLabel);
-        FindResultLabel.setBounds(180, 340, 140, 20);
+        FindResultLabel.setBounds(190, 330, 130, 20);
 
         UserRoleChooseGroup.add(UserRadio);
-        UserRadio.setForeground(new java.awt.Color(255, 255, 255));
         UserRadio.setText("User");
         UserRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1018,20 +1016,18 @@ public class MainWindow extends javax.swing.JFrame {
         UserRadio.setBounds(180, 443, 80, 30);
 
         UserRoleChooseGroup.add(CashierRadio);
-        CashierRadio.setForeground(new java.awt.Color(255, 255, 255));
         CashierRadio.setText("Cashier");
         UserManagmenAdmintPanel.add(CashierRadio);
         CashierRadio.setBounds(180, 403, 80, 30);
 
         UserRoleChooseGroup.add(AdminRadio);
-        AdminRadio.setForeground(new java.awt.Color(255, 255, 255));
         AdminRadio.setText("Admin");
         UserManagmenAdmintPanel.add(AdminRadio);
         AdminRadio.setBounds(180, 363, 80, 30);
         UserManagmenAdmintPanel.add(UpdateResultLabel);
-        UpdateResultLabel.setBounds(180, 510, 80, 20);
+        UpdateResultLabel.setBounds(190, 520, 80, 30);
 
-        UserManagePanelBackgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin.jpg"))); // NOI18N
+        UserManagePanelBackgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
         UserManagePanelBackgroud.setText("jLabel9");
         UserManagmenAdmintPanel.add(UserManagePanelBackgroud);
         UserManagePanelBackgroud.setBounds(0, 0, 700, 700);
@@ -1070,21 +1066,21 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton.setMinimumSize(new java.awt.Dimension(67, 23));
         ContactButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(ContactButton);
-        ContactButton.setBounds(20, 130, 125, 23);
+        ContactButton.setBounds(20, 220, 125, 30);
 
         MyCardsButton.setText("Moje karty");
         MyCardsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         MyCardsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         MyCardsButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(MyCardsButton);
-        MyCardsButton.setBounds(20, 70, 125, 23);
+        MyCardsButton.setBounds(20, 160, 125, 30);
 
         SlopeTrafficButton.setText("Natężenie stoku");
         SlopeTrafficButton.setMaximumSize(new java.awt.Dimension(67, 23));
         SlopeTrafficButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SlopeTrafficButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMainPanel.add(SlopeTrafficButton);
-        SlopeTrafficButton.setBounds(20, 100, 125, 23);
+        SlopeTrafficButton.setBounds(20, 190, 125, 30);
 
         AvailablePointsLabel.setForeground(new java.awt.Color(255, 255, 255));
         AvailablePointsLabel.setText("Nieprzydzielone punkty:");
@@ -1200,7 +1196,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(UserMyAccountButton2);
-        UserMyAccountButton2.setBounds(480, 10, 100, 23);
+        UserMyAccountButton2.setBounds(480, 20, 100, 23);
 
         UserLogoutButton2.setText("Wyloguj");
         UserLogoutButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1209,46 +1205,55 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(UserLogoutButton2);
-        UserLogoutButton2.setBounds(580, 10, 80, 23);
+        UserLogoutButton2.setBounds(580, 20, 80, 23);
 
-        EditLoginLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EditLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
+        EditLoginLabel.setForeground(new java.awt.Color(0, 51, 51));
         EditLoginLabel.setText("Login:");
         MyAccountPanel.add(EditLoginLabel);
-        EditLoginLabel.setBounds(330, 200, 50, 14);
+        EditLoginLabel.setBounds(230, 280, 50, 30);
 
-        EditPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         EditPasswordLabel.setText("Hasło:");
         EditPasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         EditPasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         EditPasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
         MyAccountPanel.add(EditPasswordLabel);
-        EditPasswordLabel.setBounds(330, 230, 50, 17);
+        EditPasswordLabel.setBounds(230, 310, 50, 30);
         MyAccountPanel.add(LoginEditTextfield);
-        LoginEditTextfield.setBounds(420, 190, 220, 30);
+        LoginEditTextfield.setBounds(320, 280, 230, 30);
 
         PasswordEditTextfield.setEditable(false);
         PasswordEditTextfield.setText("*****");
         MyAccountPanel.add(PasswordEditTextfield);
-        PasswordEditTextfield.setBounds(420, 220, 220, 30);
-        MyAccountPanel.add(NameEditTextfield);
-        NameEditTextfield.setBounds(420, 250, 220, 30);
-        MyAccountPanel.add(SurnameEditTextfield);
-        SurnameEditTextfield.setBounds(420, 280, 220, 30);
+        PasswordEditTextfield.setBounds(320, 310, 230, 30);
 
-        NameEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        NameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(NameEditTextfield);
+        NameEditTextfield.setBounds(320, 340, 230, 30);
+
+        SurnameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SurnameEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(SurnameEditTextfield);
+        SurnameEditTextfield.setBounds(320, 370, 230, 30);
+
         NameEditLabel.setText("Imię:");
         MyAccountPanel.add(NameEditLabel);
-        NameEditLabel.setBounds(330, 260, 50, 14);
+        NameEditLabel.setBounds(230, 340, 50, 30);
 
-        SurnameEditLabel.setForeground(new java.awt.Color(255, 255, 255));
         SurnameEditLabel.setText("Nazwisko:");
         MyAccountPanel.add(SurnameEditLabel);
-        SurnameEditLabel.setBounds(330, 290, 80, 14);
+        SurnameEditLabel.setBounds(230, 370, 60, 30);
 
-        IDEditLabel.setForeground(new java.awt.Color(255, 255, 255));
         IDEditLabel.setText("ID:");
         MyAccountPanel.add(IDEditLabel);
-        IDEditLabel.setBounds(330, 170, 50, 14);
+        IDEditLabel.setBounds(230, 250, 50, 30);
 
         IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1256,28 +1261,31 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(IDEditTextfield);
-        IDEditTextfield.setBounds(420, 160, 220, 30);
+        IDEditTextfield.setBounds(320, 250, 230, 30);
         MyAccountPanel.add(StreetEditTextfield);
-        StreetEditTextfield.setBounds(420, 340, 220, 30);
-        MyAccountPanel.add(CityEditTextfield);
-        CityEditTextfield.setBounds(420, 370, 220, 30);
-        MyAccountPanel.add(CountryEditTextfield);
-        CountryEditTextfield.setBounds(420, 400, 220, 30);
+        StreetEditTextfield.setBounds(320, 430, 230, 30);
 
-        StreetEditLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CityEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CityEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(CityEditTextfield);
+        CityEditTextfield.setBounds(320, 460, 230, 30);
+        MyAccountPanel.add(CountryEditTextfield);
+        CountryEditTextfield.setBounds(320, 490, 230, 30);
+
         StreetEditLabel.setText("Ulica:");
         MyAccountPanel.add(StreetEditLabel);
-        StreetEditLabel.setBounds(330, 350, 50, 14);
+        StreetEditLabel.setBounds(230, 430, 90, 30);
 
-        CityEditLabel.setForeground(new java.awt.Color(255, 255, 255));
         CityEditLabel.setText("Miasto:");
         MyAccountPanel.add(CityEditLabel);
-        CityEditLabel.setBounds(330, 380, 50, 14);
+        CityEditLabel.setBounds(230, 460, 90, 30);
 
-        CountryEditLabel.setForeground(new java.awt.Color(255, 255, 255));
         CountryEditLabel.setText("Kraj:");
         MyAccountPanel.add(CountryEditLabel);
-        CountryEditLabel.setBounds(330, 410, 50, 14);
+        CountryEditLabel.setBounds(230, 490, 90, 30);
 
         EditDetailsButton.setText("Edytuj Dane");
         EditDetailsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1286,7 +1294,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(EditDetailsButton);
-        EditDetailsButton.setBounds(420, 440, 220, 23);
+        EditDetailsButton.setBounds(330, 530, 210, 23);
 
         SaveDetailsButton.setText("Zapisz");
         SaveDetailsButton.setEnabled(false);
@@ -1296,7 +1304,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(SaveDetailsButton);
-        SaveDetailsButton.setBounds(560, 470, 80, 23);
+        SaveDetailsButton.setBounds(460, 560, 80, 23);
 
         MyCardsButton2.setText("Moje karty");
         MyCardsButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1305,20 +1313,19 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(MyCardsButton2);
-        MyCardsButton2.setBounds(20, 70, 125, 23);
+        MyCardsButton2.setBounds(20, 160, 125, 30);
 
         SlopeTrafficButton2.setText("Natężenie stoku");
         MyAccountPanel.add(SlopeTrafficButton2);
-        SlopeTrafficButton2.setBounds(20, 100, 125, 23);
+        SlopeTrafficButton2.setBounds(20, 190, 125, 30);
 
         ContactButton2.setText("Kontakt");
         MyAccountPanel.add(ContactButton2);
-        ContactButton2.setBounds(20, 130, 125, 23);
+        ContactButton2.setBounds(20, 220, 125, 30);
 
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nr dokumentu:");
         MyAccountPanel.add(jLabel10);
-        jLabel10.setBounds(330, 320, 90, 14);
+        jLabel10.setBounds(230, 400, 90, 30);
 
         CancelButton.setText("Anuluj");
         CancelButton.setEnabled(false);
@@ -1328,16 +1335,29 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(CancelButton);
-        CancelButton.setBounds(490, 470, 73, 23);
+        CancelButton.setBounds(380, 560, 80, 23);
 
         EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccountPanel.add(EditMessageLabel);
-        EditMessageLabel.setBounds(300, 560, 180, 20);
+        EditMessageLabel.setBounds(360, 590, 180, 20);
+
+        jLabel14.setFont(new java.awt.Font("DejaVu Serif", 0, 30)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Moje Konto");
+        MyAccountPanel.add(jLabel14);
+        jLabel14.setBounds(330, 180, 210, 40);
+
+        DocumentEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocumentEditTextfieldActionPerformed(evt);
+            }
+        });
         MyAccountPanel.add(DocumentEditTextfield);
-        DocumentEditTextfield.setBounds(420, 310, 220, 30);
+        DocumentEditTextfield.setBounds(320, 400, 230, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("Moje Konto");
         MyAccountPanel.add(jLabel9);
         jLabel9.setBounds(0, 0, 700, 700);
 
@@ -1732,6 +1752,22 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ClientAccount1ActionPerformed
 
+    private void DocumentEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DocumentEditTextfieldActionPerformed
+
+    private void SurnameEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SurnameEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SurnameEditTextfieldActionPerformed
+
+    private void NameEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameEditTextfieldActionPerformed
+
+    private void CityEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CityEditTextfieldActionPerformed
+
     private void ExitSession(){
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         PasswordTextField.setText("");
@@ -1935,6 +1971,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
