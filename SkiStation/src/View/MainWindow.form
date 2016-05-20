@@ -5,6 +5,9 @@
     <Component class="javax.swing.ButtonGroup" name="UserRoleChooseGroup">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="jScrollPane2" noResource="true"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -12,6 +15,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Component class="javax.swing.JEditorPane" name="jEditorPane1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="jEditorPane1" noResource="true"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -21,6 +27,7 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[700, 700]"/>
     </Property>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -29,7 +36,7 @@
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
-    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
@@ -43,6 +50,9 @@
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="Login">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="LoginPanel" noResource="true"/>
+      </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
@@ -59,7 +69,13 @@
         <Component class="javax.swing.JButton" name="LoginButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Zaloguj"/>
+            <Property name="name" type="java.lang.String" value="LoginPanel" noResource="true"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="MainPanel"/>
+            </Property>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginButtonActionPerformed"/>
           </Events>
@@ -70,6 +86,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="LoginTextField">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="LoginPanel" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTextFieldActionPerformed"/>
           </Events>
@@ -88,6 +107,7 @@
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="MessageLabel" noResource="true"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="MessageLabel"/>
@@ -99,6 +119,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JPasswordField" name="PasswordTextField">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="LoginPanel" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordTextFieldActionPerformed"/>
           </Events>
@@ -114,6 +137,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Has&#x142;o:"/>
+            <Property name="name" type="java.lang.String" value="PasswordLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -127,6 +151,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login:"/>
+            <Property name="name" type="java.lang.String" value="LoginLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -140,6 +165,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Za&#x142;&#xf3;&#x17c; konto"/>
+            <Property name="name" type="java.lang.String" value="CreateAccountLink" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CreateAccountLinkMouseClicked"/>
@@ -156,6 +182,7 @@
               <Image iconType="3" name="/Images/login.jpg"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="BackgroundImageLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -168,6 +195,7 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Trwa logowanie... [Tu b&#x119;dzie jaki&#x15b; obrazek przedstawiaj&#x105;cy kr&#x119;c&#x105;ce si&#x119; co&#x15b; albo status bar]"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="ActionInfoLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -178,6 +206,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="Register">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="RegisterPanel" noResource="true"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="register"/>
@@ -200,13 +231,14 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel8" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="270" width="50" height="-1"/>
+              <AbsoluteConstraints x="370" y="300" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -218,6 +250,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="RegisterMessageLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -226,6 +259,12 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="LoginTextField1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="RegisterPanel" noResource="true"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="LoginTextField1"/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTextField1ActionPerformed"/>
           </Events>
@@ -247,6 +286,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -258,12 +298,39 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JPasswordField" name="Password">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Password" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="450" y="80" width="220" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="RepeatPasswordLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Powt&#xf3;rz has&#x142;o:"/>
+            <Property name="name" type="java.lang.String" value="RepeatPasswordLabel" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="370" y="120" width="80" height="10"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="RepeatPassword">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="RepeatPassword" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="450" y="110" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -279,23 +346,27 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="120" width="50" height="-1"/>
+              <AbsoluteConstraints x="370" y="150" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="Name">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Name" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="110" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="140" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -311,23 +382,27 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="150" width="60" height="-1"/>
+              <AbsoluteConstraints x="370" y="180" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="Surname">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Surname" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SurnameActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="140" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="170" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -343,23 +418,27 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel4" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="180" width="90" height="-1"/>
+              <AbsoluteConstraints x="370" y="210" width="90" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="DocumentNumber">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="DocumentNumber" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentNumberActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="170" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="200" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -375,23 +454,30 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel5" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainWindow_jLabel5"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="210" width="50" height="-1"/>
+              <AbsoluteConstraints x="370" y="240" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="City">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="City" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CityActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="200" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="230" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -407,23 +493,30 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainWindow_jLabel6"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="240" width="60" height="-1"/>
+              <AbsoluteConstraints x="370" y="270" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="Country">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Country" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CountryActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="230" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="260" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -433,7 +526,11 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login:"/>
+            <Property name="name" type="java.lang.String" value="jLabel7" noResource="true"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainWindow_jLabel7"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="370" y="60" width="50" height="-1"/>
@@ -441,25 +538,29 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="Street">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Street" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StreetActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="450" y="260" width="220" height="30"/>
+              <AbsoluteConstraints x="450" y="290" width="220" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="BackButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Powr&#xf3;t"/>
+            <Property name="name" type="java.lang.String" value="BackButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackButtonActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="490" y="300" width="80" height="-1"/>
+              <AbsoluteConstraints x="490" y="330" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -472,6 +573,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="RegisterButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -481,7 +583,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="570" y="300" width="100" height="-1"/>
+              <AbsoluteConstraints x="570" y="330" width="100" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -491,6 +593,7 @@
               <Image iconType="3" name="/Images/register.jpg"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="RegisterBackgroundImage1" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -502,6 +605,7 @@
     </Container>
     <Container class="javax.swing.JPanel" name="CashierPanel">
       <Properties>
+        <Property name="name" type="java.lang.String" value="CashierPanel" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[700, 700]"/>
         </Property>
@@ -515,6 +619,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="MainPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="MainPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="MainPanel"/>
@@ -534,6 +641,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="UserLogoutButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -556,6 +664,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ContactButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -575,6 +684,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="SlopeTrafficButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -588,6 +698,7 @@
             <Component class="javax.swing.JButton" name="ClientModeButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tryb klienta"/>
+                <Property name="name" type="java.lang.String" value="ClientModeButton1" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClientModeButton1ActionPerformed"/>
@@ -601,6 +712,7 @@
             <Component class="javax.swing.JTextField" name="jTextField1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="szukaj klienta..."/>
+                <Property name="name" type="java.lang.String" value="jTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -611,6 +723,7 @@
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Anuluj"/>
+                <Property name="name" type="java.lang.String" value="jButton3" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -619,6 +732,9 @@
               </Constraints>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -641,6 +757,7 @@
                         <StringItem index="4" value="Item 5"/>
                       </StringArray>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="jList1" noResource="true"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -654,6 +771,7 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Wybrany u&#x17c;ytkownik: brak"/>
+                <Property name="name" type="java.lang.String" value="jLabel13" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -670,6 +788,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ContactButton3" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -683,6 +802,7 @@
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Szukaj"/>
+                <Property name="name" type="java.lang.String" value="jButton5" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -694,6 +814,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Zeskanowano pomy&#x15b;lnie!"/>
+                <Property name="name" type="java.lang.String" value="jTextField2" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -704,6 +825,7 @@
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Skanuj kart&#x119;"/>
+                <Property name="name" type="java.lang.String" value="jButton4" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -716,6 +838,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/universalBackground.jpg"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="UserBackgroundLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -726,6 +849,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="ClientCardsPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="ClientCardsPanel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="ClientCardsPanel"/>
@@ -745,6 +871,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="UserLogoutButton4" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -770,6 +897,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="AvailablePointsLabel1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
@@ -793,6 +921,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="IDLabel1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
@@ -816,6 +945,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ActivationDateLabel1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
@@ -839,6 +969,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ExpirationDateLabel1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
@@ -862,6 +993,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="PointsLabel1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[29, 14]"/>
                 </Property>
@@ -876,6 +1008,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="AvailablePointsTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -887,6 +1020,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="IDTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -898,6 +1032,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="ActivationDateTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -909,6 +1044,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="ExpirationDateTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -919,6 +1055,7 @@
             <Component class="javax.swing.JTextField" name="PointsTextField1">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="name" type="java.lang.String" value="PointsTextField1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -935,6 +1072,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="AddPointsButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -954,6 +1092,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="SubtractPointsButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -973,6 +1112,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="AddCardButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -992,6 +1132,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="RemoveCardButton1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1005,6 +1146,7 @@
             <Component class="javax.swing.JButton" name="CashierMenuButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Menu Kasjera"/>
+                <Property name="name" type="java.lang.String" value="CashierMenuButton1" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CashierMenuButton1ActionPerformed"/>
@@ -1025,6 +1167,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ClientCards" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1045,6 +1188,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ClientAccount" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1067,6 +1211,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="RemoveCardButton2" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1084,6 +1229,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Obs&#x142;uga klienta: Nick"/>
+                <Property name="name" type="java.lang.String" value="jTextField3" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1096,6 +1242,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/clientPage.jpg"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="UserBackgroundLabel3" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1128,6 +1275,7 @@
             <Component class="javax.swing.JButton" name="UserMyAccountButton3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tryb Kasjera"/>
+                <Property name="name" type="java.lang.String" value="UserMyAccountButton3" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserMyAccountButton3ActionPerformed"/>
@@ -1141,6 +1289,7 @@
             <Component class="javax.swing.JButton" name="UserLogoutButton3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Wyloguj"/>
+                <Property name="name" type="java.lang.String" value="UserLogoutButton3" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserLogoutButton3ActionPerformed"/>
@@ -1157,6 +1306,7 @@
                   <Font name="Tahoma" size="24" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Konto klienta"/>
+                <Property name="name" type="java.lang.String" value="MyAccountLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1170,6 +1320,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Login"/>
+                <Property name="name" type="java.lang.String" value="EditLoginLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1183,6 +1334,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Has&#x142;o"/>
+                <Property name="name" type="java.lang.String" value="EditPasswordLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1191,6 +1343,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="LoginEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="LoginEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="240" width="180" height="30"/>
@@ -1201,6 +1356,7 @@
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="*****"/>
+                <Property name="name" type="java.lang.String" value="PasswordEditTextfield1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1209,6 +1365,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="NameEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="NameEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="300" width="180" height="30"/>
@@ -1216,6 +1375,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="SurnameEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="SurnameEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="330" width="180" height="30"/>
@@ -1228,6 +1390,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Imi&#x119;"/>
+                <Property name="name" type="java.lang.String" value="NameEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1241,6 +1404,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nazwisko"/>
+                <Property name="name" type="java.lang.String" value="SurnameEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1254,6 +1418,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ID"/>
+                <Property name="name" type="java.lang.String" value="IDEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1262,6 +1427,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="IDEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="IDEditTextfield1" noResource="true"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDEditTextfield1ActionPerformed"/>
               </Events>
@@ -1272,6 +1440,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="StreetEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="StreetEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="390" width="180" height="30"/>
@@ -1279,6 +1450,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="CityEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="CityEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="420" width="180" height="30"/>
@@ -1286,6 +1460,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="CountryEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="CountryEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="450" width="180" height="30"/>
@@ -1298,6 +1475,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ulica"/>
+                <Property name="name" type="java.lang.String" value="StreetEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1311,6 +1489,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Miasto"/>
+                <Property name="name" type="java.lang.String" value="CityEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1324,6 +1503,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kraj"/>
+                <Property name="name" type="java.lang.String" value="CountryEditLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1334,6 +1514,7 @@
             <Component class="javax.swing.JButton" name="EditDetailsButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edytuj Dane"/>
+                <Property name="name" type="java.lang.String" value="EditDetailsButton1" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditDetailsButton1ActionPerformed"/>
@@ -1348,6 +1529,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Zapisz"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="SaveDetailsButton1" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveDetailsButton1ActionPerformed"/>
@@ -1364,6 +1546,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nr dokumentu"/>
+                <Property name="name" type="java.lang.String" value="jLabel11" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1375,6 +1558,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Anuluj"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="CancelButton1" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelButton1ActionPerformed"/>
@@ -1390,6 +1574,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="EditMessageLabel1" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1398,6 +1583,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="DocumentEditTextfield1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="DocumentEditTextfield1" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="300" y="360" width="180" height="30"/>
@@ -1414,6 +1602,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ClientCards1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1434,6 +1623,7 @@
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="ClientAccount1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[67, 23]"/>
                 </Property>
@@ -1454,6 +1644,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Obs&#x142;uga klienta: Nick"/>
+                <Property name="name" type="java.lang.String" value="jTextField4" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1467,6 +1658,7 @@
                   <Image iconType="3" name="/Images/myAccountPage.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel9"/>
+                <Property name="name" type="java.lang.String" value="jLabel12" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1479,6 +1671,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="AdminMainPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="AdminMainPanel" noResource="true"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="adminPanelMain"/>
@@ -1495,6 +1690,7 @@
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Stok"/>
+            <Property name="name" type="java.lang.String" value="SlopeButton" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1509,6 +1705,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cennik"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="PriceListButton" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1522,6 +1719,7 @@
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tryb kasjera"/>
+            <Property name="name" type="java.lang.String" value="CashierModeButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CashierModeButtonActionPerformed"/>
@@ -1538,6 +1736,7 @@
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bramki"/>
+            <Property name="name" type="java.lang.String" value="GatesButton" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1551,6 +1750,7 @@
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tryb klienta"/>
+            <Property name="name" type="java.lang.String" value="ClientModeButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClientModeButtonActionPerformed"/>
@@ -1567,6 +1767,7 @@
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="U&#x17c;ytkownicy"/>
+            <Property name="name" type="java.lang.String" value="UsersButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsersButtonActionPerformed"/>
@@ -1580,6 +1781,7 @@
         <Component class="javax.swing.JButton" name="AdminLogoutButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wyloguj"/>
+            <Property name="name" type="java.lang.String" value="AdminLogoutButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminLogoutButtonActionPerformed"/>
@@ -1593,6 +1795,7 @@
         <Component class="javax.swing.JButton" name="AdminMyAccountButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Moje konto"/>
+            <Property name="name" type="java.lang.String" value="AdminMyAccountButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminMyAccountButtonActionPerformed"/>
@@ -1609,6 +1812,7 @@
               <Image iconType="3" name="/Images/skibackgroundAdmin3.jpg"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="AdminBackgroundLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1619,6 +1823,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="UserManagmenAdmintPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="UserManagmenAdmintPanel" noResource="true"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="userManagmentAdminPanel"/>
@@ -1632,6 +1839,7 @@
         <Component class="javax.swing.JButton" name="UpdateUser">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aktualizuj"/>
+            <Property name="name" type="java.lang.String" value="UpdateUser" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateUserActionPerformed"/>
@@ -1645,6 +1853,7 @@
         <Component class="javax.swing.JButton" name="RemoveUser">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usu&#x144;"/>
+            <Property name="name" type="java.lang.String" value="RemoveUser" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveUserActionPerformed"/>
@@ -1658,6 +1867,7 @@
         <Component class="javax.swing.JButton" name="Back">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wstecz"/>
+            <Property name="name" type="java.lang.String" value="Back" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackActionPerformed"/>
@@ -1671,6 +1881,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Moje konto"/>
+            <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1681,6 +1892,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wyloguj"/>
+            <Property name="name" type="java.lang.String" value="jButton2" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1696,6 +1908,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[6, 22]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="FindLoginTextField" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[59, 22]"/>
             </Property>
@@ -1718,6 +1931,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="FindUser" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1732,6 +1946,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="FindResultLabel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="FindResultLabel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="190" y="330" width="130" height="20"/>
@@ -1744,6 +1961,7 @@
               <ComponentRef name="UserRoleChooseGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="User"/>
+            <Property name="name" type="java.lang.String" value="UserRadio" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserRadioActionPerformed"/>
@@ -1760,6 +1978,7 @@
               <ComponentRef name="UserRoleChooseGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cashier"/>
+            <Property name="name" type="java.lang.String" value="CashierRadio" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1773,6 +1992,7 @@
               <ComponentRef name="UserRoleChooseGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Admin"/>
+            <Property name="name" type="java.lang.String" value="AdminRadio" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1781,6 +2001,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="UpdateResultLabel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="UpdateResultLabel" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="190" y="520" width="80" height="30"/>
@@ -1793,6 +2016,7 @@
               <Image iconType="3" name="/Images/skibackgroundAdmin3.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel9"/>
+            <Property name="name" type="java.lang.String" value="UserManagePanelBackgroud" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1804,6 +2028,7 @@
     </Container>
     <Container class="javax.swing.JPanel" name="UserMainPanel">
       <Properties>
+        <Property name="name" type="java.lang.String" value="UserMainPanel" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[700, 700]"/>
         </Property>
@@ -1827,6 +2052,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="UserMyAccountButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1849,6 +2075,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="UserLogoutButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1871,6 +2098,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="ContactButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1890,6 +2118,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="MyCardsButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1909,6 +2138,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="SlopeTrafficButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -1931,6 +2161,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="AvailablePointsLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -1954,6 +2185,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="IDLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -1977,6 +2209,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="ActivationDateLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -2000,6 +2233,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="ExpirationDateLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -2023,6 +2257,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="PointsLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -2037,6 +2272,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="AvailablePointsTextField" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2048,6 +2284,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="IDTextField" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2059,6 +2296,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="ActivationDateTextField" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2070,6 +2308,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="ExpirationDateTextField" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2080,6 +2319,7 @@
         <Component class="javax.swing.JTextField" name="PointsTextField">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="PointsTextField" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2096,6 +2336,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="AddPointsButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -2115,6 +2356,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="SubtractPointsButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -2134,6 +2376,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="AddCardButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -2153,6 +2396,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="RemoveCardButton" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[67, 23]"/>
             </Property>
@@ -2168,6 +2412,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/clientPage.jpg"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="UserBackgroundLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2185,7 +2430,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[700, 700]"/>
         </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="MyAccountPanel" noResource="true"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -2203,6 +2448,7 @@
         <Component class="javax.swing.JButton" name="UserMyAccountButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Moje Konto"/>
+            <Property name="name" type="java.lang.String" value="UserMyAccountButton2" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserMyAccountButton2ActionPerformed"/>
@@ -2216,6 +2462,7 @@
         <Component class="javax.swing.JButton" name="UserLogoutButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wyloguj"/>
+            <Property name="name" type="java.lang.String" value="UserLogoutButton2" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserLogoutButton2ActionPerformed"/>
@@ -2235,6 +2482,7 @@
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login:"/>
+            <Property name="name" type="java.lang.String" value="EditLoginLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2251,6 +2499,7 @@
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="EditPasswordLabel" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 14]"/>
             </Property>
@@ -2262,6 +2511,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="LoginEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="LoginEditTextfield" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="320" y="280" width="230" height="30"/>
@@ -2272,6 +2524,7 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="*****"/>
+            <Property name="name" type="java.lang.String" value="PasswordEditTextfield" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2280,6 +2533,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="NameEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="NameEditTextfield" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameEditTextfieldActionPerformed"/>
           </Events>
@@ -2290,6 +2546,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="SurnameEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="SurnameEditTextfield" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SurnameEditTextfieldActionPerformed"/>
           </Events>
@@ -2302,6 +2561,7 @@
         <Component class="javax.swing.JLabel" name="NameEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Imi&#x119;:"/>
+            <Property name="name" type="java.lang.String" value="NameEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2312,6 +2572,7 @@
         <Component class="javax.swing.JLabel" name="SurnameEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nazwisko:"/>
+            <Property name="name" type="java.lang.String" value="SurnameEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2322,6 +2583,7 @@
         <Component class="javax.swing.JLabel" name="IDEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID:"/>
+            <Property name="name" type="java.lang.String" value="IDEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2330,6 +2592,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="IDEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="IDEditTextfield" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDEditTextfieldActionPerformed"/>
           </Events>
@@ -2340,6 +2605,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="StreetEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="StreetEditTextfield" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="320" y="430" width="230" height="30"/>
@@ -2347,6 +2615,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="CityEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="CityEditTextfield" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CityEditTextfieldActionPerformed"/>
           </Events>
@@ -2357,6 +2628,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="CountryEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="CountryEditTextfield" noResource="true"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="320" y="490" width="230" height="30"/>
@@ -2366,6 +2640,7 @@
         <Component class="javax.swing.JLabel" name="StreetEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ulica:"/>
+            <Property name="name" type="java.lang.String" value="StreetEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2376,6 +2651,7 @@
         <Component class="javax.swing.JLabel" name="CityEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Miasto:"/>
+            <Property name="name" type="java.lang.String" value="CityEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2386,6 +2662,7 @@
         <Component class="javax.swing.JLabel" name="CountryEditLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kraj:"/>
+            <Property name="name" type="java.lang.String" value="CountryEditLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2396,6 +2673,7 @@
         <Component class="javax.swing.JButton" name="EditDetailsButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edytuj Dane"/>
+            <Property name="name" type="java.lang.String" value="EditDetailsButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditDetailsButtonActionPerformed"/>
@@ -2410,6 +2688,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Zapisz"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="SaveDetailsButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveDetailsButtonActionPerformed"/>
@@ -2423,6 +2702,7 @@
         <Component class="javax.swing.JButton" name="MyCardsButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Moje karty"/>
+            <Property name="name" type="java.lang.String" value="MyCardsButton2" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MyCardsButton2ActionPerformed"/>
@@ -2436,6 +2716,7 @@
         <Component class="javax.swing.JButton" name="SlopeTrafficButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nat&#x119;&#x17c;enie stoku"/>
+            <Property name="name" type="java.lang.String" value="SlopeTrafficButton2" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2446,6 +2727,7 @@
         <Component class="javax.swing.JButton" name="ContactButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kontakt"/>
+            <Property name="name" type="java.lang.String" value="ContactButton2" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2456,6 +2738,7 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nr dokumentu:"/>
+            <Property name="name" type="java.lang.String" value="jLabel10" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2467,6 +2750,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Anuluj"/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="CancelButton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelButtonActionPerformed"/>
@@ -2483,6 +2767,7 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="name" type="java.lang.String" value="EditMessageLabel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2497,6 +2782,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Moje Konto"/>
+            <Property name="name" type="java.lang.String" value="jLabel14" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2505,6 +2791,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="DocumentEditTextfield">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="DocumentEditTextfield" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentEditTextfieldActionPerformed"/>
           </Events>
@@ -2520,6 +2809,7 @@
               <Image iconType="3" name="/Images/myacoount.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Moje Konto"/>
+            <Property name="name" type="java.lang.String" value="jLabel9" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
