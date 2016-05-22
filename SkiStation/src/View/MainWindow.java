@@ -8,11 +8,11 @@ package View;
 import Controller.*;
 import DBClasses.*;
 import java.awt.CardLayout;
+import java.awt.Container;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.KeyEvent;
-
 
 /**
  *
@@ -21,13 +21,14 @@ import java.awt.event.KeyEvent;
 public class MainWindow extends javax.swing.JFrame {
 
     private StringBuilder loginStatusMessage = new StringBuilder();
+
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
-        KeyboardEventHandler eventHandler = new KeyboardEventHandler( this );        
-        AddKeyEventHandling( eventHandler );
+        KeyboardEventHandler eventHandler = new KeyboardEventHandler(this);
+        AddKeyEventHandling(eventHandler);
     }
 
     /**
@@ -145,21 +146,18 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         AdminMainPanel = new javax.swing.JPanel();
-        SlopeButton = new javax.swing.JButton();
-        PriceListButton = new javax.swing.JButton();
-        CashierModeButton = new javax.swing.JButton();
-        GatesButton = new javax.swing.JButton();
-        ClientModeButton = new javax.swing.JButton();
+        AdminContainerPanel = new javax.swing.JPanel();
+        AdminMenuPanel = new javax.swing.JPanel();
         UsersButton = new javax.swing.JButton();
-        AdminLogoutButton = new javax.swing.JButton();
-        AdminMyAccountButton = new javax.swing.JButton();
-        AdminBackgroundLabel = new javax.swing.JLabel();
-        UserManagmenAdmintPanel = new javax.swing.JPanel();
+        PriceListButton = new javax.swing.JButton();
+        SlopeButton = new javax.swing.JButton();
+        GatesButton = new javax.swing.JButton();
+        CashierModeButton = new javax.swing.JButton();
+        ClientModeButton = new javax.swing.JButton();
+        UserManagmentAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         RemoveUser = new javax.swing.JButton();
-        Back = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        UserManagmentBack = new javax.swing.JButton();
         FindLoginTextField = new javax.swing.JTextField();
         FindUser = new javax.swing.JButton();
         FindResultLabel = new javax.swing.JLabel();
@@ -167,7 +165,15 @@ public class MainWindow extends javax.swing.JFrame {
         CashierRadio = new javax.swing.JRadioButton();
         AdminRadio = new javax.swing.JRadioButton();
         UpdateResultLabel = new javax.swing.JLabel();
-        UserManagePanelBackgroud = new javax.swing.JLabel();
+        PriceListManagmentAdmintPanel = new javax.swing.JPanel();
+        PriceListManagmentBack = new javax.swing.JButton();
+        SlopeManagementAdminPanel = new javax.swing.JPanel();
+        SlopeManagementBack = new javax.swing.JButton();
+        GatesManagementAdminPanel = new javax.swing.JPanel();
+        GatesManagementBack = new javax.swing.JButton();
+        AdminLogoutButton = new javax.swing.JButton();
+        AdminMyAccountButton = new javax.swing.JButton();
+        AdminBackgroundLabel = new javax.swing.JLabel();
         UserMainPanel = new javax.swing.JPanel();
         UserChangeModeToAdminButton = new javax.swing.JButton();
         UserMyAccountButton = new javax.swing.JButton();
@@ -1007,46 +1013,13 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.setName("AdminMainPanel"); // NOI18N
         AdminMainPanel.setLayout(null);
 
-        SlopeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        SlopeButton.setText("Stok");
-        SlopeButton.setName("SlopeButton"); // NOI18N
-        AdminMainPanel.add(SlopeButton);
-        SlopeButton.setBounds(180, 370, 160, 80);
+        AdminContainerPanel.setName("AdminContainerPanel"); // NOI18N
+        AdminContainerPanel.setOpaque(false);
+        AdminContainerPanel.setLayout(new java.awt.CardLayout());
 
-        PriceListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        PriceListButton.setText("Cennik");
-        PriceListButton.setToolTipText("");
-        PriceListButton.setName("PriceListButton"); // NOI18N
-        AdminMainPanel.add(PriceListButton);
-        PriceListButton.setBounds(350, 280, 160, 80);
-
-        CashierModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        CashierModeButton.setText("Tryb kasjera");
-        CashierModeButton.setName("CashierModeButton"); // NOI18N
-        CashierModeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CashierModeButtonActionPerformed(evt);
-            }
-        });
-        AdminMainPanel.add(CashierModeButton);
-        CashierModeButton.setBounds(180, 460, 160, 80);
-
-        GatesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        GatesButton.setText("Bramki");
-        GatesButton.setName("GatesButton"); // NOI18N
-        AdminMainPanel.add(GatesButton);
-        GatesButton.setBounds(350, 370, 160, 80);
-
-        ClientModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ClientModeButton.setText("Tryb klienta");
-        ClientModeButton.setName("ClientModeButton"); // NOI18N
-        ClientModeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientModeButtonActionPerformed(evt);
-            }
-        });
-        AdminMainPanel.add(ClientModeButton);
-        ClientModeButton.setBounds(350, 460, 160, 80);
+        AdminMenuPanel.setName("AdminMenuPanel"); // NOI18N
+        AdminMenuPanel.setOpaque(false);
+        AdminMenuPanel.setLayout(null);
 
         UsersButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         UsersButton.setText("Użytkownicy");
@@ -1056,8 +1029,209 @@ public class MainWindow extends javax.swing.JFrame {
                 UsersButtonActionPerformed(evt);
             }
         });
-        AdminMainPanel.add(UsersButton);
-        UsersButton.setBounds(180, 280, 160, 80);
+        AdminMenuPanel.add(UsersButton);
+        UsersButton.setBounds(90, 20, 160, 80);
+
+        PriceListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        PriceListButton.setText("Cennik");
+        PriceListButton.setToolTipText("");
+        PriceListButton.setName("PriceListButton"); // NOI18N
+        PriceListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PriceListButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(PriceListButton);
+        PriceListButton.setBounds(260, 20, 160, 80);
+
+        SlopeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SlopeButton.setText("Stok");
+        SlopeButton.setName("SlopeButton"); // NOI18N
+        SlopeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SlopeButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(SlopeButton);
+        SlopeButton.setBounds(90, 110, 160, 80);
+
+        GatesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        GatesButton.setText("Bramki");
+        GatesButton.setName("GatesButton"); // NOI18N
+        GatesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GatesButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(GatesButton);
+        GatesButton.setBounds(260, 110, 160, 80);
+
+        CashierModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CashierModeButton.setText("Tryb kasjera");
+        CashierModeButton.setName("CashierModeButton"); // NOI18N
+        CashierModeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CashierModeButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(CashierModeButton);
+        CashierModeButton.setBounds(90, 200, 160, 80);
+
+        ClientModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ClientModeButton.setText("Tryb klienta");
+        ClientModeButton.setName("ClientModeButton"); // NOI18N
+        ClientModeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientModeButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(ClientModeButton);
+        ClientModeButton.setBounds(260, 200, 160, 80);
+
+        AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
+
+        UserManagmentAdmintPanel.setName("UserManagmentAdmintPanel"); // NOI18N
+        UserManagmentAdmintPanel.setOpaque(false);
+        UserManagmentAdmintPanel.setLayout(null);
+
+        UpdateUser.setText("Aktualizuj");
+        UpdateUser.setName("UpdateUser"); // NOI18N
+        UpdateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateUserActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(UpdateUser);
+        UpdateUser.setBounds(170, 240, 79, 20);
+
+        RemoveUser.setText("Usuń");
+        RemoveUser.setName("RemoveUser"); // NOI18N
+        RemoveUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveUserActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(RemoveUser);
+        RemoveUser.setBounds(90, 240, 80, 20);
+
+        UserManagmentBack.setText("Wstecz");
+        UserManagmentBack.setName("UserManagmentBack"); // NOI18N
+        UserManagmentBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserManagmentBackActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(UserManagmentBack);
+        UserManagmentBack.setBounds(20, 300, 80, 20);
+
+        FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
+        FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
+        FindLoginTextField.setName("FindLoginTextField"); // NOI18N
+        FindLoginTextField.setPreferredSize(new java.awt.Dimension(59, 22));
+        FindLoginTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindLoginTextFieldActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(FindLoginTextField);
+        FindLoginTextField.setBounds(90, 50, 142, 23);
+
+        FindUser.setText("Szukaj");
+        FindUser.setMaximumSize(new java.awt.Dimension(67, 23));
+        FindUser.setMinimumSize(new java.awt.Dimension(67, 23));
+        FindUser.setName("FindUser"); // NOI18N
+        FindUser.setPreferredSize(new java.awt.Dimension(67, 23));
+        FindUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindUserActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(FindUser);
+        FindUser.setBounds(230, 50, 80, 23);
+
+        FindResultLabel.setName("FindResultLabel"); // NOI18N
+        UserManagmentAdmintPanel.add(FindResultLabel);
+        FindResultLabel.setBounds(100, 70, 130, 20);
+
+        UserRoleChooseGroup.add(UserRadio);
+        UserRadio.setText("User");
+        UserRadio.setName("UserRadio"); // NOI18N
+        UserRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserRadioActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(UserRadio);
+        UserRadio.setBounds(90, 180, 80, 30);
+
+        UserRoleChooseGroup.add(CashierRadio);
+        CashierRadio.setText("Cashier");
+        CashierRadio.setName("CashierRadio"); // NOI18N
+        UserManagmentAdmintPanel.add(CashierRadio);
+        CashierRadio.setBounds(90, 140, 80, 30);
+
+        UserRoleChooseGroup.add(AdminRadio);
+        AdminRadio.setText("Admin");
+        AdminRadio.setName("AdminRadio"); // NOI18N
+        UserManagmentAdmintPanel.add(AdminRadio);
+        AdminRadio.setBounds(90, 100, 80, 30);
+
+        UpdateResultLabel.setName("UpdateResultLabel"); // NOI18N
+        UserManagmentAdmintPanel.add(UpdateResultLabel);
+        UpdateResultLabel.setBounds(100, 260, 80, 30);
+
+        AdminContainerPanel.add(UserManagmentAdmintPanel, "userManagmentAdminPanel");
+
+        PriceListManagmentAdmintPanel.setName("PriceListManagmentAdmintPanel"); // NOI18N
+        PriceListManagmentAdmintPanel.setOpaque(false);
+        PriceListManagmentAdmintPanel.setLayout(null);
+
+        PriceListManagmentBack.setText("Wstecz");
+        PriceListManagmentBack.setName("PriceListManagmentBack"); // NOI18N
+        PriceListManagmentBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PriceListManagmentBackActionPerformed(evt);
+            }
+        });
+        PriceListManagmentAdmintPanel.add(PriceListManagmentBack);
+        PriceListManagmentBack.setBounds(20, 300, 80, 20);
+
+        AdminContainerPanel.add(PriceListManagmentAdmintPanel, "priceListManagmentAdminPanel");
+
+        SlopeManagementAdminPanel.setName("SlopeManagementAdminPanel"); // NOI18N
+        SlopeManagementAdminPanel.setOpaque(false);
+        SlopeManagementAdminPanel.setLayout(null);
+
+        SlopeManagementBack.setText("Wstecz");
+        SlopeManagementBack.setName("SlopeManagementBack"); // NOI18N
+        SlopeManagementBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SlopeManagementBackActionPerformed(evt);
+            }
+        });
+        SlopeManagementAdminPanel.add(SlopeManagementBack);
+        SlopeManagementBack.setBounds(20, 300, 80, 20);
+
+        AdminContainerPanel.add(SlopeManagementAdminPanel, "slopeManagmentAdminPanel");
+
+        GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
+        GatesManagementAdminPanel.setOpaque(false);
+        GatesManagementAdminPanel.setLayout(null);
+
+        GatesManagementBack.setText("Wstecz");
+        GatesManagementBack.setName("GatesManagementBack"); // NOI18N
+        GatesManagementBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GatesManagementBackActionPerformed(evt);
+            }
+        });
+        GatesManagementAdminPanel.add(GatesManagementBack);
+        GatesManagementBack.setBounds(20, 300, 80, 20);
+
+        AdminContainerPanel.add(GatesManagementAdminPanel, "gatesManagementAdminPanel");
+
+        AdminMainPanel.add(AdminContainerPanel);
+        AdminContainerPanel.setBounds(90, 260, 520, 330);
 
         AdminLogoutButton.setText("Wyloguj");
         AdminLogoutButton.setName("AdminLogoutButton"); // NOI18N
@@ -1086,113 +1260,6 @@ public class MainWindow extends javax.swing.JFrame {
         AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
 
         getContentPane().add(AdminMainPanel, "adminPanelMain");
-
-        UserManagmenAdmintPanel.setName("UserManagmenAdmintPanel"); // NOI18N
-        UserManagmenAdmintPanel.setLayout(null);
-
-        UpdateUser.setText("Aktualizuj");
-        UpdateUser.setName("UpdateUser"); // NOI18N
-        UpdateUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateUserActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(UpdateUser);
-        UpdateUser.setBounds(260, 500, 80, 23);
-
-        RemoveUser.setText("Usuń");
-        RemoveUser.setName("RemoveUser"); // NOI18N
-        RemoveUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveUserActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(RemoveUser);
-        RemoveUser.setBounds(180, 500, 80, 23);
-
-        Back.setText("Wstecz");
-        Back.setName("Back"); // NOI18N
-        Back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(Back);
-        Back.setBounds(110, 560, 80, 23);
-
-        jButton1.setText("Moje konto");
-        jButton1.setName("jButton1"); // NOI18N
-        UserManagmenAdmintPanel.add(jButton1);
-        jButton1.setBounds(510, 40, 90, 23);
-
-        jButton2.setText("Wyloguj");
-        jButton2.setName("jButton2"); // NOI18N
-        UserManagmenAdmintPanel.add(jButton2);
-        jButton2.setBounds(600, 40, 80, 23);
-
-        FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
-        FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
-        FindLoginTextField.setName("FindLoginTextField"); // NOI18N
-        FindLoginTextField.setPreferredSize(new java.awt.Dimension(59, 22));
-        FindLoginTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindLoginTextFieldActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(FindLoginTextField);
-        FindLoginTextField.setBounds(180, 310, 142, 23);
-
-        FindUser.setText("Szukaj");
-        FindUser.setMaximumSize(new java.awt.Dimension(67, 23));
-        FindUser.setMinimumSize(new java.awt.Dimension(67, 23));
-        FindUser.setName("FindUser"); // NOI18N
-        FindUser.setPreferredSize(new java.awt.Dimension(67, 23));
-        FindUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindUserActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(FindUser);
-        FindUser.setBounds(320, 310, 80, 23);
-
-        FindResultLabel.setName("FindResultLabel"); // NOI18N
-        UserManagmenAdmintPanel.add(FindResultLabel);
-        FindResultLabel.setBounds(190, 330, 130, 20);
-
-        UserRoleChooseGroup.add(UserRadio);
-        UserRadio.setText("User");
-        UserRadio.setName("UserRadio"); // NOI18N
-        UserRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserRadioActionPerformed(evt);
-            }
-        });
-        UserManagmenAdmintPanel.add(UserRadio);
-        UserRadio.setBounds(180, 443, 80, 30);
-
-        UserRoleChooseGroup.add(CashierRadio);
-        CashierRadio.setText("Cashier");
-        CashierRadio.setName("CashierRadio"); // NOI18N
-        UserManagmenAdmintPanel.add(CashierRadio);
-        CashierRadio.setBounds(180, 403, 80, 30);
-
-        UserRoleChooseGroup.add(AdminRadio);
-        AdminRadio.setText("Admin");
-        AdminRadio.setName("AdminRadio"); // NOI18N
-        UserManagmenAdmintPanel.add(AdminRadio);
-        AdminRadio.setBounds(180, 363, 80, 30);
-
-        UpdateResultLabel.setName("UpdateResultLabel"); // NOI18N
-        UserManagmenAdmintPanel.add(UpdateResultLabel);
-        UpdateResultLabel.setBounds(190, 520, 80, 30);
-
-        UserManagePanelBackgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
-        UserManagePanelBackgroud.setText("jLabel9");
-        UserManagePanelBackgroud.setName("UserManagePanelBackgroud"); // NOI18N
-        UserManagmenAdmintPanel.add(UserManagePanelBackgroud);
-        UserManagePanelBackgroud.setBounds(0, 0, 700, 700);
-
-        getContentPane().add(UserManagmenAdmintPanel, "userManagmentAdminPanel");
 
         UserMainPanel.setName("UserMainPanel"); // NOI18N
         UserMainPanel.setPreferredSize(new java.awt.Dimension(700, 700));
@@ -1593,6 +1660,20 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void changeCard(Container container, String targetContainerName, boolean checkSession) {
+        CardLayout adminContainerLayout = (CardLayout) container.getLayout();
+
+        if (checkSession) {
+            if (SessionController.IsUserLogged()) {
+                adminContainerLayout.show(container, targetContainerName);
+            } else {
+                ExitSession();
+            }
+        } else {
+            adminContainerLayout.show(container, targetContainerName);
+        }
+    }
+
     private void LoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LoginTextFieldActionPerformed
@@ -1631,30 +1712,29 @@ public class MainWindow extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         PerformLoginAction();
     }//GEN-LAST:event_LoginButtonActionPerformed
-    
-    public void PerformLoginAction(){
-        
+
+    public void PerformLoginAction() {
+
         StringBuilder viewPanel = new StringBuilder();
-        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), viewPanel, loginStatusMessage)){
+        if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), viewPanel, loginStatusMessage)) {
             MessageLabel.setText("");
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-            
-            if ( SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin ){ 
+
+            if (SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin) {
                 UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
             } else {
                 UserChangeModeToAdminButton.setVisible(false);
                 CashierChangeModeToAdminButton.setVisible(false);
             }
-            
+
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
-        } else
-        {
+        } else {
             MessageLabel.setText("Błędny login i/lub hasło");
             Password.setText("");
         }
     }
-    
+
     private void CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CityActionPerformed
@@ -1676,105 +1756,35 @@ public class MainWindow extends javax.swing.JFrame {
         loginPaneLayout.show(getContentPane(), "login");
         MessageLabel.setText("");
     }
-    
+
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         PerformRegisterAction();
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     public void PerformRegisterAction() {
-        
+
         RegistrationController regController = new RegistrationController();
         String errorMessage = "";
         Boolean isSuccess = false;
-        if( RepeatPassword.getText().compareTo( Password.getText() ) == 0 )
-        {
+        if (RepeatPassword.getText().compareTo(Password.getText()) == 0) {
             isSuccess = regController.register(Name.getText(), Surname.getText(), City.getText(), Country.getText(), Street.getText(), LoginTextField1.getText(), new String(Password.getPassword()), DocumentNumber.getText());
             if (isSuccess) {
                 MessageLabel.setText("");
                 CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
                 loginPaneLayout.show(getContentPane(), "login");
                 return;
-            }else {
+            } else {
                 LoginTextField1.setText("");
                 errorMessage = "Wybierz inny login";
             }
-        }
-        else
+        } else {
             errorMessage = "Błędnie powtórzone hasło";
-        
-        RegisterMessageLabel.setText( errorMessage );
+        }
+
+        RegisterMessageLabel.setText(errorMessage);
         Password.setText("");
         RepeatPassword.setText("");
     }
-    
-    private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-            return;
-        }
-        UserManagementAdminController controller = new UserManagementAdminController();
-        String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
-        if (controller.exist(FindLoginTextField.getText())) {
-            controller.updateUser(FindLoginTextField.getText(), choosingRole);
-            UpdateResultLabel.setText("Updated!");
-        }else{
-                UpdateResultLabel.setText("User does not exist!");
-        }
-    }//GEN-LAST:event_UpdateUserActionPerformed
-
-    private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-            return;
-        }    
-        UserManagementAdminController controller = new UserManagementAdminController();
-        if (controller.removeUser(FindLoginTextField.getText())) {
-            UpdateResultLabel.setText("Removed");
-        }else{
-            UpdateResultLabel.setText("User does not exist!");
-        }
-    }//GEN-LAST:event_RemoveUserActionPerformed
-
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-            return;
-        }
-        loginPaneLayout.show(getContentPane(), "adminPanelMain");
-    }//GEN-LAST:event_BackActionPerformed
-
-    private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-            return;
-        }
-    }//GEN-LAST:event_FindLoginTextFieldActionPerformed
-
-    private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-            return;
-        }    
-        UserManagementAdminController controller = new UserManagementAdminController();
-            
-            if (controller.exist(FindLoginTextField.getText())) {
-                FindResultLabel.setText("User exists!");
-                String roleName = controller.getUserRole(FindLoginTextField.getText());
-
-                if (roleName.equals("User")) {
-                   UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
-                }else if (roleName.equals(RegistrationController.UserTypes.Admin.toString())) {
-                   UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
-                }else if (roleName.equals(RegistrationController.UserTypes.Cashier.toString())) {
-                   UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
-                }
-            }else{
-                UserRoleChooseGroup.clearSelection();
-                FindResultLabel.setText("User does not exist!");
-            }
-            
-    }//GEN-LAST:event_FindUserActionPerformed
 
     private String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
@@ -1784,40 +1794,26 @@ public class MainWindow extends javax.swing.JFrame {
                 return button.getText();
             }
         }
-
         return null;
     }
-        
+
     private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if( SessionController.IsUserLogged() ){
-            loginPaneLayout.show(getContentPane(), "userManagmentAdminPanel");
-        }
-        else {
-            ExitSession();
-        }
+        changeCard(AdminContainerPanel, "userManagmentAdminPanel", true);
     }//GEN-LAST:event_UsersButtonActionPerformed
 
-    private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
-        if( !SessionController.IsUserLogged() ){
-            ExitSession();
-        }
-    }//GEN-LAST:event_UserRadioActionPerformed
-
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
-        MyCardsButton2ActionPerformed( evt );
+        MyCardsButton2ActionPerformed(evt);
     }//GEN-LAST:event_ClientModeButtonActionPerformed
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
         SessionController.ResetSession();
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        loginPaneLayout.show(getContentPane(), "login");
+        changeCard(getContentPane(), "login", false);
         PasswordTextField.setText((""));
         LoginTextField.setText("");
     }//GEN-LAST:event_AdminLogoutButtonActionPerformed
 
     private void UserLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButtonActionPerformed
-        AdminLogoutButtonActionPerformed( evt );
+        AdminLogoutButtonActionPerformed(evt);
     }//GEN-LAST:event_UserLogoutButtonActionPerformed
 
     private void UserLogoutButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton2ActionPerformed
@@ -1825,36 +1821,24 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UserLogoutButton2ActionPerformed
 
     private void UserMyAccountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButton2ActionPerformed
-        UserMyAccountButtonActionPerformed( evt );
+        UserMyAccountButtonActionPerformed(evt);
     }//GEN-LAST:event_UserMyAccountButton2ActionPerformed
 
     private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if( SessionController.IsUserLogged() ){
-            loginPaneLayout.show(getContentPane(), "UserMainPanel");
-        }
-        else {
-            ExitSession();
-        }
+        changeCard(getContentPane(), "UserMainPanel", true);
     }//GEN-LAST:event_MyCardsButton2ActionPerformed
 
     private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if( SessionController.IsUserLogged() ){
-            SetAccountInfo();
-            loginPaneLayout.show(getContentPane(), "myAccountPanel");
-        }
-        else {
-            ExitSession();
-        }
+        changeCard(getContentPane(), "myAccountPanel", true);
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
-    private void SetAccountInfo(){
+    private void SetAccountInfo() {
         Users user = MyAccountController.GetAccountDetails();
-        if( user == null )
+        if (user == null) {
             return;
+        }
         IDEditTextfield.setEnabled(true);
-        IDEditTextfield.setText(Integer.toString((user.getUserid())) );
+        IDEditTextfield.setText(Integer.toString((user.getUserid())));
         IDEditTextfield.setEnabled(false);
         LoginEditTextfield.setText(user.getLogin());
         LoginEditTextfield.setEditable(false);
@@ -1871,17 +1855,17 @@ public class MainWindow extends javax.swing.JFrame {
         DocumentEditTextfield.setText(user.getAddresses().getCountry());
         DocumentEditTextfield.setEditable(false);
     }
-    
+
     private void IDEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IDEditTextfieldActionPerformed
 
     private void SaveDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButtonActionPerformed
-        if( !SessionController.IsUserLogged() ){
+        if (!SessionController.IsUserLogged()) {
             ExitSession();
             return;
         }
-        EditMessageLabel.setText( MyAccountController.UpdateAccountDetails( GetDataFromTextfields()) );
+        EditMessageLabel.setText(MyAccountController.UpdateAccountDetails(GetDataFromTextfields()));
         PasswordEditTextfield.setEnabled(false);
         LoginEditTextfield.setEditable(false);
         NameEditTextfield.setEditable(false);
@@ -1894,7 +1878,7 @@ public class MainWindow extends javax.swing.JFrame {
         DocumentEditTextfield.setEnabled(false);
     }//GEN-LAST:event_SaveDetailsButtonActionPerformed
 
-    private Users GetDataFromTextfields(){
+    private Users GetDataFromTextfields() {
         Users user = new Users();
         Addresses address = new Addresses();
         user.setLogin(LoginEditTextfield.getText());
@@ -1909,7 +1893,7 @@ public class MainWindow extends javax.swing.JFrame {
         return user;
     }
     private void EditDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButtonActionPerformed
-        if( SessionController.IsUserLogged() ){
+        if (SessionController.IsUserLogged()) {
             LoginEditTextfield.setEditable(false);
             PasswordEditTextfield.setEditable(true);
             NameEditTextfield.setEditable(true);
@@ -1920,18 +1904,17 @@ public class MainWindow extends javax.swing.JFrame {
             SaveDetailsButton.setEnabled(true);
             CancelButton.setEnabled(true);
             DocumentEditTextfield.setEnabled(true);
-        }
-        else {
+        } else {
             ExitSession();
         }
     }//GEN-LAST:event_EditDetailsButtonActionPerformed
 
     private void AdminMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminMyAccountButtonActionPerformed
-        UserMyAccountButtonActionPerformed( evt );
+        UserMyAccountButtonActionPerformed(evt);
     }//GEN-LAST:event_AdminMyAccountButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        if( !SessionController.IsUserLogged() ){
+        if (!SessionController.IsUserLogged()) {
             ExitSession();
             return;
         }
@@ -1982,25 +1965,23 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void ClientAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientAccountActionPerformed
         //ClientAccountPanel
-        
+
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        
-        if( SessionController.IsUserLogged() ){
+
+        if (SessionController.IsUserLogged()) {
             loginPaneLayout.show(getContentPane(), "ClientAccountPanel");
             System.out.print("Pokazuje Client Account");
-        }
-        else {
+        } else {
             ExitSession();
         }
     }//GEN-LAST:event_ClientAccountActionPerformed
 
     private void CashierModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierModeButtonActionPerformed
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if( SessionController.IsUserLogged() ){
+        if (SessionController.IsUserLogged()) {
             loginPaneLayout.show(getContentPane(), "CashierPanel");
             System.out.print("Wyswietlam kasjera \n");
-        }
-        else {
+        } else {
             ExitSession();
         }
     }//GEN-LAST:event_CashierModeButtonActionPerformed
@@ -2027,8 +2008,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
         CardLayout userPaneLayout = (CardLayout) getContentPane().getLayout();
-        
-        if( SessionController.IsUserLogged() ){
+
+        if (SessionController.IsUserLogged()) {
             userPaneLayout.show(getContentPane(), "adminPanelMain");
         } else {
             ExitSession();
@@ -2037,20 +2018,114 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
         CardLayout cashierPaneLayout = (CardLayout) getContentPane().getLayout();
-        
-        if( SessionController.IsUserLogged() ){
+
+        if (SessionController.IsUserLogged()) {
             cashierPaneLayout.show(getContentPane(), "adminPanelMain");
         } else {
             ExitSession();
         }
     }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
-    private void ExitSession(){
+    private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+        UserManagementAdminController controller = new UserManagementAdminController();
+        String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
+        if (controller.exist(FindLoginTextField.getText())) {
+            controller.updateUser(FindLoginTextField.getText(), choosingRole);
+            UpdateResultLabel.setText("Updated!");
+        } else {
+            UpdateResultLabel.setText("User does not exist!");
+        }
+    }//GEN-LAST:event_UpdateUserActionPerformed
+
+    private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+        UserManagementAdminController controller = new UserManagementAdminController();
+        if (controller.removeUser(FindLoginTextField.getText())) {
+            UpdateResultLabel.setText("Removed");
+        } else {
+            UpdateResultLabel.setText("User does not exist!");
+        }
+    }//GEN-LAST:event_RemoveUserActionPerformed
+
+    private void UserManagmentBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserManagmentBackActionPerformed
+        changeCard(AdminContainerPanel, "adminMenuPanel", true);
+    }//GEN-LAST:event_UserManagmentBackActionPerformed
+
+    private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+    }//GEN-LAST:event_FindLoginTextFieldActionPerformed
+
+    private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+        UserManagementAdminController controller = new UserManagementAdminController();
+
+        if (controller.exist(FindLoginTextField.getText())) {
+            FindResultLabel.setText("User exists!");
+            String roleName = controller.getUserRole(FindLoginTextField.getText());
+
+            if (roleName.equals("User")) {
+                UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
+            } else if (roleName.equals(RegistrationController.UserTypes.Admin.toString())) {
+                UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
+            } else if (roleName.equals(RegistrationController.UserTypes.Cashier.toString())) {
+                UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
+            }
+        } else {
+            UserRoleChooseGroup.clearSelection();
+            FindResultLabel.setText("User does not exist!");
+        }
+    }//GEN-LAST:event_FindUserActionPerformed
+
+    private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+        }
+    }//GEN-LAST:event_UserRadioActionPerformed
+
+    private void PriceListManagmentBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListManagmentBackActionPerformed
+        changeCard(AdminContainerPanel, "adminMenuPanel", true);
+    }//GEN-LAST:event_PriceListManagmentBackActionPerformed
+
+    private void SlopeManagementBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeManagementBackActionPerformed
+        changeCard(AdminContainerPanel, "adminMenuPanel", true);
+    }//GEN-LAST:event_SlopeManagementBackActionPerformed
+
+    private void GatesManagementBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesManagementBackActionPerformed
+        changeCard(AdminContainerPanel, "adminMenuPanel", true);
+    }//GEN-LAST:event_GatesManagementBackActionPerformed
+
+    private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
+        changeCard(AdminContainerPanel, "priceListManagmentAdminPanel", true);
+    }//GEN-LAST:event_PriceListButtonActionPerformed
+
+    private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
+        changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+    }//GEN-LAST:event_SlopeButtonActionPerformed
+
+    private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
+        changeCard(AdminContainerPanel, "gatesManagementAdminPanel", true);
+    }//GEN-LAST:event_GatesButtonActionPerformed
+
+    private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         PasswordTextField.setText("");
         MessageLabel.setText("Sesja wygasła");
         loginPaneLayout.show(getContentPane(), "login");
     }
+
     /**
      * @param args the command line arguments
      */
@@ -2085,12 +2160,12 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void AddKeyEventHandling( KeyboardEventHandler h ){
-        LoginTextField.addKeyListener( h );
-        PasswordTextField.addKeyListener( h );
-        BackButton.addKeyListener( h );
-        RegisterButton.addKeyListener( h );
+
+    public void AddKeyEventHandling(KeyboardEventHandler h) {
+        LoginTextField.addKeyListener(h);
+        PasswordTextField.addKeyListener(h);
+        BackButton.addKeyListener(h);
+        RegisterButton.addKeyListener(h);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2104,15 +2179,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AddPointsButton;
     private javax.swing.JButton AddPointsButton1;
     private javax.swing.JLabel AdminBackgroundLabel;
+    private javax.swing.JPanel AdminContainerPanel;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
+    private javax.swing.JPanel AdminMenuPanel;
     private javax.swing.JButton AdminMyAccountButton;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JLabel AvailablePointsLabel;
     private javax.swing.JLabel AvailablePointsLabel1;
     private javax.swing.JTextField AvailablePointsTextField;
     private javax.swing.JTextField AvailablePointsTextField1;
-    private javax.swing.JButton Back;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton CancelButton;
@@ -2164,6 +2240,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindUser;
     private javax.swing.JButton GatesButton;
+    private javax.swing.JPanel GatesManagementAdminPanel;
+    private javax.swing.JButton GatesManagementBack;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel1;
     private javax.swing.JTextField IDEditTextfield;
@@ -2200,6 +2278,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField PointsTextField;
     private javax.swing.JTextField PointsTextField1;
     private javax.swing.JButton PriceListButton;
+    private javax.swing.JPanel PriceListManagmentAdmintPanel;
+    private javax.swing.JButton PriceListManagmentBack;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JButton RegisterButton;
@@ -2213,6 +2293,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
     private javax.swing.JButton SlopeButton;
+    private javax.swing.JPanel SlopeManagementAdminPanel;
+    private javax.swing.JButton SlopeManagementBack;
     private javax.swing.JButton SlopeTrafficButton;
     private javax.swing.JButton SlopeTrafficButton1;
     private javax.swing.JButton SlopeTrafficButton2;
@@ -2240,16 +2322,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton UserLogoutButton3;
     private javax.swing.JButton UserLogoutButton4;
     private javax.swing.JPanel UserMainPanel;
-    private javax.swing.JLabel UserManagePanelBackgroud;
-    private javax.swing.JPanel UserManagmenAdmintPanel;
+    private javax.swing.JPanel UserManagmentAdmintPanel;
+    private javax.swing.JButton UserManagmentBack;
     private javax.swing.JButton UserMyAccountButton;
     private javax.swing.JButton UserMyAccountButton2;
     private javax.swing.JButton UserMyAccountButton3;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
