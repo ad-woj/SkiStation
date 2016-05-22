@@ -171,6 +171,13 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeManagementBack = new javax.swing.JButton();
         GatesManagementAdminPanel = new javax.swing.JPanel();
         GatesManagementBack = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         AdminLogoutButton = new javax.swing.JButton();
         AdminMyAccountButton = new javax.swing.JButton();
         AdminBackgroundLabel = new javax.swing.JLabel();
@@ -1214,6 +1221,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminContainerPanel.add(SlopeManagementAdminPanel, "slopeManagmentAdminPanel");
 
+        GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
         GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.setLayout(null);
@@ -1226,7 +1234,57 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         GatesManagementAdminPanel.add(GatesManagementBack);
-        GatesManagementBack.setBounds(20, 300, 80, 20);
+        GatesManagementBack.setBounds(20, 290, 80, 30);
+
+        jScrollPane3.setName("jScrollPane3"); // NOI18N
+
+        jList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jList2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList2.setName("jList2"); // NOI18N
+        jScrollPane3.setViewportView(jList2);
+
+        GatesManagementAdminPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(30, 80, 220, 160);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton1.setIconTextGap(0);
+        jButton1.setName("jButton1"); // NOI18N
+        GatesManagementAdminPanel.add(jButton1);
+        jButton1.setBounds(210, 50, 39, 30);
+
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField5.setName("jTextField5"); // NOI18N
+        GatesManagementAdminPanel.add(jTextField5);
+        jTextField5.setBounds(30, 50, 183, 30);
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Edytuj");
+        jButton2.setBorder(null);
+        jButton2.setName("jButton2"); // NOI18N
+        GatesManagementAdminPanel.add(jButton2);
+        jButton2.setBounds(330, 90, 120, 30);
+
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Usuń");
+        jButton6.setName("jButton6"); // NOI18N
+        GatesManagementAdminPanel.add(jButton6);
+        jButton6.setBounds(330, 130, 120, 30);
+
+        jButton7.setBackground(new java.awt.Color(0, 0, 0));
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("Nowy Terminal");
+        jButton7.setName("jButton7"); // NOI18N
+        GatesManagementAdminPanel.add(jButton7);
+        jButton7.setBounds(330, 200, 120, 30);
 
         AdminContainerPanel.add(GatesManagementAdminPanel, "gatesManagementAdminPanel");
 
@@ -2330,9 +2388,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2349,11 +2411,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
