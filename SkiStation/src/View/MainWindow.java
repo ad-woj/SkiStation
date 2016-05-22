@@ -86,7 +86,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jLabel13 = new javax.swing.JLabel();
         ContactButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -157,7 +157,6 @@ public class MainWindow extends javax.swing.JFrame {
         UserManagmentAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         RemoveUser = new javax.swing.JButton();
-        UserManagmentBack = new javax.swing.JButton();
         FindLoginTextField = new javax.swing.JTextField();
         FindUser = new javax.swing.JButton();
         FindResultLabel = new javax.swing.JLabel();
@@ -166,42 +165,47 @@ public class MainWindow extends javax.swing.JFrame {
         AdminRadio = new javax.swing.JRadioButton();
         UpdateResultLabel = new javax.swing.JLabel();
         EditProductPanel = new javax.swing.JPanel();
-        EditProductBack = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        ActualizeProductButton = new javax.swing.JButton();
+        ActualizePriceTextField = new javax.swing.JTextField();
+        ActualizeProductNameText = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         AddProductPanel = new javax.swing.JPanel();
-        AddProductBack = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        AddProductButton = new javax.swing.JButton();
+        PriceTextField = new javax.swing.JTextField();
+        ProductNameTextField = new javax.swing.JTextField();
+        PriceLabel = new javax.swing.JLabel();
+        ProductNameLabel = new javax.swing.JLabel();
+        AddTerminalPanel = new javax.swing.JPanel();
+        TerminalNameTextField = new javax.swing.JTextField();
+        AttractionTypeTextField = new javax.swing.JTextField();
+        TerminalNameLabel = new javax.swing.JLabel();
+        AttractionTypeLabel = new javax.swing.JLabel();
+        LockTimeLabel = new javax.swing.JLabel();
+        LockTimeComboBox = new javax.swing.JComboBox();
+        AddTerminalButton = new javax.swing.JButton();
         PriceListManagmentAdmintPanel = new javax.swing.JPanel();
-        PriceListManagmentBack = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        SearchProductTextField = new javax.swing.JTextField();
+        FindProductButton = new javax.swing.JButton();
         EditProductButton = new javax.swing.JButton();
         RemoveProductButton = new javax.swing.JButton();
         NewProductButton = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        PriceListTable = new javax.swing.JTable();
         SlopeManagementAdminPanel = new javax.swing.JPanel();
-        SlopeManagementBack = new javax.swing.JButton();
         GatesManagementAdminPanel = new javax.swing.JPanel();
-        GatesManagementBack = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        FindTerminalButton = new javax.swing.JButton();
+        SearchTerminalTextField = new javax.swing.JTextField();
+        EditTerminalButton = new javax.swing.JButton();
+        DeleteTerminalButton = new javax.swing.JButton();
+        NewTerminalButton = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TerminalListTable = new javax.swing.JTable();
         AdminLogoutButton = new javax.swing.JButton();
-        AdminMyAccountButton = new javax.swing.JButton();
+        AdminViewTitleLabel = new javax.swing.JLabel();
+        AdminPanelBackButton = new javax.swing.JButton();
         AdminBackgroundLabel = new javax.swing.JLabel();
+        AdminMyAccountButton = new javax.swing.JButton();
         UserMainPanel = new javax.swing.JPanel();
         UserChangeModeToAdminButton = new javax.swing.JButton();
         UserMyAccountButton = new javax.swing.JButton();
@@ -604,10 +608,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jList1.setName("jList1"); // NOI18N
         jScrollPane1.setViewportView(jList1);
@@ -1058,7 +1062,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(UsersButton);
-        UsersButton.setBounds(90, 20, 160, 80);
+        UsersButton.setBounds(120, 20, 160, 80);
 
         PriceListButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         PriceListButton.setText("Cennik");
@@ -1070,7 +1074,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(PriceListButton);
-        PriceListButton.setBounds(260, 20, 160, 80);
+        PriceListButton.setBounds(290, 20, 160, 80);
 
         SlopeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         SlopeButton.setText("Stok");
@@ -1081,7 +1085,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(SlopeButton);
-        SlopeButton.setBounds(90, 110, 160, 80);
+        SlopeButton.setBounds(120, 110, 160, 80);
 
         GatesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         GatesButton.setText("Bramki");
@@ -1092,7 +1096,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(GatesButton);
-        GatesButton.setBounds(260, 110, 160, 80);
+        GatesButton.setBounds(290, 110, 160, 80);
 
         CashierModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CashierModeButton.setText("Tryb kasjera");
@@ -1103,7 +1107,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(CashierModeButton);
-        CashierModeButton.setBounds(90, 200, 160, 80);
+        CashierModeButton.setBounds(120, 200, 160, 80);
 
         ClientModeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ClientModeButton.setText("Tryb klienta");
@@ -1114,7 +1118,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AdminMenuPanel.add(ClientModeButton);
-        ClientModeButton.setBounds(260, 200, 160, 80);
+        ClientModeButton.setBounds(290, 200, 160, 80);
 
         AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
 
@@ -1141,16 +1145,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserManagmentAdmintPanel.add(RemoveUser);
         RemoveUser.setBounds(90, 240, 80, 20);
-
-        UserManagmentBack.setText("Wstecz");
-        UserManagmentBack.setName("UserManagmentBack"); // NOI18N
-        UserManagmentBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserManagmentBackActionPerformed(evt);
-            }
-        });
-        UserManagmentAdmintPanel.add(UserManagmentBack);
-        UserManagmentBack.setBounds(20, 300, 80, 20);
 
         FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
         FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
@@ -1214,39 +1208,31 @@ public class MainWindow extends javax.swing.JFrame {
         EditProductPanel.setOpaque(false);
         EditProductPanel.setLayout(null);
 
-        EditProductBack.setText("Wstecz");
-        EditProductBack.setName("EditProductBack"); // NOI18N
-        EditProductBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditProductBackActionPerformed(evt);
-            }
-        });
-        EditProductPanel.add(EditProductBack);
-        EditProductBack.setBounds(20, 300, 80, 20);
+        ActualizeProductButton.setBackground(new java.awt.Color(0, 0, 0));
+        ActualizeProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ActualizeProductButton.setForeground(new java.awt.Color(255, 255, 255));
+        ActualizeProductButton.setText("Aktualizuj");
+        ActualizeProductButton.setName("ActualizeProductButton"); // NOI18N
+        EditProductPanel.add(ActualizeProductButton);
+        ActualizeProductButton.setBounds(160, 180, 120, 30);
 
-        jButton20.setBackground(new java.awt.Color(0, 0, 0));
-        jButton20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jButton20.setText("Aktualizuj");
-        jButton20.setName("jButton20"); // NOI18N
-        EditProductPanel.add(jButton20);
-        jButton20.setBounds(160, 180, 120, 30);
+        ActualizePriceTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ActualizePriceTextField.setName("ActualizePriceTextField"); // NOI18N
+        EditProductPanel.add(ActualizePriceTextField);
+        ActualizePriceTextField.setBounds(30, 130, 250, 30);
 
-        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField10.setName("jTextField10"); // NOI18N
-        EditProductPanel.add(jTextField10);
-        jTextField10.setBounds(30, 130, 250, 30);
+        ActualizeProductNameText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ActualizeProductNameText.setName("ActualizeProductNameText"); // NOI18N
+        EditProductPanel.add(ActualizeProductNameText);
+        ActualizeProductNameText.setBounds(30, 70, 250, 30);
 
-        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField11.setName("jTextField11"); // NOI18N
-        EditProductPanel.add(jTextField11);
-        jTextField11.setBounds(30, 70, 250, 30);
-
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setText("Cena");
         jLabel17.setName("jLabel17"); // NOI18N
         EditProductPanel.add(jLabel17);
         jLabel17.setBounds(30, 110, 110, 14);
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setText("Nazwa");
         jLabel18.setName("jLabel18"); // NOI18N
         EditProductPanel.add(jLabel18);
@@ -1259,70 +1245,105 @@ public class MainWindow extends javax.swing.JFrame {
         AddProductPanel.setOpaque(false);
         AddProductPanel.setLayout(null);
 
-        AddProductBack.setText("Wstecz");
-        AddProductBack.setName("AddProductBack"); // NOI18N
-        AddProductBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddProductBackActionPerformed(evt);
-            }
-        });
-        AddProductPanel.add(AddProductBack);
-        AddProductBack.setBounds(20, 300, 80, 20);
+        AddProductButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddProductButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddProductButton.setText("Dodaj");
+        AddProductButton.setName("AddProductButton"); // NOI18N
+        AddProductPanel.add(AddProductButton);
+        AddProductButton.setBounds(160, 180, 120, 30);
 
-        jButton15.setBackground(new java.awt.Color(0, 0, 0));
-        jButton15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(255, 255, 255));
-        jButton15.setText("Dodaj");
-        jButton15.setName("jButton15"); // NOI18N
-        AddProductPanel.add(jButton15);
-        jButton15.setBounds(160, 180, 120, 30);
+        PriceTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PriceTextField.setName("PriceTextField"); // NOI18N
+        AddProductPanel.add(PriceTextField);
+        PriceTextField.setBounds(30, 130, 250, 30);
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField7.setName("jTextField7"); // NOI18N
-        AddProductPanel.add(jTextField7);
-        jTextField7.setBounds(30, 130, 250, 30);
+        ProductNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProductNameTextField.setName("ProductNameTextField"); // NOI18N
+        AddProductPanel.add(ProductNameTextField);
+        ProductNameTextField.setBounds(30, 70, 250, 30);
 
-        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField9.setName("jTextField9"); // NOI18N
-        AddProductPanel.add(jTextField9);
-        jTextField9.setBounds(30, 70, 250, 30);
+        PriceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PriceLabel.setText("Cena");
+        PriceLabel.setName("PriceLabel"); // NOI18N
+        AddProductPanel.add(PriceLabel);
+        PriceLabel.setBounds(30, 110, 130, 14);
 
-        jLabel15.setText("Cena");
-        jLabel15.setName("jLabel15"); // NOI18N
-        AddProductPanel.add(jLabel15);
-        jLabel15.setBounds(30, 110, 130, 14);
-
-        jLabel16.setText("Nazwa");
-        jLabel16.setName("jLabel16"); // NOI18N
-        AddProductPanel.add(jLabel16);
-        jLabel16.setBounds(30, 50, 190, 14);
+        ProductNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ProductNameLabel.setText("Nazwa");
+        ProductNameLabel.setName("ProductNameLabel"); // NOI18N
+        AddProductPanel.add(ProductNameLabel);
+        ProductNameLabel.setBounds(30, 50, 190, 14);
 
         AdminContainerPanel.add(AddProductPanel, "addProductAdminPanel");
+
+        AddTerminalPanel.setName("AddTerminalPanel"); // NOI18N
+        AddTerminalPanel.setOpaque(false);
+        AddTerminalPanel.setLayout(null);
+
+        TerminalNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TerminalNameTextField.setName("TerminalNameTextField"); // NOI18N
+        AddTerminalPanel.add(TerminalNameTextField);
+        TerminalNameTextField.setBounds(30, 60, 240, 30);
+
+        AttractionTypeTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AttractionTypeTextField.setName("AttractionTypeTextField"); // NOI18N
+        AttractionTypeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttractionTypeTextFieldActionPerformed(evt);
+            }
+        });
+        AddTerminalPanel.add(AttractionTypeTextField);
+        AttractionTypeTextField.setBounds(30, 120, 240, 30);
+
+        TerminalNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TerminalNameLabel.setText("Nazwa");
+        TerminalNameLabel.setName("TerminalNameLabel"); // NOI18N
+        AddTerminalPanel.add(TerminalNameLabel);
+        TerminalNameLabel.setBounds(30, 40, 70, 14);
+
+        AttractionTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AttractionTypeLabel.setText("Typ Atrakcji");
+        AttractionTypeLabel.setName("AttractionTypeLabel"); // NOI18N
+        AddTerminalPanel.add(AttractionTypeLabel);
+        AttractionTypeLabel.setBounds(30, 100, 90, 14);
+
+        LockTimeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        LockTimeLabel.setText("Czas Blokady");
+        LockTimeLabel.setName("LockTimeLabel"); // NOI18N
+        AddTerminalPanel.add(LockTimeLabel);
+        LockTimeLabel.setBounds(30, 160, 80, 14);
+
+        LockTimeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
+        LockTimeComboBox.setName("LockTimeComboBox"); // NOI18N
+        AddTerminalPanel.add(LockTimeComboBox);
+        LockTimeComboBox.setBounds(30, 180, 60, 30);
+
+        AddTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddTerminalButton.setText("Dodaj");
+        AddTerminalButton.setName("AddTerminalButton"); // NOI18N
+        AddTerminalPanel.add(AddTerminalButton);
+        AddTerminalButton.setBounds(160, 230, 110, 30);
+
+        AdminContainerPanel.add(AddTerminalPanel, "addTerminalPanel");
+        AddTerminalPanel.getAccessibleContext().setAccessibleName("addTerminalPanel");
 
         PriceListManagmentAdmintPanel.setName("PriceListManagmentAdmintPanel"); // NOI18N
         PriceListManagmentAdmintPanel.setOpaque(false);
         PriceListManagmentAdmintPanel.setLayout(null);
 
-        PriceListManagmentBack.setText("Wstecz");
-        PriceListManagmentBack.setName("PriceListManagmentBack"); // NOI18N
-        PriceListManagmentBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PriceListManagmentBackActionPerformed(evt);
-            }
-        });
-        PriceListManagmentAdmintPanel.add(PriceListManagmentBack);
-        PriceListManagmentBack.setBounds(20, 300, 80, 20);
+        SearchProductTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SearchProductTextField.setName("SearchProductTextField"); // NOI18N
+        PriceListManagmentAdmintPanel.add(SearchProductTextField);
+        SearchProductTextField.setBounds(30, 20, 380, 30);
 
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField6.setName("jTextField6"); // NOI18N
-        PriceListManagmentAdmintPanel.add(jTextField6);
-        jTextField6.setBounds(30, 50, 250, 30);
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
-        jButton8.setIconTextGap(0);
-        jButton8.setName("jButton8"); // NOI18N
-        PriceListManagmentAdmintPanel.add(jButton8);
-        jButton8.setBounds(280, 50, 39, 30);
+        FindProductButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        FindProductButton.setIconTextGap(0);
+        FindProductButton.setName("FindProductButton"); // NOI18N
+        PriceListManagmentAdmintPanel.add(FindProductButton);
+        FindProductButton.setBounds(410, 20, 40, 30);
 
         EditProductButton.setBackground(new java.awt.Color(0, 0, 0));
         EditProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1336,7 +1357,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         PriceListManagmentAdmintPanel.add(EditProductButton);
-        EditProductButton.setBounds(390, 90, 120, 30);
+        EditProductButton.setBounds(470, 50, 120, 30);
 
         RemoveProductButton.setBackground(new java.awt.Color(0, 0, 0));
         RemoveProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1344,13 +1365,12 @@ public class MainWindow extends javax.swing.JFrame {
         RemoveProductButton.setText("Usuń");
         RemoveProductButton.setName("RemoveProductButton"); // NOI18N
         PriceListManagmentAdmintPanel.add(RemoveProductButton);
-        RemoveProductButton.setBounds(390, 130, 120, 30);
+        RemoveProductButton.setBounds(470, 90, 120, 30);
 
         NewProductButton.setBackground(new java.awt.Color(0, 0, 0));
         NewProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         NewProductButton.setForeground(new java.awt.Color(255, 255, 255));
         NewProductButton.setText("Nowy Produkt");
-        NewProductButton.setActionCommand("Nowy Produkt");
         NewProductButton.setName("NewProductButton"); // NOI18N
         NewProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1358,54 +1378,52 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         PriceListManagmentAdmintPanel.add(NewProductButton);
-        NewProductButton.setBounds(390, 200, 120, 30);
-        NewProductButton.getAccessibleContext().setAccessibleName("Nowy Produkt");
+        NewProductButton.setBounds(470, 280, 120, 30);
 
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane5.setName("jScrollPane5"); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        PriceListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2"
+                "ID Produktu", "Terminal", "Punkty", "Ważny od", "Ważny do"
             }
-        ));
-        jTable1.setName("jTable1"); // NOI18N
-        jScrollPane5.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        PriceListTable.setName("PriceListTable"); // NOI18N
+        jScrollPane5.setViewportView(PriceListTable);
 
         PriceListManagmentAdmintPanel.add(jScrollPane5);
-        jScrollPane5.setBounds(30, 80, 290, 170);
+        jScrollPane5.setBounds(30, 50, 420, 260);
 
         AdminContainerPanel.add(PriceListManagmentAdmintPanel, "priceListManagmentAdminPanel");
 
         SlopeManagementAdminPanel.setName("SlopeManagementAdminPanel"); // NOI18N
         SlopeManagementAdminPanel.setOpaque(false);
         SlopeManagementAdminPanel.setLayout(null);
-
-        SlopeManagementBack.setText("Wstecz");
-        SlopeManagementBack.setName("SlopeManagementBack"); // NOI18N
-        SlopeManagementBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SlopeManagementBackActionPerformed(evt);
-            }
-        });
-        SlopeManagementAdminPanel.add(SlopeManagementBack);
-        SlopeManagementBack.setBounds(20, 300, 80, 20);
-
         AdminContainerPanel.add(SlopeManagementAdminPanel, "slopeManagmentAdminPanel");
 
         GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -1413,70 +1431,100 @@ public class MainWindow extends javax.swing.JFrame {
         GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.setLayout(null);
 
-        GatesManagementBack.setText("Wstecz");
-        GatesManagementBack.setName("GatesManagementBack"); // NOI18N
-        GatesManagementBack.addActionListener(new java.awt.event.ActionListener() {
+        FindTerminalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        FindTerminalButton.setIconTextGap(0);
+        FindTerminalButton.setName("FindTerminalButton"); // NOI18N
+        GatesManagementAdminPanel.add(FindTerminalButton);
+        FindTerminalButton.setBounds(410, 20, 39, 30);
+
+        SearchTerminalTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SearchTerminalTextField.setName("SearchTerminalTextField"); // NOI18N
+        GatesManagementAdminPanel.add(SearchTerminalTextField);
+        SearchTerminalTextField.setBounds(30, 20, 380, 30);
+
+        EditTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
+        EditTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        EditTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
+        EditTerminalButton.setText("Edytuj");
+        EditTerminalButton.setBorder(null);
+        EditTerminalButton.setName("EditTerminalButton"); // NOI18N
+        EditTerminalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GatesManagementBackActionPerformed(evt);
+                EditTerminalButtonActionPerformed(evt);
             }
         });
-        GatesManagementAdminPanel.add(GatesManagementBack);
-        GatesManagementBack.setBounds(20, 290, 80, 30);
+        GatesManagementAdminPanel.add(EditTerminalButton);
+        EditTerminalButton.setBounds(470, 50, 120, 30);
 
-        jScrollPane3.setName("jScrollPane3"); // NOI18N
-
-        jList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        DeleteTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
+        DeleteTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        DeleteTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteTerminalButton.setText("Usuń");
+        DeleteTerminalButton.setName("DeleteTerminalButton"); // NOI18N
+        DeleteTerminalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteTerminalButtonActionPerformed(evt);
+            }
         });
-        jList2.setName("jList2"); // NOI18N
-        jScrollPane3.setViewportView(jList2);
+        GatesManagementAdminPanel.add(DeleteTerminalButton);
+        DeleteTerminalButton.setBounds(470, 90, 120, 30);
 
-        GatesManagementAdminPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(30, 80, 220, 160);
+        NewTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
+        NewTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        NewTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
+        NewTerminalButton.setText("Nowy Terminal");
+        NewTerminalButton.setName("NewTerminalButton"); // NOI18N
+        NewTerminalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewTerminalButtonActionPerformed(evt);
+            }
+        });
+        GatesManagementAdminPanel.add(NewTerminalButton);
+        NewTerminalButton.setBounds(470, 280, 120, 30);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
-        jButton1.setIconTextGap(0);
-        jButton1.setName("jButton1"); // NOI18N
-        GatesManagementAdminPanel.add(jButton1);
-        jButton1.setBounds(210, 50, 39, 30);
+        jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane6.setName("jScrollPane6"); // NOI18N
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField5.setName("jTextField5"); // NOI18N
-        GatesManagementAdminPanel.add(jTextField5);
-        jTextField5.setBounds(30, 50, 183, 30);
+        TerminalListTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Terminal ID", "Atrakcja", "Czas Blokady"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Edytuj");
-        jButton2.setBorder(null);
-        jButton2.setName("jButton2"); // NOI18N
-        GatesManagementAdminPanel.add(jButton2);
-        jButton2.setBounds(330, 90, 120, 30);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TerminalListTable.setName("TerminalListTable"); // NOI18N
+        jScrollPane6.setViewportView(TerminalListTable);
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Usuń");
-        jButton6.setName("jButton6"); // NOI18N
-        GatesManagementAdminPanel.add(jButton6);
-        jButton6.setBounds(330, 130, 120, 30);
-
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Nowy Terminal");
-        jButton7.setName("jButton7"); // NOI18N
-        GatesManagementAdminPanel.add(jButton7);
-        jButton7.setBounds(330, 200, 120, 30);
+        GatesManagementAdminPanel.add(jScrollPane6);
+        jScrollPane6.setBounds(30, 50, 420, 260);
 
         AdminContainerPanel.add(GatesManagementAdminPanel, "gatesManagementAdminPanel");
 
         AdminMainPanel.add(AdminContainerPanel);
-        AdminContainerPanel.setBounds(90, 260, 520, 330);
+        AdminContainerPanel.setBounds(50, 240, 600, 350);
 
         AdminLogoutButton.setText("Wyloguj");
         AdminLogoutButton.setName("AdminLogoutButton"); // NOI18N
@@ -1488,6 +1536,29 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.add(AdminLogoutButton);
         AdminLogoutButton.setBounds(600, 40, 80, 23);
 
+        AdminViewTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AdminViewTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AdminViewTitleLabel.setText("Tu będzie nazwa obecnego widoku");
+        AdminViewTitleLabel.setName("AdminViewTitleLabel"); // NOI18N
+        AdminMainPanel.add(AdminViewTitleLabel);
+        AdminViewTitleLabel.setBounds(90, 174, 500, 50);
+
+        AdminPanelBackButton.setText("Wstecz");
+        AdminPanelBackButton.setName("AdminPanelBackButton"); // NOI18N
+        AdminPanelBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminPanelBackButtonActionPerformed(evt);
+            }
+        });
+        AdminMainPanel.add(AdminPanelBackButton);
+        AdminPanelBackButton.setBounds(60, 590, 80, 30);
+
+        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
+        AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AdminBackgroundLabel.setName("AdminBackgroundLabel"); // NOI18N
+        AdminMainPanel.add(AdminBackgroundLabel);
+        AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
+
         AdminMyAccountButton.setText("Moje konto");
         AdminMyAccountButton.setName("AdminMyAccountButton"); // NOI18N
         AdminMyAccountButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1497,12 +1568,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         AdminMainPanel.add(AdminMyAccountButton);
         AdminMyAccountButton.setBounds(510, 40, 90, 23);
-
-        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
-        AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        AdminBackgroundLabel.setName("AdminBackgroundLabel"); // NOI18N
-        AdminMainPanel.add(AdminBackgroundLabel);
-        AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
 
         getContentPane().add(AdminMainPanel, "adminPanelMain");
 
@@ -2299,10 +2364,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RemoveUserActionPerformed
 
-    private void UserManagmentBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserManagmentBackActionPerformed
-        changeCard(AdminContainerPanel, "adminMenuPanel", true);
-    }//GEN-LAST:event_UserManagmentBackActionPerformed
-
     private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
         if (!SessionController.IsUserLogged()) {
             ExitSession();
@@ -2340,17 +2401,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_UserRadioActionPerformed
 
-    private void PriceListManagmentBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListManagmentBackActionPerformed
+    private void AdminPanelBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelBackButtonActionPerformed
         changeCard(AdminContainerPanel, "adminMenuPanel", true);
-    }//GEN-LAST:event_PriceListManagmentBackActionPerformed
-
-    private void SlopeManagementBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeManagementBackActionPerformed
-        changeCard(AdminContainerPanel, "adminMenuPanel", true);
-    }//GEN-LAST:event_SlopeManagementBackActionPerformed
-
-    private void GatesManagementBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesManagementBackActionPerformed
-        changeCard(AdminContainerPanel, "adminMenuPanel", true);
-    }//GEN-LAST:event_GatesManagementBackActionPerformed
+    }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
         changeCard(AdminContainerPanel, "priceListManagmentAdminPanel", true);
@@ -2364,14 +2417,6 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard(AdminContainerPanel, "gatesManagementAdminPanel", true);
     }//GEN-LAST:event_GatesButtonActionPerformed
 
-    private void AddProductBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProductBackActionPerformed
-        changeCard(AdminContainerPanel, "priceListManagmentAdminPanel", true);
-    }//GEN-LAST:event_AddProductBackActionPerformed
-
-    private void EditProductBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductBackActionPerformed
-        changeCard(AdminContainerPanel, "priceListManagmentAdminPanel", true);
-    }//GEN-LAST:event_EditProductBackActionPerformed
-
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
         changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_NewProductButtonActionPerformed
@@ -2379,6 +2424,22 @@ public class MainWindow extends javax.swing.JFrame {
     private void EditProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductButtonActionPerformed
         changeCard(AdminContainerPanel, "editProductAdminPanel", true);
     }//GEN-LAST:event_EditProductButtonActionPerformed
+
+    private void EditTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditTerminalButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditTerminalButtonActionPerformed
+
+    private void DeleteTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteTerminalButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteTerminalButtonActionPerformed
+
+    private void AttractionTypeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionTypeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AttractionTypeTextFieldActionPerformed
+
+    private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
+        changeCard(AdminContainerPanel, "addTerminalPanel", true);
+    }//GEN-LAST:event_NewTerminalButtonActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -2435,19 +2496,28 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel ActivationDateLabel1;
     private javax.swing.JTextField ActivationDateTextField;
     private javax.swing.JTextField ActivationDateTextField1;
+    private javax.swing.JTextField ActualizePriceTextField;
+    private javax.swing.JButton ActualizeProductButton;
+    private javax.swing.JTextField ActualizeProductNameText;
     private javax.swing.JButton AddCardButton;
     private javax.swing.JButton AddCardButton1;
     private javax.swing.JButton AddPointsButton;
     private javax.swing.JButton AddPointsButton1;
-    private javax.swing.JButton AddProductBack;
+    private javax.swing.JButton AddProductButton;
     private javax.swing.JPanel AddProductPanel;
+    private javax.swing.JButton AddTerminalButton;
+    private javax.swing.JPanel AddTerminalPanel;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JPanel AdminContainerPanel;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
     private javax.swing.JPanel AdminMenuPanel;
     private javax.swing.JButton AdminMyAccountButton;
+    private javax.swing.JButton AdminPanelBackButton;
     private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JLabel AdminViewTitleLabel;
+    private javax.swing.JLabel AttractionTypeLabel;
+    private javax.swing.JTextField AttractionTypeTextField;
     private javax.swing.JLabel AvailablePointsLabel;
     private javax.swing.JLabel AvailablePointsLabel1;
     private javax.swing.JTextField AvailablePointsTextField;
@@ -2484,6 +2554,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JTextField CountryEditTextfield1;
     private javax.swing.JLabel CreateAccountLink;
+    private javax.swing.JButton DeleteTerminalButton;
     private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentEditTextfield1;
     private javax.swing.JTextField DocumentNumber;
@@ -2495,19 +2566,20 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel EditMessageLabel1;
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JLabel EditPasswordLabel1;
-    private javax.swing.JButton EditProductBack;
     private javax.swing.JButton EditProductButton;
     private javax.swing.JPanel EditProductPanel;
+    private javax.swing.JButton EditTerminalButton;
     private javax.swing.JLabel ExpirationDateLabel;
     private javax.swing.JLabel ExpirationDateLabel1;
     private javax.swing.JTextField ExpirationDateTextField;
     private javax.swing.JTextField ExpirationDateTextField1;
     private javax.swing.JTextField FindLoginTextField;
+    private javax.swing.JButton FindProductButton;
     private javax.swing.JLabel FindResultLabel;
+    private javax.swing.JButton FindTerminalButton;
     private javax.swing.JButton FindUser;
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
-    private javax.swing.JButton GatesManagementBack;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel1;
     private javax.swing.JTextField IDEditTextfield;
@@ -2516,6 +2588,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel IDLabel1;
     private javax.swing.JTextField IDTextField;
     private javax.swing.JTextField IDTextField1;
+    private javax.swing.JComboBox LockTimeComboBox;
+    private javax.swing.JLabel LockTimeLabel;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginEditTextfield;
@@ -2535,6 +2609,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField NameEditTextfield;
     private javax.swing.JTextField NameEditTextfield1;
     private javax.swing.JButton NewProductButton;
+    private javax.swing.JButton NewTerminalButton;
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JTextField PasswordEditTextfield1;
@@ -2544,9 +2619,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel PointsLabel1;
     private javax.swing.JTextField PointsTextField;
     private javax.swing.JTextField PointsTextField1;
+    private javax.swing.JLabel PriceLabel;
     private javax.swing.JButton PriceListButton;
     private javax.swing.JPanel PriceListManagmentAdmintPanel;
-    private javax.swing.JButton PriceListManagmentBack;
+    private javax.swing.JTable PriceListTable;
+    private javax.swing.JTextField PriceTextField;
+    private javax.swing.JLabel ProductNameLabel;
+    private javax.swing.JTextField ProductNameTextField;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JButton RegisterButton;
@@ -2560,9 +2639,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel RepeatPasswordLabel;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
+    private javax.swing.JTextField SearchProductTextField;
+    private javax.swing.JTextField SearchTerminalTextField;
     private javax.swing.JButton SlopeButton;
     private javax.swing.JPanel SlopeManagementAdminPanel;
-    private javax.swing.JButton SlopeManagementBack;
     private javax.swing.JButton SlopeTrafficButton;
     private javax.swing.JButton SlopeTrafficButton1;
     private javax.swing.JButton SlopeTrafficButton2;
@@ -2578,6 +2658,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel SurnameEditLabel1;
     private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JTextField SurnameEditTextfield1;
+    private javax.swing.JTable TerminalListTable;
+    private javax.swing.JLabel TerminalNameLabel;
+    private javax.swing.JTextField TerminalNameTextField;
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
     private javax.swing.JLabel UserBackgroundLabel;
@@ -2591,23 +2674,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton UserLogoutButton4;
     private javax.swing.JPanel UserMainPanel;
     private javax.swing.JPanel UserManagmentAdmintPanel;
-    private javax.swing.JButton UserManagmentBack;
     private javax.swing.JButton UserMyAccountButton;
     private javax.swing.JButton UserMyAccountButton2;
     private javax.swing.JButton UserMyAccountButton3;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2615,8 +2690,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -2628,21 +2701,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
