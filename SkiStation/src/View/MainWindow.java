@@ -80,6 +80,7 @@ public class MainWindow extends javax.swing.JFrame {
         UserLogoutButton1 = new javax.swing.JButton();
         ContactButton1 = new javax.swing.JButton();
         SlopeTrafficButton1 = new javax.swing.JButton();
+        CashierChangeModeToAdminButton = new javax.swing.JButton();
         ClientModeButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
@@ -168,6 +169,7 @@ public class MainWindow extends javax.swing.JFrame {
         UpdateResultLabel = new javax.swing.JLabel();
         UserManagePanelBackgroud = new javax.swing.JLabel();
         UserMainPanel = new javax.swing.JPanel();
+        UserChangeModeToAdminButton = new javax.swing.JButton();
         UserMyAccountButton = new javax.swing.JButton();
         UserLogoutButton = new javax.swing.JButton();
         ContactButton = new javax.swing.JButton();
@@ -242,7 +244,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         Login.add(LoginButton);
         LoginButton.setBounds(450, 120, 80, 23);
-        LoginButton.getAccessibleContext().setAccessibleParent(MainPanel);
 
         LoginTextField.setName("LoginPanel"); // NOI18N
         LoginTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -536,6 +537,16 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeTrafficButton1.setPreferredSize(new java.awt.Dimension(67, 23));
         MainPanel.add(SlopeTrafficButton1);
         SlopeTrafficButton1.setBounds(20, 160, 140, 23);
+
+        CashierChangeModeToAdminButton.setText("Tryb administratora");
+        CashierChangeModeToAdminButton.setName("CashierChangeModeToAdminButton"); // NOI18N
+        CashierChangeModeToAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CashierChangeModeToAdminButtonActionPerformed(evt);
+            }
+        });
+        MainPanel.add(CashierChangeModeToAdminButton);
+        CashierChangeModeToAdminButton.setBounds(340, 10, 140, 23);
 
         ClientModeButton1.setText("Tryb klienta");
         ClientModeButton1.setName("ClientModeButton1"); // NOI18N
@@ -1187,6 +1198,19 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.setPreferredSize(new java.awt.Dimension(700, 700));
         UserMainPanel.setLayout(null);
 
+        UserChangeModeToAdminButton.setText("Tryb administratora");
+        UserChangeModeToAdminButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        UserChangeModeToAdminButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        UserChangeModeToAdminButton.setName("UserChangeModeToAdminButton"); // NOI18N
+        UserChangeModeToAdminButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserChangeModeToAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserChangeModeToAdminButtonActionPerformed(evt);
+            }
+        });
+        UserMainPanel.add(UserChangeModeToAdminButton);
+        UserChangeModeToAdminButton.setBounds(330, 10, 150, 23);
+
         UserMyAccountButton.setText("Moje konto");
         UserMyAccountButton.setMaximumSize(new java.awt.Dimension(67, 23));
         UserMyAccountButton.setMinimumSize(new java.awt.Dimension(67, 23));
@@ -1614,6 +1638,15 @@ public class MainWindow extends javax.swing.JFrame {
         if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), viewPanel, loginStatusMessage)){
             MessageLabel.setText("");
             CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            
+            if ( SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin ){ 
+                UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
+                CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
+            } else {
+                UserChangeModeToAdminButton.setVisible(false);
+                CashierChangeModeToAdminButton.setVisible(false);
+            }
+            
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
         } else
         {
@@ -1729,11 +1762,11 @@ public class MainWindow extends javax.swing.JFrame {
                 FindResultLabel.setText("User exists!");
                 String roleName = controller.getUserRole(FindLoginTextField.getText());
 
-                if (roleName=="User") {
+                if (roleName.equals("User")) {
                    UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
-                }else if (roleName.equals(RegistrationController.EmployeeTypes.Admin.toString())) {
+                }else if (roleName.equals(RegistrationController.UserTypes.Admin.toString())) {
                    UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
-                }else if (roleName.equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
+                }else if (roleName.equals(RegistrationController.UserTypes.Cashier.toString())) {
                    UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
                 }
             }else{
@@ -1950,7 +1983,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void ClientAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientAccountActionPerformed
         //ClientAccountPanel
         
-        //CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         
         if( SessionController.IsUserLogged() ){
@@ -1992,6 +2024,26 @@ public class MainWindow extends javax.swing.JFrame {
     private void CityEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CityEditTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CityEditTextfieldActionPerformed
+
+    private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
+        CardLayout userPaneLayout = (CardLayout) getContentPane().getLayout();
+        
+        if( SessionController.IsUserLogged() ){
+            userPaneLayout.show(getContentPane(), "adminPanelMain");
+        } else {
+            ExitSession();
+        }
+    }//GEN-LAST:event_UserChangeModeToAdminButtonActionPerformed
+
+    private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
+        CardLayout cashierPaneLayout = (CardLayout) getContentPane().getLayout();
+        
+        if( SessionController.IsUserLogged() ){
+            cashierPaneLayout.show(getContentPane(), "adminPanelMain");
+        } else {
+            ExitSession();
+        }
+    }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
     private void ExitSession(){
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -2065,6 +2117,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
+    private javax.swing.JButton CashierChangeModeToAdminButton;
     private javax.swing.JButton CashierMenuButton1;
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JPanel CashierPanel;
@@ -2180,6 +2233,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel UserBackgroundLabel;
     private javax.swing.JLabel UserBackgroundLabel1;
     private javax.swing.JLabel UserBackgroundLabel3;
+    private javax.swing.JButton UserChangeModeToAdminButton;
     private javax.swing.JButton UserLogoutButton;
     private javax.swing.JButton UserLogoutButton1;
     private javax.swing.JButton UserLogoutButton2;

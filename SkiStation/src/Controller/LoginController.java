@@ -41,10 +41,13 @@ public class LoginController {
 
             if (employee == null) {
                 viewName.append("UserMainPanel");
-            }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Admin.toString()) ) {
+                SessionController.setLoggedUserType(RegistrationController.UserTypes.Client);
+            }else if (employee.getRole().equals(RegistrationController.UserTypes.Admin.toString()) ) {
                 viewName.append("adminPanelMain");
-            }else if (employee.getRole().equals(RegistrationController.EmployeeTypes.Cashier.toString())) {
+                SessionController.setLoggedUserType(RegistrationController.UserTypes.Admin);
+            }else if (employee.getRole().equals(RegistrationController.UserTypes.Cashier.toString())) {
                 viewName.append("cashierPanel");
+                SessionController.setLoggedUserType(RegistrationController.UserTypes.Cashier);
             }
             SessionController.SetUserLogged(login);
             System.out.println("Successful login"); 

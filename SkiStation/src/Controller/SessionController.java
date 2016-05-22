@@ -13,6 +13,10 @@ public class SessionController {
     private static long noActionTime = 0;
     //maximum no action time for active session is 5 minutes (300000 miliseconds)
     private static final Integer MAX_TIME = 300000;
+    private static RegistrationController.UserTypes loggedUserType;
+
+    public SessionController() {
+    }
     
     public static void SetUserLogged( String user ){
         userLogged = user;
@@ -42,4 +46,12 @@ public class SessionController {
         noActionTime = currentTime;
         return true;
     } 
+    
+    public static void setLoggedUserType(RegistrationController.UserTypes userType){
+        loggedUserType = userType;
+    }
+    
+    public static RegistrationController.UserTypes getLoggedUserType(){
+        return loggedUserType;
+    }
 }

@@ -26,9 +26,10 @@ public class RegistrationController {
     
     private final String ADMIN_LOGIN = "Rav";
     
-    public enum EmployeeTypes{
+    public enum UserTypes{
         Admin,
-        Cashier
+        Cashier,
+        Client
     }
     
     public Boolean register(String name, String surname, String city, String country, String street, String login, String password, String documentNumber)
@@ -67,7 +68,7 @@ public class RegistrationController {
            
            if (login.equals(ADMIN_LOGIN)) {
              Employees newEmployee = new Employees();
-             newEmployee.setRole(EmployeeTypes.Admin.toString());
+             newEmployee.setRole(UserTypes.Admin.toString());
              newEmployee.setUsers(newUser);
              s.saveOrUpdate(newEmployee);
            }
