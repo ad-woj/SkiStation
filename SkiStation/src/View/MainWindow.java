@@ -193,6 +193,8 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         PriceListTable = new javax.swing.JTable();
         SlopeManagementAdminPanel = new javax.swing.JPanel();
+        SlopeTrafficScrollPane = new javax.swing.JScrollPane();
+        SlopeTraffic = new javax.swing.JTable();
         GatesManagementAdminPanel = new javax.swing.JPanel();
         FindTerminalButton = new javax.swing.JButton();
         SearchTerminalTextField = new javax.swing.JTextField();
@@ -1424,6 +1426,43 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeManagementAdminPanel.setName("SlopeManagementAdminPanel"); // NOI18N
         SlopeManagementAdminPanel.setOpaque(false);
         SlopeManagementAdminPanel.setLayout(null);
+
+        SlopeTrafficScrollPane.setName("SlopeTrafficScrollPane"); // NOI18N
+
+        SlopeTraffic.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Slope ID", "Traffic", "Overloaded"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Float.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        SlopeTraffic.setName("SlopeTraffic"); // NOI18N
+        SlopeTrafficScrollPane.setViewportView(SlopeTraffic);
+
+        SlopeManagementAdminPanel.add(SlopeTrafficScrollPane);
+        SlopeTrafficScrollPane.setBounds(0, 0, 600, 230);
+
         AdminContainerPanel.add(SlopeManagementAdminPanel, "slopeManagmentAdminPanel");
 
         GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -2643,9 +2682,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField SearchTerminalTextField;
     private javax.swing.JButton SlopeButton;
     private javax.swing.JPanel SlopeManagementAdminPanel;
+    private javax.swing.JTable SlopeTraffic;
     private javax.swing.JButton SlopeTrafficButton;
     private javax.swing.JButton SlopeTrafficButton1;
     private javax.swing.JButton SlopeTrafficButton2;
+    private javax.swing.JScrollPane SlopeTrafficScrollPane;
     private javax.swing.JTextField Street;
     private javax.swing.JLabel StreetEditLabel;
     private javax.swing.JLabel StreetEditLabel1;
