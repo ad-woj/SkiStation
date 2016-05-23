@@ -10,6 +10,7 @@ import Tools.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import Controller.*;
 
 /**
  *
@@ -45,4 +46,8 @@ public class TestClass {
         // Testowe wypisanie miasta
         System.out.println(address.getCity());
     }  
+    public static void testSlope(StringBuilder logger){
+        SlopeController test = new SlopeController();
+        test.getTrafficList(logger);
+    }
 }

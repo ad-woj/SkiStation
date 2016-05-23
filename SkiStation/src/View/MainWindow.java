@@ -7,12 +7,16 @@ package View;
 
 import Controller.*;
 import DBClasses.*;
+import Model.TestClass;
 import java.awt.CardLayout;
 import java.awt.Container;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.table.*;
 
 /**
  *
@@ -21,6 +25,7 @@ import java.awt.event.KeyEvent;
 public class MainWindow extends javax.swing.JFrame {
 
     private StringBuilder loginStatusMessage = new StringBuilder();
+    private final int MAX_SLOPE_TRAFFIC = 100;
 
     /**
      * Creates new form MainWindow
@@ -1431,11 +1436,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         SlopeTraffic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
@@ -2449,7 +2449,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
-        changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+
+        List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
+        if (traffic != null){
+            DefaultTableModel model = (DefaultTableModel) SlopeTraffic.getModel();
+            model.removeRow(0);
+            boolean tempOverload;
+            for (int i = 0; i < traffic.size(); i++){
+                Object[] row = traffic.get(i);
+                if ((Long)row[1] > MAX_SLOPE_TRAFFIC)
+                    tempOverload = true;
+                else
+                    tempOverload = false;
+                
+                model.addRow(new Object[]{row[0], row[1], tempOverload});
+            }
+            changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+        }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
