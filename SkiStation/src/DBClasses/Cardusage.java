@@ -16,7 +16,7 @@ public class Cardusage  implements java.io.Serializable {
      private Cards cards;
      private Terminal terminal;
      private Date usedate;
-     private Set boughtlists = new HashSet(0);
+     private Set boughtitems = new HashSet(0);
 
     public Cardusage() {
     }
@@ -26,10 +26,10 @@ public class Cardusage  implements java.io.Serializable {
         this.cards = cards;
         this.usedate = usedate;
     }
-    public Cardusage(Cards cards, Terminal terminal, Date usedate, Set terminals, Set boughtlists) {
+    public Cardusage(Cards cards, Terminal terminal, Date usedate, Set terminals, Set boughtitems) {
        this.cards = cards;
        this.usedate = usedate;
-       this.boughtlists = boughtlists;
+       this.boughtitems = boughtitems;
        this.terminal = terminal;
     }
    
@@ -61,12 +61,12 @@ public class Cardusage  implements java.io.Serializable {
     public void setTerminal(Terminal terminal) {
         this.terminal = terminal;
     }
-    public Set getBoughtlists() {
-        return this.boughtlists;
+    public Set getBoughtitems() {
+        return this.boughtitems;
     }
     
-    public void setBoughtlists(Set boughtlists) {
-        this.boughtlists = boughtlists;
+    public void setBoughtitems(Set boughtitems) {
+        this.boughtitems = boughtitems;
     }
 
 

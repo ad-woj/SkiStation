@@ -17,11 +17,11 @@
         <property name="locktime" type="java.lang.Integer">
             <column name="locktime" />
         </property>
-        <set name="productlists" table="productlist" inverse="true" lazy="true" fetch="select">
+        <set name="productitems" table="productitem" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="terminal_terminalid" not-null="true" />
             </key>
-            <one-to-many class="DBClasses.Productlist" />
+            <one-to-many class="DBClasses.Productitem" />
         </set>
         <set name="cardusages" table="cardusage" inverse="true" lazy="true" fetch="select">
             <key>

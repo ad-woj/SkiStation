@@ -15,7 +15,7 @@ public class Terminal  implements java.io.Serializable {
      private Attraction attraction;
      private Cardusage cardusage;
      private Integer locktime;
-     private Set productlists = new HashSet(0);
+     private Set productitems = new HashSet(0);
      private Set cardusages = new HashSet(0);
 
 
@@ -29,7 +29,7 @@ public class Terminal  implements java.io.Serializable {
     public Terminal(Attraction attraction, Cardusage cardusage, Integer locktime) {
        this.attraction = attraction;
        this.locktime = locktime;
-       this.productlists = productlists;
+       this.productitems = productitems;
     }
    
     public int getTerminalid() {
@@ -61,12 +61,12 @@ public class Terminal  implements java.io.Serializable {
     public void setLocktime(Integer locktime) {
         this.locktime = locktime;
     }
-    public Set getProductlists() {
-        return this.productlists;
+    public Set getProductitems() {
+        return this.productitems;
     }
     
-    public void setProductlists(Set productlists) {
-        this.productlists = productlists;
+    public void setProductitems(Set productitems) {
+        this.productitems = productitems;
     }
     
     public Set getCardusages(){

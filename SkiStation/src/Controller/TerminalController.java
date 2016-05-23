@@ -66,7 +66,7 @@ public class TerminalController {
             Terminal terminal = new Terminal();
             terminal.setAttraction(parentAttraction);
             terminal.setLocktime(lockTime);
-            terminal.setProductlists(null);
+            terminal.setProductitems(null);
             s.saveOrUpdate(terminal);
             tr.commit();
             

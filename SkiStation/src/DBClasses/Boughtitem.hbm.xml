@@ -3,9 +3,9 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-05-01 18:16:42 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="DBClasses.Boughtlist" table="boughtlist" schema="public" optimistic-lock="version">
-        <id name="boughtlistid" type="int">
-            <column name="boughtlistid" />
+    <class name="DBClasses.Boughtitem" table="boughtitem" schema="public" optimistic-lock="version">
+        <id name="boughtitemid" type="int">
+            <column name="boughtitemid" />
             <generator class="identity" />
         </id>
         <many-to-one name="cardusage" class="DBClasses.Cardusage" fetch="select">

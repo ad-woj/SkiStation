@@ -3,9 +3,9 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-05-01 18:16:42 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="DBClasses.Productlist" table="productlist" schema="public" optimistic-lock="version">
-        <id name="productlistid" type="int">
-            <column name="productlistid" />
+    <class name="DBClasses.Productitem" table="productitem" schema="public" optimistic-lock="version">
+        <id name="productitemid" type="int">
+            <column name="productitemid" />
             <generator class="identity" />
         </id>
         <many-to-one name="product" class="DBClasses.Product" fetch="select">

@@ -13,7 +13,7 @@ public class Product  implements java.io.Serializable {
 
      private int productid;
      private String name;
-     private Set productlists = new HashSet(0);
+     private Set productitems = new HashSet(0);
      private Set itemprices = new HashSet(0);
 
     public Product() {
@@ -24,10 +24,10 @@ public class Product  implements java.io.Serializable {
         this.productid = productid;
         this.name = name;
     }
-    public Product(int productid, String name, Set productlists, Set itemprices) {
+    public Product(int productid, String name, Set productitems, Set itemprices) {
        this.productid = productid;
        this.name = name;
-       this.productlists = productlists;
+       this.productitems = productitems;
        this.itemprices = itemprices;
     }
    
@@ -45,12 +45,12 @@ public class Product  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    public Set getProductlists() {
-        return this.productlists;
+    public Set getProductitems() {
+        return this.productitems;
     }
     
-    public void setProductlists(Set productlists) {
-        this.productlists = productlists;
+    public void setProductitems(Set productitems) {
+        this.productitems = productitems;
     }
     public Set getItemprices() {
         return this.itemprices;
