@@ -4,9 +4,9 @@
   <schema-selection match-catalog="postgres" match-schema="public"/>
   <table-filter match-name="pricelist"/>
   <table-filter match-name="cardusage"/>
-  <table-filter match-name="boughtlist"/>
+  <table-filter match-name="boughtitem"/>
   <table-filter match-name="transactions"/>
-  <table-filter match-name="productlist"/>
+  <table-filter match-name="productitem"/>
   <table-filter match-name="clients"/>
   <table-filter match-name="product"/>
   <table-filter match-name="users"/>

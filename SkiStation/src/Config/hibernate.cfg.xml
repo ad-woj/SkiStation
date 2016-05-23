@@ -11,8 +11,8 @@
     <mapping resource="DBClasses/Itemprice.hbm.xml"/>
     <mapping resource="DBClasses/Product.hbm.xml"/>
     <mapping resource="DBClasses/Addresses.hbm.xml"/>
-    <mapping resource="DBClasses/Productlist.hbm.xml"/>
-    <mapping resource="DBClasses/Boughtlist.hbm.xml"/>
+    <mapping resource="DBClasses/Productitem.hbm.xml"/>
+    <mapping resource="DBClasses/Boughtitem.hbm.xml"/>
     <mapping resource="DBClasses/Charges.hbm.xml"/>
     <mapping resource="DBClasses/Clients.hbm.xml"/>
     <mapping resource="DBClasses/Users.hbm.xml"/>

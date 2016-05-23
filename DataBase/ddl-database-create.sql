@@ -27,13 +27,13 @@ CREATE TABLE Attraction
 ALTER TABLE Attraction ADD CONSTRAINT Attraction_PK PRIMARY KEY ( attractionID ) ;
 
 
-CREATE TABLE BoughtList
+CREATE TABLE BoughtItem
   (
-    boughtListID          SERIAL NOT NULL ,
+    boughtItemID          SERIAL NOT NULL ,
     ItemPrice_itemPriceID INTEGER NOT NULL ,
     CardUsage_useID       INTEGER NOT NULL
   ) ;
-ALTER TABLE BoughtList ADD CONSTRAINT BoughtList_PK PRIMARY KEY ( boughtListID ) ;
+ALTER TABLE BoughtItem ADD CONSTRAINT BoughtItem_PK PRIMARY KEY ( boughtItemID ) ;
 
 
 CREATE TABLE CardUsage
@@ -112,13 +112,13 @@ CREATE TABLE Product
 ALTER TABLE Product ADD CONSTRAINT Product_PK PRIMARY KEY ( productID ) ;
 
 
-CREATE TABLE ProductList
+CREATE TABLE ProductItem
   (
-    productListID       SERIAL NOT NULL ,
+    productItemID       SERIAL NOT NULL ,
     Terminal_terminalID INTEGER NOT NULL ,
     Product_productID   INTEGER NOT NULL
   ) ;
-ALTER TABLE ProductList ADD CONSTRAINT ProductList_PK PRIMARY KEY ( productListID ) ;
+ALTER TABLE ProductItem ADD CONSTRAINT ProductItem_PK PRIMARY KEY ( productItemID ) ;
 
 
 CREATE TABLE Terminal
@@ -153,9 +153,9 @@ CREATE TABLE Users
 ALTER TABLE Users ADD CONSTRAINT Users_PK PRIMARY KEY ( userID ) ;
 
 
-ALTER TABLE BoughtList ADD CONSTRAINT BoughtList_CardUsage_FK FOREIGN KEY ( CardUsage_useID ) REFERENCES CardUsage ( useID ) ;
+ALTER TABLE BoughtItem ADD CONSTRAINT BoughtItem_CardUsage_FK FOREIGN KEY ( CardUsage_useID ) REFERENCES CardUsage ( useID ) ;
 
-ALTER TABLE BoughtList ADD CONSTRAINT BoughtList_ItemPrice_FK FOREIGN KEY ( ItemPrice_itemPriceID ) REFERENCES ItemPrice ( itemPriceID ) ;
+ALTER TABLE BoughtItem ADD CONSTRAINT BoughtItem_ItemPrice_FK FOREIGN KEY ( ItemPrice_itemPriceID ) REFERENCES ItemPrice ( itemPriceID ) ;
 
 ALTER TABLE CardUsage ADD CONSTRAINT CardUsage_Cards_FK FOREIGN KEY ( Cards_cardID ) REFERENCES Cards ( cardID ) ;
 
@@ -173,9 +173,9 @@ ALTER TABLE ItemPrice ADD CONSTRAINT ItemPrice_PriceList_FK FOREIGN KEY ( PriceL
 
 ALTER TABLE ItemPrice ADD CONSTRAINT ItemPrice_Product_FK FOREIGN KEY ( Product_productID ) REFERENCES Product ( productID ) ;
 
-ALTER TABLE ProductList ADD CONSTRAINT ProductList_Product_FK FOREIGN KEY ( Product_productID ) REFERENCES Product ( productID ) ;
+ALTER TABLE ProductItem ADD CONSTRAINT ProductItem_Product_FK FOREIGN KEY ( Product_productID ) REFERENCES Product ( productID ) ;
 
-ALTER TABLE ProductList ADD CONSTRAINT ProductList_Terminal_FK FOREIGN KEY ( Terminal_terminalID ) REFERENCES Terminal ( terminalID ) ;
+ALTER TABLE ProductItem ADD CONSTRAINT ProductItem_Terminal_FK FOREIGN KEY ( Terminal_terminalID ) REFERENCES Terminal ( terminalID ) ;
 
 ALTER TABLE Terminal ADD CONSTRAINT Terminal_Attraction_FK FOREIGN KEY ( Attraction_attractionID ) REFERENCES Attraction ( attractionID ) ;
 

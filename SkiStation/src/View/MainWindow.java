@@ -159,16 +159,27 @@ public class MainWindow extends javax.swing.JFrame {
         GatesButton = new javax.swing.JButton();
         CashierModeButton = new javax.swing.JButton();
         ClientModeButton = new javax.swing.JButton();
-        UserManagmentAdmintPanel = new javax.swing.JPanel();
+        EditUserAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
-        RemoveUser = new javax.swing.JButton();
         FindLoginTextField = new javax.swing.JTextField();
-        FindUser = new javax.swing.JButton();
-        FindResultLabel = new javax.swing.JLabel();
         UserRadio = new javax.swing.JRadioButton();
         CashierRadio = new javax.swing.JRadioButton();
         AdminRadio = new javax.swing.JRadioButton();
         UpdateResultLabel = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         EditProductPanel = new javax.swing.JPanel();
         ActualizeProductButton = new javax.swing.JButton();
         ActualizePriceTextField = new javax.swing.JTextField();
@@ -208,11 +219,50 @@ public class MainWindow extends javax.swing.JFrame {
         NewTerminalButton = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         TerminalListTable = new javax.swing.JTable();
+        UserManagmentAdmintPanel = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        TerminalListTable1 = new javax.swing.JTable();
+        FindUserButton = new javax.swing.JButton();
+        SearchUserTextField = new javax.swing.JTextField();
+        EditUserButton = new javax.swing.JButton();
+        DeleteUserButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jButton1 = new javax.swing.JButton();
+        jTextField11 = new javax.swing.JTextField();
+        jSplitPane3 = new javax.swing.JSplitPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jSplitPane4 = new javax.swing.JSplitPane();
+        jButton2 = new javax.swing.JButton();
+        jTextField12 = new javax.swing.JTextField();
+        jSplitPane5 = new javax.swing.JSplitPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jSplitPane6 = new javax.swing.JSplitPane();
+        jButton6 = new javax.swing.JButton();
+        jTextField13 = new javax.swing.JTextField();
+        jSplitPane7 = new javax.swing.JSplitPane();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jSplitPane8 = new javax.swing.JSplitPane();
+        jButton7 = new javax.swing.JButton();
+        jTextField14 = new javax.swing.JTextField();
+        EditProductButton1 = new javax.swing.JButton();
+        RemoveProductButton1 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         AdminLogoutButton = new javax.swing.JButton();
         AdminViewTitleLabel = new javax.swing.JLabel();
         AdminPanelBackButton = new javax.swing.JButton();
-        AdminBackgroundLabel = new javax.swing.JLabel();
         AdminMyAccountButton = new javax.swing.JButton();
+        AdminBackgroundLabel = new javax.swing.JLabel();
         UserMainPanel = new javax.swing.JPanel();
         UserChangeModeToAdminButton = new javax.swing.JButton();
         UserMyAccountButton = new javax.swing.JButton();
@@ -1129,10 +1179,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
 
-        UserManagmentAdmintPanel.setName("UserManagmentAdmintPanel"); // NOI18N
-        UserManagmentAdmintPanel.setOpaque(false);
-        UserManagmentAdmintPanel.setLayout(null);
+        EditUserAdmintPanel.setName("EditUserAdmintPanel"); // NOI18N
+        EditUserAdmintPanel.setOpaque(false);
+        EditUserAdmintPanel.setLayout(null);
 
+        UpdateUser.setBackground(new java.awt.Color(0, 0, 0));
+        UpdateUser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        UpdateUser.setForeground(new java.awt.Color(255, 255, 255));
         UpdateUser.setText("Aktualizuj");
         UpdateUser.setName("UpdateUser"); // NOI18N
         UpdateUser.addActionListener(new java.awt.event.ActionListener() {
@@ -1140,19 +1193,10 @@ public class MainWindow extends javax.swing.JFrame {
                 UpdateUserActionPerformed(evt);
             }
         });
-        UserManagmentAdmintPanel.add(UpdateUser);
-        UpdateUser.setBounds(170, 240, 79, 20);
+        EditUserAdmintPanel.add(UpdateUser);
+        UpdateUser.setBounds(400, 280, 110, 30);
 
-        RemoveUser.setText("Usuń");
-        RemoveUser.setName("RemoveUser"); // NOI18N
-        RemoveUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveUserActionPerformed(evt);
-            }
-        });
-        UserManagmentAdmintPanel.add(RemoveUser);
-        RemoveUser.setBounds(90, 240, 80, 20);
-
+        FindLoginTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
         FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
         FindLoginTextField.setName("FindLoginTextField"); // NOI18N
@@ -1162,25 +1206,8 @@ public class MainWindow extends javax.swing.JFrame {
                 FindLoginTextFieldActionPerformed(evt);
             }
         });
-        UserManagmentAdmintPanel.add(FindLoginTextField);
-        FindLoginTextField.setBounds(90, 50, 142, 23);
-
-        FindUser.setText("Szukaj");
-        FindUser.setMaximumSize(new java.awt.Dimension(67, 23));
-        FindUser.setMinimumSize(new java.awt.Dimension(67, 23));
-        FindUser.setName("FindUser"); // NOI18N
-        FindUser.setPreferredSize(new java.awt.Dimension(67, 23));
-        FindUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindUserActionPerformed(evt);
-            }
-        });
-        UserManagmentAdmintPanel.add(FindUser);
-        FindUser.setBounds(230, 50, 80, 23);
-
-        FindResultLabel.setName("FindResultLabel"); // NOI18N
-        UserManagmentAdmintPanel.add(FindResultLabel);
-        FindResultLabel.setBounds(100, 70, 130, 20);
+        EditUserAdmintPanel.add(FindLoginTextField);
+        FindLoginTextField.setBounds(170, 10, 220, 30);
 
         UserRoleChooseGroup.add(UserRadio);
         UserRadio.setText("User");
@@ -1190,26 +1217,102 @@ public class MainWindow extends javax.swing.JFrame {
                 UserRadioActionPerformed(evt);
             }
         });
-        UserManagmentAdmintPanel.add(UserRadio);
-        UserRadio.setBounds(90, 180, 80, 30);
+        EditUserAdmintPanel.add(UserRadio);
+        UserRadio.setBounds(320, 230, 80, 30);
 
         UserRoleChooseGroup.add(CashierRadio);
         CashierRadio.setText("Cashier");
         CashierRadio.setName("CashierRadio"); // NOI18N
-        UserManagmentAdmintPanel.add(CashierRadio);
-        CashierRadio.setBounds(90, 140, 80, 30);
+        EditUserAdmintPanel.add(CashierRadio);
+        CashierRadio.setBounds(240, 230, 80, 30);
 
         UserRoleChooseGroup.add(AdminRadio);
         AdminRadio.setText("Admin");
         AdminRadio.setName("AdminRadio"); // NOI18N
-        UserManagmentAdmintPanel.add(AdminRadio);
-        AdminRadio.setBounds(90, 100, 80, 30);
+        EditUserAdmintPanel.add(AdminRadio);
+        AdminRadio.setBounds(170, 230, 80, 30);
 
         UpdateResultLabel.setName("UpdateResultLabel"); // NOI18N
-        UserManagmentAdmintPanel.add(UpdateResultLabel);
-        UpdateResultLabel.setBounds(100, 260, 80, 30);
+        EditUserAdmintPanel.add(UpdateResultLabel);
+        UpdateResultLabel.setBounds(400, 320, 110, 30);
 
-        AdminContainerPanel.add(UserManagmentAdmintPanel, "userManagmentAdminPanel");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setText("Imię");
+        jLabel15.setName("jLabel15"); // NOI18N
+        EditUserAdmintPanel.add(jLabel15);
+        jLabel15.setBounds(110, 40, 40, 20);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setText("Nazwisko");
+        jLabel16.setName("jLabel16"); // NOI18N
+        EditUserAdmintPanel.add(jLabel16);
+        jLabel16.setBounds(110, 70, 60, 20);
+
+        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField5.setName("jTextField5"); // NOI18N
+        EditUserAdmintPanel.add(jTextField5);
+        jTextField5.setBounds(170, 40, 220, 30);
+
+        jLabel19.setName("jLabel19"); // NOI18N
+        EditUserAdmintPanel.add(jLabel19);
+        jLabel19.setBounds(40, 110, 0, 0);
+
+        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField6.setName("jTextField6"); // NOI18N
+        EditUserAdmintPanel.add(jTextField6);
+        jTextField6.setBounds(170, 70, 220, 30);
+
+        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField7.setName("jTextField7"); // NOI18N
+        EditUserAdmintPanel.add(jTextField7);
+        jTextField7.setBounds(170, 100, 220, 30);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel20.setText("Login");
+        jLabel20.setName("jLabel20"); // NOI18N
+        EditUserAdmintPanel.add(jLabel20);
+        jLabel20.setBounds(110, 10, 40, 20);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel21.setText("Dokument");
+        jLabel21.setName("jLabel21"); // NOI18N
+        EditUserAdmintPanel.add(jLabel21);
+        jLabel21.setBounds(110, 100, 60, 20);
+
+        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField8.setName("jTextField8"); // NOI18N
+        EditUserAdmintPanel.add(jTextField8);
+        jTextField8.setBounds(170, 130, 220, 30);
+
+        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField9.setName("jTextField9"); // NOI18N
+        EditUserAdmintPanel.add(jTextField9);
+        jTextField9.setBounds(170, 160, 220, 30);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel22.setText("Ulica");
+        jLabel22.setName("jLabel22"); // NOI18N
+        EditUserAdmintPanel.add(jLabel22);
+        jLabel22.setBounds(110, 130, 40, 20);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel23.setText("Miasto");
+        jLabel23.setName("jLabel23"); // NOI18N
+        EditUserAdmintPanel.add(jLabel23);
+        jLabel23.setBounds(110, 160, 50, 20);
+
+        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField10.setName("jTextField10"); // NOI18N
+        EditUserAdmintPanel.add(jTextField10);
+        jTextField10.setBounds(170, 190, 220, 30);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel24.setText("Kraj");
+        jLabel24.setName("jLabel24"); // NOI18N
+        EditUserAdmintPanel.add(jLabel24);
+        jLabel24.setBounds(110, 190, 40, 20);
+
+        AdminContainerPanel.add(EditUserAdmintPanel, "editUserAdminPanel");
 
         EditProductPanel.setName("EditProductPanel"); // NOI18N
         EditProductPanel.setOpaque(false);
@@ -1322,6 +1425,7 @@ public class MainWindow extends javax.swing.JFrame {
         LockTimeLabel.setBounds(30, 160, 80, 14);
 
         LockTimeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
+        LockTimeComboBox.setBorder(null);
         LockTimeComboBox.setName("LockTimeComboBox"); // NOI18N
         AddTerminalPanel.add(LockTimeComboBox);
         LockTimeComboBox.setBounds(30, 180, 60, 30);
@@ -1392,28 +1496,28 @@ public class MainWindow extends javax.swing.JFrame {
 
         PriceListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID Produktu", "Terminal", "Punkty", "Ważny od", "Ważny do"
+                "ID Produktu", "Nazwa"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1556,11 +1660,399 @@ public class MainWindow extends javax.swing.JFrame {
         });
         TerminalListTable.setName("TerminalListTable"); // NOI18N
         jScrollPane6.setViewportView(TerminalListTable);
+        if (TerminalListTable.getColumnModel().getColumnCount() > 0) {
+            TerminalListTable.getColumnModel().getColumn(2).setHeaderValue("Czas Blokady");
+        }
 
         GatesManagementAdminPanel.add(jScrollPane6);
         jScrollPane6.setBounds(30, 50, 420, 260);
 
         AdminContainerPanel.add(GatesManagementAdminPanel, "gatesManagementAdminPanel");
+
+        UserManagmentAdmintPanel.setName("UserManagmentAdmintPanel"); // NOI18N
+        UserManagmentAdmintPanel.setLayout(null);
+
+        jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane7.setName("jScrollPane7"); // NOI18N
+
+        TerminalListTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Imię", "Nazwisko", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TerminalListTable1.setName("TerminalListTable1"); // NOI18N
+        jScrollPane7.setViewportView(TerminalListTable1);
+
+        UserManagmentAdmintPanel.add(jScrollPane7);
+        jScrollPane7.setBounds(30, 50, 420, 260);
+
+        FindUserButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        FindUserButton.setIconTextGap(0);
+        FindUserButton.setName("FindUserButton"); // NOI18N
+        UserManagmentAdmintPanel.add(FindUserButton);
+        FindUserButton.setBounds(410, 20, 39, 30);
+
+        SearchUserTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SearchUserTextField.setName("SearchUserTextField"); // NOI18N
+        SearchUserTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchUserTextFieldActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(SearchUserTextField);
+        SearchUserTextField.setBounds(30, 20, 380, 30);
+
+        EditUserButton.setBackground(new java.awt.Color(0, 0, 0));
+        EditUserButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        EditUserButton.setForeground(new java.awt.Color(255, 255, 255));
+        EditUserButton.setText("Edytuj");
+        EditUserButton.setBorder(null);
+        EditUserButton.setName("EditUserButton"); // NOI18N
+        EditUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditUserButtonActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(EditUserButton);
+        EditUserButton.setBounds(470, 50, 120, 30);
+
+        DeleteUserButton.setBackground(new java.awt.Color(0, 0, 0));
+        DeleteUserButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        DeleteUserButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteUserButton.setText("Usuń");
+        DeleteUserButton.setName("DeleteUserButton"); // NOI18N
+        DeleteUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteUserButtonActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(DeleteUserButton);
+        DeleteUserButton.setBounds(470, 90, 120, 30);
+
+        AdminContainerPanel.add(UserManagmentAdmintPanel, "userManagmentAdminPanel");
+
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(null);
+
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane1.setName("jTabbedPane1"); // NOI18N
+        jTabbedPane1.setOpaque(true);
+
+        jSplitPane1.setDividerLocation(30);
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane1.setName("jSplitPane1"); // NOI18N
+
+        jScrollPane3.setName("jScrollPane3"); // NOI18N
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nr w katalogu", "Nazwa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setName("jTable1"); // NOI18N
+        jScrollPane3.setViewportView(jTable1);
+
+        jSplitPane1.setBottomComponent(jScrollPane3);
+
+        jSplitPane2.setDividerLocation(360);
+        jSplitPane2.setName("jSplitPane2"); // NOI18N
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton1.setActionCommand("");
+        jButton1.setName("jButton1"); // NOI18N
+        jSplitPane2.setRightComponent(jButton1);
+
+        jTextField11.setName("jTextField11"); // NOI18N
+        jSplitPane2.setLeftComponent(jTextField11);
+
+        jSplitPane1.setLeftComponent(jSplitPane2);
+
+        jTabbedPane1.addTab("Katalog Produktów", jSplitPane1);
+
+        jSplitPane3.setDividerLocation(30);
+        jSplitPane3.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane3.setName("jSplitPane3"); // NOI18N
+
+        jScrollPane4.setName("jScrollPane4"); // NOI18N
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Ceny", "Ważna od", "Ważna do"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable2.setName("jTable2"); // NOI18N
+        jScrollPane4.setViewportView(jTable2);
+
+        jSplitPane3.setBottomComponent(jScrollPane4);
+
+        jSplitPane4.setDividerLocation(360);
+        jSplitPane4.setName("jSplitPane4"); // NOI18N
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton2.setName("jButton2"); // NOI18N
+        jSplitPane4.setRightComponent(jButton2);
+
+        jTextField12.setName("jTextField12"); // NOI18N
+        jSplitPane4.setLeftComponent(jTextField12);
+
+        jSplitPane3.setLeftComponent(jSplitPane4);
+
+        jTabbedPane1.addTab("Lista Cen", jSplitPane3);
+
+        jSplitPane5.setDividerLocation(30);
+        jSplitPane5.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane5.setName("jSplitPane5"); // NOI18N
+
+        jScrollPane8.setName("jScrollPane8"); // NOI18N
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Ceny", "ID Produktu", "Punkty"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable3.setName("jTable3"); // NOI18N
+        jScrollPane8.setViewportView(jTable3);
+
+        jSplitPane5.setBottomComponent(jScrollPane8);
+
+        jSplitPane6.setDividerLocation(360);
+        jSplitPane6.setName("jSplitPane6"); // NOI18N
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton6.setName("jButton6"); // NOI18N
+        jSplitPane6.setRightComponent(jButton6);
+
+        jTextField13.setName("jTextField13"); // NOI18N
+        jSplitPane6.setLeftComponent(jTextField13);
+
+        jSplitPane5.setLeftComponent(jSplitPane6);
+
+        jTabbedPane1.addTab("Cennik Produktów", jSplitPane5);
+
+        jSplitPane7.setDividerLocation(30);
+        jSplitPane7.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane7.setName("jSplitPane7"); // NOI18N
+
+        jScrollPane9.setName("jScrollPane9"); // NOI18N
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nr w katalogu", "ID Terminala", "ID Produktu"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable4.setName("jTable4"); // NOI18N
+        jScrollPane9.setViewportView(jTable4);
+
+        jSplitPane7.setBottomComponent(jScrollPane9);
+
+        jSplitPane8.setDividerLocation(360);
+        jSplitPane8.setName("jSplitPane8"); // NOI18N
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton7.setName("jButton7"); // NOI18N
+        jSplitPane8.setRightComponent(jButton7);
+
+        jTextField14.setName("jTextField14"); // NOI18N
+        jSplitPane8.setLeftComponent(jTextField14);
+
+        jSplitPane7.setLeftComponent(jSplitPane8);
+
+        jTabbedPane1.addTab("Lista Produktów", jSplitPane7);
+
+        jPanel1.add(jTabbedPane1);
+        jTabbedPane1.setBounds(10, 20, 410, 320);
+        jTabbedPane1.getAccessibleContext().setAccessibleName("Products");
+
+        EditProductButton1.setBackground(new java.awt.Color(0, 0, 0));
+        EditProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        EditProductButton1.setForeground(new java.awt.Color(255, 255, 255));
+        EditProductButton1.setText("Edytuj");
+        EditProductButton1.setBorder(null);
+        EditProductButton1.setName("EditProductButton1"); // NOI18N
+        EditProductButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditProductButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EditProductButton1);
+        EditProductButton1.setBounds(470, 90, 120, 30);
+
+        RemoveProductButton1.setBackground(new java.awt.Color(0, 0, 0));
+        RemoveProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        RemoveProductButton1.setForeground(new java.awt.Color(255, 255, 255));
+        RemoveProductButton1.setText("Usuń");
+        RemoveProductButton1.setName("RemoveProductButton1"); // NOI18N
+        jPanel1.add(RemoveProductButton1);
+        RemoveProductButton1.setBounds(470, 130, 120, 30);
+
+        jButton8.setBackground(new java.awt.Color(0, 0, 0));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Nowa Pozycja w Katalogu");
+        jButton8.setFocusTraversalPolicyProvider(true);
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.setName("jButton8"); // NOI18N
+        jPanel1.add(jButton8);
+        jButton8.setBounds(430, 310, 160, 30);
+
+        jButton9.setBackground(new java.awt.Color(0, 0, 0));
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setText("Nowa Pozycja w Cenniku");
+        jButton9.setName("jButton9"); // NOI18N
+        jPanel1.add(jButton9);
+        jButton9.setBounds(430, 230, 160, 30);
+
+        jButton10.setBackground(new java.awt.Color(0, 0, 0));
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
+        jButton10.setText("Nowa Cena Produktu");
+        jButton10.setName("jButton10"); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton10);
+        jButton10.setBounds(430, 270, 160, 30);
+
+        jButton11.setBackground(new java.awt.Color(0, 0, 0));
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton11.setForeground(new java.awt.Color(255, 255, 255));
+        jButton11.setText("Nowy Produkt");
+        jButton11.setActionCommand("Nowy Produkt");
+        jButton11.setName("jButton11"); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton11);
+        jButton11.setBounds(430, 190, 160, 30);
+
+        AdminContainerPanel.add(jPanel1, "card11");
 
         AdminMainPanel.add(AdminContainerPanel);
         AdminContainerPanel.setBounds(50, 240, 600, 350);
@@ -1592,12 +2084,6 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.add(AdminPanelBackButton);
         AdminPanelBackButton.setBounds(60, 590, 80, 30);
 
-        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
-        AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        AdminBackgroundLabel.setName("AdminBackgroundLabel"); // NOI18N
-        AdminMainPanel.add(AdminBackgroundLabel);
-        AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
-
         AdminMyAccountButton.setText("Moje konto");
         AdminMyAccountButton.setName("AdminMyAccountButton"); // NOI18N
         AdminMyAccountButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1607,6 +2093,13 @@ public class MainWindow extends javax.swing.JFrame {
         });
         AdminMainPanel.add(AdminMyAccountButton);
         AdminMyAccountButton.setBounds(510, 40, 90, 23);
+
+        AdminBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/skibackgroundAdmin3.jpg"))); // NOI18N
+        AdminBackgroundLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AdminBackgroundLabel.setDoubleBuffered(true);
+        AdminBackgroundLabel.setName("AdminBackgroundLabel"); // NOI18N
+        AdminMainPanel.add(AdminBackgroundLabel);
+        AdminBackgroundLabel.setBounds(0, 0, 1220, 890);
 
         getContentPane().add(AdminMainPanel, "adminPanelMain");
 
@@ -2390,49 +2883,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_UpdateUserActionPerformed
 
-    private void RemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserActionPerformed
-        if (!SessionController.IsUserLogged()) {
-            ExitSession();
-            return;
-        }
-        UserManagementAdminController controller = new UserManagementAdminController();
-        if (controller.removeUser(FindLoginTextField.getText())) {
-            UpdateResultLabel.setText("Removed");
-        } else {
-            UpdateResultLabel.setText("User does not exist!");
-        }
-    }//GEN-LAST:event_RemoveUserActionPerformed
-
     private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
-        if (!SessionController.IsUserLogged()) {
-            ExitSession();
-            return;
-        }
+        
     }//GEN-LAST:event_FindLoginTextFieldActionPerformed
-
-    private void FindUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserActionPerformed
-        if (!SessionController.IsUserLogged()) {
-            ExitSession();
-            return;
-        }
-        UserManagementAdminController controller = new UserManagementAdminController();
-
-        if (controller.exist(FindLoginTextField.getText())) {
-            FindResultLabel.setText("User exists!");
-            String roleName = controller.getUserRole(FindLoginTextField.getText());
-
-            if (roleName.equals("User")) {
-                UserRoleChooseGroup.setSelected(UserRadio.getModel(), true);
-            } else if (roleName.equals(RegistrationController.UserTypes.Admin.toString())) {
-                UserRoleChooseGroup.setSelected(AdminRadio.getModel(), true);
-            } else if (roleName.equals(RegistrationController.UserTypes.Cashier.toString())) {
-                UserRoleChooseGroup.setSelected(CashierRadio.getModel(), true);
-            }
-        } else {
-            UserRoleChooseGroup.clearSelection();
-            FindResultLabel.setText("User does not exist!");
-        }
-    }//GEN-LAST:event_FindUserActionPerformed
 
     private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
         if (!SessionController.IsUserLogged()) {
@@ -2445,7 +2898,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
-        changeCard(AdminContainerPanel, "priceListManagmentAdminPanel", true);
+        changeCard(AdminContainerPanel, "card11", true);
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
@@ -2495,6 +2948,42 @@ public class MainWindow extends javax.swing.JFrame {
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
         changeCard(AdminContainerPanel, "addTerminalPanel", true);
     }//GEN-LAST:event_NewTerminalButtonActionPerformed
+
+    private void EditUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserButtonActionPerformed
+        changeCard(AdminContainerPanel, "editUserAdminPanel", true);
+    }//GEN-LAST:event_EditUserButtonActionPerformed
+
+    private void DeleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserButtonActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+        UserManagementAdminController controller = new UserManagementAdminController();
+        if (controller.removeUser(SearchUserTextField.getText())) {
+            UpdateResultLabel.setText("Removed");
+        } else {
+            UpdateResultLabel.setText("User does not exist!");
+        }
+    }//GEN-LAST:event_DeleteUserButtonActionPerformed
+
+    private void SearchUserTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchUserTextFieldActionPerformed
+        if (!SessionController.IsUserLogged()) {
+            ExitSession();
+            return;
+        }
+    }//GEN-LAST:event_SearchUserTextFieldActionPerformed
+
+    private void EditProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductButton1ActionPerformed
+        changeCard(AdminContainerPanel, "editProductAdminPanel", true);
+    }//GEN-LAST:event_EditProductButton1ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        changeCard(AdminContainerPanel, "addProductAdminPanel", true);
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -2610,6 +3099,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CountryEditTextfield1;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JButton DeleteTerminalButton;
+    private javax.swing.JButton DeleteUserButton;
     private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentEditTextfield1;
     private javax.swing.JTextField DocumentNumber;
@@ -2622,17 +3112,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JLabel EditPasswordLabel1;
     private javax.swing.JButton EditProductButton;
+    private javax.swing.JButton EditProductButton1;
     private javax.swing.JPanel EditProductPanel;
     private javax.swing.JButton EditTerminalButton;
+    private javax.swing.JPanel EditUserAdmintPanel;
+    private javax.swing.JButton EditUserButton;
     private javax.swing.JLabel ExpirationDateLabel;
     private javax.swing.JLabel ExpirationDateLabel1;
     private javax.swing.JTextField ExpirationDateTextField;
     private javax.swing.JTextField ExpirationDateTextField1;
     private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JButton FindProductButton;
-    private javax.swing.JLabel FindResultLabel;
     private javax.swing.JButton FindTerminalButton;
-    private javax.swing.JButton FindUser;
+    private javax.swing.JButton FindUserButton;
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
     private javax.swing.JLabel IDEditLabel;
@@ -2689,13 +3181,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RemoveCardButton1;
     private javax.swing.JButton RemoveCardButton2;
     private javax.swing.JButton RemoveProductButton;
-    private javax.swing.JButton RemoveUser;
+    private javax.swing.JButton RemoveProductButton1;
     private javax.swing.JPasswordField RepeatPassword;
     private javax.swing.JLabel RepeatPasswordLabel;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
     private javax.swing.JTextField SearchProductTextField;
     private javax.swing.JTextField SearchTerminalTextField;
+    private javax.swing.JTextField SearchUserTextField;
     private javax.swing.JButton SlopeButton;
     private javax.swing.JPanel SlopeManagementAdminPanel;
     private javax.swing.JTable SlopeTraffic;
@@ -2716,6 +3209,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JTextField SurnameEditTextfield1;
     private javax.swing.JTable TerminalListTable;
+    private javax.swing.JTable TerminalListTable1;
     private javax.swing.JLabel TerminalNameLabel;
     private javax.swing.JTextField TerminalNameTextField;
     private javax.swing.JLabel UpdateResultLabel;
@@ -2737,9 +3231,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JButton UsersButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2747,9 +3249,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2758,13 +3268,42 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JSplitPane jSplitPane3;
+    private javax.swing.JSplitPane jSplitPane4;
+    private javax.swing.JSplitPane jSplitPane5;
+    private javax.swing.JSplitPane jSplitPane6;
+    private javax.swing.JSplitPane jSplitPane7;
+    private javax.swing.JSplitPane jSplitPane8;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,11 +11,11 @@
         <property name="name" type="string">
             <column name="name" length="20" not-null="true" />
         </property>
-        <set name="productlists" table="productlist" inverse="true" lazy="true" fetch="select">
+        <set name="productitems" table="productitem" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="product_productid" not-null="true" />
             </key>
-            <one-to-many class="DBClasses.Productlist" />
+            <one-to-many class="DBClasses.Productitem" />
         </set>
         <set name="itemprices" table="itemprice" inverse="true" lazy="true" fetch="select">
             <key>

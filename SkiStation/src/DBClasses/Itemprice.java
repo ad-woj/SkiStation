@@ -15,7 +15,7 @@ public class Itemprice  implements java.io.Serializable {
      private Pricelist pricelist;
      private Product product;
      private int price;
-     private Set boughtlists = new HashSet(0);
+     private Set boughtitems = new HashSet(0);
 
     public Itemprice() {
     }
@@ -27,12 +27,12 @@ public class Itemprice  implements java.io.Serializable {
         this.product = product;
         this.price = price;
     }
-    public Itemprice(int itempriceid, Pricelist pricelist, Product product, int price, Set boughtlists) {
+    public Itemprice(int itempriceid, Pricelist pricelist, Product product, int price, Set boughtitems) {
        this.itempriceid = itempriceid;
        this.pricelist = pricelist;
        this.product = product;
        this.price = price;
-       this.boughtlists = boughtlists;
+       this.boughtitems = boughtitems;
     }
    
     public int getItempriceid() {
@@ -63,12 +63,12 @@ public class Itemprice  implements java.io.Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
-    public Set getBoughtlists() {
-        return this.boughtlists;
+    public Set getBoughtitems() {
+        return this.boughtitems;
     }
     
-    public void setBoughtlists(Set boughtlists) {
-        this.boughtlists = boughtlists;
+    public void setBoughtitems(Set boughtitems) {
+        this.boughtitems = boughtitems;
     }
 
 

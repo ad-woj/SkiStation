@@ -17,11 +17,11 @@
         <property name="price" type="int">
             <column name="price" not-null="true" />
         </property>
-        <set name="boughtlists" table="boughtlist" inverse="true" lazy="true" fetch="select">
+        <set name="boughtitems" table="boughtitem" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="itemprice_itempriceid" not-null="true" />
             </key>
-            <one-to-many class="DBClasses.Boughtlist" />
+            <one-to-many class="DBClasses.Boughtitem" />
         </set>
     </class>
 </hibernate-mapping>
