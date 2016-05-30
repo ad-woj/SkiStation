@@ -16,6 +16,9 @@ import javax.swing.ButtonGroup;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.ListModel;
 import javax.swing.table.*;
 
 /**
@@ -600,11 +603,10 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel.setName("SearchPanel"); // NOI18N
         SearchPanel.setLayout(null);
 
-        UserSearchInputTextField.setText("szukaj klienta...");
         UserSearchInputTextField.setName("UserSearchInputTextField"); // NOI18N
-        UserSearchInputTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserSearchInputTextFieldActionPerformed(evt);
+        UserSearchInputTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                UserSearchInputTextFieldChanged(evt);
             }
         });
         SearchPanel.add(UserSearchInputTextField);
@@ -2886,14 +2888,23 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
 
-    private void UserSearchInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserSearchInputTextFieldActionPerformed
-
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        changeCard(CashierContainer, "SearchPanel", true);
-                    System.out.print("Wyswietlam SearchPanel \n");
+        changeCard(CashierContainer, "SearchPanel", true);                  
     }//GEN-LAST:event_SearchButtonActionPerformed
+
+    private void UserSearchInputTextFieldChanged(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldChanged
+       DefaultListModel model = new DefaultListModel();
+       ResultList.setModel(model);
+       
+       CashierController cc = new CashierController();
+       List results = cc.GetUsersList(UserSearchInputTextField.getText());
+       
+        for (Object result : results) {
+            Users user = (Users)result;
+            model.addElement(user.getName() + " " + user.getSurname() + " (" + user.getLogin() + ")");
+        }
+
+    }//GEN-LAST:event_UserSearchInputTextFieldChanged
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
