@@ -83,6 +83,14 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterBackgroundImage1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
         CashierContainer = new javax.swing.JPanel();
+        SearchPanel = new javax.swing.JPanel();
+        UserSearchInputTextField = new javax.swing.JTextField();
+        CancelButton2 = new javax.swing.JButton();
+        ResultListPanel = new javax.swing.JScrollPane();
+        ResultList = new javax.swing.JList<>();
+        SearchButton2 = new javax.swing.JButton();
+        CardScanStatusTextField = new javax.swing.JTextField();
+        CardScanButton = new javax.swing.JButton();
         ClientCardsPanel = new javax.swing.JPanel();
         AvailablePointsLabel1 = new javax.swing.JLabel();
         IDLabel1 = new javax.swing.JLabel();
@@ -123,22 +131,15 @@ public class MainWindow extends javax.swing.JFrame {
         CancelButton1 = new javax.swing.JButton();
         EditMessageLabel1 = new javax.swing.JLabel();
         DocumentEditTextfield1 = new javax.swing.JTextField();
-        MainPanel = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton5 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         ContactButton3 = new javax.swing.JButton();
         NewAccountButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
         ClientCardsButton = new javax.swing.JButton();
         SlopeTrafficButton1 = new javax.swing.JButton();
         ClientModeButton1 = new javax.swing.JButton();
-        CashierModeButton1 = new javax.swing.JButton();
+        CashierChangeModeToAdminButton = new javax.swing.JButton();
         SearchButton = new javax.swing.JButton();
+        CashierModeButton2 = new javax.swing.JButton();
         SelectedUserPanel = new javax.swing.JScrollPane();
         SelecetedUserTextPlane = new javax.swing.JTextPane();
         UserBackgroundLabel3 = new javax.swing.JLabel();
@@ -596,6 +597,55 @@ public class MainWindow extends javax.swing.JFrame {
         CashierContainer.setName("CashierContainer"); // NOI18N
         CashierContainer.setLayout(new java.awt.CardLayout());
 
+        SearchPanel.setName("SearchPanel"); // NOI18N
+        SearchPanel.setLayout(null);
+
+        UserSearchInputTextField.setText("szukaj klienta...");
+        UserSearchInputTextField.setName("UserSearchInputTextField"); // NOI18N
+        UserSearchInputTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserSearchInputTextFieldActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(UserSearchInputTextField);
+        UserSearchInputTextField.setBounds(10, 10, 200, 40);
+
+        CancelButton2.setText("Anuluj");
+        CancelButton2.setName("CancelButton2"); // NOI18N
+        SearchPanel.add(CancelButton2);
+        CancelButton2.setBounds(440, 10, 70, 40);
+
+        ResultListPanel.setName("ResultListPanel"); // NOI18N
+
+        ResultList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ResultList.setName("ResultList"); // NOI18N
+        ResultListPanel.setViewportView(ResultList);
+
+        SearchPanel.add(ResultListPanel);
+        ResultListPanel.setBounds(10, 60, 280, 240);
+
+        SearchButton2.setText("Szukaj");
+        SearchButton2.setName("SearchButton2"); // NOI18N
+        SearchPanel.add(SearchButton2);
+        SearchButton2.setBounds(220, 10, 70, 40);
+
+        CardScanStatusTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CardScanStatusTextField.setText("Zeskanowano pomyślnie!");
+        CardScanStatusTextField.setName("CardScanStatusTextField"); // NOI18N
+        SearchPanel.add(CardScanStatusTextField);
+        CardScanStatusTextField.setBounds(330, 60, 180, 70);
+
+        CardScanButton.setText("Skanuj kartę");
+        CardScanButton.setName("CardScanButton"); // NOI18N
+        SearchPanel.add(CardScanButton);
+        CardScanButton.setBounds(330, 10, 100, 40);
+
+        CashierContainer.add(SearchPanel, "SearchPanel");
+
         ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
         ClientCardsPanel.setLayout(null);
 
@@ -861,50 +911,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         CashierContainer.add(ClientAccountPanel, "ClientAccountPanel");
 
-        MainPanel.setName("MainPanel"); // NOI18N
-        MainPanel.setLayout(null);
-
-        jTextField1.setText("szukaj klienta...");
-        jTextField1.setName("jTextField1"); // NOI18N
-        MainPanel.add(jTextField1);
-        jTextField1.setBounds(10, 10, 200, 40);
-
-        jButton3.setText("Anuluj");
-        jButton3.setName("jButton3"); // NOI18N
-        MainPanel.add(jButton3);
-        jButton3.setBounds(440, 10, 70, 40);
-
-        jScrollPane1.setName("jScrollPane1"); // NOI18N
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setName("jList1"); // NOI18N
-        jScrollPane1.setViewportView(jList1);
-
-        MainPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 60, 280, 240);
-
-        jButton5.setText("Szukaj");
-        jButton5.setName("jButton5"); // NOI18N
-        MainPanel.add(jButton5);
-        jButton5.setBounds(220, 10, 70, 40);
-
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Zeskanowano pomyślnie!");
-        jTextField2.setName("jTextField2"); // NOI18N
-        MainPanel.add(jTextField2);
-        jTextField2.setBounds(330, 60, 180, 70);
-
-        jButton4.setText("Skanuj kartę");
-        jButton4.setName("jButton4"); // NOI18N
-        MainPanel.add(jButton4);
-        jButton4.setBounds(330, 10, 100, 40);
-
-        CashierContainer.add(MainPanel, "MainPanel");
-
         CashierPanel.add(CashierContainer);
         CashierContainer.setBounds(175, 130, 515, 495);
 
@@ -981,21 +987,34 @@ public class MainWindow extends javax.swing.JFrame {
         CashierPanel.add(ClientModeButton1);
         ClientModeButton1.setBounds(470, 10, 110, 23);
 
-        CashierModeButton1.setText("Tryb kasjera");
-        CashierModeButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        CashierModeButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        CashierModeButton1.setName("CashierModeButton1"); // NOI18N
-        CashierModeButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        CashierPanel.add(CashierModeButton1);
-        CashierModeButton1.setBounds(360, 10, 100, 23);
+        CashierChangeModeToAdminButton.setText("Tryb administratora");
+        CashierChangeModeToAdminButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.setName("CashierChangeModeToAdminButton"); // NOI18N
+        CashierChangeModeToAdminButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        CashierPanel.add(CashierChangeModeToAdminButton);
+        CashierChangeModeToAdminButton.setBounds(200, 10, 150, 23);
 
         SearchButton.setText("Wyszukiwarka");
         SearchButton.setMaximumSize(new java.awt.Dimension(67, 23));
         SearchButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SearchButton.setName("SearchButton"); // NOI18N
         SearchButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchButtonActionPerformed(evt);
+            }
+        });
         CashierPanel.add(SearchButton);
         SearchButton.setBounds(20, 130, 140, 23);
+
+        CashierModeButton2.setText("Tryb kasjera");
+        CashierModeButton2.setMaximumSize(new java.awt.Dimension(67, 23));
+        CashierModeButton2.setMinimumSize(new java.awt.Dimension(67, 23));
+        CashierModeButton2.setName("CashierModeButton2"); // NOI18N
+        CashierModeButton2.setPreferredSize(new java.awt.Dimension(67, 23));
+        CashierPanel.add(CashierModeButton2);
+        CashierModeButton2.setBounds(360, 10, 100, 23);
 
         SelectedUserPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SelectedUserPanel.setName("SelectedUserPanel"); // NOI18N
@@ -2699,7 +2718,6 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         if (SessionController.IsUserLogged()) {
             loginPaneLayout.show(getContentPane(), "CashierPanel");
-            System.out.print("Wyswietlam kasjera \n");
         } else {
             ExitSession();
         }
@@ -2849,7 +2867,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void ClientCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButtonActionPerformed
-        //change
+        changeCard(CashierContainer, "ClientCardsPanel", true);
     }//GEN-LAST:event_ClientCardsButtonActionPerformed
 
     private void ContactButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton3ActionPerformed
@@ -2857,7 +2875,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ContactButton3ActionPerformed
 
     private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
-        // TODO add your handling code here:
+        changeCard(CashierContainer, "ClientAccountPanel", true);
     }//GEN-LAST:event_NewAccountButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -2867,6 +2885,15 @@ public class MainWindow extends javax.swing.JFrame {
     private void ClientModeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
+
+    private void UserSearchInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserSearchInputTextFieldActionPerformed
+
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+        changeCard(CashierContainer, "SearchPanel", true);
+                    System.out.print("Wyswietlam SearchPanel \n");
+    }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -2953,9 +2980,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
+    private javax.swing.JButton CancelButton2;
+    private javax.swing.JButton CardScanButton;
+    private javax.swing.JTextField CardScanStatusTextField;
+    private javax.swing.JButton CashierChangeModeToAdminButton;
     private javax.swing.JPanel CashierContainer;
     private javax.swing.JButton CashierModeButton;
-    private javax.swing.JButton CashierModeButton1;
+    private javax.swing.JButton CashierModeButton2;
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
@@ -3024,7 +3055,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel MessageLabel;
     private javax.swing.JLabel MyAccountLabel1;
     private javax.swing.JPanel MyAccountPanel;
@@ -3065,9 +3095,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RemoveProductButton1;
     private javax.swing.JPasswordField RepeatPassword;
     private javax.swing.JLabel RepeatPasswordLabel;
+    private javax.swing.JList<String> ResultList;
+    private javax.swing.JScrollPane ResultListPanel;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
     private javax.swing.JButton SearchButton;
+    private javax.swing.JButton SearchButton2;
+    private javax.swing.JPanel SearchPanel;
     private javax.swing.JTextField SearchProductTextField;
     private javax.swing.JTextField SearchTerminalTextField;
     private javax.swing.JTextField SearchUserTextField;
@@ -3109,14 +3143,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton UserMyAccountButton2;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
+    private javax.swing.JTextField UserSearchInputTextField;
     private javax.swing.JButton UsersButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -3144,9 +3176,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3168,13 +3198,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
