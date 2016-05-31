@@ -88,7 +88,6 @@ public class MainWindow extends javax.swing.JFrame {
         CashierContainer = new javax.swing.JPanel();
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
-        CancelButton2 = new javax.swing.JButton();
         ResultListPanel = new javax.swing.JScrollPane();
         ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
@@ -612,19 +611,14 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel.add(UserSearchInputTextField);
         UserSearchInputTextField.setBounds(10, 10, 200, 40);
 
-        CancelButton2.setText("Anuluj");
-        CancelButton2.setName("CancelButton2"); // NOI18N
-        SearchPanel.add(CancelButton2);
-        CancelButton2.setBounds(440, 10, 70, 40);
-
         ResultListPanel.setName("ResultListPanel"); // NOI18N
 
-        ResultList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         ResultList.setName("ResultList"); // NOI18N
+        ResultList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultListClicked(evt);
+            }
+        });
         ResultListPanel.setViewportView(ResultList);
 
         SearchPanel.add(ResultListPanel);
@@ -636,15 +630,20 @@ public class MainWindow extends javax.swing.JFrame {
         SearchButton2.setBounds(220, 10, 70, 40);
 
         CardScanStatusTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CardScanStatusTextField.setText("Zeskanowano pomyślnie!");
+        CardScanStatusTextField.setText("Skanuj");
         CardScanStatusTextField.setName("CardScanStatusTextField"); // NOI18N
         SearchPanel.add(CardScanStatusTextField);
         CardScanStatusTextField.setBounds(330, 60, 180, 70);
 
         CardScanButton.setText("Skanuj kartę");
         CardScanButton.setName("CardScanButton"); // NOI18N
+        CardScanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CardScanButtonActionPerformed(evt);
+            }
+        });
         SearchPanel.add(CardScanButton);
-        CardScanButton.setBounds(330, 10, 100, 40);
+        CardScanButton.setBounds(330, 10, 180, 40);
 
         CashierContainer.add(SearchPanel, "SearchPanel");
 
@@ -1022,7 +1021,8 @@ public class MainWindow extends javax.swing.JFrame {
         SelectedUserPanel.setName("SelectedUserPanel"); // NOI18N
 
         SelecetedUserTextPlane.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        SelecetedUserTextPlane.setText("Użytkownik: Antoni");
+        SelecetedUserTextPlane.setText("Użytkownik: brak");
+        SelecetedUserTextPlane.setToolTipText("");
         SelecetedUserTextPlane.setName("SelecetedUserTextPlane"); // NOI18N
         SelectedUserPanel.setViewportView(SelecetedUserTextPlane);
 
@@ -2901,10 +2901,33 @@ public class MainWindow extends javax.swing.JFrame {
        
         for (Object result : results) {
             Users user = (Users)result;
-            model.addElement(user.getName() + " " + user.getSurname() + " (" + user.getLogin() + ")");
+            model.addElement(CashierController.GetUserConvertedName(user));
+        }
+        
+        if(results.size() > 0)
+        {
+            CashierController.SetSelectedUser((Users)results.get(0), SelecetedUserTextPlane);
         }
 
+        CardScanStatusTextField.setText("Skanuj");
     }//GEN-LAST:event_UserSearchInputTextFieldChanged
+
+    private void CardScanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardScanButtonActionPerformed
+        CashierController cc = new CashierController();
+        
+        Users scannedUser = cc.GetRandomUser();
+
+        CashierController.SetSelectedUser(scannedUser, SelecetedUserTextPlane);
+        CardScanStatusTextField.setText("Zeskanowano: " + CashierController.GetUserConvertedName(scannedUser));
+        UserSearchInputTextField.setText("");
+        DefaultListModel model = new DefaultListModel();
+        ResultList.setModel(model);
+    }//GEN-LAST:event_CardScanButtonActionPerformed
+
+    private void ResultListClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultListClicked
+        CashierController cc = new CashierController();
+        cc.SetSelectedUserWithString(ResultList.getSelectedValue(), SelecetedUserTextPlane);
+    }//GEN-LAST:event_ResultListClicked
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -2991,7 +3014,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
-    private javax.swing.JButton CancelButton2;
     private javax.swing.JButton CardScanButton;
     private javax.swing.JTextField CardScanStatusTextField;
     private javax.swing.JButton CashierChangeModeToAdminButton;
