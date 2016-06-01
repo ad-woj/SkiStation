@@ -5,10 +5,16 @@
  */
 package Controller;
 
+import DBClasses.Pricelist;
 import DBClasses.Product;
 import DBClasses.Users;
 import Tools.HibernateUtil;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -47,12 +53,37 @@ public class ProductController {
          return quaryResult;                
     }
     
-        public List getProductList(String text)
+    
+    
+    public List getProductList(String text)
     {
          List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", ("%"+text+"%"))).list();
          return quaryResult;                
     }
+        
+    public List getPriceListsList()
+    {
+         List quaryResult = s.createCriteria(Pricelist.class).list();
+         return quaryResult;                
+    }  
     
+    public List getPriceListsList(String text)
+    {
+        Integer id;
+        try{
+        id = Integer.parseInt(text);
+        }catch(Exception e){
+            id =null;
+        }
+             
+        if (id == null) {
+            return getPriceListsList();
+        }else{
+            List quaryResult = s.createCriteria(Pricelist.class).add(Restrictions.eqOrIsNull("pricelistid", id)).list();
+            return quaryResult;  
+        }     
+    }
+                    
     private Product findProduct(String name)
     {
          List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", name)).list();
@@ -64,4 +95,46 @@ public class ProductController {
           }
           return product;     
     }
+    
+        public boolean CreatePriceList(String from,String to, StringBuilder logger)
+    {
+        
+        Date fromDate = getDateFromString(from);
+        Date toDate = getDateFromString(to);
+        if (fromDate == null || toDate == null) {
+            logger.append("Date format error");
+            return false;
+        }else{
+            Transaction tr = s.beginTransaction();
+            Pricelist priceList = new Pricelist();
+            priceList.setStartdate(fromDate);
+            priceList.setEnddate(toDate);
+            s.saveOrUpdate(priceList);
+            tr.commit();
+            logger.append("Added new Price List with ID :" + priceList.getPricelistid());
+            return true;
+        }
+    }
+        
+        private Date getDateFromString(String text)
+        {
+            System.out.print(text);
+            String[] dateStrings = text.split("-");
+            try
+            {
+                for (String dateString : dateStrings) {
+                    System.out.println(dateString);
+                }
+            int day=Integer.parseInt(dateStrings[0]);
+            int month = Integer.parseInt(dateStrings[1]);
+            int year = Integer.parseInt(dateStrings[2]);
+            return new Date(year-1900,month-1,day);
+            }catch(Exception e)
+            {
+                return null;
+            }
+            
+        }
+    
+    
 }
