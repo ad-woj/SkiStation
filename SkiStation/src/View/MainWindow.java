@@ -21,6 +21,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListModel;
 import javax.swing.table.*;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -94,7 +95,31 @@ public class MainWindow extends javax.swing.JFrame {
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
-        ClientAccountPanel = new javax.swing.JPanel();
+        ClientAccountEditPanel = new javax.swing.JPanel();
+        MyAccountLabel2 = new javax.swing.JLabel();
+        EditLoginLabel2 = new javax.swing.JLabel();
+        EditPasswordLabel2 = new javax.swing.JLabel();
+        LoginEditTextfield2 = new javax.swing.JTextField();
+        PasswordEditTextfield2 = new javax.swing.JTextField();
+        NameEditTextfield2 = new javax.swing.JTextField();
+        SurnameEditTextfield2 = new javax.swing.JTextField();
+        NameEditLabel2 = new javax.swing.JLabel();
+        SurnameEditLabel2 = new javax.swing.JLabel();
+        IDEditLabel2 = new javax.swing.JLabel();
+        IDEditTextfield2 = new javax.swing.JTextField();
+        StreetEditTextfield2 = new javax.swing.JTextField();
+        CityEditTextfield2 = new javax.swing.JTextField();
+        CountryEditTextfield2 = new javax.swing.JTextField();
+        StreetEditLabel2 = new javax.swing.JLabel();
+        CityEditLabel2 = new javax.swing.JLabel();
+        CountryEditLabel2 = new javax.swing.JLabel();
+        EditDetailsButton2 = new javax.swing.JButton();
+        SaveDetailsButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        CancelButton2 = new javax.swing.JButton();
+        EditMessageLabel2 = new javax.swing.JLabel();
+        DocumentEditTextfield2 = new javax.swing.JTextField();
+        NewClientAccountPanel = new javax.swing.JPanel();
         MyAccountLabel1 = new javax.swing.JLabel();
         EditLoginLabel1 = new javax.swing.JLabel();
         EditPasswordLabel1 = new javax.swing.JLabel();
@@ -137,10 +162,14 @@ public class MainWindow extends javax.swing.JFrame {
         StationTrafficPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         StationTrafficTable = new javax.swing.JTable();
+        ContactPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         ContactButton3 = new javax.swing.JButton();
         NewAccountButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
-        ClientCardsButton = new javax.swing.JButton();
+        EditClientButton = new javax.swing.JButton();
         SlopeTrafficButton1 = new javax.swing.JButton();
         ClientModeButton1 = new javax.swing.JButton();
         CashierChangeModeToAdminButton = new javax.swing.JButton();
@@ -148,6 +177,7 @@ public class MainWindow extends javax.swing.JFrame {
         CashierModeButton2 = new javax.swing.JButton();
         SelectedUserPanel = new javax.swing.JScrollPane();
         SelecetedUserTextPlane = new javax.swing.JTextPane();
+        ClientCardsButton1 = new javax.swing.JButton();
         UserBackgroundLabel3 = new javax.swing.JLabel();
         AdminMainPanel = new javax.swing.JPanel();
         AdminContainerPanel = new javax.swing.JPanel();
@@ -650,63 +680,211 @@ public class MainWindow extends javax.swing.JFrame {
 
         CashierContainer.add(SearchPanel, "SearchPanel");
 
-        ClientAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
-        ClientAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
-        ClientAccountPanel.setName(""); // NOI18N
-        ClientAccountPanel.setLayout(null);
+        ClientAccountEditPanel.setAutoscrolls(true);
+        ClientAccountEditPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        ClientAccountEditPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        ClientAccountEditPanel.setName("ClientAccountEditPanel"); // NOI18N
+        ClientAccountEditPanel.setLayout(null);
+
+        MyAccountLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        MyAccountLabel2.setText("Edytuj dane klienta");
+        MyAccountLabel2.setName("MyAccountLabel2"); // NOI18N
+        ClientAccountEditPanel.add(MyAccountLabel2);
+        MyAccountLabel2.setBounds(90, 10, 270, 30);
+
+        EditLoginLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditLoginLabel2.setText("Login");
+        EditLoginLabel2.setName("EditLoginLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditLoginLabel2);
+        EditLoginLabel2.setBounds(10, 100, 80, 30);
+
+        EditPasswordLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditPasswordLabel2.setText("Hasło");
+        EditPasswordLabel2.setName("EditPasswordLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditPasswordLabel2);
+        EditPasswordLabel2.setBounds(10, 130, 80, 30);
+
+        LoginEditTextfield2.setName("LoginEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(LoginEditTextfield2);
+        LoginEditTextfield2.setBounds(110, 100, 180, 30);
+
+        PasswordEditTextfield2.setEditable(false);
+        PasswordEditTextfield2.setText("*****");
+        PasswordEditTextfield2.setName("PasswordEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(PasswordEditTextfield2);
+        PasswordEditTextfield2.setBounds(110, 130, 180, 30);
+
+        NameEditTextfield2.setName("NameEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(NameEditTextfield2);
+        NameEditTextfield2.setBounds(110, 160, 180, 30);
+
+        SurnameEditTextfield2.setName("SurnameEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(SurnameEditTextfield2);
+        SurnameEditTextfield2.setBounds(110, 190, 180, 30);
+
+        NameEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NameEditLabel2.setText("Imię");
+        NameEditLabel2.setName("NameEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(NameEditLabel2);
+        NameEditLabel2.setBounds(10, 160, 80, 30);
+
+        SurnameEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SurnameEditLabel2.setText("Nazwisko");
+        SurnameEditLabel2.setName("SurnameEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(SurnameEditLabel2);
+        SurnameEditLabel2.setBounds(10, 190, 80, 30);
+
+        IDEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        IDEditLabel2.setText("ID");
+        IDEditLabel2.setName("IDEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(IDEditLabel2);
+        IDEditLabel2.setBounds(10, 70, 80, 30);
+
+        IDEditTextfield2.setName("IDEditTextfield2"); // NOI18N
+        IDEditTextfield2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDEditTextfield2ActionPerformed(evt);
+            }
+        });
+        ClientAccountEditPanel.add(IDEditTextfield2);
+        IDEditTextfield2.setBounds(110, 70, 180, 30);
+
+        StreetEditTextfield2.setName("StreetEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(StreetEditTextfield2);
+        StreetEditTextfield2.setBounds(110, 250, 180, 30);
+
+        CityEditTextfield2.setName("CityEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(CityEditTextfield2);
+        CityEditTextfield2.setBounds(110, 280, 180, 30);
+
+        CountryEditTextfield2.setName("CountryEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(CountryEditTextfield2);
+        CountryEditTextfield2.setBounds(110, 310, 180, 30);
+
+        StreetEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StreetEditLabel2.setText("Ulica");
+        StreetEditLabel2.setName("StreetEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(StreetEditLabel2);
+        StreetEditLabel2.setBounds(10, 250, 80, 30);
+
+        CityEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CityEditLabel2.setText("Miasto");
+        CityEditLabel2.setName("CityEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(CityEditLabel2);
+        CityEditLabel2.setBounds(10, 280, 80, 30);
+
+        CountryEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CountryEditLabel2.setText("Kraj");
+        CountryEditLabel2.setName("CountryEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(CountryEditLabel2);
+        CountryEditLabel2.setBounds(10, 310, 80, 30);
+
+        EditDetailsButton2.setText("Edytuj Dane");
+        EditDetailsButton2.setName("EditDetailsButton2"); // NOI18N
+        EditDetailsButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditDetailsButton2ActionPerformed(evt);
+            }
+        });
+        ClientAccountEditPanel.add(EditDetailsButton2);
+        EditDetailsButton2.setBounds(110, 360, 180, 23);
+
+        SaveDetailsButton2.setText("Zapisz");
+        SaveDetailsButton2.setEnabled(false);
+        SaveDetailsButton2.setName("SaveDetailsButton2"); // NOI18N
+        SaveDetailsButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveDetailsButton2ActionPerformed(evt);
+            }
+        });
+        ClientAccountEditPanel.add(SaveDetailsButton2);
+        SaveDetailsButton2.setBounds(210, 390, 80, 23);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Nr dokumentu");
+        jLabel12.setName("jLabel12"); // NOI18N
+        ClientAccountEditPanel.add(jLabel12);
+        jLabel12.setBounds(10, 220, 100, 30);
+
+        CancelButton2.setText("Anuluj");
+        CancelButton2.setEnabled(false);
+        CancelButton2.setName("CancelButton2"); // NOI18N
+        CancelButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButton2ActionPerformed(evt);
+            }
+        });
+        ClientAccountEditPanel.add(CancelButton2);
+        CancelButton2.setBounds(110, 390, 73, 23);
+
+        EditMessageLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditMessageLabel2.setName("EditMessageLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditMessageLabel2);
+        EditMessageLabel2.setBounds(110, 420, 180, 20);
+
+        DocumentEditTextfield2.setName("DocumentEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(DocumentEditTextfield2);
+        DocumentEditTextfield2.setBounds(110, 220, 180, 30);
+
+        CashierContainer.add(ClientAccountEditPanel, "ClientAccountEditPanel");
+
+        NewClientAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        NewClientAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        NewClientAccountPanel.setName(""); // NOI18N
+        NewClientAccountPanel.setLayout(null);
 
         MyAccountLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        MyAccountLabel1.setText("Konto klienta");
+        MyAccountLabel1.setText("Nowe konto klienta");
         MyAccountLabel1.setName("MyAccountLabel1"); // NOI18N
-        ClientAccountPanel.add(MyAccountLabel1);
-        MyAccountLabel1.setBounds(130, 10, 270, 30);
+        NewClientAccountPanel.add(MyAccountLabel1);
+        MyAccountLabel1.setBounds(90, 10, 270, 30);
 
         EditLoginLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditLoginLabel1.setText("Login");
         EditLoginLabel1.setName("EditLoginLabel1"); // NOI18N
-        ClientAccountPanel.add(EditLoginLabel1);
+        NewClientAccountPanel.add(EditLoginLabel1);
         EditLoginLabel1.setBounds(10, 100, 80, 30);
 
         EditPasswordLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditPasswordLabel1.setText("Hasło");
         EditPasswordLabel1.setName("EditPasswordLabel1"); // NOI18N
-        ClientAccountPanel.add(EditPasswordLabel1);
+        NewClientAccountPanel.add(EditPasswordLabel1);
         EditPasswordLabel1.setBounds(10, 130, 80, 30);
 
         LoginEditTextfield1.setName("LoginEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(LoginEditTextfield1);
+        NewClientAccountPanel.add(LoginEditTextfield1);
         LoginEditTextfield1.setBounds(110, 100, 180, 30);
 
         PasswordEditTextfield1.setEditable(false);
         PasswordEditTextfield1.setText("*****");
         PasswordEditTextfield1.setName("PasswordEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(PasswordEditTextfield1);
+        NewClientAccountPanel.add(PasswordEditTextfield1);
         PasswordEditTextfield1.setBounds(110, 130, 180, 30);
 
         NameEditTextfield1.setName("NameEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(NameEditTextfield1);
+        NewClientAccountPanel.add(NameEditTextfield1);
         NameEditTextfield1.setBounds(110, 160, 180, 30);
 
         SurnameEditTextfield1.setName("SurnameEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(SurnameEditTextfield1);
+        NewClientAccountPanel.add(SurnameEditTextfield1);
         SurnameEditTextfield1.setBounds(110, 190, 180, 30);
 
         NameEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NameEditLabel1.setText("Imię");
         NameEditLabel1.setName("NameEditLabel1"); // NOI18N
-        ClientAccountPanel.add(NameEditLabel1);
+        NewClientAccountPanel.add(NameEditLabel1);
         NameEditLabel1.setBounds(10, 160, 80, 30);
 
         SurnameEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SurnameEditLabel1.setText("Nazwisko");
         SurnameEditLabel1.setName("SurnameEditLabel1"); // NOI18N
-        ClientAccountPanel.add(SurnameEditLabel1);
+        NewClientAccountPanel.add(SurnameEditLabel1);
         SurnameEditLabel1.setBounds(10, 190, 80, 30);
 
         IDEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IDEditLabel1.setText("ID");
         IDEditLabel1.setName("IDEditLabel1"); // NOI18N
-        ClientAccountPanel.add(IDEditLabel1);
+        NewClientAccountPanel.add(IDEditLabel1);
         IDEditLabel1.setBounds(10, 70, 80, 30);
 
         IDEditTextfield1.setName("IDEditTextfield1"); // NOI18N
@@ -715,37 +893,37 @@ public class MainWindow extends javax.swing.JFrame {
                 IDEditTextfield1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(IDEditTextfield1);
+        NewClientAccountPanel.add(IDEditTextfield1);
         IDEditTextfield1.setBounds(110, 70, 180, 30);
 
         StreetEditTextfield1.setName("StreetEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(StreetEditTextfield1);
+        NewClientAccountPanel.add(StreetEditTextfield1);
         StreetEditTextfield1.setBounds(110, 250, 180, 30);
 
         CityEditTextfield1.setName("CityEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(CityEditTextfield1);
+        NewClientAccountPanel.add(CityEditTextfield1);
         CityEditTextfield1.setBounds(110, 280, 180, 30);
 
         CountryEditTextfield1.setName("CountryEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(CountryEditTextfield1);
+        NewClientAccountPanel.add(CountryEditTextfield1);
         CountryEditTextfield1.setBounds(110, 310, 180, 30);
 
         StreetEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StreetEditLabel1.setText("Ulica");
         StreetEditLabel1.setName("StreetEditLabel1"); // NOI18N
-        ClientAccountPanel.add(StreetEditLabel1);
+        NewClientAccountPanel.add(StreetEditLabel1);
         StreetEditLabel1.setBounds(10, 250, 80, 30);
 
         CityEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CityEditLabel1.setText("Miasto");
         CityEditLabel1.setName("CityEditLabel1"); // NOI18N
-        ClientAccountPanel.add(CityEditLabel1);
+        NewClientAccountPanel.add(CityEditLabel1);
         CityEditLabel1.setBounds(10, 280, 80, 30);
 
         CountryEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CountryEditLabel1.setText("Kraj");
         CountryEditLabel1.setName("CountryEditLabel1"); // NOI18N
-        ClientAccountPanel.add(CountryEditLabel1);
+        NewClientAccountPanel.add(CountryEditLabel1);
         CountryEditLabel1.setBounds(10, 310, 80, 30);
 
         EditDetailsButton1.setText("Edytuj Dane");
@@ -755,7 +933,7 @@ public class MainWindow extends javax.swing.JFrame {
                 EditDetailsButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(EditDetailsButton1);
+        NewClientAccountPanel.add(EditDetailsButton1);
         EditDetailsButton1.setBounds(110, 360, 180, 23);
 
         SaveDetailsButton1.setText("Zapisz");
@@ -766,13 +944,13 @@ public class MainWindow extends javax.swing.JFrame {
                 SaveDetailsButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(SaveDetailsButton1);
+        NewClientAccountPanel.add(SaveDetailsButton1);
         SaveDetailsButton1.setBounds(210, 390, 80, 23);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Nr dokumentu");
         jLabel11.setName("jLabel11"); // NOI18N
-        ClientAccountPanel.add(jLabel11);
+        NewClientAccountPanel.add(jLabel11);
         jLabel11.setBounds(10, 220, 100, 30);
 
         CancelButton1.setText("Anuluj");
@@ -783,19 +961,19 @@ public class MainWindow extends javax.swing.JFrame {
                 CancelButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(CancelButton1);
+        NewClientAccountPanel.add(CancelButton1);
         CancelButton1.setBounds(110, 390, 73, 23);
 
         EditMessageLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditMessageLabel1.setName("EditMessageLabel1"); // NOI18N
-        ClientAccountPanel.add(EditMessageLabel1);
+        NewClientAccountPanel.add(EditMessageLabel1);
         EditMessageLabel1.setBounds(110, 420, 180, 20);
 
         DocumentEditTextfield1.setName("DocumentEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(DocumentEditTextfield1);
+        NewClientAccountPanel.add(DocumentEditTextfield1);
         DocumentEditTextfield1.setBounds(110, 220, 180, 30);
 
-        CashierContainer.add(ClientAccountPanel, "ClientAccountPanel");
+        CashierContainer.add(NewClientAccountPanel, "NewClientAccountPanel");
 
         ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
         ClientCardsPanel.setLayout(null);
@@ -966,6 +1144,31 @@ public class MainWindow extends javax.swing.JFrame {
 
         CashierContainer.add(StationTrafficPanel, "StationTrafficPanel");
 
+        ContactPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        ContactPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        ContactPanel.setName("ContactPanel"); // NOI18N
+        ContactPanel.setLayout(null);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel13.setText("Kontakt");
+        jLabel13.setName("jLabel13"); // NOI18N
+        ContactPanel.add(jLabel13);
+        jLabel13.setBounds(190, 0, 240, 60);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Akademicka 18, Gliwice 44-100");
+        jLabel25.setName("jLabel25"); // NOI18N
+        ContactPanel.add(jLabel25);
+        jLabel25.setBounds(30, 80, 300, 50);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Telefon: 558 201 654");
+        jLabel26.setName("jLabel26"); // NOI18N
+        ContactPanel.add(jLabel26);
+        jLabel26.setBounds(30, 50, 300, 50);
+
+        CashierContainer.add(ContactPanel, "ContactPanel");
+
         CashierPanel.add(CashierContainer);
         CashierContainer.setBounds(175, 130, 515, 495);
 
@@ -980,7 +1183,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(ContactButton3);
-        ContactButton3.setBounds(20, 250, 140, 23);
+        ContactButton3.setBounds(20, 280, 140, 23);
 
         NewAccountButton.setText("Założ konto klienta");
         NewAccountButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1008,18 +1211,18 @@ public class MainWindow extends javax.swing.JFrame {
         CashierPanel.add(LogoutButton);
         LogoutButton.setBounds(590, 10, 100, 23);
 
-        ClientCardsButton.setText("Karty klienta");
-        ClientCardsButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        ClientCardsButton.setMinimumSize(new java.awt.Dimension(67, 23));
-        ClientCardsButton.setName("ClientCardsButton"); // NOI18N
-        ClientCardsButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsButton.addActionListener(new java.awt.event.ActionListener() {
+        EditClientButton.setText("Edytuj klienta");
+        EditClientButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        EditClientButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        EditClientButton.setName("EditClientButton"); // NOI18N
+        EditClientButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        EditClientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientCardsButtonActionPerformed(evt);
+                EditClientButtonActionPerformed(evt);
             }
         });
-        CashierPanel.add(ClientCardsButton);
-        ClientCardsButton.setBounds(20, 190, 140, 23);
+        CashierPanel.add(EditClientButton);
+        EditClientButton.setBounds(20, 190, 140, 23);
 
         SlopeTrafficButton1.setText("Natężenie stoku");
         SlopeTrafficButton1.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1032,7 +1235,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(SlopeTrafficButton1);
-        SlopeTrafficButton1.setBounds(20, 220, 140, 23);
+        SlopeTrafficButton1.setBounds(20, 250, 140, 23);
 
         ClientModeButton1.setText("Tryb klienta");
         ClientModeButton1.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1087,6 +1290,19 @@ public class MainWindow extends javax.swing.JFrame {
 
         CashierPanel.add(SelectedUserPanel);
         SelectedUserPanel.setBounds(180, 60, 500, 60);
+
+        ClientCardsButton1.setText("Karty klienta");
+        ClientCardsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.setName("ClientCardsButton1"); // NOI18N
+        ClientCardsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientCardsButton1ActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(ClientCardsButton1);
+        ClientCardsButton1.setBounds(20, 220, 140, 23);
 
         UserBackgroundLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
         UserBackgroundLabel3.setName("UserBackgroundLabel3"); // NOI18N
@@ -2949,16 +3165,16 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void ClientCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButtonActionPerformed
-        changeCard(CashierContainer, "ClientCardsPanel", true);
-    }//GEN-LAST:event_ClientCardsButtonActionPerformed
+    private void EditClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditClientButtonActionPerformed
+        changeCard(CashierContainer, "ClientAccountEditPanel", true);
+    }//GEN-LAST:event_EditClientButtonActionPerformed
 
     private void ContactButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton3ActionPerformed
-        // TODO add your handling code here:
+        changeCard(CashierContainer, "ContactPanel", true);
     }//GEN-LAST:event_ContactButton3ActionPerformed
 
     private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
-        changeCard(CashierContainer, "ClientAccountPanel", true);
+        changeCard(CashierContainer, "NewClientAccountPanel", true);
     }//GEN-LAST:event_NewAccountButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -2970,7 +3186,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        changeCard(CashierContainer, "SearchPanel", true);                  
+        changeCard(CashierContainer, "SearchPanel", true);  
+        System.out.println("SearchPanel");
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void UserSearchInputTextFieldChanged(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldChanged
@@ -3050,16 +3267,37 @@ public class MainWindow extends javax.swing.JFrame {
         
         CashierController cc = new CashierController();
         
-        List terminals = cc.GetSkiTerminals();
+        List attractions = cc.GetSkiAttractions();
         
-        for (Object terminalObject : terminals) {
-            Terminal terminal = (Terminal)terminalObject;
-            model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName(), 57 });
+        for (Object attractionObject : attractions) {
+            Attraction attraction = (Attraction)attractionObject;
+            
+            int skiTraffic = cc.GetSkiAttractionTraffic(attraction);
+            
+            model.addRow(new Object[]{ attraction.getAttractionid(),attraction.getName(), skiTraffic });
         }
         
-        //model.addRow(new Object[]{"Column 1", "Column 2"});
-        
     }//GEN-LAST:event_StationTrafficTableShowed
+
+    private void ClientCardsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButton1ActionPerformed
+              changeCard(CashierContainer, "ClientCardsPanel", true);
+    }//GEN-LAST:event_ClientCardsButton1ActionPerformed
+
+    private void IDEditTextfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDEditTextfield2ActionPerformed
+
+    private void EditDetailsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditDetailsButton2ActionPerformed
+
+    private void SaveDetailsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveDetailsButton2ActionPerformed
+
+    private void CancelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelButton2ActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -3146,6 +3384,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
+    private javax.swing.JButton CancelButton2;
     private javax.swing.JButton CardScanButton;
     private javax.swing.JTextField CardScanStatusTextField;
     private javax.swing.JButton CashierChangeModeToAdminButton;
@@ -3157,35 +3396,46 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField City;
     private javax.swing.JLabel CityEditLabel;
     private javax.swing.JLabel CityEditLabel1;
+    private javax.swing.JLabel CityEditLabel2;
     private javax.swing.JTextField CityEditTextfield;
     private javax.swing.JTextField CityEditTextfield1;
-    private javax.swing.JPanel ClientAccountPanel;
-    private javax.swing.JButton ClientCardsButton;
+    private javax.swing.JTextField CityEditTextfield2;
+    private javax.swing.JPanel ClientAccountEditPanel;
+    private javax.swing.JButton ClientCardsButton1;
     private javax.swing.JPanel ClientCardsPanel;
     private javax.swing.JButton ClientModeButton;
     private javax.swing.JButton ClientModeButton1;
     private javax.swing.JButton ContactButton;
     private javax.swing.JButton ContactButton2;
     private javax.swing.JButton ContactButton3;
+    private javax.swing.JPanel ContactPanel;
     private javax.swing.JTextField Country;
     private javax.swing.JLabel CountryEditLabel;
     private javax.swing.JLabel CountryEditLabel1;
+    private javax.swing.JLabel CountryEditLabel2;
     private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JTextField CountryEditTextfield1;
+    private javax.swing.JTextField CountryEditTextfield2;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JButton DeleteTerminalButton;
     private javax.swing.JButton DeleteUserButton;
     private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentEditTextfield1;
+    private javax.swing.JTextField DocumentEditTextfield2;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JButton EditClientButton;
     private javax.swing.JButton EditDetailsButton;
     private javax.swing.JButton EditDetailsButton1;
+    private javax.swing.JButton EditDetailsButton2;
     private javax.swing.JLabel EditLoginLabel;
     private javax.swing.JLabel EditLoginLabel1;
+    private javax.swing.JLabel EditLoginLabel2;
     private javax.swing.JLabel EditMessageLabel;
     private javax.swing.JLabel EditMessageLabel1;
+    private javax.swing.JLabel EditMessageLabel2;
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JLabel EditPasswordLabel1;
+    private javax.swing.JLabel EditPasswordLabel2;
     private javax.swing.JButton EditProductButton;
     private javax.swing.JButton EditProductButton1;
     private javax.swing.JPanel EditProductPanel;
@@ -3204,8 +3454,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel GatesManagementAdminPanel;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel1;
+    private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
     private javax.swing.JTextField IDEditTextfield1;
+    private javax.swing.JTextField IDEditTextfield2;
     private javax.swing.JLabel IDLabel;
     private javax.swing.JLabel IDLabel1;
     private javax.swing.JTextField IDTextField;
@@ -3216,21 +3468,26 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginEditTextfield;
     private javax.swing.JTextField LoginEditTextfield1;
+    private javax.swing.JTextField LoginEditTextfield2;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel MessageLabel;
     private javax.swing.JLabel MyAccountLabel1;
+    private javax.swing.JLabel MyAccountLabel2;
     private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JButton MyCardsButton;
     private javax.swing.JButton MyCardsButton2;
     private javax.swing.JTextField Name;
     private javax.swing.JLabel NameEditLabel;
     private javax.swing.JLabel NameEditLabel1;
+    private javax.swing.JLabel NameEditLabel2;
     private javax.swing.JTextField NameEditTextfield;
     private javax.swing.JTextField NameEditTextfield1;
+    private javax.swing.JTextField NameEditTextfield2;
     private javax.swing.JButton NewAccountButton;
+    private javax.swing.JPanel NewClientAccountPanel;
     private javax.swing.JButton NewProductButton;
     private javax.swing.JTextField NewProductNameTextField;
     private javax.swing.JLabel NewProductResult;
@@ -3238,6 +3495,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JTextField PasswordEditTextfield1;
+    private javax.swing.JTextField PasswordEditTextfield2;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JLabel PointsLabel;
@@ -3267,6 +3525,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane ResultListPanel;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
+    private javax.swing.JButton SaveDetailsButton2;
     private javax.swing.JButton SearchButton;
     private javax.swing.JButton SearchButton2;
     private javax.swing.JPanel SearchPanel;
@@ -3287,15 +3546,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField Street;
     private javax.swing.JLabel StreetEditLabel;
     private javax.swing.JLabel StreetEditLabel1;
+    private javax.swing.JLabel StreetEditLabel2;
     private javax.swing.JTextField StreetEditTextfield;
     private javax.swing.JTextField StreetEditTextfield1;
+    private javax.swing.JTextField StreetEditTextfield2;
     private javax.swing.JButton SubtractPointsButton;
     private javax.swing.JButton SubtractPointsButton1;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel SurnameEditLabel;
     private javax.swing.JLabel SurnameEditLabel1;
+    private javax.swing.JLabel SurnameEditLabel2;
     private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JTextField SurnameEditTextfield1;
+    private javax.swing.JTextField SurnameEditTextfield2;
     private javax.swing.JTable TerminalListTable;
     private javax.swing.JTable TerminalListTable1;
     private javax.swing.JLabel TerminalNameLabel;
@@ -3327,6 +3590,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -3339,6 +3604,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

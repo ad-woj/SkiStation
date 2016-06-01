@@ -13,7 +13,6 @@ public class Terminal  implements java.io.Serializable {
 
      private int terminalid;
      private Attraction attraction;
-     private Cardusage cardusage;
      private Integer locktime;
      private Set productitems = new HashSet(0);
      private Set cardusages = new HashSet(0);
@@ -46,14 +45,7 @@ public class Terminal  implements java.io.Serializable {
     public void setAttraction(Attraction attraction) {
         this.attraction = attraction;
     }
-    
-    public Cardusage getCardusage() {
-        return this.cardusage;
-    }
-    
-    public void setCardusage(Cardusage cardusage) {
-        this.cardusage = cardusage;
-    }
+
     public Integer getLocktime() {
         return this.locktime;
     }
