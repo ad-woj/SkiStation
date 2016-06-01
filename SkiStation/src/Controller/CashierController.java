@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DBClasses.Terminal;
 import DBClasses.Users;
 import Tools.HibernateUtil;
 import View.MainWindow;
@@ -80,4 +81,11 @@ public class CashierController {
         return user.getName() + " " + user.getSurname() + " (" + user.getLogin() + ")";
     }
     
+    public List GetSkiTerminals()
+    {
+        List queryResult = s.createCriteria(Terminal.class).add(Restrictions.gt("locktime", 0)).list();
+        
+        return queryResult;
+        
+    }
 }

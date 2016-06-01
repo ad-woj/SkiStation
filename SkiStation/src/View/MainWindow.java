@@ -924,20 +924,20 @@ public class MainWindow extends javax.swing.JFrame {
 
         StationTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Zjazd", "Natężenie (%)"
+                "ID", "Zjazd", "Natężenie (%)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1807,10 +1807,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3047,7 +3047,17 @@ public class MainWindow extends javax.swing.JFrame {
        
         DefaultTableModel model = (DefaultTableModel) StationTrafficTable.getModel();
         model.setRowCount(0);
-        model.addRow(new Object[]{"Column 1", "Column 2"});
+        
+        CashierController cc = new CashierController();
+        
+        List terminals = cc.GetSkiTerminals();
+        
+        for (Object terminalObject : terminals) {
+            Terminal terminal = (Terminal)terminalObject;
+            model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName(), 57 });
+        }
+        
+        //model.addRow(new Object[]{"Column 1", "Column 2"});
         
     }//GEN-LAST:event_StationTrafficTableShowed
 
