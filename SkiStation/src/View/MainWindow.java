@@ -1407,11 +1407,18 @@ public class MainWindow extends javax.swing.JFrame {
         AddPriceList.add(NewPriceListButton);
         NewPriceListButton.setBounds(160, 190, 120, 30);
 
+        NewPriceListDateFrom.setText("01-01-2000");
         NewPriceListDateFrom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         NewPriceListDateFrom.setName("NewPriceListDateFrom"); // NOI18N
+        NewPriceListDateFrom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPriceListDateFromActionPerformed(evt);
+            }
+        });
         AddPriceList.add(NewPriceListDateFrom);
         NewPriceListDateFrom.setBounds(30, 70, 250, 30);
 
+        NewPriceListDateTo.setText("01-01-2012");
         NewPriceListDateTo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         NewPriceListDateTo.setName("NewPriceListDateTo"); // NOI18N
         AddPriceList.add(NewPriceListDateTo);
@@ -1861,10 +1868,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3123,6 +3130,10 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_PriceListFindTextKeyReleased
+
+    private void NewPriceListDateFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPriceListDateFromActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPriceListDateFromActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();

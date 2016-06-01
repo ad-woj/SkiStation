@@ -2304,6 +2304,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="NewPriceListDateFrom">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="01-01-2000"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder/>
@@ -2311,6 +2312,9 @@
                     </Property>
                     <Property name="name" type="java.lang.String" value="NewPriceListDateFrom" noResource="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewPriceListDateFromActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="30" y="70" width="250" height="30"/>
@@ -2319,6 +2323,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="NewPriceListDateTo">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="01-01-2012"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder/>
