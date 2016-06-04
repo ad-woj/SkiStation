@@ -95,7 +95,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -178,7 +178,6 @@ public class MainWindow extends javax.swing.JFrame {
         ClientModeButton1 = new javax.swing.JButton();
         CashierChangeModeToAdminButton = new javax.swing.JButton();
         SearchButton = new javax.swing.JButton();
-        CashierModeButton2 = new javax.swing.JButton();
         SelectedUserPanel = new javax.swing.JScrollPane();
         SelecetedUserTextPlane = new javax.swing.JTextPane();
         ClientCardsButton1 = new javax.swing.JButton();
@@ -315,7 +314,8 @@ public class MainWindow extends javax.swing.JFrame {
         PointsTextField = new javax.swing.JTextField();
         AddPointsButton = new javax.swing.JButton();
         SubtractPointsButton = new javax.swing.JButton();
-        AddCardButton = new javax.swing.JButton();
+        BuyPointsButton = new javax.swing.JButton();
+        AddCardButton2 = new javax.swing.JButton();
         RemoveCardButton = new javax.swing.JButton();
         UserBackgroundLabel = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
@@ -1253,15 +1253,20 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(ClientModeButton1);
-        ClientModeButton1.setBounds(470, 10, 110, 23);
+        ClientModeButton1.setBounds(460, 10, 110, 23);
 
         CashierChangeModeToAdminButton.setText("Tryb administratora");
         CashierChangeModeToAdminButton.setMaximumSize(new java.awt.Dimension(67, 23));
         CashierChangeModeToAdminButton.setMinimumSize(new java.awt.Dimension(67, 23));
         CashierChangeModeToAdminButton.setName("CashierChangeModeToAdminButton"); // NOI18N
         CashierChangeModeToAdminButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CashierChangeModeToAdminButtonActionPerformed(evt);
+            }
+        });
         CashierPanel.add(CashierChangeModeToAdminButton);
-        CashierChangeModeToAdminButton.setBounds(200, 10, 150, 23);
+        CashierChangeModeToAdminButton.setBounds(310, 10, 150, 23);
 
         SearchButton.setText("Wyszukiwarka");
         SearchButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1275,14 +1280,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         CashierPanel.add(SearchButton);
         SearchButton.setBounds(20, 130, 140, 23);
-
-        CashierModeButton2.setText("Tryb kasjera");
-        CashierModeButton2.setMaximumSize(new java.awt.Dimension(67, 23));
-        CashierModeButton2.setMinimumSize(new java.awt.Dimension(67, 23));
-        CashierModeButton2.setName("CashierModeButton2"); // NOI18N
-        CashierModeButton2.setPreferredSize(new java.awt.Dimension(67, 23));
-        CashierPanel.add(CashierModeButton2);
-        CashierModeButton2.setBounds(360, 10, 100, 23);
 
         SelectedUserPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SelectedUserPanel.setName("SelectedUserPanel"); // NOI18N
@@ -2505,13 +2502,26 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.add(SubtractPointsButton);
         SubtractPointsButton.setBounds(510, 210, 40, 20);
 
-        AddCardButton.setText("Dodaj kartę");
-        AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        AddCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
-        AddCardButton.setName("AddCardButton"); // NOI18N
-        AddCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserMainPanel.add(AddCardButton);
-        AddCardButton.setBounds(560, 150, 100, 23);
+        BuyPointsButton.setText("Kup punkty");
+        BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setName("BuyPointsButton"); // NOI18N
+        BuyPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyPointsButtonActionPerformed(evt);
+            }
+        });
+        UserMainPanel.add(BuyPointsButton);
+        BuyPointsButton.setBounds(390, 150, 100, 23);
+
+        AddCardButton2.setText("Dodaj kartę");
+        AddCardButton2.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddCardButton2.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddCardButton2.setName("AddCardButton2"); // NOI18N
+        AddCardButton2.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMainPanel.add(AddCardButton2);
+        AddCardButton2.setBounds(560, 150, 100, 23);
 
         RemoveCardButton.setText("Usuń kartę");
         RemoveCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -2744,16 +2754,16 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeCard(Container container, String targetContainerName, boolean checkSession) {
-        CardLayout adminContainerLayout = (CardLayout) container.getLayout();
+        CardLayout containerLayout = (CardLayout) container.getLayout();
 
         if (checkSession) {
             if (SessionController.IsUserLogged()) {
-                adminContainerLayout.show(container, targetContainerName);
+                containerLayout.show(container, targetContainerName);
             } else {
                 ExitSession();
             }
         } else {
-            adminContainerLayout.show(container, targetContainerName);
+            containerLayout.show(container, targetContainerName);
         }
     }
 
@@ -2806,6 +2816,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin) {
                 UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
+                AdminPanelBackButton.setVisible(false);
             } else {
                 UserChangeModeToAdminButton.setVisible(false);
                 CashierChangeModeToAdminButton.setVisible(false);
@@ -2882,6 +2893,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
         changeCard(AdminContainerPanel, "userManagmentAdminPanel", true);
+        AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
@@ -3048,13 +3060,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CityEditTextfieldActionPerformed
 
     private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
-        CardLayout userPaneLayout = (CardLayout) getContentPane().getLayout();
-
-        if (SessionController.IsUserLogged()) {
-            userPaneLayout.show(getContentPane(), "adminPanelMain");
-        } else {
-            ExitSession();
-        }
+        changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_UserChangeModeToAdminButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
@@ -3084,6 +3090,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void AdminPanelBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelBackButtonActionPerformed
         changeCard(AdminContainerPanel, "adminMenuPanel", true);
+        AdminPanelBackButton.setVisible(false);
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
@@ -3111,6 +3118,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
          changeCard(AdminContainerPanel, "card11", true);
+         AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
@@ -3130,11 +3138,13 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addRow(new Object[]{row[0], row[1], tempOverload});
             }
             changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+            AdminPanelBackButton.setVisible(true);
         }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
         changeCard(AdminContainerPanel, "gatesManagementAdminPanel", true);
+        AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_GatesButtonActionPerformed
 
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
@@ -3214,7 +3224,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ClientModeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButton1ActionPerformed
-        // TODO add your handling code here:
+        changeCard(getContentPane(), "UserMainPanel", true);
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
@@ -3374,6 +3384,14 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NewPriceListDateFromActionPerformed
 
+    private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
+        changeCard(getContentPane(), "adminPanelMain", true);
+    }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
+
+    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuyPointsButtonActionPerformed
+
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         PasswordTextField.setText("");
@@ -3432,8 +3450,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField ActualizePriceTextField;
     private javax.swing.JButton ActualizeProductButton;
     private javax.swing.JTextField ActualizeProductNameText;
-    private javax.swing.JButton AddCardButton;
     private javax.swing.JButton AddCardButton1;
+    private javax.swing.JButton AddCardButton2;
     private javax.swing.JButton AddNewProductButton1;
     private javax.swing.JButton AddPointsButton;
     private javax.swing.JButton AddPointsButton1;
@@ -3458,6 +3476,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField AvailablePointsTextField1;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
+    private javax.swing.JButton BuyPointsButton;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
     private javax.swing.JButton CancelButton2;
@@ -3466,7 +3485,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton CashierChangeModeToAdminButton;
     private javax.swing.JPanel CashierContainer;
     private javax.swing.JButton CashierModeButton;
-    private javax.swing.JButton CashierModeButton2;
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
