@@ -70,12 +70,12 @@ public class UserManagementAdminController {
          Employees employee = getUserRole(user);
          if (role == "User") {
              if (employee!=null) {
-                           s.delete(employee);  
+                s.delete(employee);  
              }
         }else{
              if (employee == null) {
-                 employee = new Employees();
-                 employee.setUsers(user);
+                employee = new Employees();
+                employee.setUsers(user);
              }
              employee.setRole(role);
              s.saveOrUpdate(employee);

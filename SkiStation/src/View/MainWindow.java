@@ -1670,6 +1670,7 @@ public class MainWindow extends javax.swing.JFrame {
         AdminContainerPanel.add(GatesManagementAdminPanel, "gatesManagementAdminPanel");
 
         UserManagmentAdmintPanel.setName("UserManagmentAdmintPanel"); // NOI18N
+        UserManagmentAdmintPanel.setOpaque(false);
         UserManagmentAdmintPanel.setLayout(null);
 
         jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1714,6 +1715,11 @@ public class MainWindow extends javax.swing.JFrame {
         FindUserButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
         FindUserButton.setIconTextGap(0);
         FindUserButton.setName("FindUserButton"); // NOI18N
+        FindUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FindUserButtonActionPerformed(evt);
+            }
+        });
         UserManagmentAdmintPanel.add(FindUserButton);
         FindUserButton.setBounds(410, 20, 39, 30);
 
@@ -1808,7 +1814,6 @@ public class MainWindow extends javax.swing.JFrame {
         jSplitPane2.setName("jSplitPane2"); // NOI18N
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
-        jButton1.setActionCommand("");
         jButton1.setName("jButton1"); // NOI18N
         jSplitPane2.setRightComponent(jButton1);
 
@@ -2042,7 +2047,6 @@ public class MainWindow extends javax.swing.JFrame {
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Nowy Produkt");
-        jButton11.setActionCommand("Nowy Produkt");
         jButton11.setName("jButton11"); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2332,6 +2336,7 @@ public class MainWindow extends javax.swing.JFrame {
         LoginEditTextfield.setBounds(320, 280, 230, 30);
 
         PasswordEditTextfield.setEditable(false);
+        PasswordEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
         PasswordEditTextfield.setText("*****");
         PasswordEditTextfield.setName("PasswordEditTextfield"); // NOI18N
         MyAccountPanel.add(PasswordEditTextfield);
@@ -2984,6 +2989,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void FindUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FindUserButtonActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();

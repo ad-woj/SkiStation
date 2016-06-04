@@ -10,6 +10,7 @@ import DBClasses.Users;
 import Tools.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -20,8 +21,8 @@ public class MyAccountController {
     
     public static Users GetAccountDetails() {
         
-        String login = SessionController.GetUserLogged();
         Session s = HibernateUtil.getSessionFactory().openSession();
+        String login = SessionController.GetUserLogged();
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s'", login) );
         if( query.list().isEmpty() || login.equals("") )
             return new Users();
@@ -38,25 +39,33 @@ public class MyAccountController {
         if (employee != null) {
             user.setUserid( employee.getEmployeeid() );
         }
-        
+        s.close();
         return user;
     }
     
     public static String UpdateAccountDetails( Users newUser ){
         Users oldUser = MyAccountController.GetAccountDetails();
         Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction();
         if( newUser.getLogin().equals("") )
             return "Nieprawidłowy login";
         if( !( oldUser.getLogin().equals(newUser.getLogin()) ) )
         {
             if (s.createCriteria(Users.class).add(Restrictions.like("login", newUser.getLogin())).list().size()>0) {
-            // not correct login
+            // incorrect login
             return "Login zajęty";
           
           }
         }
         newUser.setPassword(HashingHelper.sha256(newUser.getPassword()));
-        //s.saveOrUpdate(newUser);
+        newUser.getAddresses().setAddressid(oldUser.getAddresses().getAddressid());
+        newUser.getAddresses().setUserses(oldUser.getAddresses().getUserses());
+        newUser.setUserid(oldUser.getUserid());
+        newUser.setClientses(oldUser.getClientses());
+        newUser.setEmployeeses(oldUser.getEmployeeses());
+        s.saveOrUpdate(newUser);
+        tr.commit();
+        s.close();
         return "Dane zaktualizowane";
     }
 }
