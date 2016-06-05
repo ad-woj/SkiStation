@@ -3539,6 +3539,9 @@ public class MainWindow extends javax.swing.JFrame {
         
     }
 
+    private void MyCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -3584,6 +3587,10 @@ public class MainWindow extends javax.swing.JFrame {
     public void DeleteCardView( int index ) {
         cardViewList.remove(index);
         UserMyCardsPanel.repaint();
+        for(int i = index; i < cardViewList.size(); i++)
+        {
+            cardViewList.elementAt(i).SetIndex(i);
+        }
     }
     
     private void fillPackagesScrollPanel(){
