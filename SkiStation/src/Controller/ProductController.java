@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DBClasses.Itemprice;
 import DBClasses.Pricelist;
 import DBClasses.Product;
 import Tools.HibernateUtil;
@@ -130,6 +131,27 @@ public class ProductController {
             }
             
         }
-    
-    
+        
+    public int getActualProductPrice(Product product) {
+
+        List queryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("product", product)).list(); // Retrieving all product prices, don't care about their dates 
+        Itemprice mostActualPrice = null;
+
+        if (!queryResult.isEmpty()) {
+            for (Object itemPriceObj : queryResult) { // Looking for most actual product price based on pricelists and their start-end dates
+                Itemprice itemPrice = (Itemprice) itemPriceObj;
+                Pricelist pricelist = itemPrice.getPricelist();
+                Date actDate = new Date();
+              
+                if (actDate.after(pricelist.getStartdate()) && actDate.before(pricelist.getEnddate())) {
+                    if (mostActualPrice == null || (itemPrice.getItempriceid() > mostActualPrice.getItempriceid())) {
+                        mostActualPrice = itemPrice;
+                    }
+                }
+            }
+            return (mostActualPrice != null) ? mostActualPrice.getPrice() : -1;
+        } else {
+            return -1; // Returning -1 if at least one price wasn't found
+        }
+    }
 }
