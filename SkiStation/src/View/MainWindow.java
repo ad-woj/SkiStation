@@ -7,15 +7,13 @@ package View;
 
 import Controller.*;
 import DBClasses.*;
-import Model.TestClass;
 import java.awt.CardLayout;
 import java.awt.Container;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import java.awt.event.KeyEvent;
 import java.util.List;
-import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.table.*;
 
 /**
@@ -82,47 +80,39 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
-        MainPanel = new javax.swing.JPanel();
-        UserLogoutButton1 = new javax.swing.JButton();
-        ContactButton1 = new javax.swing.JButton();
-        SlopeTrafficButton1 = new javax.swing.JButton();
-        CashierChangeModeToAdminButton = new javax.swing.JButton();
-        ClientModeButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
-        jLabel13 = new javax.swing.JLabel();
-        ContactButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        UserBackgroundLabel1 = new javax.swing.JLabel();
-        ClientCardsPanel = new javax.swing.JPanel();
-        UserLogoutButton4 = new javax.swing.JButton();
-        AvailablePointsLabel1 = new javax.swing.JLabel();
-        IDLabel1 = new javax.swing.JLabel();
-        ActivationDateLabel1 = new javax.swing.JLabel();
-        ExpirationDateLabel1 = new javax.swing.JLabel();
-        PointsLabel1 = new javax.swing.JLabel();
-        AvailablePointsTextField1 = new javax.swing.JTextField();
-        IDTextField1 = new javax.swing.JTextField();
-        ActivationDateTextField1 = new javax.swing.JTextField();
-        ExpirationDateTextField1 = new javax.swing.JTextField();
-        PointsTextField1 = new javax.swing.JTextField();
-        AddPointsButton1 = new javax.swing.JButton();
-        SubtractPointsButton1 = new javax.swing.JButton();
-        AddCardButton1 = new javax.swing.JButton();
-        RemoveCardButton1 = new javax.swing.JButton();
-        CashierMenuButton1 = new javax.swing.JButton();
-        ClientCards = new javax.swing.JButton();
-        ClientAccount = new javax.swing.JButton();
-        RemoveCardButton2 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        UserBackgroundLabel3 = new javax.swing.JLabel();
-        ClientAccountPanel = new javax.swing.JPanel();
-        UserMyAccountButton3 = new javax.swing.JButton();
-        UserLogoutButton3 = new javax.swing.JButton();
+        CashierContainer = new javax.swing.JPanel();
+        SearchPanel = new javax.swing.JPanel();
+        UserSearchInputTextField = new javax.swing.JTextField();
+        ResultListPanel = new javax.swing.JScrollPane();
+        ResultList = new javax.swing.JList<String>();
+        SearchButton2 = new javax.swing.JButton();
+        CardScanStatusTextField = new javax.swing.JTextField();
+        CardScanButton = new javax.swing.JButton();
+        ClientAccountEditPanel = new javax.swing.JPanel();
+        MyAccountLabel2 = new javax.swing.JLabel();
+        EditLoginLabel2 = new javax.swing.JLabel();
+        EditPasswordLabel2 = new javax.swing.JLabel();
+        LoginEditTextfield2 = new javax.swing.JTextField();
+        PasswordEditTextfield2 = new javax.swing.JTextField();
+        NameEditTextfield2 = new javax.swing.JTextField();
+        SurnameEditTextfield2 = new javax.swing.JTextField();
+        NameEditLabel2 = new javax.swing.JLabel();
+        SurnameEditLabel2 = new javax.swing.JLabel();
+        IDEditLabel2 = new javax.swing.JLabel();
+        IDEditTextfield2 = new javax.swing.JTextField();
+        StreetEditTextfield2 = new javax.swing.JTextField();
+        CityEditTextfield2 = new javax.swing.JTextField();
+        CountryEditTextfield2 = new javax.swing.JTextField();
+        StreetEditLabel2 = new javax.swing.JLabel();
+        CityEditLabel2 = new javax.swing.JLabel();
+        CountryEditLabel2 = new javax.swing.JLabel();
+        EditDetailsButton2 = new javax.swing.JButton();
+        SaveDetailsButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        CancelButton2 = new javax.swing.JButton();
+        EditMessageLabel2 = new javax.swing.JLabel();
+        DocumentEditTextfield2 = new javax.swing.JTextField();
+        NewClientAccountPanel = new javax.swing.JPanel();
         MyAccountLabel1 = new javax.swing.JLabel();
         EditLoginLabel1 = new javax.swing.JLabel();
         EditPasswordLabel1 = new javax.swing.JLabel();
@@ -146,10 +136,41 @@ public class MainWindow extends javax.swing.JFrame {
         CancelButton1 = new javax.swing.JButton();
         EditMessageLabel1 = new javax.swing.JLabel();
         DocumentEditTextfield1 = new javax.swing.JTextField();
-        ClientCards1 = new javax.swing.JButton();
-        ClientAccount1 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        ClientCardsPanel = new javax.swing.JPanel();
+        AvailablePointsLabel1 = new javax.swing.JLabel();
+        IDLabel1 = new javax.swing.JLabel();
+        ActivationDateLabel1 = new javax.swing.JLabel();
+        ExpirationDateLabel1 = new javax.swing.JLabel();
+        PointsLabel1 = new javax.swing.JLabel();
+        AvailablePointsTextField1 = new javax.swing.JTextField();
+        IDTextField1 = new javax.swing.JTextField();
+        ActivationDateTextField1 = new javax.swing.JTextField();
+        ExpirationDateTextField1 = new javax.swing.JTextField();
+        PointsTextField1 = new javax.swing.JTextField();
+        AddPointsButton1 = new javax.swing.JButton();
+        SubtractPointsButton1 = new javax.swing.JButton();
+        AddCardButton1 = new javax.swing.JButton();
+        RemoveCardButton1 = new javax.swing.JButton();
+        RemoveCardButton2 = new javax.swing.JButton();
+        StationTrafficPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        StationTrafficTable = new javax.swing.JTable();
+        ContactPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        ContactButton3 = new javax.swing.JButton();
+        NewAccountButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
+        EditClientButton = new javax.swing.JButton();
+        SlopeTrafficButton1 = new javax.swing.JButton();
+        ClientModeButton1 = new javax.swing.JButton();
+        CashierChangeModeToAdminButton = new javax.swing.JButton();
+        SearchButton = new javax.swing.JButton();
+        SelectedUserPanel = new javax.swing.JScrollPane();
+        SelecetedUserTextPlane = new javax.swing.JTextPane();
+        ClientCardsButton1 = new javax.swing.JButton();
+        UserBackgroundLabel3 = new javax.swing.JLabel();
         AdminMainPanel = new javax.swing.JPanel();
         AdminContainerPanel = new javax.swing.JPanel();
         AdminMenuPanel = new javax.swing.JPanel();
@@ -187,11 +208,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         AddProductPanel = new javax.swing.JPanel();
-        AddProductButton = new javax.swing.JButton();
-        PriceTextField = new javax.swing.JTextField();
-        ProductNameTextField = new javax.swing.JTextField();
-        PriceLabel = new javax.swing.JLabel();
-        ProductNameLabel = new javax.swing.JLabel();
+        AddNewProductButton1 = new javax.swing.JButton();
+        NewProductNameTextField1 = new javax.swing.JTextField();
+        ProductNameLabel1 = new javax.swing.JLabel();
+        NewProductResult1 = new javax.swing.JLabel();
+        AddPriceList = new javax.swing.JPanel();
+        NewPriceListButton = new javax.swing.JButton();
+        NewPriceListDateFrom = new javax.swing.JTextField();
+        NewPriceListDateTo = new javax.swing.JTextField();
+        PriceListFromLabel = new javax.swing.JLabel();
+        PriceListToLabel = new javax.swing.JLabel();
+        NewPriceListResult = new javax.swing.JLabel();
         AddTerminalPanel = new javax.swing.JPanel();
         TerminalNameTextField = new javax.swing.JTextField();
         AttractionTypeTextField = new javax.swing.JTextField();
@@ -226,26 +253,20 @@ public class MainWindow extends javax.swing.JFrame {
         SearchUserTextField = new javax.swing.JTextField();
         EditUserButton = new javax.swing.JButton();
         DeleteUserButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        ProductsManagmentAdminPanel = new javax.swing.JPanel();
+        ProductsTables = new javax.swing.JTabbedPane();
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ProductList = new javax.swing.JTable();
         jSplitPane2 = new javax.swing.JSplitPane();
         jButton1 = new javax.swing.JButton();
-        jTextField11 = new javax.swing.JTextField();
-        jSplitPane3 = new javax.swing.JSplitPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jSplitPane4 = new javax.swing.JSplitPane();
-        jButton2 = new javax.swing.JButton();
-        jTextField12 = new javax.swing.JTextField();
+        ProductFindText = new javax.swing.JTextField();
         jSplitPane5 = new javax.swing.JSplitPane();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        PriceLists = new javax.swing.JTable();
         jSplitPane6 = new javax.swing.JSplitPane();
         jButton6 = new javax.swing.JButton();
-        jTextField13 = new javax.swing.JTextField();
+        PriceListFindText = new javax.swing.JTextField();
         jSplitPane7 = new javax.swing.JSplitPane();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -270,6 +291,8 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton = new javax.swing.JButton();
         MyCardsButton = new javax.swing.JButton();
         SlopeTrafficButton = new javax.swing.JButton();
+        UserContainerPanel = new javax.swing.JPanel();
+        UserMyCardsPanel = new javax.swing.JPanel();
         AvailablePointsLabel = new javax.swing.JLabel();
         IDLabel = new javax.swing.JLabel();
         ActivationDateLabel = new javax.swing.JLabel();
@@ -282,9 +305,20 @@ public class MainWindow extends javax.swing.JFrame {
         PointsTextField = new javax.swing.JTextField();
         AddPointsButton = new javax.swing.JButton();
         SubtractPointsButton = new javax.swing.JButton();
-        AddCardButton = new javax.swing.JButton();
+        BuyPointsButton = new javax.swing.JButton();
+        AddCardButton2 = new javax.swing.JButton();
         RemoveCardButton = new javax.swing.JButton();
-        UserBackgroundLabel = new javax.swing.JLabel();
+        UserBuyPointsPanel = new javax.swing.JPanel();
+        PointsPackage10 = new javax.swing.JRadioButton();
+        PointsPackage20 = new javax.swing.JRadioButton();
+        PointsPackage50 = new javax.swing.JRadioButton();
+        PointsPackage100 = new javax.swing.JRadioButton();
+        PointsPackage500 = new javax.swing.JRadioButton();
+        jLabel28 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
         UserMyAccountButton2 = new javax.swing.JButton();
         UserLogoutButton2 = new javax.swing.JButton();
@@ -599,379 +633,265 @@ public class MainWindow extends javax.swing.JFrame {
 
         CashierPanel.setName("CashierPanel"); // NOI18N
         CashierPanel.setPreferredSize(new java.awt.Dimension(700, 700));
-        CashierPanel.setLayout(new java.awt.CardLayout());
+        CashierPanel.setLayout(null);
 
-        MainPanel.setName("MainPanel"); // NOI18N
-        MainPanel.setLayout(null);
+        CashierContainer.setName("CashierContainer"); // NOI18N
+        CashierContainer.setLayout(new java.awt.CardLayout());
 
-        UserLogoutButton1.setText("Wyloguj");
-        UserLogoutButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton1.setName("UserLogoutButton1"); // NOI18N
-        UserLogoutButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLogoutButton1ActionPerformed(evt);
+        SearchPanel.setName("SearchPanel"); // NOI18N
+        SearchPanel.setLayout(null);
+
+        UserSearchInputTextField.setName("UserSearchInputTextField"); // NOI18N
+        UserSearchInputTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                UserSearchInputTextFieldChanged(evt);
             }
         });
-        MainPanel.add(UserLogoutButton1);
-        UserLogoutButton1.setBounds(580, 10, 80, 23);
+        SearchPanel.add(UserSearchInputTextField);
+        UserSearchInputTextField.setBounds(10, 10, 200, 40);
 
-        ContactButton1.setText("Założ konto klienta");
-        ContactButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        ContactButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        ContactButton1.setName("ContactButton1"); // NOI18N
-        ContactButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        MainPanel.add(ContactButton1);
-        ContactButton1.setBounds(20, 130, 140, 23);
+        ResultListPanel.setName("ResultListPanel"); // NOI18N
 
-        SlopeTrafficButton1.setText("Natężenie stoku");
-        SlopeTrafficButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        SlopeTrafficButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        SlopeTrafficButton1.setName("SlopeTrafficButton1"); // NOI18N
-        SlopeTrafficButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        MainPanel.add(SlopeTrafficButton1);
-        SlopeTrafficButton1.setBounds(20, 160, 140, 23);
-
-        CashierChangeModeToAdminButton.setText("Tryb administratora");
-        CashierChangeModeToAdminButton.setName("CashierChangeModeToAdminButton"); // NOI18N
-        CashierChangeModeToAdminButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CashierChangeModeToAdminButtonActionPerformed(evt);
+        ResultList.setName("ResultList"); // NOI18N
+        ResultList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultListClicked(evt);
             }
         });
-        MainPanel.add(CashierChangeModeToAdminButton);
-        CashierChangeModeToAdminButton.setBounds(340, 10, 140, 23);
+        ResultListPanel.setViewportView(ResultList);
 
-        ClientModeButton1.setText("Tryb klienta");
-        ClientModeButton1.setName("ClientModeButton1"); // NOI18N
-        ClientModeButton1.addActionListener(new java.awt.event.ActionListener() {
+        SearchPanel.add(ResultListPanel);
+        ResultListPanel.setBounds(10, 60, 280, 240);
+
+        SearchButton2.setText("Szukaj");
+        SearchButton2.setName("SearchButton2"); // NOI18N
+        SearchPanel.add(SearchButton2);
+        SearchButton2.setBounds(220, 10, 70, 40);
+
+        CardScanStatusTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CardScanStatusTextField.setText("Skanuj");
+        CardScanStatusTextField.setName("CardScanStatusTextField"); // NOI18N
+        SearchPanel.add(CardScanStatusTextField);
+        CardScanStatusTextField.setBounds(330, 60, 180, 70);
+
+        CardScanButton.setText("Skanuj kartę");
+        CardScanButton.setName("CardScanButton"); // NOI18N
+        CardScanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientModeButton1ActionPerformed(evt);
+                CardScanButtonActionPerformed(evt);
             }
         });
-        MainPanel.add(ClientModeButton1);
-        ClientModeButton1.setBounds(480, 10, 100, 23);
+        SearchPanel.add(CardScanButton);
+        CardScanButton.setBounds(330, 10, 180, 40);
 
-        jTextField1.setText("szukaj klienta...");
-        jTextField1.setName("jTextField1"); // NOI18N
-        MainPanel.add(jTextField1);
-        jTextField1.setBounds(190, 210, 200, 40);
+        CashierContainer.add(SearchPanel, "SearchPanel");
 
-        jButton3.setText("Anuluj");
-        jButton3.setName("jButton3"); // NOI18N
-        MainPanel.add(jButton3);
-        jButton3.setBounds(620, 210, 70, 40);
+        ClientAccountEditPanel.setAutoscrolls(true);
+        ClientAccountEditPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        ClientAccountEditPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        ClientAccountEditPanel.setName("ClientAccountEditPanel"); // NOI18N
+        ClientAccountEditPanel.setLayout(null);
 
-        jScrollPane1.setName("jScrollPane1"); // NOI18N
+        MyAccountLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        MyAccountLabel2.setText("Edytuj dane klienta");
+        MyAccountLabel2.setName("MyAccountLabel2"); // NOI18N
+        ClientAccountEditPanel.add(MyAccountLabel2);
+        MyAccountLabel2.setBounds(90, 10, 270, 30);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setName("jList1"); // NOI18N
-        jScrollPane1.setViewportView(jList1);
+        EditLoginLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditLoginLabel2.setText("Login");
+        EditLoginLabel2.setName("EditLoginLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditLoginLabel2);
+        EditLoginLabel2.setBounds(10, 100, 80, 30);
 
-        MainPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(190, 260, 280, 240);
+        EditPasswordLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditPasswordLabel2.setText("Hasło");
+        EditPasswordLabel2.setName("EditPasswordLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditPasswordLabel2);
+        EditPasswordLabel2.setBounds(10, 130, 80, 30);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel13.setText("Wybrany użytkownik: brak");
-        jLabel13.setName("jLabel13"); // NOI18N
-        MainPanel.add(jLabel13);
-        jLabel13.setBounds(190, 140, 490, 50);
+        LoginEditTextfield2.setName("LoginEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(LoginEditTextfield2);
+        LoginEditTextfield2.setBounds(110, 100, 180, 30);
 
-        ContactButton3.setText("Kontakt");
-        ContactButton3.setMaximumSize(new java.awt.Dimension(67, 23));
-        ContactButton3.setMinimumSize(new java.awt.Dimension(67, 23));
-        ContactButton3.setName("ContactButton3"); // NOI18N
-        ContactButton3.setPreferredSize(new java.awt.Dimension(67, 23));
-        MainPanel.add(ContactButton3);
-        ContactButton3.setBounds(20, 190, 140, 23);
+        PasswordEditTextfield2.setEditable(false);
+        PasswordEditTextfield2.setText("*****");
+        PasswordEditTextfield2.setName("PasswordEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(PasswordEditTextfield2);
+        PasswordEditTextfield2.setBounds(110, 130, 180, 30);
 
-        jButton5.setText("Szukaj");
-        jButton5.setName("jButton5"); // NOI18N
-        MainPanel.add(jButton5);
-        jButton5.setBounds(400, 210, 70, 40);
+        NameEditTextfield2.setName("NameEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(NameEditTextfield2);
+        NameEditTextfield2.setBounds(110, 160, 180, 30);
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Zeskanowano pomyślnie!");
-        jTextField2.setName("jTextField2"); // NOI18N
-        MainPanel.add(jTextField2);
-        jTextField2.setBounds(510, 260, 180, 70);
+        SurnameEditTextfield2.setName("SurnameEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(SurnameEditTextfield2);
+        SurnameEditTextfield2.setBounds(110, 190, 180, 30);
 
-        jButton4.setText("Skanuj kartę");
-        jButton4.setName("jButton4"); // NOI18N
-        MainPanel.add(jButton4);
-        jButton4.setBounds(510, 210, 100, 40);
+        NameEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NameEditLabel2.setText("Imię");
+        NameEditLabel2.setName("NameEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(NameEditLabel2);
+        NameEditLabel2.setBounds(10, 160, 80, 30);
 
-        UserBackgroundLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/universalBackground.jpg"))); // NOI18N
-        UserBackgroundLabel1.setName("UserBackgroundLabel1"); // NOI18N
-        MainPanel.add(UserBackgroundLabel1);
-        UserBackgroundLabel1.setBounds(0, 0, 700, 700);
+        SurnameEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SurnameEditLabel2.setText("Nazwisko");
+        SurnameEditLabel2.setName("SurnameEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(SurnameEditLabel2);
+        SurnameEditLabel2.setBounds(10, 190, 80, 30);
 
-        CashierPanel.add(MainPanel, "MainPanel");
+        IDEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        IDEditLabel2.setText("ID");
+        IDEditLabel2.setName("IDEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(IDEditLabel2);
+        IDEditLabel2.setBounds(10, 70, 80, 30);
 
-        ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
-        ClientCardsPanel.setLayout(null);
-
-        UserLogoutButton4.setText("Wyloguj");
-        UserLogoutButton4.setMaximumSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton4.setMinimumSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton4.setName("UserLogoutButton4"); // NOI18N
-        UserLogoutButton4.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserLogoutButton4.addActionListener(new java.awt.event.ActionListener() {
+        IDEditTextfield2.setName("IDEditTextfield2"); // NOI18N
+        IDEditTextfield2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLogoutButton4ActionPerformed(evt);
+                IDEditTextfield2ActionPerformed(evt);
             }
         });
-        ClientCardsPanel.add(UserLogoutButton4);
-        UserLogoutButton4.setBounds(580, 10, 80, 23);
+        ClientAccountEditPanel.add(IDEditTextfield2);
+        IDEditTextfield2.setBounds(110, 70, 180, 30);
 
-        AvailablePointsLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        AvailablePointsLabel1.setText("Nieprzydzielone punkty:");
-        AvailablePointsLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        AvailablePointsLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        AvailablePointsLabel1.setName("AvailablePointsLabel1"); // NOI18N
-        AvailablePointsLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientCardsPanel.add(AvailablePointsLabel1);
-        AvailablePointsLabel1.setBounds(200, 150, 130, 14);
+        StreetEditTextfield2.setName("StreetEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(StreetEditTextfield2);
+        StreetEditTextfield2.setBounds(110, 250, 180, 30);
 
-        IDLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        IDLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        IDLabel1.setText("ID");
-        IDLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        IDLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        IDLabel1.setName("IDLabel1"); // NOI18N
-        IDLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientCardsPanel.add(IDLabel1);
-        IDLabel1.setBounds(180, 190, 50, 14);
+        CityEditTextfield2.setName("CityEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(CityEditTextfield2);
+        CityEditTextfield2.setBounds(110, 280, 180, 30);
 
-        ActivationDateLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        ActivationDateLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ActivationDateLabel1.setText("Data aktywacji");
-        ActivationDateLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        ActivationDateLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        ActivationDateLabel1.setName("ActivationDateLabel1"); // NOI18N
-        ActivationDateLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientCardsPanel.add(ActivationDateLabel1);
-        ActivationDateLabel1.setBounds(240, 190, 80, 14);
+        CountryEditTextfield2.setName("CountryEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(CountryEditTextfield2);
+        CountryEditTextfield2.setBounds(110, 310, 180, 30);
 
-        ExpirationDateLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        ExpirationDateLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ExpirationDateLabel1.setText("Data ważności");
-        ExpirationDateLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        ExpirationDateLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        ExpirationDateLabel1.setName("ExpirationDateLabel1"); // NOI18N
-        ExpirationDateLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientCardsPanel.add(ExpirationDateLabel1);
-        ExpirationDateLabel1.setBounds(330, 190, 80, 14);
+        StreetEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StreetEditLabel2.setText("Ulica");
+        StreetEditLabel2.setName("StreetEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(StreetEditLabel2);
+        StreetEditLabel2.setBounds(10, 250, 80, 30);
 
-        PointsLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        PointsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PointsLabel1.setText("Punkty");
-        PointsLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
-        PointsLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
-        PointsLabel1.setName("PointsLabel1"); // NOI18N
-        PointsLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
-        ClientCardsPanel.add(PointsLabel1);
-        PointsLabel1.setBounds(420, 190, 50, 14);
+        CityEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CityEditLabel2.setText("Miasto");
+        CityEditLabel2.setName("CityEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(CityEditLabel2);
+        CityEditLabel2.setBounds(10, 280, 80, 30);
 
-        AvailablePointsTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        AvailablePointsTextField1.setEnabled(false);
-        AvailablePointsTextField1.setName("AvailablePointsTextField1"); // NOI18N
-        ClientCardsPanel.add(AvailablePointsTextField1);
-        AvailablePointsTextField1.setBounds(330, 150, 50, 20);
+        CountryEditLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CountryEditLabel2.setText("Kraj");
+        CountryEditLabel2.setName("CountryEditLabel2"); // NOI18N
+        ClientAccountEditPanel.add(CountryEditLabel2);
+        CountryEditLabel2.setBounds(10, 310, 80, 30);
 
-        IDTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        IDTextField1.setEnabled(false);
-        IDTextField1.setName("IDTextField1"); // NOI18N
-        ClientCardsPanel.add(IDTextField1);
-        IDTextField1.setBounds(180, 210, 50, 20);
-
-        ActivationDateTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ActivationDateTextField1.setEnabled(false);
-        ActivationDateTextField1.setName("ActivationDateTextField1"); // NOI18N
-        ClientCardsPanel.add(ActivationDateTextField1);
-        ActivationDateTextField1.setBounds(240, 210, 80, 20);
-
-        ExpirationDateTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ExpirationDateTextField1.setEnabled(false);
-        ExpirationDateTextField1.setName("ExpirationDateTextField1"); // NOI18N
-        ClientCardsPanel.add(ExpirationDateTextField1);
-        ExpirationDateTextField1.setBounds(330, 210, 80, 20);
-
-        PointsTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        PointsTextField1.setName("PointsTextField1"); // NOI18N
-        ClientCardsPanel.add(PointsTextField1);
-        PointsTextField1.setBounds(420, 210, 50, 20);
-
-        AddPointsButton1.setText("+");
-        AddPointsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        AddPointsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        AddPointsButton1.setName("AddPointsButton1"); // NOI18N
-        AddPointsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(AddPointsButton1);
-        AddPointsButton1.setBounds(470, 210, 40, 20);
-
-        SubtractPointsButton1.setText("-");
-        SubtractPointsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        SubtractPointsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        SubtractPointsButton1.setName("SubtractPointsButton1"); // NOI18N
-        SubtractPointsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(SubtractPointsButton1);
-        SubtractPointsButton1.setBounds(510, 210, 40, 20);
-
-        AddCardButton1.setText("Dodaj kartę");
-        AddCardButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        AddCardButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        AddCardButton1.setName("AddCardButton1"); // NOI18N
-        AddCardButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(AddCardButton1);
-        AddCardButton1.setBounds(560, 150, 100, 23);
-
-        RemoveCardButton1.setText("Wydaj");
-        RemoveCardButton1.setMaximumSize(new java.awt.Dimension(67, 23));
-        RemoveCardButton1.setMinimumSize(new java.awt.Dimension(67, 23));
-        RemoveCardButton1.setName("RemoveCardButton1"); // NOI18N
-        RemoveCardButton1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(RemoveCardButton1);
-        RemoveCardButton1.setBounds(620, 210, 70, 23);
-
-        CashierMenuButton1.setText("Menu Kasjera");
-        CashierMenuButton1.setName("CashierMenuButton1"); // NOI18N
-        CashierMenuButton1.addActionListener(new java.awt.event.ActionListener() {
+        EditDetailsButton2.setText("Edytuj Dane");
+        EditDetailsButton2.setName("EditDetailsButton2"); // NOI18N
+        EditDetailsButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CashierMenuButton1ActionPerformed(evt);
+                EditDetailsButton2ActionPerformed(evt);
             }
         });
-        ClientCardsPanel.add(CashierMenuButton1);
-        CashierMenuButton1.setBounds(480, 10, 100, 23);
+        ClientAccountEditPanel.add(EditDetailsButton2);
+        EditDetailsButton2.setBounds(110, 360, 180, 23);
 
-        ClientCards.setText("Karty Klienta");
-        ClientCards.setActionCommand("Karty");
-        ClientCards.setMaximumSize(new java.awt.Dimension(67, 23));
-        ClientCards.setMinimumSize(new java.awt.Dimension(67, 23));
-        ClientCards.setName("ClientCards"); // NOI18N
-        ClientCards.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(ClientCards);
-        ClientCards.setBounds(30, 130, 110, 23);
-
-        ClientAccount.setText("Dane Klienta");
-        ClientAccount.setActionCommand("Karty");
-        ClientAccount.setMaximumSize(new java.awt.Dimension(67, 23));
-        ClientAccount.setMinimumSize(new java.awt.Dimension(67, 23));
-        ClientAccount.setName("ClientAccount"); // NOI18N
-        ClientAccount.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientAccount.addActionListener(new java.awt.event.ActionListener() {
+        SaveDetailsButton2.setText("Zapisz");
+        SaveDetailsButton2.setEnabled(false);
+        SaveDetailsButton2.setName("SaveDetailsButton2"); // NOI18N
+        SaveDetailsButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientAccountActionPerformed(evt);
+                SaveDetailsButton2ActionPerformed(evt);
             }
         });
-        ClientCardsPanel.add(ClientAccount);
-        ClientAccount.setBounds(30, 160, 110, 23);
+        ClientAccountEditPanel.add(SaveDetailsButton2);
+        SaveDetailsButton2.setBounds(210, 390, 80, 23);
 
-        RemoveCardButton2.setText("Usuń");
-        RemoveCardButton2.setMaximumSize(new java.awt.Dimension(67, 23));
-        RemoveCardButton2.setMinimumSize(new java.awt.Dimension(67, 23));
-        RemoveCardButton2.setName("RemoveCardButton2"); // NOI18N
-        RemoveCardButton2.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientCardsPanel.add(RemoveCardButton2);
-        RemoveCardButton2.setBounds(560, 210, 60, 23);
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Nr dokumentu");
+        jLabel12.setName("jLabel12"); // NOI18N
+        ClientAccountEditPanel.add(jLabel12);
+        jLabel12.setBounds(10, 220, 100, 30);
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("Obsługa klienta: Nick");
-        jTextField3.setName("jTextField3"); // NOI18N
-        ClientCardsPanel.add(jTextField3);
-        jTextField3.setBounds(170, 60, 510, 60);
-
-        UserBackgroundLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
-        UserBackgroundLabel3.setName("UserBackgroundLabel3"); // NOI18N
-        ClientCardsPanel.add(UserBackgroundLabel3);
-        UserBackgroundLabel3.setBounds(0, 0, 700, 700);
-
-        CashierPanel.add(ClientCardsPanel, "ClientCardsPanel");
-
-        ClientAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
-        ClientAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
-        ClientAccountPanel.setName(""); // NOI18N
-        ClientAccountPanel.setLayout(null);
-
-        UserMyAccountButton3.setText("Tryb Kasjera");
-        UserMyAccountButton3.setName("UserMyAccountButton3"); // NOI18N
-        UserMyAccountButton3.addActionListener(new java.awt.event.ActionListener() {
+        CancelButton2.setText("Anuluj");
+        CancelButton2.setEnabled(false);
+        CancelButton2.setName("CancelButton2"); // NOI18N
+        CancelButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserMyAccountButton3ActionPerformed(evt);
+                CancelButton2ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(UserMyAccountButton3);
-        UserMyAccountButton3.setBounds(490, 20, 110, 23);
+        ClientAccountEditPanel.add(CancelButton2);
+        CancelButton2.setBounds(110, 390, 73, 23);
 
-        UserLogoutButton3.setText("Wyloguj");
-        UserLogoutButton3.setName("UserLogoutButton3"); // NOI18N
-        UserLogoutButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLogoutButton3ActionPerformed(evt);
-            }
-        });
-        ClientAccountPanel.add(UserLogoutButton3);
-        UserLogoutButton3.setBounds(600, 20, 80, 23);
+        EditMessageLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditMessageLabel2.setName("EditMessageLabel2"); // NOI18N
+        ClientAccountEditPanel.add(EditMessageLabel2);
+        EditMessageLabel2.setBounds(110, 420, 180, 20);
+
+        DocumentEditTextfield2.setName("DocumentEditTextfield2"); // NOI18N
+        ClientAccountEditPanel.add(DocumentEditTextfield2);
+        DocumentEditTextfield2.setBounds(110, 220, 180, 30);
+
+        CashierContainer.add(ClientAccountEditPanel, "ClientAccountEditPanel");
+
+        NewClientAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        NewClientAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        NewClientAccountPanel.setName(""); // NOI18N
+        NewClientAccountPanel.setLayout(null);
 
         MyAccountLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        MyAccountLabel1.setText("Konto klienta");
+        MyAccountLabel1.setText("Nowe konto klienta");
         MyAccountLabel1.setName("MyAccountLabel1"); // NOI18N
-        ClientAccountPanel.add(MyAccountLabel1);
-        MyAccountLabel1.setBounds(320, 150, 270, 30);
+        NewClientAccountPanel.add(MyAccountLabel1);
+        MyAccountLabel1.setBounds(90, 10, 270, 30);
 
         EditLoginLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditLoginLabel1.setText("Login");
         EditLoginLabel1.setName("EditLoginLabel1"); // NOI18N
-        ClientAccountPanel.add(EditLoginLabel1);
-        EditLoginLabel1.setBounds(200, 240, 80, 30);
+        NewClientAccountPanel.add(EditLoginLabel1);
+        EditLoginLabel1.setBounds(10, 100, 80, 30);
 
         EditPasswordLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditPasswordLabel1.setText("Hasło");
         EditPasswordLabel1.setName("EditPasswordLabel1"); // NOI18N
-        ClientAccountPanel.add(EditPasswordLabel1);
-        EditPasswordLabel1.setBounds(200, 270, 80, 30);
+        NewClientAccountPanel.add(EditPasswordLabel1);
+        EditPasswordLabel1.setBounds(10, 130, 80, 30);
 
         LoginEditTextfield1.setName("LoginEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(LoginEditTextfield1);
-        LoginEditTextfield1.setBounds(300, 240, 180, 30);
+        NewClientAccountPanel.add(LoginEditTextfield1);
+        LoginEditTextfield1.setBounds(110, 100, 180, 30);
 
         PasswordEditTextfield1.setEditable(false);
         PasswordEditTextfield1.setText("*****");
         PasswordEditTextfield1.setName("PasswordEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(PasswordEditTextfield1);
-        PasswordEditTextfield1.setBounds(300, 270, 180, 30);
+        NewClientAccountPanel.add(PasswordEditTextfield1);
+        PasswordEditTextfield1.setBounds(110, 130, 180, 30);
 
         NameEditTextfield1.setName("NameEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(NameEditTextfield1);
-        NameEditTextfield1.setBounds(300, 300, 180, 30);
+        NewClientAccountPanel.add(NameEditTextfield1);
+        NameEditTextfield1.setBounds(110, 160, 180, 30);
 
         SurnameEditTextfield1.setName("SurnameEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(SurnameEditTextfield1);
-        SurnameEditTextfield1.setBounds(300, 330, 180, 30);
+        NewClientAccountPanel.add(SurnameEditTextfield1);
+        SurnameEditTextfield1.setBounds(110, 190, 180, 30);
 
         NameEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NameEditLabel1.setText("Imię");
         NameEditLabel1.setName("NameEditLabel1"); // NOI18N
-        ClientAccountPanel.add(NameEditLabel1);
-        NameEditLabel1.setBounds(200, 300, 80, 30);
+        NewClientAccountPanel.add(NameEditLabel1);
+        NameEditLabel1.setBounds(10, 160, 80, 30);
 
         SurnameEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SurnameEditLabel1.setText("Nazwisko");
         SurnameEditLabel1.setName("SurnameEditLabel1"); // NOI18N
-        ClientAccountPanel.add(SurnameEditLabel1);
-        SurnameEditLabel1.setBounds(200, 330, 80, 30);
+        NewClientAccountPanel.add(SurnameEditLabel1);
+        SurnameEditLabel1.setBounds(10, 190, 80, 30);
 
         IDEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IDEditLabel1.setText("ID");
         IDEditLabel1.setName("IDEditLabel1"); // NOI18N
-        ClientAccountPanel.add(IDEditLabel1);
-        IDEditLabel1.setBounds(200, 210, 80, 30);
+        NewClientAccountPanel.add(IDEditLabel1);
+        IDEditLabel1.setBounds(10, 70, 80, 30);
 
         IDEditTextfield1.setName("IDEditTextfield1"); // NOI18N
         IDEditTextfield1.addActionListener(new java.awt.event.ActionListener() {
@@ -979,38 +899,38 @@ public class MainWindow extends javax.swing.JFrame {
                 IDEditTextfield1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(IDEditTextfield1);
-        IDEditTextfield1.setBounds(300, 210, 180, 30);
+        NewClientAccountPanel.add(IDEditTextfield1);
+        IDEditTextfield1.setBounds(110, 70, 180, 30);
 
         StreetEditTextfield1.setName("StreetEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(StreetEditTextfield1);
-        StreetEditTextfield1.setBounds(300, 390, 180, 30);
+        NewClientAccountPanel.add(StreetEditTextfield1);
+        StreetEditTextfield1.setBounds(110, 250, 180, 30);
 
         CityEditTextfield1.setName("CityEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(CityEditTextfield1);
-        CityEditTextfield1.setBounds(300, 420, 180, 30);
+        NewClientAccountPanel.add(CityEditTextfield1);
+        CityEditTextfield1.setBounds(110, 280, 180, 30);
 
         CountryEditTextfield1.setName("CountryEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(CountryEditTextfield1);
-        CountryEditTextfield1.setBounds(300, 450, 180, 30);
+        NewClientAccountPanel.add(CountryEditTextfield1);
+        CountryEditTextfield1.setBounds(110, 310, 180, 30);
 
         StreetEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StreetEditLabel1.setText("Ulica");
         StreetEditLabel1.setName("StreetEditLabel1"); // NOI18N
-        ClientAccountPanel.add(StreetEditLabel1);
-        StreetEditLabel1.setBounds(200, 390, 80, 30);
+        NewClientAccountPanel.add(StreetEditLabel1);
+        StreetEditLabel1.setBounds(10, 250, 80, 30);
 
         CityEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CityEditLabel1.setText("Miasto");
         CityEditLabel1.setName("CityEditLabel1"); // NOI18N
-        ClientAccountPanel.add(CityEditLabel1);
-        CityEditLabel1.setBounds(200, 420, 80, 30);
+        NewClientAccountPanel.add(CityEditLabel1);
+        CityEditLabel1.setBounds(10, 280, 80, 30);
 
         CountryEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CountryEditLabel1.setText("Kraj");
         CountryEditLabel1.setName("CountryEditLabel1"); // NOI18N
-        ClientAccountPanel.add(CountryEditLabel1);
-        CountryEditLabel1.setBounds(200, 450, 80, 30);
+        NewClientAccountPanel.add(CountryEditLabel1);
+        CountryEditLabel1.setBounds(10, 310, 80, 30);
 
         EditDetailsButton1.setText("Edytuj Dane");
         EditDetailsButton1.setName("EditDetailsButton1"); // NOI18N
@@ -1019,8 +939,8 @@ public class MainWindow extends javax.swing.JFrame {
                 EditDetailsButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(EditDetailsButton1);
-        EditDetailsButton1.setBounds(300, 500, 180, 23);
+        NewClientAccountPanel.add(EditDetailsButton1);
+        EditDetailsButton1.setBounds(110, 360, 180, 23);
 
         SaveDetailsButton1.setText("Zapisz");
         SaveDetailsButton1.setEnabled(false);
@@ -1030,14 +950,14 @@ public class MainWindow extends javax.swing.JFrame {
                 SaveDetailsButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(SaveDetailsButton1);
-        SaveDetailsButton1.setBounds(400, 530, 80, 23);
+        NewClientAccountPanel.add(SaveDetailsButton1);
+        SaveDetailsButton1.setBounds(210, 390, 80, 23);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Nr dokumentu");
         jLabel11.setName("jLabel11"); // NOI18N
-        ClientAccountPanel.add(jLabel11);
-        jLabel11.setBounds(200, 360, 100, 30);
+        NewClientAccountPanel.add(jLabel11);
+        jLabel11.setBounds(10, 220, 100, 30);
 
         CancelButton1.setText("Anuluj");
         CancelButton1.setEnabled(false);
@@ -1047,55 +967,350 @@ public class MainWindow extends javax.swing.JFrame {
                 CancelButton1ActionPerformed(evt);
             }
         });
-        ClientAccountPanel.add(CancelButton1);
-        CancelButton1.setBounds(300, 530, 73, 23);
+        NewClientAccountPanel.add(CancelButton1);
+        CancelButton1.setBounds(110, 390, 73, 23);
 
         EditMessageLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditMessageLabel1.setName("EditMessageLabel1"); // NOI18N
-        ClientAccountPanel.add(EditMessageLabel1);
-        EditMessageLabel1.setBounds(300, 560, 180, 20);
+        NewClientAccountPanel.add(EditMessageLabel1);
+        EditMessageLabel1.setBounds(110, 420, 180, 20);
 
         DocumentEditTextfield1.setName("DocumentEditTextfield1"); // NOI18N
-        ClientAccountPanel.add(DocumentEditTextfield1);
-        DocumentEditTextfield1.setBounds(300, 360, 180, 30);
+        NewClientAccountPanel.add(DocumentEditTextfield1);
+        DocumentEditTextfield1.setBounds(110, 220, 180, 30);
 
-        ClientCards1.setText("Karty Klienta");
-        ClientCards1.setActionCommand("Karty");
-        ClientCards1.setMaximumSize(new java.awt.Dimension(67, 23));
-        ClientCards1.setMinimumSize(new java.awt.Dimension(67, 23));
-        ClientCards1.setName("ClientCards1"); // NOI18N
-        ClientCards1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientAccountPanel.add(ClientCards1);
-        ClientCards1.setBounds(30, 130, 110, 23);
+        CashierContainer.add(NewClientAccountPanel, "NewClientAccountPanel");
 
-        ClientAccount1.setText("Dane Klienta");
-        ClientAccount1.setActionCommand("Karty");
-        ClientAccount1.setMaximumSize(new java.awt.Dimension(67, 23));
-        ClientAccount1.setMinimumSize(new java.awt.Dimension(67, 23));
-        ClientAccount1.setName("ClientAccount1"); // NOI18N
-        ClientAccount1.setPreferredSize(new java.awt.Dimension(67, 23));
-        ClientAccount1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientAccount1ActionPerformed(evt);
+        ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
+        ClientCardsPanel.setLayout(null);
+
+        AvailablePointsLabel1.setText("Nieprzydzielone punkty:");
+        AvailablePointsLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel1.setName("AvailablePointsLabel1"); // NOI18N
+        AvailablePointsLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        ClientCardsPanel.add(AvailablePointsLabel1);
+        AvailablePointsLabel1.setBounds(20, 20, 130, 14);
+
+        IDLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDLabel1.setText("ID");
+        IDLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        IDLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        IDLabel1.setName("IDLabel1"); // NOI18N
+        IDLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        ClientCardsPanel.add(IDLabel1);
+        IDLabel1.setBounds(0, 60, 50, 14);
+
+        ActivationDateLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ActivationDateLabel1.setText("Data aktywacji");
+        ActivationDateLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel1.setName("ActivationDateLabel1"); // NOI18N
+        ActivationDateLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        ClientCardsPanel.add(ActivationDateLabel1);
+        ActivationDateLabel1.setBounds(60, 60, 80, 14);
+
+        ExpirationDateLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExpirationDateLabel1.setText("Data ważności");
+        ExpirationDateLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel1.setName("ExpirationDateLabel1"); // NOI18N
+        ExpirationDateLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        ClientCardsPanel.add(ExpirationDateLabel1);
+        ExpirationDateLabel1.setBounds(150, 60, 80, 14);
+
+        PointsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PointsLabel1.setText("Punkty");
+        PointsLabel1.setMaximumSize(new java.awt.Dimension(29, 14));
+        PointsLabel1.setMinimumSize(new java.awt.Dimension(29, 14));
+        PointsLabel1.setName("PointsLabel1"); // NOI18N
+        PointsLabel1.setPreferredSize(new java.awt.Dimension(29, 14));
+        ClientCardsPanel.add(PointsLabel1);
+        PointsLabel1.setBounds(240, 60, 50, 14);
+
+        AvailablePointsTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        AvailablePointsTextField1.setEnabled(false);
+        AvailablePointsTextField1.setName("AvailablePointsTextField1"); // NOI18N
+        ClientCardsPanel.add(AvailablePointsTextField1);
+        AvailablePointsTextField1.setBounds(150, 20, 50, 20);
+
+        IDTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        IDTextField1.setEnabled(false);
+        IDTextField1.setName("IDTextField1"); // NOI18N
+        ClientCardsPanel.add(IDTextField1);
+        IDTextField1.setBounds(10, 80, 50, 20);
+
+        ActivationDateTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ActivationDateTextField1.setEnabled(false);
+        ActivationDateTextField1.setName("ActivationDateTextField1"); // NOI18N
+        ClientCardsPanel.add(ActivationDateTextField1);
+        ActivationDateTextField1.setBounds(70, 80, 80, 20);
+
+        ExpirationDateTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ExpirationDateTextField1.setEnabled(false);
+        ExpirationDateTextField1.setName("ExpirationDateTextField1"); // NOI18N
+        ClientCardsPanel.add(ExpirationDateTextField1);
+        ExpirationDateTextField1.setBounds(150, 80, 80, 20);
+
+        PointsTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PointsTextField1.setName("PointsTextField1"); // NOI18N
+        ClientCardsPanel.add(PointsTextField1);
+        PointsTextField1.setBounds(240, 80, 50, 20);
+
+        AddPointsButton1.setText("+");
+        AddPointsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddPointsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddPointsButton1.setName("AddPointsButton1"); // NOI18N
+        AddPointsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsPanel.add(AddPointsButton1);
+        AddPointsButton1.setBounds(290, 80, 40, 20);
+
+        SubtractPointsButton1.setText("-");
+        SubtractPointsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        SubtractPointsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        SubtractPointsButton1.setName("SubtractPointsButton1"); // NOI18N
+        SubtractPointsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsPanel.add(SubtractPointsButton1);
+        SubtractPointsButton1.setBounds(330, 80, 40, 20);
+
+        AddCardButton1.setText("Dodaj kartę");
+        AddCardButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddCardButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddCardButton1.setName("AddCardButton1"); // NOI18N
+        AddCardButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsPanel.add(AddCardButton1);
+        AddCardButton1.setBounds(380, 20, 100, 23);
+
+        RemoveCardButton1.setText("Wydaj");
+        RemoveCardButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton1.setName("RemoveCardButton1"); // NOI18N
+        RemoveCardButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsPanel.add(RemoveCardButton1);
+        RemoveCardButton1.setBounds(430, 80, 70, 23);
+
+        RemoveCardButton2.setText("Usuń");
+        RemoveCardButton2.setMaximumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton2.setMinimumSize(new java.awt.Dimension(67, 23));
+        RemoveCardButton2.setName("RemoveCardButton2"); // NOI18N
+        RemoveCardButton2.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsPanel.add(RemoveCardButton2);
+        RemoveCardButton2.setBounds(370, 80, 60, 23);
+
+        CashierContainer.add(ClientCardsPanel, "ClientCardsPanel");
+
+        StationTrafficPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        StationTrafficPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        StationTrafficPanel.setName("StationTrafficPanel"); // NOI18N
+        StationTrafficPanel.setLayout(null);
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        StationTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Zjazd", "Natężenie (%)"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        ClientAccountPanel.add(ClientAccount1);
-        ClientAccount1.setBounds(30, 160, 110, 23);
+        StationTrafficTable.setEnabled(false);
+        StationTrafficTable.setName("StationTrafficTable"); // NOI18N
+        StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                StationTrafficTableShowed(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(StationTrafficTable);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setText("Obsługa klienta: Nick");
-        jTextField4.setName("jTextField4"); // NOI18N
-        ClientAccountPanel.add(jTextField4);
-        jTextField4.setBounds(170, 60, 510, 60);
+        StationTrafficPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 10, 452, 402);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myAccountPage.jpg"))); // NOI18N
-        jLabel12.setText("jLabel9");
-        jLabel12.setName("jLabel12"); // NOI18N
-        ClientAccountPanel.add(jLabel12);
-        jLabel12.setBounds(0, 0, 700, 700);
+        CashierContainer.add(StationTrafficPanel, "StationTrafficPanel");
 
-        CashierPanel.add(ClientAccountPanel, "ClientAccountPanel");
+        ContactPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        ContactPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        ContactPanel.setName("ContactPanel"); // NOI18N
+        ContactPanel.setLayout(null);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel13.setText("Kontakt");
+        jLabel13.setName("jLabel13"); // NOI18N
+        ContactPanel.add(jLabel13);
+        jLabel13.setBounds(190, 0, 240, 60);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Akademicka 18, Gliwice 44-100");
+        jLabel25.setName("jLabel25"); // NOI18N
+        ContactPanel.add(jLabel25);
+        jLabel25.setBounds(30, 80, 300, 50);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Telefon: 558 201 654");
+        jLabel26.setName("jLabel26"); // NOI18N
+        ContactPanel.add(jLabel26);
+        jLabel26.setBounds(30, 50, 300, 50);
+
+        CashierContainer.add(ContactPanel, "ContactPanel");
+
+        CashierPanel.add(CashierContainer);
+        CashierContainer.setBounds(175, 130, 515, 495);
+
+        ContactButton3.setText("Kontakt");
+        ContactButton3.setMaximumSize(new java.awt.Dimension(67, 23));
+        ContactButton3.setMinimumSize(new java.awt.Dimension(67, 23));
+        ContactButton3.setName("ContactButton3"); // NOI18N
+        ContactButton3.setPreferredSize(new java.awt.Dimension(67, 23));
+        ContactButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactButton3ActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(ContactButton3);
+        ContactButton3.setBounds(20, 280, 140, 23);
+
+        NewAccountButton.setText("Założ konto klienta");
+        NewAccountButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        NewAccountButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        NewAccountButton.setName("NewAccountButton"); // NOI18N
+        NewAccountButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        NewAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewAccountButtonActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(NewAccountButton);
+        NewAccountButton.setBounds(20, 160, 140, 23);
+
+        LogoutButton.setText("Wyloguj");
+        LogoutButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        LogoutButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        LogoutButton.setName("LogoutButton"); // NOI18N
+        LogoutButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(LogoutButton);
+        LogoutButton.setBounds(590, 10, 100, 23);
+
+        EditClientButton.setText("Edytuj klienta");
+        EditClientButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        EditClientButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        EditClientButton.setName("EditClientButton"); // NOI18N
+        EditClientButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        EditClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditClientButtonActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(EditClientButton);
+        EditClientButton.setBounds(20, 190, 140, 23);
+
+        SlopeTrafficButton1.setText("Natężenie stoku");
+        SlopeTrafficButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton1.setName("SlopeTrafficButton1"); // NOI18N
+        SlopeTrafficButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SlopeTrafficButton1ActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(SlopeTrafficButton1);
+        SlopeTrafficButton1.setBounds(20, 250, 140, 23);
+
+        ClientModeButton1.setText("Tryb klienta");
+        ClientModeButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        ClientModeButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        ClientModeButton1.setName("ClientModeButton1"); // NOI18N
+        ClientModeButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientModeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientModeButton1ActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(ClientModeButton1);
+        ClientModeButton1.setBounds(460, 10, 110, 23);
+
+        CashierChangeModeToAdminButton.setText("Tryb administratora");
+        CashierChangeModeToAdminButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.setName("CashierChangeModeToAdminButton"); // NOI18N
+        CashierChangeModeToAdminButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        CashierChangeModeToAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CashierChangeModeToAdminButtonActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(CashierChangeModeToAdminButton);
+        CashierChangeModeToAdminButton.setBounds(310, 10, 150, 23);
+
+        SearchButton.setText("Wyszukiwarka");
+        SearchButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        SearchButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        SearchButton.setName("SearchButton"); // NOI18N
+        SearchButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchButtonActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(SearchButton);
+        SearchButton.setBounds(20, 130, 140, 23);
+
+        SelectedUserPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        SelectedUserPanel.setName("SelectedUserPanel"); // NOI18N
+
+        SelecetedUserTextPlane.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SelecetedUserTextPlane.setText("Użytkownik: brak");
+        SelecetedUserTextPlane.setToolTipText("");
+        SelecetedUserTextPlane.setName("SelecetedUserTextPlane"); // NOI18N
+        SelectedUserPanel.setViewportView(SelecetedUserTextPlane);
+
+        CashierPanel.add(SelectedUserPanel);
+        SelectedUserPanel.setBounds(180, 60, 500, 60);
+
+        ClientCardsButton1.setText("Karty klienta");
+        ClientCardsButton1.setMaximumSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.setMinimumSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.setName("ClientCardsButton1"); // NOI18N
+        ClientCardsButton1.setPreferredSize(new java.awt.Dimension(67, 23));
+        ClientCardsButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientCardsButton1ActionPerformed(evt);
+            }
+        });
+        CashierPanel.add(ClientCardsButton1);
+        ClientCardsButton1.setBounds(20, 220, 140, 23);
+
+        UserBackgroundLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
+        UserBackgroundLabel3.setName("UserBackgroundLabel3"); // NOI18N
+        CashierPanel.add(UserBackgroundLabel3);
+        UserBackgroundLabel3.setBounds(0, 0, 700, 700);
 
         getContentPane().add(CashierPanel, "CashierPanel");
 
@@ -1223,6 +1438,11 @@ public class MainWindow extends javax.swing.JFrame {
         UserRoleChooseGroup.add(CashierRadio);
         CashierRadio.setText("Cashier");
         CashierRadio.setName("CashierRadio"); // NOI18N
+        CashierRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CashierRadioActionPerformed(evt);
+            }
+        });
         EditUserAdmintPanel.add(CashierRadio);
         CashierRadio.setBounds(240, 230, 80, 30);
 
@@ -1355,37 +1575,92 @@ public class MainWindow extends javax.swing.JFrame {
         AddProductPanel.setOpaque(false);
         AddProductPanel.setLayout(null);
 
-        AddProductButton.setBackground(new java.awt.Color(0, 0, 0));
-        AddProductButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AddProductButton.setForeground(new java.awt.Color(255, 255, 255));
-        AddProductButton.setText("Dodaj");
-        AddProductButton.setName("AddProductButton"); // NOI18N
-        AddProductPanel.add(AddProductButton);
-        AddProductButton.setBounds(160, 180, 120, 30);
+        AddNewProductButton1.setBackground(new java.awt.Color(0, 0, 0));
+        AddNewProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddNewProductButton1.setForeground(new java.awt.Color(255, 255, 255));
+        AddNewProductButton1.setText("Dodaj");
+        AddNewProductButton1.setName("AddNewProductButton1"); // NOI18N
+        AddNewProductButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddNewProductButton1ActionPerformed(evt);
+            }
+        });
+        AddProductPanel.add(AddNewProductButton1);
+        AddNewProductButton1.setBounds(160, 120, 120, 30);
 
-        PriceTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PriceTextField.setName("PriceTextField"); // NOI18N
-        AddProductPanel.add(PriceTextField);
-        PriceTextField.setBounds(30, 130, 250, 30);
+        NewProductNameTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NewProductNameTextField1.setName("NewProductNameTextField1"); // NOI18N
+        AddProductPanel.add(NewProductNameTextField1);
+        NewProductNameTextField1.setBounds(30, 70, 250, 30);
 
-        ProductNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ProductNameTextField.setName("ProductNameTextField"); // NOI18N
-        AddProductPanel.add(ProductNameTextField);
-        ProductNameTextField.setBounds(30, 70, 250, 30);
+        ProductNameLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ProductNameLabel1.setText("Nazwa");
+        ProductNameLabel1.setName("ProductNameLabel1"); // NOI18N
+        AddProductPanel.add(ProductNameLabel1);
+        ProductNameLabel1.setBounds(30, 50, 190, 14);
 
-        PriceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        PriceLabel.setText("Cena");
-        PriceLabel.setName("PriceLabel"); // NOI18N
-        AddProductPanel.add(PriceLabel);
-        PriceLabel.setBounds(30, 110, 130, 14);
-
-        ProductNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ProductNameLabel.setText("Nazwa");
-        ProductNameLabel.setName("ProductNameLabel"); // NOI18N
-        AddProductPanel.add(ProductNameLabel);
-        ProductNameLabel.setBounds(30, 50, 190, 14);
+        NewProductResult1.setName("NewProductResult1"); // NOI18N
+        AddProductPanel.add(NewProductResult1);
+        NewProductResult1.setBounds(290, 130, 40, 14);
 
         AdminContainerPanel.add(AddProductPanel, "addProductAdminPanel");
+
+        AddPriceList.setName("AddPriceList"); // NOI18N
+        AddPriceList.setOpaque(false);
+        AddPriceList.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                AddPriceListComponentShown(evt);
+            }
+        });
+        AddPriceList.setLayout(null);
+
+        NewPriceListButton.setBackground(new java.awt.Color(0, 0, 0));
+        NewPriceListButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        NewPriceListButton.setForeground(new java.awt.Color(255, 255, 255));
+        NewPriceListButton.setText("Dodaj");
+        NewPriceListButton.setName("NewPriceListButton"); // NOI18N
+        NewPriceListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPriceListButtonActionPerformed(evt);
+            }
+        });
+        AddPriceList.add(NewPriceListButton);
+        NewPriceListButton.setBounds(160, 190, 120, 30);
+
+        NewPriceListDateFrom.setText("01-01-2000");
+        NewPriceListDateFrom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NewPriceListDateFrom.setName("NewPriceListDateFrom"); // NOI18N
+        NewPriceListDateFrom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPriceListDateFromActionPerformed(evt);
+            }
+        });
+        AddPriceList.add(NewPriceListDateFrom);
+        NewPriceListDateFrom.setBounds(30, 70, 250, 30);
+
+        NewPriceListDateTo.setText("01-01-2012");
+        NewPriceListDateTo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NewPriceListDateTo.setName("NewPriceListDateTo"); // NOI18N
+        AddPriceList.add(NewPriceListDateTo);
+        NewPriceListDateTo.setBounds(30, 130, 250, 30);
+
+        PriceListFromLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PriceListFromLabel.setText("Do");
+        PriceListFromLabel.setName("PriceListFromLabel"); // NOI18N
+        AddPriceList.add(PriceListFromLabel);
+        PriceListFromLabel.setBounds(30, 110, 190, 14);
+
+        PriceListToLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PriceListToLabel.setText("Od");
+        PriceListToLabel.setName("PriceListToLabel"); // NOI18N
+        AddPriceList.add(PriceListToLabel);
+        PriceListToLabel.setBounds(30, 50, 190, 14);
+
+        NewPriceListResult.setName("NewPriceListResult"); // NOI18N
+        AddPriceList.add(NewPriceListResult);
+        NewPriceListResult.setBounds(290, 130, 240, 110);
+
+        AdminContainerPanel.add(AddPriceList, "addPriceListAdminPanel");
 
         AddTerminalPanel.setName("AddTerminalPanel"); // NOI18N
         AddTerminalPanel.setOpaque(false);
@@ -1762,13 +2037,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminContainerPanel.add(UserManagmentAdmintPanel, "userManagmentAdminPanel");
 
-        jPanel1.setName("jPanel1"); // NOI18N
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(null);
+        ProductsManagmentAdminPanel.setName("ProductsManagmentAdminPanel"); // NOI18N
+        ProductsManagmentAdminPanel.setOpaque(false);
+        ProductsManagmentAdminPanel.setLayout(null);
 
-        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTabbedPane1.setName("jTabbedPane1"); // NOI18N
-        jTabbedPane1.setOpaque(true);
+        ProductsTables.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProductsTables.setName("ProductsTables"); // NOI18N
+        ProductsTables.setOpaque(true);
 
         jSplitPane1.setDividerLocation(30);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -1776,7 +2051,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane3.setName("jScrollPane3"); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -1805,8 +2080,8 @@ public class MainWindow extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setName("jTable1"); // NOI18N
-        jScrollPane3.setViewportView(jTable1);
+        ProductList.setName("ProductList"); // NOI18N
+        jScrollPane3.setViewportView(ProductList);
 
         jSplitPane1.setBottomComponent(jScrollPane3);
 
@@ -1817,66 +2092,27 @@ public class MainWindow extends javax.swing.JFrame {
         jButton1.setName("jButton1"); // NOI18N
         jSplitPane2.setRightComponent(jButton1);
 
-        jTextField11.setName("jTextField11"); // NOI18N
-        jSplitPane2.setLeftComponent(jTextField11);
+        ProductFindText.setName("ProductFindText"); // NOI18N
+        ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                ProductFindTextInputMethodTextChanged(evt);
+            }
+        });
+        ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ProductFindTextKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ProductFindTextKeyTyped(evt);
+            }
+        });
+        jSplitPane2.setLeftComponent(ProductFindText);
 
         jSplitPane1.setLeftComponent(jSplitPane2);
 
-        jTabbedPane1.addTab("Katalog Produktów", jSplitPane1);
-
-        jSplitPane3.setDividerLocation(30);
-        jSplitPane3.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jSplitPane3.setName("jSplitPane3"); // NOI18N
-
-        jScrollPane4.setName("jScrollPane4"); // NOI18N
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID Ceny", "Ważna od", "Ważna do"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTable2.setName("jTable2"); // NOI18N
-        jScrollPane4.setViewportView(jTable2);
-
-        jSplitPane3.setBottomComponent(jScrollPane4);
-
-        jSplitPane4.setDividerLocation(360);
-        jSplitPane4.setName("jSplitPane4"); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
-        jButton2.setName("jButton2"); // NOI18N
-        jSplitPane4.setRightComponent(jButton2);
-
-        jTextField12.setName("jTextField12"); // NOI18N
-        jSplitPane4.setLeftComponent(jTextField12);
-
-        jSplitPane3.setLeftComponent(jSplitPane4);
-
-        jTabbedPane1.addTab("Lista Cen", jSplitPane3);
+        ProductsTables.addTab("Lista Produktów ", jSplitPane1);
 
         jSplitPane5.setDividerLocation(30);
         jSplitPane5.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -1884,7 +2120,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane8.setName("jScrollPane8"); // NOI18N
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        PriceLists.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1902,7 +2138,7 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID Ceny", "ID Produktu", "Punkty"
+                "ID Produktu", "Data od", "Data do"
             }
         ) {
             Class[] types = new Class [] {
@@ -1913,8 +2149,8 @@ public class MainWindow extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable3.setName("jTable3"); // NOI18N
-        jScrollPane8.setViewportView(jTable3);
+        PriceLists.setName("PriceLists"); // NOI18N
+        jScrollPane8.setViewportView(PriceLists);
 
         jSplitPane5.setBottomComponent(jScrollPane8);
 
@@ -1925,12 +2161,17 @@ public class MainWindow extends javax.swing.JFrame {
         jButton6.setName("jButton6"); // NOI18N
         jSplitPane6.setRightComponent(jButton6);
 
-        jTextField13.setName("jTextField13"); // NOI18N
-        jSplitPane6.setLeftComponent(jTextField13);
+        PriceListFindText.setName("PriceListFindText"); // NOI18N
+        PriceListFindText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PriceListFindTextKeyReleased(evt);
+            }
+        });
+        jSplitPane6.setLeftComponent(PriceListFindText);
 
         jSplitPane5.setLeftComponent(jSplitPane6);
 
-        jTabbedPane1.addTab("Cennik Produktów", jSplitPane5);
+        ProductsTables.addTab("Cennik", jSplitPane5);
 
         jSplitPane7.setDividerLocation(30);
         jSplitPane7.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -1984,11 +2225,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSplitPane7.setLeftComponent(jSplitPane8);
 
-        jTabbedPane1.addTab("Lista Produktów", jSplitPane7);
+        ProductsTables.addTab("Lista Produktów", jSplitPane7);
 
-        jPanel1.add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 20, 410, 320);
-        jTabbedPane1.getAccessibleContext().setAccessibleName("Products");
+        ProductsManagmentAdminPanel.add(ProductsTables);
+        ProductsTables.setBounds(10, 20, 410, 320);
+        ProductsTables.getAccessibleContext().setAccessibleName("Products");
 
         EditProductButton1.setBackground(new java.awt.Color(0, 0, 0));
         EditProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -2001,7 +2242,7 @@ public class MainWindow extends javax.swing.JFrame {
                 EditProductButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(EditProductButton1);
+        ProductsManagmentAdminPanel.add(EditProductButton1);
         EditProductButton1.setBounds(470, 90, 120, 30);
 
         RemoveProductButton1.setBackground(new java.awt.Color(0, 0, 0));
@@ -2009,7 +2250,7 @@ public class MainWindow extends javax.swing.JFrame {
         RemoveProductButton1.setForeground(new java.awt.Color(255, 255, 255));
         RemoveProductButton1.setText("Usuń");
         RemoveProductButton1.setName("RemoveProductButton1"); // NOI18N
-        jPanel1.add(RemoveProductButton1);
+        ProductsManagmentAdminPanel.add(RemoveProductButton1);
         RemoveProductButton1.setBounds(470, 130, 120, 30);
 
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
@@ -2019,15 +2260,20 @@ public class MainWindow extends javax.swing.JFrame {
         jButton8.setFocusTraversalPolicyProvider(true);
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setName("jButton8"); // NOI18N
-        jPanel1.add(jButton8);
+        ProductsManagmentAdminPanel.add(jButton8);
         jButton8.setBounds(430, 310, 160, 30);
 
         jButton9.setBackground(new java.awt.Color(0, 0, 0));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Nowa Pozycja w Cenniku");
+        jButton9.setText("NowyCennik");
         jButton9.setName("jButton9"); // NOI18N
-        jPanel1.add(jButton9);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        ProductsManagmentAdminPanel.add(jButton9);
         jButton9.setBounds(430, 230, 160, 30);
 
         jButton10.setBackground(new java.awt.Color(0, 0, 0));
@@ -2040,7 +2286,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10);
+        ProductsManagmentAdminPanel.add(jButton10);
         jButton10.setBounds(430, 270, 160, 30);
 
         jButton11.setBackground(new java.awt.Color(0, 0, 0));
@@ -2053,10 +2299,10 @@ public class MainWindow extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11);
+        ProductsManagmentAdminPanel.add(jButton11);
         jButton11.setBounds(430, 190, 160, 30);
 
-        AdminContainerPanel.add(jPanel1, "card11");
+        AdminContainerPanel.add(ProductsManagmentAdminPanel, "card11");
 
         AdminMainPanel.add(AdminContainerPanel);
         AdminContainerPanel.setBounds(50, 240, 600, 350);
@@ -2174,120 +2420,215 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.add(SlopeTrafficButton);
         SlopeTrafficButton.setBounds(20, 190, 125, 30);
 
-        AvailablePointsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        UserContainerPanel.setName("UserContainerPanel"); // NOI18N
+        UserContainerPanel.setOpaque(false);
+        UserContainerPanel.setLayout(new java.awt.CardLayout());
+
+        UserMyCardsPanel.setName("UserMyCardsPanel"); // NOI18N
+        UserMyCardsPanel.setOpaque(false);
+        UserMyCardsPanel.setLayout(null);
+
         AvailablePointsLabel.setText("Nieprzydzielone punkty:");
         AvailablePointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         AvailablePointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         AvailablePointsLabel.setName("AvailablePointsLabel"); // NOI18N
         AvailablePointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMainPanel.add(AvailablePointsLabel);
-        AvailablePointsLabel.setBounds(200, 150, 130, 14);
+        UserMyCardsPanel.add(AvailablePointsLabel);
+        AvailablePointsLabel.setBounds(40, 20, 130, 14);
 
-        IDLabel.setForeground(new java.awt.Color(255, 255, 255));
         IDLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IDLabel.setText("ID");
         IDLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         IDLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         IDLabel.setName("IDLabel"); // NOI18N
         IDLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMainPanel.add(IDLabel);
-        IDLabel.setBounds(180, 190, 50, 14);
+        UserMyCardsPanel.add(IDLabel);
+        IDLabel.setBounds(20, 60, 50, 14);
 
-        ActivationDateLabel.setForeground(new java.awt.Color(255, 255, 255));
         ActivationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ActivationDateLabel.setText("Data aktywacji");
         ActivationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         ActivationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         ActivationDateLabel.setName("ActivationDateLabel"); // NOI18N
         ActivationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMainPanel.add(ActivationDateLabel);
-        ActivationDateLabel.setBounds(240, 190, 80, 14);
+        UserMyCardsPanel.add(ActivationDateLabel);
+        ActivationDateLabel.setBounds(80, 60, 80, 14);
 
-        ExpirationDateLabel.setForeground(new java.awt.Color(255, 255, 255));
         ExpirationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ExpirationDateLabel.setText("Data ważności");
         ExpirationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         ExpirationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         ExpirationDateLabel.setName("ExpirationDateLabel"); // NOI18N
         ExpirationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMainPanel.add(ExpirationDateLabel);
-        ExpirationDateLabel.setBounds(330, 190, 80, 14);
+        UserMyCardsPanel.add(ExpirationDateLabel);
+        ExpirationDateLabel.setBounds(170, 60, 80, 14);
 
-        PointsLabel.setForeground(new java.awt.Color(255, 255, 255));
         PointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PointsLabel.setText("Punkty");
         PointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         PointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         PointsLabel.setName("PointsLabel"); // NOI18N
         PointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMainPanel.add(PointsLabel);
-        PointsLabel.setBounds(420, 190, 50, 14);
+        UserMyCardsPanel.add(PointsLabel);
+        PointsLabel.setBounds(260, 60, 50, 14);
 
         AvailablePointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         AvailablePointsTextField.setEnabled(false);
         AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
-        UserMainPanel.add(AvailablePointsTextField);
-        AvailablePointsTextField.setBounds(330, 150, 50, 20);
+        UserMyCardsPanel.add(AvailablePointsTextField);
+        AvailablePointsTextField.setBounds(170, 20, 50, 20);
 
         IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IDTextField.setEnabled(false);
         IDTextField.setName("IDTextField"); // NOI18N
-        UserMainPanel.add(IDTextField);
-        IDTextField.setBounds(180, 210, 50, 20);
+        UserMyCardsPanel.add(IDTextField);
+        IDTextField.setBounds(20, 80, 50, 20);
 
         ActivationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ActivationDateTextField.setEnabled(false);
         ActivationDateTextField.setName("ActivationDateTextField"); // NOI18N
-        UserMainPanel.add(ActivationDateTextField);
-        ActivationDateTextField.setBounds(240, 210, 80, 20);
+        UserMyCardsPanel.add(ActivationDateTextField);
+        ActivationDateTextField.setBounds(80, 80, 80, 20);
 
         ExpirationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ExpirationDateTextField.setEnabled(false);
         ExpirationDateTextField.setName("ExpirationDateTextField"); // NOI18N
-        UserMainPanel.add(ExpirationDateTextField);
-        ExpirationDateTextField.setBounds(330, 210, 80, 20);
+        UserMyCardsPanel.add(ExpirationDateTextField);
+        ExpirationDateTextField.setBounds(170, 80, 80, 20);
 
         PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PointsTextField.setName("PointsTextField"); // NOI18N
-        UserMainPanel.add(PointsTextField);
-        PointsTextField.setBounds(420, 210, 50, 20);
+        UserMyCardsPanel.add(PointsTextField);
+        PointsTextField.setBounds(260, 80, 50, 20);
 
         AddPointsButton.setText("+");
         AddPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         AddPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         AddPointsButton.setName("AddPointsButton"); // NOI18N
         AddPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserMainPanel.add(AddPointsButton);
-        AddPointsButton.setBounds(470, 210, 40, 20);
+        UserMyCardsPanel.add(AddPointsButton);
+        AddPointsButton.setBounds(310, 80, 40, 20);
 
         SubtractPointsButton.setText("-");
         SubtractPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         SubtractPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SubtractPointsButton.setName("SubtractPointsButton"); // NOI18N
         SubtractPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserMainPanel.add(SubtractPointsButton);
-        SubtractPointsButton.setBounds(510, 210, 40, 20);
+        UserMyCardsPanel.add(SubtractPointsButton);
+        SubtractPointsButton.setBounds(350, 80, 40, 20);
 
-        AddCardButton.setText("Dodaj kartę");
-        AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        AddCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
-        AddCardButton.setName("AddCardButton"); // NOI18N
-        AddCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserMainPanel.add(AddCardButton);
-        AddCardButton.setBounds(560, 150, 100, 23);
+        BuyPointsButton.setText("Kup punkty");
+        BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setName("BuyPointsButton"); // NOI18N
+        BuyPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyPointsButtonActionPerformed(evt);
+            }
+        });
+        UserMyCardsPanel.add(BuyPointsButton);
+        BuyPointsButton.setBounds(230, 20, 100, 23);
+
+        AddCardButton2.setText("Dodaj kartę");
+        AddCardButton2.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddCardButton2.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddCardButton2.setName("AddCardButton2"); // NOI18N
+        AddCardButton2.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMyCardsPanel.add(AddCardButton2);
+        AddCardButton2.setBounds(400, 20, 100, 23);
 
         RemoveCardButton.setText("Usuń kartę");
         RemoveCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
         RemoveCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
         RemoveCardButton.setName("RemoveCardButton"); // NOI18N
         RemoveCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        UserMainPanel.add(RemoveCardButton);
-        RemoveCardButton.setBounds(560, 210, 100, 23);
+        UserMyCardsPanel.add(RemoveCardButton);
+        RemoveCardButton.setBounds(400, 80, 100, 23);
 
-        UserBackgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
-        UserBackgroundLabel.setName("UserBackgroundLabel"); // NOI18N
-        UserMainPanel.add(UserBackgroundLabel);
-        UserBackgroundLabel.setBounds(0, 0, 700, 700);
+        UserContainerPanel.add(UserMyCardsPanel, "userMyCards");
+
+        UserBuyPointsPanel.setName("UserBuyPointsPanel"); // NOI18N
+        UserBuyPointsPanel.setOpaque(false);
+        UserBuyPointsPanel.setLayout(null);
+
+        PointsPackage10.setText("10 pkt. - 10 zł");
+        PointsPackage10.setName("PointsPackage10"); // NOI18N
+        PointsPackage10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PointsPackage10ActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(PointsPackage10);
+        PointsPackage10.setBounds(210, 140, 120, 23);
+        PointsPackage10.getAccessibleContext().setAccessibleName("optionValue10");
+
+        PointsPackage20.setText("20 pkt. - 18 zł");
+        PointsPackage20.setName("PointsPackage20"); // NOI18N
+        UserBuyPointsPanel.add(PointsPackage20);
+        PointsPackage20.setBounds(210, 170, 120, 23);
+        PointsPackage20.getAccessibleContext().setAccessibleName("optionValue20");
+
+        PointsPackage50.setText("50 pkt. - 42 zł");
+        PointsPackage50.setName("PointsPackage50"); // NOI18N
+        PointsPackage50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PointsPackage50ActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(PointsPackage50);
+        PointsPackage50.setBounds(210, 200, 120, 23);
+        PointsPackage50.getAccessibleContext().setAccessibleName("optionValue50");
+
+        PointsPackage100.setText("100 pkt. - 80 zł");
+        PointsPackage100.setName("PointsPackage100"); // NOI18N
+        UserBuyPointsPanel.add(PointsPackage100);
+        PointsPackage100.setBounds(210, 230, 120, 23);
+
+        PointsPackage500.setText("500 pkt. - 410 zł");
+        PointsPackage500.setName("PointsPackage500"); // NOI18N
+        UserBuyPointsPanel.add(PointsPackage500);
+        PointsPackage500.setBounds(210, 260, 120, 23);
+        PointsPackage500.getAccessibleContext().setAccessibleName("optionValue500");
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel28.setText("Wybierz pakiet:");
+        jLabel28.setName("jLabel28"); // NOI18N
+        UserBuyPointsPanel.add(jLabel28);
+        jLabel28.setBounds(210, 70, 130, 22);
+
+        jButton2.setText("Kupuję i płacę");
+        jButton2.setName("jButton2"); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(jButton2);
+        jButton2.setBounds(190, 330, 160, 40);
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel29.setText("// To będą checkboxy raczej, a obok może opcja wpisania krotności danego pakietu. Na dole - podsumowanie.");
+        jLabel29.setName("jLabel29"); // NOI18N
+        UserBuyPointsPanel.add(jLabel29);
+        jLabel29.setBounds(10, 90, 520, 20);
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel30.setText("[AW] - zmienię to nastepnym razem");
+        jLabel30.setName("jLabel30"); // NOI18N
+        UserBuyPointsPanel.add(jLabel30);
+        jLabel30.setBounds(10, 110, 210, 14);
+
+        UserContainerPanel.add(UserBuyPointsPanel, "userBuyPoints");
+
+        UserMainPanel.add(UserContainerPanel);
+        UserContainerPanel.setBounds(170, 150, 530, 550);
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
+        jLabel27.setText("Moje Konto");
+        jLabel27.setName("jLabel27"); // NOI18N
+        UserMainPanel.add(jLabel27);
+        jLabel27.setBounds(0, 0, 700, 700);
 
         getContentPane().add(UserMainPanel, "UserMainPanel");
 
@@ -2508,16 +2849,16 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeCard(Container container, String targetContainerName, boolean checkSession) {
-        CardLayout adminContainerLayout = (CardLayout) container.getLayout();
+        CardLayout containerLayout = (CardLayout) container.getLayout();
 
         if (checkSession) {
             if (SessionController.IsUserLogged()) {
-                adminContainerLayout.show(container, targetContainerName);
+                containerLayout.show(container, targetContainerName);
             } else {
                 ExitSession();
             }
         } else {
-            adminContainerLayout.show(container, targetContainerName);
+            containerLayout.show(container, targetContainerName);
         }
     }
 
@@ -2570,6 +2911,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin) {
                 UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
+                AdminPanelBackButton.setVisible(false);
             } else {
                 UserChangeModeToAdminButton.setVisible(false);
                 CashierChangeModeToAdminButton.setVisible(false);
@@ -2646,6 +2988,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
         changeCard(AdminContainerPanel, "userManagmentAdminPanel", true);
+        AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
@@ -2770,30 +3113,6 @@ public class MainWindow extends javax.swing.JFrame {
         CancelButton.setEnabled(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
-    private void UserLogoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserLogoutButton1ActionPerformed
-
-    private void ClientModeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ClientModeButton1ActionPerformed
-
-    private void UserLogoutButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserLogoutButton4ActionPerformed
-
-    private void CashierMenuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierMenuButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CashierMenuButton1ActionPerformed
-
-    private void UserMyAccountButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserMyAccountButton3ActionPerformed
-
-    private void UserLogoutButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserLogoutButton3ActionPerformed
-
     private void IDEditTextfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IDEditTextfield1ActionPerformed
@@ -2810,32 +3129,14 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelButton1ActionPerformed
 
-    private void ClientAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientAccountActionPerformed
-        //ClientAccountPanel
-
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-
-        if (SessionController.IsUserLogged()) {
-            loginPaneLayout.show(getContentPane(), "ClientAccountPanel");
-            System.out.print("Pokazuje Client Account");
-        } else {
-            ExitSession();
-        }
-    }//GEN-LAST:event_ClientAccountActionPerformed
-
     private void CashierModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierModeButtonActionPerformed
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         if (SessionController.IsUserLogged()) {
             loginPaneLayout.show(getContentPane(), "CashierPanel");
-            System.out.print("Wyswietlam kasjera \n");
         } else {
             ExitSession();
         }
     }//GEN-LAST:event_CashierModeButtonActionPerformed
-
-    private void ClientAccount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientAccount1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ClientAccount1ActionPerformed
 
     private void DocumentEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentEditTextfieldActionPerformed
         // TODO add your handling code here:
@@ -2854,24 +3155,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CityEditTextfieldActionPerformed
 
     private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
-        CardLayout userPaneLayout = (CardLayout) getContentPane().getLayout();
-
-        if (SessionController.IsUserLogged()) {
-            userPaneLayout.show(getContentPane(), "adminPanelMain");
-        } else {
-            ExitSession();
-        }
+        changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_UserChangeModeToAdminButtonActionPerformed
-
-    private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
-        CardLayout cashierPaneLayout = (CardLayout) getContentPane().getLayout();
-
-        if (SessionController.IsUserLogged()) {
-            cashierPaneLayout.show(getContentPane(), "adminPanelMain");
-        } else {
-            ExitSession();
-        }
-    }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
         if (!SessionController.IsUserLogged()) {
@@ -2900,10 +3185,35 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void AdminPanelBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelBackButtonActionPerformed
         changeCard(AdminContainerPanel, "adminMenuPanel", true);
+        AdminPanelBackButton.setVisible(false);
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
-        changeCard(AdminContainerPanel, "card11", true);
+        ProductFindText.setText("");
+        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
+         model.setRowCount(0);
+         ProductController controller = new ProductController();
+         List products = controller.getProductList();
+         if (products!=null) {
+             for (Object productObj : products) {
+                 Product product = (Product)productObj;
+                 
+                 model.addRow(new Object[]{product.getProductid(),product.getName()});
+             }
+        }
+         
+        PriceListFindText.setText("");
+        model = (DefaultTableModel) PriceLists.getModel();
+         model.setRowCount(0);
+         List priceLists = controller.getPriceListsList();
+        if (priceLists!=null) {
+            for (Object priceListObj : priceLists) {
+                Pricelist priceList = (Pricelist)priceListObj;
+                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
+            }
+        }
+         changeCard(AdminContainerPanel, "card11", true);
+         AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
@@ -2923,11 +3233,13 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addRow(new Object[]{row[0], row[1], tempOverload});
             }
             changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+            AdminPanelBackButton.setVisible(true);
         }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
         changeCard(AdminContainerPanel, "gatesManagementAdminPanel", true);
+        AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_GatesButtonActionPerformed
 
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
@@ -2990,15 +3302,216 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void FindUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindUserButtonActionPerformed
+    private void EditClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditClientButtonActionPerformed
+        changeCard(CashierContainer, "ClientAccountEditPanel", true);
+    }//GEN-LAST:event_EditClientButtonActionPerformed
+
+    private void ContactButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton3ActionPerformed
+        changeCard(CashierContainer, "ContactPanel", true);
+    }//GEN-LAST:event_ContactButton3ActionPerformed
+
+    private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
+        changeCard(CashierContainer, "NewClientAccountPanel", true);
+    }//GEN-LAST:event_NewAccountButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FindUserButtonActionPerformed
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void ClientModeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButton1ActionPerformed
+        changeCard(getContentPane(), "UserMainPanel", true);
+    }//GEN-LAST:event_ClientModeButton1ActionPerformed
+
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+        changeCard(CashierContainer, "SearchPanel", true);  
+        System.out.println("SearchPanel");
+    }//GEN-LAST:event_SearchButtonActionPerformed
+
+    private void UserSearchInputTextFieldChanged(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldChanged
+       DefaultListModel model = new DefaultListModel();
+       ResultList.setModel(model);
+       
+       CashierController cc = new CashierController();
+       List results = cc.GetUsersList(UserSearchInputTextField.getText());
+       
+        for (Object result : results) {
+            Users user = (Users)result;
+            model.addElement(CashierController.GetUserConvertedName(user));
+        }
+        
+        if(results.size() > 0)
+        {
+            CashierController.SetSelectedUser((Users)results.get(0), SelecetedUserTextPlane);
+        }
+
+        CardScanStatusTextField.setText("Skanuj");
+    }//GEN-LAST:event_UserSearchInputTextFieldChanged
+
+    private void CardScanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardScanButtonActionPerformed
+        CashierController cc = new CashierController();
+        
+        Users scannedUser = cc.GetRandomUser();
+
+        CashierController.SetSelectedUser(scannedUser, SelecetedUserTextPlane);
+        CardScanStatusTextField.setText("Zeskanowano: " + CashierController.GetUserConvertedName(scannedUser));
+        UserSearchInputTextField.setText("");
+        DefaultListModel model = new DefaultListModel();
+        ResultList.setModel(model);
+    }//GEN-LAST:event_CardScanButtonActionPerformed
+
+    private void ResultListClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultListClicked
+        CashierController cc = new CashierController();
+        cc.SetSelectedUserWithString(ResultList.getSelectedValue(), SelecetedUserTextPlane);
+    }//GEN-LAST:event_ResultListClicked
+
+    private void NewPriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPriceListButtonActionPerformed
+
+        ProductController controller = new ProductController();
+        String from = NewPriceListDateFrom.getText();
+        String to = NewPriceListDateTo.getText();
+        StringBuilder logger = new StringBuilder();
+        if (controller.CreatePriceList(from,to, logger)) {
+            NewPriceListResult.setText(logger.toString());
+        }else{
+            NewPriceListResult.setText(logger.toString());
+        }
+    }//GEN-LAST:event_NewPriceListButtonActionPerformed
+
+    private void SlopeTrafficButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButton1ActionPerformed
+        changeCard(CashierContainer, "StationTrafficPanel", true);
+    }//GEN-LAST:event_SlopeTrafficButton1ActionPerformed
+
+    private void StationTrafficTableShowed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_StationTrafficTableShowed
+       
+        DefaultTableModel model = (DefaultTableModel) StationTrafficTable.getModel();
+        model.setRowCount(0);
+        
+        CashierController cc = new CashierController();
+        
+        List attractions = cc.GetSkiAttractions();
+        
+        for (Object attractionObject : attractions) {
+            Attraction attraction = (Attraction)attractionObject;
+            
+            int skiTraffic = cc.GetSkiAttractionTraffic(attraction);
+            
+            model.addRow(new Object[]{ attraction.getAttractionid(),attraction.getName(), skiTraffic });
+        }
+        
+    }//GEN-LAST:event_StationTrafficTableShowed
+
+    private void ClientCardsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButton1ActionPerformed
+              changeCard(CashierContainer, "ClientCardsPanel", true);
+    }//GEN-LAST:event_ClientCardsButton1ActionPerformed
+
+    private void IDEditTextfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDEditTextfield2ActionPerformed
+
+    private void EditDetailsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditDetailsButton2ActionPerformed
+
+    private void SaveDetailsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveDetailsButton2ActionPerformed
+
+    private void CancelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelButton2ActionPerformed
+
+    private void ProductFindTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyTyped
+
+    }//GEN-LAST:event_ProductFindTextKeyTyped
+
+    private void ProductFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyReleased
+        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List products = controller.getProductList(ProductFindText.getText());
+        if (products!=null) {
+            for (Object productObj : products) {
+                Product product = (Product)productObj;
+                model.addRow(new Object[]{product.getProductid(),product.getName()});
+            }
+        }
+    }//GEN-LAST:event_ProductFindTextKeyReleased
+
+    private void ProductFindTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_ProductFindTextInputMethodTextChanged
+
+    }//GEN-LAST:event_ProductFindTextInputMethodTextChanged
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        changeCard(AdminContainerPanel, "addPriceListAdminPanel", true);      
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void AddNewProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewProductButton1ActionPerformed
+        ProductController controller = new ProductController();
+        String newProductName = NewProductNameTextField1.getText();
+        StringBuilder logger = new StringBuilder();
+        if (controller.CreateProduct(newProductName, logger)) {
+            NewProductResult1.setText(logger.toString());
+        }else{
+            NewProductResult1.setText(logger.toString());
+        }
+    }//GEN-LAST:event_AddNewProductButton1ActionPerformed
+
+    private void AddPriceListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_AddPriceListComponentShown
+            
+    }//GEN-LAST:event_AddPriceListComponentShown
+
+    private void PriceListFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceListFindTextKeyReleased
+        DefaultTableModel model = (DefaultTableModel) PriceLists.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List priceLists = controller.getPriceListsList(PriceListFindText.getText());
+        if (priceLists!=null) {
+            for (Object priceListObj : priceLists) {
+                Pricelist priceList = (Pricelist)priceListObj;
+                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
+            }
+        }
+    }//GEN-LAST:event_PriceListFindTextKeyReleased
+
+    private void NewPriceListDateFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPriceListDateFromActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPriceListDateFromActionPerformed
+
+    private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
+        changeCard(getContentPane(), "adminPanelMain", true);
+    }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
+
+    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
+        changeCard(UserContainerPanel, "userBuyPoints", true);
+    }//GEN-LAST:event_BuyPointsButtonActionPerformed
+
+    private void PointsPackage10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PointsPackage10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PointsPackage10ActionPerformed
+
+    private void PointsPackage50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PointsPackage50ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PointsPackage50ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void CashierRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CashierRadioActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         PasswordTextField.setText("");
         MessageLabel.setText("Sesja wygasła");
         loginPaneLayout.show(getContentPane(), "login");
+    }
+    
+    private void FindUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        
     }
 
     /**
@@ -3052,11 +3565,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField ActualizePriceTextField;
     private javax.swing.JButton ActualizeProductButton;
     private javax.swing.JTextField ActualizeProductNameText;
-    private javax.swing.JButton AddCardButton;
     private javax.swing.JButton AddCardButton1;
+    private javax.swing.JButton AddCardButton2;
+    private javax.swing.JButton AddNewProductButton1;
     private javax.swing.JButton AddPointsButton;
     private javax.swing.JButton AddPointsButton1;
-    private javax.swing.JButton AddProductButton;
+    private javax.swing.JPanel AddPriceList;
     private javax.swing.JPanel AddProductPanel;
     private javax.swing.JButton AddTerminalButton;
     private javax.swing.JPanel AddTerminalPanel;
@@ -3077,49 +3591,60 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField AvailablePointsTextField1;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
+    private javax.swing.JButton BuyPointsButton;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
+    private javax.swing.JButton CancelButton2;
+    private javax.swing.JButton CardScanButton;
+    private javax.swing.JTextField CardScanStatusTextField;
     private javax.swing.JButton CashierChangeModeToAdminButton;
-    private javax.swing.JButton CashierMenuButton1;
+    private javax.swing.JPanel CashierContainer;
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JRadioButton CashierRadio;
     private javax.swing.JTextField City;
     private javax.swing.JLabel CityEditLabel;
     private javax.swing.JLabel CityEditLabel1;
+    private javax.swing.JLabel CityEditLabel2;
     private javax.swing.JTextField CityEditTextfield;
     private javax.swing.JTextField CityEditTextfield1;
-    private javax.swing.JButton ClientAccount;
-    private javax.swing.JButton ClientAccount1;
-    private javax.swing.JPanel ClientAccountPanel;
-    private javax.swing.JButton ClientCards;
-    private javax.swing.JButton ClientCards1;
+    private javax.swing.JTextField CityEditTextfield2;
+    private javax.swing.JPanel ClientAccountEditPanel;
+    private javax.swing.JButton ClientCardsButton1;
     private javax.swing.JPanel ClientCardsPanel;
     private javax.swing.JButton ClientModeButton;
     private javax.swing.JButton ClientModeButton1;
     private javax.swing.JButton ContactButton;
-    private javax.swing.JButton ContactButton1;
     private javax.swing.JButton ContactButton2;
     private javax.swing.JButton ContactButton3;
+    private javax.swing.JPanel ContactPanel;
     private javax.swing.JTextField Country;
     private javax.swing.JLabel CountryEditLabel;
     private javax.swing.JLabel CountryEditLabel1;
+    private javax.swing.JLabel CountryEditLabel2;
     private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JTextField CountryEditTextfield1;
+    private javax.swing.JTextField CountryEditTextfield2;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JButton DeleteTerminalButton;
     private javax.swing.JButton DeleteUserButton;
     private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentEditTextfield1;
+    private javax.swing.JTextField DocumentEditTextfield2;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JButton EditClientButton;
     private javax.swing.JButton EditDetailsButton;
     private javax.swing.JButton EditDetailsButton1;
+    private javax.swing.JButton EditDetailsButton2;
     private javax.swing.JLabel EditLoginLabel;
     private javax.swing.JLabel EditLoginLabel1;
+    private javax.swing.JLabel EditLoginLabel2;
     private javax.swing.JLabel EditMessageLabel;
     private javax.swing.JLabel EditMessageLabel1;
+    private javax.swing.JLabel EditMessageLabel2;
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JLabel EditPasswordLabel1;
+    private javax.swing.JLabel EditPasswordLabel2;
     private javax.swing.JButton EditProductButton;
     private javax.swing.JButton EditProductButton1;
     private javax.swing.JPanel EditProductPanel;
@@ -3138,8 +3663,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel GatesManagementAdminPanel;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel1;
+    private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
     private javax.swing.JTextField IDEditTextfield1;
+    private javax.swing.JTextField IDEditTextfield2;
     private javax.swing.JLabel IDLabel;
     private javax.swing.JLabel IDLabel1;
     private javax.swing.JTextField IDTextField;
@@ -3150,38 +3677,61 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginEditTextfield;
     private javax.swing.JTextField LoginEditTextfield1;
+    private javax.swing.JTextField LoginEditTextfield2;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
-    private javax.swing.JPanel MainPanel;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel MessageLabel;
     private javax.swing.JLabel MyAccountLabel1;
+    private javax.swing.JLabel MyAccountLabel2;
     private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JButton MyCardsButton;
     private javax.swing.JButton MyCardsButton2;
     private javax.swing.JTextField Name;
     private javax.swing.JLabel NameEditLabel;
     private javax.swing.JLabel NameEditLabel1;
+    private javax.swing.JLabel NameEditLabel2;
     private javax.swing.JTextField NameEditTextfield;
     private javax.swing.JTextField NameEditTextfield1;
+    private javax.swing.JTextField NameEditTextfield2;
+    private javax.swing.JButton NewAccountButton;
+    private javax.swing.JPanel NewClientAccountPanel;
+    private javax.swing.JButton NewPriceListButton;
+    private javax.swing.JTextField NewPriceListDateFrom;
+    private javax.swing.JTextField NewPriceListDateTo;
+    private javax.swing.JLabel NewPriceListResult;
     private javax.swing.JButton NewProductButton;
+    private javax.swing.JTextField NewProductNameTextField1;
+    private javax.swing.JLabel NewProductResult1;
     private javax.swing.JButton NewTerminalButton;
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JTextField PasswordEditTextfield1;
+    private javax.swing.JTextField PasswordEditTextfield2;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JLabel PointsLabel;
     private javax.swing.JLabel PointsLabel1;
+    private javax.swing.JRadioButton PointsPackage10;
+    private javax.swing.JRadioButton PointsPackage100;
+    private javax.swing.JRadioButton PointsPackage20;
+    private javax.swing.JRadioButton PointsPackage50;
+    private javax.swing.JRadioButton PointsPackage500;
     private javax.swing.JTextField PointsTextField;
     private javax.swing.JTextField PointsTextField1;
-    private javax.swing.JLabel PriceLabel;
     private javax.swing.JButton PriceListButton;
+    private javax.swing.JTextField PriceListFindText;
+    private javax.swing.JLabel PriceListFromLabel;
     private javax.swing.JPanel PriceListManagmentAdmintPanel;
     private javax.swing.JTable PriceListTable;
-    private javax.swing.JTextField PriceTextField;
-    private javax.swing.JLabel ProductNameLabel;
-    private javax.swing.JTextField ProductNameTextField;
+    private javax.swing.JLabel PriceListToLabel;
+    private javax.swing.JTable PriceLists;
+    private javax.swing.JTextField ProductFindText;
+    private javax.swing.JTable ProductList;
+    private javax.swing.JLabel ProductNameLabel1;
+    private javax.swing.JPanel ProductsManagmentAdminPanel;
+    private javax.swing.JTabbedPane ProductsTables;
     private javax.swing.JPanel Register;
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JButton RegisterButton;
@@ -3193,11 +3743,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RemoveProductButton1;
     private javax.swing.JPasswordField RepeatPassword;
     private javax.swing.JLabel RepeatPasswordLabel;
+    private javax.swing.JList<String> ResultList;
+    private javax.swing.JScrollPane ResultListPanel;
     private javax.swing.JButton SaveDetailsButton;
     private javax.swing.JButton SaveDetailsButton1;
+    private javax.swing.JButton SaveDetailsButton2;
+    private javax.swing.JButton SearchButton;
+    private javax.swing.JButton SearchButton2;
+    private javax.swing.JPanel SearchPanel;
     private javax.swing.JTextField SearchProductTextField;
     private javax.swing.JTextField SearchTerminalTextField;
     private javax.swing.JTextField SearchUserTextField;
+    private javax.swing.JTextPane SelecetedUserTextPlane;
+    private javax.swing.JScrollPane SelectedUserPanel;
     private javax.swing.JButton SlopeButton;
     private javax.swing.JPanel SlopeManagementAdminPanel;
     private javax.swing.JTable SlopeTraffic;
@@ -3205,48 +3763,49 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton SlopeTrafficButton1;
     private javax.swing.JButton SlopeTrafficButton2;
     private javax.swing.JScrollPane SlopeTrafficScrollPane;
+    private javax.swing.JPanel StationTrafficPanel;
+    private javax.swing.JTable StationTrafficTable;
     private javax.swing.JTextField Street;
     private javax.swing.JLabel StreetEditLabel;
     private javax.swing.JLabel StreetEditLabel1;
+    private javax.swing.JLabel StreetEditLabel2;
     private javax.swing.JTextField StreetEditTextfield;
     private javax.swing.JTextField StreetEditTextfield1;
+    private javax.swing.JTextField StreetEditTextfield2;
     private javax.swing.JButton SubtractPointsButton;
     private javax.swing.JButton SubtractPointsButton1;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel SurnameEditLabel;
     private javax.swing.JLabel SurnameEditLabel1;
+    private javax.swing.JLabel SurnameEditLabel2;
     private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JTextField SurnameEditTextfield1;
+    private javax.swing.JTextField SurnameEditTextfield2;
     private javax.swing.JTable TerminalListTable;
     private javax.swing.JTable TerminalListTable1;
     private javax.swing.JLabel TerminalNameLabel;
     private javax.swing.JTextField TerminalNameTextField;
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
-    private javax.swing.JLabel UserBackgroundLabel;
-    private javax.swing.JLabel UserBackgroundLabel1;
     private javax.swing.JLabel UserBackgroundLabel3;
+    private javax.swing.JPanel UserBuyPointsPanel;
     private javax.swing.JButton UserChangeModeToAdminButton;
+    private javax.swing.JPanel UserContainerPanel;
     private javax.swing.JButton UserLogoutButton;
-    private javax.swing.JButton UserLogoutButton1;
     private javax.swing.JButton UserLogoutButton2;
-    private javax.swing.JButton UserLogoutButton3;
-    private javax.swing.JButton UserLogoutButton4;
     private javax.swing.JPanel UserMainPanel;
     private javax.swing.JPanel UserManagmentAdmintPanel;
     private javax.swing.JButton UserMyAccountButton;
     private javax.swing.JButton UserMyAccountButton2;
-    private javax.swing.JButton UserMyAccountButton3;
+    private javax.swing.JPanel UserMyCardsPanel;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
+    private javax.swing.JTextField UserSearchInputTextField;
     private javax.swing.JButton UsersButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -3269,19 +3828,22 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -3289,26 +3851,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
-    private javax.swing.JSplitPane jSplitPane3;
-    private javax.swing.JSplitPane jSplitPane4;
     private javax.swing.JSplitPane jSplitPane5;
     private javax.swing.JSplitPane jSplitPane6;
     private javax.swing.JSplitPane jSplitPane7;
     private javax.swing.JSplitPane jSplitPane8;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
