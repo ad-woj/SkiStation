@@ -27,6 +27,8 @@ import org.hibernate.criterion.Restrictions;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 /**
  *
  * @author Adam
@@ -320,13 +322,10 @@ public class MainWindow extends javax.swing.JFrame {
         AddCardButton2 = new javax.swing.JButton();
         RemoveCardButton = new javax.swing.JButton();
         UserBuyPointsPanel = new javax.swing.JPanel();
-        PointsPackage10 = new javax.swing.JRadioButton();
-        PointsPackage20 = new javax.swing.JRadioButton();
-        PointsPackage50 = new javax.swing.JRadioButton();
-        PointsPackage100 = new javax.swing.JRadioButton();
-        PointsPackage500 = new javax.swing.JRadioButton();
         jLabel28 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        pointsPackagesListScrollPane = new javax.swing.JScrollPane();
+        pointsPackagesListPane = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -2414,6 +2413,11 @@ public class MainWindow extends javax.swing.JFrame {
         MyCardsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         MyCardsButton.setName("MyCardsButton"); // NOI18N
         MyCardsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        MyCardsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MyCardsButtonActionPerformed(evt);
+            }
+        });
         UserMainPanel.add(MyCardsButton);
         MyCardsButton.setBounds(20, 160, 125, 30);
 
@@ -2557,50 +2561,11 @@ public class MainWindow extends javax.swing.JFrame {
         UserBuyPointsPanel.setOpaque(false);
         UserBuyPointsPanel.setLayout(null);
 
-        PointsPackage10.setText("10 pkt. - 10 zł");
-        PointsPackage10.setName("PointsPackage10"); // NOI18N
-        PointsPackage10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PointsPackage10ActionPerformed(evt);
-            }
-        });
-        UserBuyPointsPanel.add(PointsPackage10);
-        PointsPackage10.setBounds(210, 140, 120, 23);
-        PointsPackage10.getAccessibleContext().setAccessibleName("optionValue10");
-
-        PointsPackage20.setText("20 pkt. - 18 zł");
-        PointsPackage20.setName("PointsPackage20"); // NOI18N
-        UserBuyPointsPanel.add(PointsPackage20);
-        PointsPackage20.setBounds(210, 170, 120, 23);
-        PointsPackage20.getAccessibleContext().setAccessibleName("optionValue20");
-
-        PointsPackage50.setText("50 pkt. - 42 zł");
-        PointsPackage50.setName("PointsPackage50"); // NOI18N
-        PointsPackage50.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PointsPackage50ActionPerformed(evt);
-            }
-        });
-        UserBuyPointsPanel.add(PointsPackage50);
-        PointsPackage50.setBounds(210, 200, 120, 23);
-        PointsPackage50.getAccessibleContext().setAccessibleName("optionValue50");
-
-        PointsPackage100.setText("100 pkt. - 80 zł");
-        PointsPackage100.setName("PointsPackage100"); // NOI18N
-        UserBuyPointsPanel.add(PointsPackage100);
-        PointsPackage100.setBounds(210, 230, 120, 23);
-
-        PointsPackage500.setText("500 pkt. - 410 zł");
-        PointsPackage500.setName("PointsPackage500"); // NOI18N
-        UserBuyPointsPanel.add(PointsPackage500);
-        PointsPackage500.setBounds(210, 260, 120, 23);
-        PointsPackage500.getAccessibleContext().setAccessibleName("optionValue500");
-
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel28.setText("Wybierz pakiet:");
+        jLabel28.setText("Wybierz pakiet(y):");
         jLabel28.setName("jLabel28"); // NOI18N
         UserBuyPointsPanel.add(jLabel28);
-        jLabel28.setBounds(210, 70, 130, 22);
+        jLabel28.setBounds(200, 70, 150, 22);
 
         jButton2.setText("Kupuję i płacę");
         jButton2.setName("jButton2"); // NOI18N
@@ -2610,19 +2575,30 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserBuyPointsPanel.add(jButton2);
-        jButton2.setBounds(190, 330, 160, 40);
+        jButton2.setBounds(180, 330, 160, 40);
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel29.setText("// To będą checkboxy raczej, a obok może opcja wpisania krotności danego pakietu. Na dole - podsumowanie.");
+        pointsPackagesListScrollPane.setBorder(null);
+        pointsPackagesListScrollPane.setName("pointsPackagesListScrollPane"); // NOI18N
+        pointsPackagesListScrollPane.setOpaque(false);
+
+        pointsPackagesListPane.setName("pointsPackagesListPane"); // NOI18N
+        pointsPackagesListPane.setOpaque(false);
+        pointsPackagesListPane.setLayout(new java.awt.GridLayout(0, 1));
+        pointsPackagesListScrollPane.setViewportView(pointsPackagesListPane);
+
+        UserBuyPointsPanel.add(pointsPackagesListScrollPane);
+        pointsPackagesListScrollPane.setBounds(80, 120, 380, 80);
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel29.setText("Suma: XXX pkt.  XXX zł");
         jLabel29.setName("jLabel29"); // NOI18N
         UserBuyPointsPanel.add(jLabel29);
-        jLabel29.setBounds(10, 90, 520, 20);
+        jLabel29.setBounds(180, 210, 180, 17);
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel30.setText("[AW] - zmienię to nastepnym razem");
+        jLabel30.setText("// [AW] Jeszcze muszę nad tym popracować.");
         jLabel30.setName("jLabel30"); // NOI18N
         UserBuyPointsPanel.add(jLabel30);
-        jLabel30.setBounds(10, 110, 210, 14);
+        jLabel30.setBounds(140, 270, 260, 30);
 
         UserContainerPanel.add(UserBuyPointsPanel, "userBuyPoints");
 
@@ -3488,16 +3464,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
     private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
+        fillPackagesScrollPanel();
+        pointsPackagesListScrollPane.getViewport().setOpaque(false);
         changeCard(UserContainerPanel, "userBuyPoints", true);
     }//GEN-LAST:event_BuyPointsButtonActionPerformed
-
-    private void PointsPackage10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PointsPackage10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PointsPackage10ActionPerformed
-
-    private void PointsPackage50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PointsPackage50ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PointsPackage50ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -3506,6 +3476,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void CashierRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierRadioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CashierRadioActionPerformed
+
+    private void MyCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MyCardsButtonActionPerformed
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -3554,6 +3528,39 @@ public class MainWindow extends javax.swing.JFrame {
         PasswordTextField.addKeyListener(h);
         BackButton.addKeyListener(h);
         RegisterButton.addKeyListener(h);
+    }
+    
+    private void fillPackagesScrollPanel(){
+        ProductController productController = new ProductController();
+        
+        List packages = productController.getProductList("pointsPackage");
+        
+        for (Object packageObj : packages){
+            Product product = (Product) packageObj;
+            String valueStr = product.getName().replace("pointsPackage", "");
+
+            try {
+                int value = Integer.parseInt(valueStr);
+                int packagePrice = productController.getActualProductPrice(product);
+                if (value > 0 && packagePrice > 0) {
+                    JCheckBox checkBox = new JCheckBox(Integer.toString(value) + " pkt. - "
+                            + Integer.toString(packagePrice) + " zł");
+
+                    JLabel priceLabel = new JLabel(Integer.toString(packagePrice));
+                    priceLabel.setVisible(false);
+                    checkBox.add(priceLabel);
+
+                    pointsPackagesListPane.add(checkBox);
+                } else {
+                    System.out.println("Pakiet punktów " + product.getName() + " posiada nieprawiłową liczbę punktów lub cenę.");
+                    JLabel errLabel = new JLabel("Nie zdefiniowano żadnych aktualnych pakietów do kupienia. Skontaktuj się za administratorem.");
+                    pointsPackagesListPane.add(errLabel);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3713,11 +3720,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JLabel PointsLabel;
     private javax.swing.JLabel PointsLabel1;
-    private javax.swing.JRadioButton PointsPackage10;
-    private javax.swing.JRadioButton PointsPackage100;
-    private javax.swing.JRadioButton PointsPackage20;
-    private javax.swing.JRadioButton PointsPackage50;
-    private javax.swing.JRadioButton PointsPackage500;
     private javax.swing.JTextField PointsTextField;
     private javax.swing.JTextField PointsTextField1;
     private javax.swing.JButton PriceListButton;
@@ -3863,5 +3865,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JPanel pointsPackagesListPane;
+    private javax.swing.JScrollPane pointsPackagesListScrollPane;
     // End of variables declaration//GEN-END:variables
 }
