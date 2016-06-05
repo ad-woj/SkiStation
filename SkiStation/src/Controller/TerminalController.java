@@ -6,8 +6,6 @@
 package Controller;
 
 import DBClasses.Attraction;
-import DBClasses.Employees;
-import DBClasses.Users;
 import DBClasses.Terminal;
 import Tools.HibernateUtil;
 import java.util.List;
