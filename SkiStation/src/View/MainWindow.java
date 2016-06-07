@@ -9,6 +9,7 @@ import Controller.*;
 import DBClasses.*;
 import java.awt.CardLayout;
 import java.awt.Container;
+import java.awt.event.KeyEvent;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -2217,6 +2218,15 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         AttractionManagementAdminPanel.setName("AttractionManagementAdminPanel"); // NOI18N
         AttractionManagementAdminPanel.setOpaque(false);
+        AttractionManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                AttractionManagementAdminPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         AttractionManagementAdminPanel.setLayout(null);
 
         FindAttractionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
@@ -2227,6 +2237,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         SearchAttractionTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         SearchAttractionTextField.setName("SearchAttractionTextField"); // NOI18N
+        SearchAttractionTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SearchAttractionTextFieldTyped(evt);
+            }
+        });
         AttractionManagementAdminPanel.add(SearchAttractionTextField);
         SearchAttractionTextField.setBounds(30, 20, 380, 30);
 
@@ -3621,6 +3636,29 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
 
+    private void SearchAttractionTextFieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchAttractionTextFieldTyped
+        FillAttractionList(SearchAttractionTextField.getText());
+    }//GEN-LAST:event_SearchAttractionTextFieldTyped
+
+    private void AttractionManagementAdminPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AttractionManagementAdminPanelAncestorAdded
+        FillAttractionList("");
+    }//GEN-LAST:event_AttractionManagementAdminPanelAncestorAdded
+
+    private void FillAttractionList(String name)
+    {
+        TerminalController tc = new TerminalController();
+        
+        List results = tc.GetAttractionList(name);
+        
+        DefaultTableModel model = (DefaultTableModel) AttractionListTable2.getModel();
+        model.setRowCount(0);
+        
+        for (Object result : results) {
+            Attraction attraction = (Attraction)result;           
+             model.addRow(new Object[]{ attraction.getAttractionid(),attraction.getName(), attraction.getType() });
+        }
+    }
+    
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         PasswordTextField.setText("");

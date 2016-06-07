@@ -3805,6 +3805,9 @@
                     <Property name="name" type="java.lang.String" value="AttractionManagementAdminPanel" noResource="true"/>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="AttractionManagementAdminPanelAncestorAdded"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Atrakcje">
@@ -3840,6 +3843,9 @@
                         </Property>
                         <Property name="name" type="java.lang.String" value="SearchAttractionTextField" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SearchAttractionTextFieldTyped"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="30" y="20" width="380" height="30"/>
