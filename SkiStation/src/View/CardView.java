@@ -5,6 +5,7 @@
  */
 package View;
 import javax.swing.JPanel;
+import java.awt.Point;
 
 /**
  *
@@ -33,6 +34,7 @@ public class CardView {
         String number = Integer.toString(index);
         parent = mw;
         UserMyCardsPanel = panel;
+        myIndex = index;
         
         IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IDTextField.setEnabled(false);
@@ -104,6 +106,23 @@ public class CardView {
     public void SetIndex( int i ) {
         myIndex = i;
     }
+    
+    public void SlideUp( int distance ) {
+        Point position = IDTextField.getLocation();
+        IDTextField.setLocation( position.x, position.y - distance );
+        position = ActivationDateTextField.getLocation();
+        ActivationDateTextField.setLocation( position.x, position.y - distance);
+        position = ExpirationDateTextField.getLocation();
+        ExpirationDateTextField.setLocation( position.x, position.y - distance );
+        position = PointsTextField.getLocation();
+        PointsTextField.setLocation( position.x, position.y - distance );
+        position = AddPointsButton.getLocation();
+        AddPointsButton.setLocation( position.x, position.y - distance );
+        position = SubtractPointsButton.getLocation();
+        SubtractPointsButton.setLocation( position.x, position.y - distance );
+        position = RemoveCardButton.getLocation();
+        RemoveCardButton.setLocation( position.x, position.y - distance );
+    } 
 
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) {   
         UserMyCardsPanel.remove(IDTextField);
