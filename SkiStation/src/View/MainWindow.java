@@ -89,7 +89,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -327,6 +327,10 @@ public class MainWindow extends javax.swing.JFrame {
         pointsPackagesListPane = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        UserContactPanel = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
         UserMyAccountButton2 = new javax.swing.JButton();
@@ -2506,6 +2510,11 @@ public class MainWindow extends javax.swing.JFrame {
         ContactButton.setMinimumSize(new java.awt.Dimension(67, 23));
         ContactButton.setName("ContactButton"); // NOI18N
         ContactButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        ContactButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactButtonActionPerformed(evt);
+            }
+        });
         UserMainPanel.add(ContactButton);
         ContactButton.setBounds(20, 220, 125, 30);
 
@@ -2733,6 +2742,30 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserContainerPanel.add(UserBuyPointsPanel, "userBuyPoints");
 
+        UserContactPanel.setName("UserContactPanel"); // NOI18N
+        UserContactPanel.setOpaque(false);
+        UserContactPanel.setLayout(null);
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel31.setText("Kontakt");
+        jLabel31.setName("jLabel31"); // NOI18N
+        UserContactPanel.add(jLabel31);
+        jLabel31.setBounds(190, 0, 240, 60);
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel32.setText("Akademicka 18, Gliwice 44-100");
+        jLabel32.setName("jLabel32"); // NOI18N
+        UserContactPanel.add(jLabel32);
+        jLabel32.setBounds(30, 80, 300, 50);
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel33.setText("Telefon: 558 201 654");
+        jLabel33.setName("jLabel33"); // NOI18N
+        UserContactPanel.add(jLabel33);
+        jLabel33.setBounds(30, 50, 300, 50);
+
+        UserContainerPanel.add(UserContactPanel, "UserContactPanel");
+
         UserMainPanel.add(UserContainerPanel);
         UserContainerPanel.setBounds(170, 150, 530, 550);
 
@@ -2907,6 +2940,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         ContactButton2.setText("Kontakt");
         ContactButton2.setName("ContactButton2"); // NOI18N
+        ContactButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactButton2ActionPerformed(evt);
+            }
+        });
         MyAccountPanel.add(ContactButton2);
         ContactButton2.setBounds(20, 220, 125, 30);
 
@@ -3128,6 +3166,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
         changeCard(getContentPane(), "UserMainPanel", true);
+        changeCard(UserContainerPanel, "userMyCards", true);
     }//GEN-LAST:event_MyCardsButton2ActionPerformed
 
     private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
@@ -3644,6 +3683,15 @@ public class MainWindow extends javax.swing.JFrame {
         FillAttractionList("");
     }//GEN-LAST:event_AttractionManagementAdminPanelAncestorAdded
 
+    private void ContactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButtonActionPerformed
+        changeCard(UserContainerPanel, "UserContactPanel", true);
+    }//GEN-LAST:event_ContactButtonActionPerformed
+
+    private void ContactButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton2ActionPerformed
+        changeCard(getContentPane(), "UserMainPanel", true);
+        changeCard(UserContainerPanel, "UserContactPanel", true);
+    }//GEN-LAST:event_ContactButton2ActionPerformed
+
     private void FillAttractionList(String name)
     {
         TerminalController tc = new TerminalController();
@@ -3671,7 +3719,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void MyCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        changeCard(UserContainerPanel, "userMyCards", true);
     }
     /**
      * @param args the command line arguments
@@ -3992,6 +4040,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel UserBackgroundLabel3;
     private javax.swing.JPanel UserBuyPointsPanel;
     private javax.swing.JButton UserChangeModeToAdminButton;
+    private javax.swing.JPanel UserContactPanel;
     private javax.swing.JPanel UserContainerPanel;
     private javax.swing.JButton UserLogoutButton;
     private javax.swing.JButton UserLogoutButton2;
@@ -4037,6 +4086,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
