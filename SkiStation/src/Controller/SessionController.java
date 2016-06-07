@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controller;
+import java.util.Vector;
 /**
  *
  * @author Marzena
@@ -14,8 +15,10 @@ public class SessionController {
     //maximum no action time for active session is 5 minutes (300000 miliseconds)
     private static final Integer MAX_TIME = 300000;
     private static RegistrationController.UserTypes loggedUserType;
+    private static Vector<String> previousViews = new Vector<>();
 
     public SessionController() {
+        previousViews = new Vector<>();
     }
     
     public static void SetUserLogged( String user ){
@@ -26,6 +29,7 @@ public class SessionController {
     public static void ResetSession() {
         userLogged = "";
         noActionTime = 0;
+        previousViews.clear();
     }
     public static String GetUserLogged() {
         return userLogged;
@@ -53,5 +57,20 @@ public class SessionController {
     
     public static RegistrationController.UserTypes getLoggedUserType(){
         return loggedUserType;
+    }
+    
+    public static void AddToPreviousViews( String view ) {
+        previousViews.add(view);
+    }
+    
+    public static String GetPreviousView() {
+        // the last position in the vector is the current view
+        if( previousViews.size() < 2 )
+            return "";
+        return previousViews.elementAt(previousViews.size() - 2);
+    }
+    
+    public static void DeleteLastView() {
+        previousViews.remove(previousViews.lastElement());
     }
 }

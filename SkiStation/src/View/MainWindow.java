@@ -9,7 +9,6 @@ import Controller.*;
 import DBClasses.*;
 import java.awt.CardLayout;
 import java.awt.Container;
-import java.awt.event.KeyEvent;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -3006,10 +3005,12 @@ public class MainWindow extends javax.swing.JFrame {
                 containerLayout.show(container, targetContainerName);
             } else {
                 ExitSession();
+                return;
             }
         } else {
             containerLayout.show(container, targetContainerName);
         }
+        SessionController.AddToPreviousViews(targetContainerName);
     }
 
     private void LoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextFieldActionPerformed
@@ -3104,7 +3105,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         RegistrationController regController = new RegistrationController();
         String errorMessage = "";
-        Boolean isSuccess = false;
+        Boolean isSuccess;
         if (RepeatPassword.getText().compareTo(Password.getText()) == 0) {
             isSuccess = regController.register(Name.getText(), Surname.getText(), City.getText(), Country.getText(), Street.getText(), LoginTextField1.getText(), new String(Password.getPassword()), DocumentNumber.getText());
             if (isSuccess) {
@@ -3150,6 +3151,7 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard(getContentPane(), "login", false);
         PasswordTextField.setText((""));
         LoginTextField.setText("");
+        cardViewList.clear();
     }//GEN-LAST:event_AdminLogoutButtonActionPerformed
 
     private void UserLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButtonActionPerformed
@@ -3433,7 +3435,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void SearchUserTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchUserTextFieldActionPerformed
         if (!SessionController.IsUserLogged()) {
             ExitSession();
-            return;
         }
     }//GEN-LAST:event_SearchUserTextFieldActionPerformed
 
@@ -3648,7 +3649,10 @@ public class MainWindow extends javax.swing.JFrame {
         int minPositionY = 80;
         int cardViewHeight = 25;
         int positionY = minPositionY + cardViewList.size()*cardViewHeight;
-        cardViewList.add(new CardView(cardViewList.size(), positionY, UserMyCardsPanel, this));        
+        cardViewList.add(new CardView(cardViewList.size(), positionY, UserMyCardsPanel, this)); 
+        if( cardViewList.size() >= 10 ) {
+            AddCardButton2.setEnabled(false);
+        }
     }//GEN-LAST:event_AddCardButton2ActionPerformed
 
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCardButtonActionPerformed
@@ -3765,11 +3769,14 @@ public class MainWindow extends javax.swing.JFrame {
     
     public void DeleteCardView( int index ) {
         cardViewList.remove(index);
-        UserMyCardsPanel.repaint();
         for(int i = index; i < cardViewList.size(); i++)
         {
             cardViewList.elementAt(i).SetIndex(i);
+            cardViewList.elementAt(i).SlideUp(25);
         }
+        UserMyCardsPanel.repaint();
+        if( !AddCardButton2.isEnabled() )
+            AddCardButton2.setEnabled(true);
     }
     
     private void fillPackagesScrollPanel(){
