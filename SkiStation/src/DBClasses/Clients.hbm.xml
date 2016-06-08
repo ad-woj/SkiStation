@@ -20,6 +20,9 @@
             </key>
             <one-to-many class="DBClasses.Cards" />
         </set>
+        <property name="points" type="int">
+            <column name="points" not-null="false" />
+        </property>
         <set name="chargeses" table="charges" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="clients_clientid" not-null="true" />
