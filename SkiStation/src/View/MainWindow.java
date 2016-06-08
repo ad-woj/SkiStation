@@ -193,6 +193,8 @@ public class MainWindow extends javax.swing.JFrame {
         NewProductNameTextField1 = new javax.swing.JTextField();
         ProductNameLabel1 = new javax.swing.JLabel();
         NewProductResult1 = new javax.swing.JLabel();
+        NewProductPriceTextField = new javax.swing.JTextField();
+        ProductPriceLabel = new javax.swing.JLabel();
         AddPriceList = new javax.swing.JPanel();
         NewPriceListButton = new javax.swing.JButton();
         NewPriceListDateFrom = new javax.swing.JTextField();
@@ -1100,10 +1102,29 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(CashierPanel, "CashierPanel");
 
         AdminMainPanel.setName("AdminMainPanel"); // NOI18N
+        AdminMainPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                AdminMainPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         AdminMainPanel.setLayout(null);
 
         AdminContainerPanel.setName("AdminContainerPanel"); // NOI18N
         AdminContainerPanel.setOpaque(false);
+        AdminContainerPanel.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                AdminContainerPanelComponentAdded(evt);
+            }
+        });
+        AdminContainerPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                AdminContainerPanelComponentShown(evt);
+            }
+        });
         AdminContainerPanel.setLayout(new java.awt.CardLayout());
 
         AdminMenuPanel.setName("AdminMenuPanel"); // NOI18N
@@ -1366,7 +1387,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AddProductPanel.add(AddNewProductButton1);
-        AddNewProductButton1.setBounds(160, 120, 120, 30);
+        AddNewProductButton1.setBounds(160, 180, 120, 30);
 
         NewProductNameTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         NewProductNameTextField1.setName("NewProductNameTextField1"); // NOI18N
@@ -1381,12 +1402,34 @@ public class MainWindow extends javax.swing.JFrame {
 
         NewProductResult1.setName("NewProductResult1"); // NOI18N
         AddProductPanel.add(NewProductResult1);
-        NewProductResult1.setBounds(290, 130, 40, 14);
+        NewProductResult1.setBounds(290, 180, 220, 40);
+
+        NewProductPriceTextField.setText("0");
+        NewProductPriceTextField.setToolTipText("");
+        NewProductPriceTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NewProductPriceTextField.setName("NewProductPriceTextField"); // NOI18N
+        AddProductPanel.add(NewProductPriceTextField);
+        NewProductPriceTextField.setBounds(30, 130, 250, 30);
+
+        ProductPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ProductPriceLabel.setText("Cena");
+        ProductPriceLabel.setName("ProductPriceLabel"); // NOI18N
+        AddProductPanel.add(ProductPriceLabel);
+        ProductPriceLabel.setBounds(30, 110, 190, 14);
 
         AdminContainerPanel.add(AddProductPanel, "addProductAdminPanel");
 
         AddPriceList.setName("AddPriceList"); // NOI18N
         AddPriceList.setOpaque(false);
+        AddPriceList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                AddPriceListAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         AddPriceList.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 AddPriceListComponentShown(evt);
@@ -3105,8 +3148,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void AddNewProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewProductButton1ActionPerformed
         ProductController controller = new ProductController();
         String newProductName = NewProductNameTextField1.getText();
+        String newProductPrice = NewProductPriceTextField.getText();
         StringBuilder logger = new StringBuilder();
-        if (controller.CreateProduct(newProductName, logger)) {
+        if (controller.CreateProduct(newProductName,newProductPrice, logger)) {
             NewProductResult1.setText(logger.toString());
         }else{
             NewProductResult1.setText(logger.toString());
@@ -3134,6 +3178,23 @@ public class MainWindow extends javax.swing.JFrame {
     private void NewPriceListDateFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPriceListDateFromActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NewPriceListDateFromActionPerformed
+
+    private void AdminContainerPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_AdminContainerPanelComponentShown
+
+    }//GEN-LAST:event_AdminContainerPanelComponentShown
+
+    private void AdminContainerPanelComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AdminContainerPanelComponentAdded
+   
+    }//GEN-LAST:event_AdminContainerPanelComponentAdded
+
+    private void AddPriceListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AddPriceListAncestorAdded
+
+    }//GEN-LAST:event_AddPriceListAncestorAdded
+
+    private void AdminMainPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AdminMainPanelAncestorAdded
+             ProductController pd = new ProductController();
+             pd.addDefaultPriceListIfNotExist();
+    }//GEN-LAST:event_AdminMainPanelAncestorAdded
 
     private void ExitSession() {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
@@ -3312,6 +3373,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel NewPriceListResult;
     private javax.swing.JButton NewProductButton;
     private javax.swing.JTextField NewProductNameTextField1;
+    private javax.swing.JTextField NewProductPriceTextField;
     private javax.swing.JLabel NewProductResult1;
     private javax.swing.JButton NewTerminalButton;
     private javax.swing.JPasswordField Password;
@@ -3333,6 +3395,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField ProductFindText;
     private javax.swing.JTable ProductList;
     private javax.swing.JLabel ProductNameLabel1;
+    private javax.swing.JLabel ProductPriceLabel;
     private javax.swing.JPanel ProductsManagmentAdminPanel;
     private javax.swing.JTabbedPane ProductsTables;
     private javax.swing.JPanel Register;

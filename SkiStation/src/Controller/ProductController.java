@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DBClasses.Itemprice;
 import DBClasses.Pricelist;
 import DBClasses.Product;
 import DBClasses.Users;
@@ -31,8 +32,27 @@ public class ProductController {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
-    public boolean CreateProduct(String newProductName, StringBuilder logger)
+    public boolean CreateProduct(String newProductName,String newProductPrice, StringBuilder logger)
     {
+        int price =0;
+        try   {
+            price = Integer.parseInt(newProductPrice);
+        }catch(Exception e)
+        {
+            logger.append(e.getMessage());
+            return false;
+        }
+        
+        if (price <= 0) {
+            logger.append("Price is too low");
+            return false;               
+        }
+        
+        if (newProductName.isEmpty()) {
+            logger.append("Bad product name");
+            return false;   
+        }
+        
         if (findProduct(newProductName)!=null) {
             logger.append("Product with the same name already exist");
             return false;                 
@@ -42,9 +62,24 @@ public class ProductController {
             product.setName(newProductName);
             s.saveOrUpdate(product);
             tr.commit();
+            
+            Pricelist defaultPriceList = (Pricelist)getPriceListsList("0").get(0);
+            addPriceItem(defaultPriceList, product, price);
+            
             logger.append("Added new product with name : " + newProductName);
             return true;
         }
+    }
+    
+    private void addPriceItem(Pricelist priceList, Product product, int price)
+    {
+        Transaction tr = s.beginTransaction();
+            Itemprice itemprice = new Itemprice();
+            itemprice.setPricelist(priceList);
+            itemprice.setProduct(product);
+            itemprice.setPrice(price);
+            s.saveOrUpdate(itemprice);
+            tr.commit();
     }
     
     public List getProductList()
@@ -122,9 +157,6 @@ public class ProductController {
             String[] dateStrings = text.split("-");
             try
             {
-                for (String dateString : dateStrings) {
-                    System.out.println(dateString);
-                }
             int day=Integer.parseInt(dateStrings[0]);
             int month = Integer.parseInt(dateStrings[1]);
             int year = Integer.parseInt(dateStrings[2]);
@@ -134,6 +166,14 @@ public class ProductController {
                 return null;
             }
             
+        }
+        public void addDefaultPriceListIfNotExist()
+        {
+            List list = getPriceListsList();
+            if (list.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                CreatePriceList("1-1-2000","1-1-2099",sb);
+            }
         }
     
     
