@@ -8,14 +8,9 @@ package Controller;
 import DBClasses.Itemprice;
 import DBClasses.Pricelist;
 import DBClasses.Product;
-import DBClasses.Users;
 import Tools.HibernateUtil;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -177,4 +172,27 @@ public class ProductController {
         }
     
     
+        
+    public int getActualProductPrice(Product product) {
+
+        List queryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("product", product)).list(); // Retrieving all product prices, don't care about their dates 
+        Itemprice mostActualPrice = null;
+
+        if (!queryResult.isEmpty()) {
+            for (Object itemPriceObj : queryResult) { // Looking for most actual product price based on pricelists and their start-end dates
+                Itemprice itemPrice = (Itemprice) itemPriceObj;
+                Pricelist pricelist = itemPrice.getPricelist();
+                Date actDate = new Date();
+              
+                if (actDate.after(pricelist.getStartdate()) && actDate.before(pricelist.getEnddate())) {
+                    if (mostActualPrice == null || (itemPrice.getItempriceid() > mostActualPrice.getItempriceid())) {
+                        mostActualPrice = itemPrice;
+                    }
+                }
+            }
+            return (mostActualPrice != null) ? mostActualPrice.getPrice() : -1;
+        } else {
+            return -1; // Returning -1 if at least one price wasn't found
+        }
+    }
 }

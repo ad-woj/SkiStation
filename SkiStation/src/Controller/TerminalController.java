@@ -6,13 +6,12 @@
 package Controller;
 
 import DBClasses.Attraction;
-import DBClasses.Employees;
-import DBClasses.Users;
 import DBClasses.Terminal;
 import Tools.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -31,6 +30,12 @@ public class TerminalController {
     public boolean exist(int terminalID)
     {
         return findTerminal(terminalID) != null;
+    }
+    
+    public List GetAttractionList(String text)
+    {
+        List queryResult = s.createCriteria(Attraction.class).add(Restrictions.like("name", text,MatchMode.ANYWHERE)).list();       
+        return queryResult;     
     }
     
     private Terminal findTerminal(int terminalID)

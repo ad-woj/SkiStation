@@ -71,7 +71,8 @@ CREATE TABLE Clients
   (
     clientID         SERIAL NOT NULL ,
     registrationDate TIMESTAMP(0) ,
-    Users_userID     INTEGER NOT NULL
+    Users_userID     INTEGER NOT NULL,
+    points 	     INTEGER
   ) ;
 ALTER TABLE Clients ADD CONSTRAINT Clients_PK PRIMARY KEY ( clientID ) ;
 

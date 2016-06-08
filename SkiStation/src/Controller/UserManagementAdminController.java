@@ -11,7 +11,6 @@ import DBClasses.Employees;
 import DBClasses.Users;
 import Tools.HibernateUtil;
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -70,12 +69,12 @@ public class UserManagementAdminController {
          Employees employee = getUserRole(user);
          if (role == "User") {
              if (employee!=null) {
-                           s.delete(employee);  
+                s.delete(employee);  
              }
         }else{
              if (employee == null) {
-                 employee = new Employees();
-                 employee.setUsers(user);
+                employee = new Employees();
+                employee.setUsers(user);
              }
              employee.setRole(role);
              s.saveOrUpdate(employee);

@@ -5,13 +5,19 @@
  */
 package Controller;
 
+import DBClasses.Attraction;
+import DBClasses.Cardusage;
 import DBClasses.Terminal;
 import DBClasses.Users;
 import Tools.HibernateUtil;
-import View.MainWindow;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import javax.swing.JTextField;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextPane;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
@@ -81,11 +87,54 @@ public class CashierController {
         return user.getName() + " " + user.getSurname() + " (" + user.getLogin() + ")";
     }
     
-    public List GetSkiTerminals()
+    public List GetSkiAttractions()
     {
-        List queryResult = s.createCriteria(Terminal.class).add(Restrictions.gt("locktime", 0)).list();
+        List queryResult = s.createCriteria(Attraction.class).add(Restrictions.like("type", "stok")).list();
         
         return queryResult;
         
+    }
+    
+    private Date GetDateNow()
+    {
+        DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
+        Date date = null;
+        
+        try {
+            date = originalFormat.parse("01-21-2013 00:00:00");
+        } catch (ParseException ex) {
+            Logger.getLogger(CashierController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return date;
+    }
+    
+    public int GetSkiAttractionTraffic(Attraction attraction)
+    {
+        int traffic = 0;
+        
+        for (Object terminalObject : attraction.getTerminals()) {
+            Terminal terminal = (Terminal)terminalObject;
+            
+            
+            
+            List queryResult = s.createCriteria(Cardusage.class).add(Restrictions.eq("terminal", terminal))
+                   .list();
+            
+            for (Object result : queryResult) {
+                Cardusage usage = (Cardusage)result;
+                
+                System.out.println("Date: " + usage.getUsedate() + "is after: " + GetDateNow() + " - " + usage.getUsedate().after(GetDateNow()));
+                
+                if(usage.getUsedate().after(GetDateNow()))
+                {
+                    traffic++;
+                }
+            }
+
+            //traffic += queryResult.size();
+        }
+
+         return traffic;
     }
 }

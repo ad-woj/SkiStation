@@ -15,6 +15,7 @@ public class Clients  implements java.io.Serializable {
      private int clientid;
      private Users users;
      private Date registrationdate;
+     private int points;
      private Set cardses = new HashSet(0);
      private Set chargeses = new HashSet(0);
 
@@ -55,6 +56,15 @@ public class Clients  implements java.io.Serializable {
     public void setRegistrationdate(Date registrationdate) {
         this.registrationdate = registrationdate;
     }
+    
+    public int getPoints(){
+        return this.points;
+    }
+    
+    public void setPoints(int points){
+        this.points = points;
+    }
+            
     public Set getCardses() {
         return this.cardses;
     }
