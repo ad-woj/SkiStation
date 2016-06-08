@@ -59,7 +59,7 @@ public class ProductController {
             tr.commit();
             
             Pricelist defaultPriceList = (Pricelist)getPriceListsList("0").get(0);
-            addPriceItem(defaultPriceList, product, price);
+            addPriceItem(defaultPriceList, product, price); 
             
             logger.append("Added new product with name : " + newProductName);
             return true;
