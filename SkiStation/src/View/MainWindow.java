@@ -37,7 +37,16 @@ public class MainWindow extends javax.swing.JFrame {
         AddKeyEventHandling(eventHandler);
         cardViewList = new Vector<>();
     }
+    
+    public String GetAvailablePointsText() {
+        return AvailablePointsTextField.getText();
+    }
 
+    public void SetAvailablePointsText( String points ) {
+        AvailablePointsTextField.setText(points);
+        UserMyCardsPanel.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2595,7 +2604,7 @@ public class MainWindow extends javax.swing.JFrame {
         AvailablePointsLabel.setName("AvailablePointsLabel"); // NOI18N
         AvailablePointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
         UserMyCardsPanel.add(AvailablePointsLabel);
-        AvailablePointsLabel.setBounds(40, 20, 130, 14);
+        AvailablePointsLabel.setBounds(40, 20, 130, 20);
 
         IDLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IDLabel.setText("ID");
@@ -2633,15 +2642,20 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyCardsPanel.add(PointsLabel);
         PointsLabel.setBounds(260, 60, 50, 14);
 
+        AvailablePointsTextField.setEditable(false);
+        AvailablePointsTextField.setBackground(new java.awt.Color(250, 250, 250));
         AvailablePointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        AvailablePointsTextField.setText("0");
         AvailablePointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        AvailablePointsTextField.setEnabled(false);
         AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
         UserMyCardsPanel.add(AvailablePointsTextField);
-        AvailablePointsTextField.setBounds(170, 20, 50, 16);
+        AvailablePointsTextField.setBounds(170, 20, 50, 20);
 
+        IDTextField.setEditable(false);
+        IDTextField.setBackground(new java.awt.Color(245, 245, 245));
         IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IDTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        IDTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         IDTextField.setEnabled(false);
         IDTextField.setName("IDTextField"); // NOI18N
         IDTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -2650,27 +2664,29 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMyCardsPanel.add(IDTextField);
-        IDTextField.setBounds(20, 80, 50, 16);
+        IDTextField.setBounds(30, 380, 60, 20);
 
+        ActivationDateTextField.setEditable(false);
         ActivationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ActivationDateTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ActivationDateTextField.setEnabled(false);
         ActivationDateTextField.setName("ActivationDateTextField"); // NOI18N
         UserMyCardsPanel.add(ActivationDateTextField);
-        ActivationDateTextField.setBounds(80, 80, 80, 16);
+        ActivationDateTextField.setBounds(100, 380, 80, 20);
 
+        ExpirationDateTextField.setEditable(false);
         ExpirationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ExpirationDateTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ExpirationDateTextField.setEnabled(false);
         ExpirationDateTextField.setName("ExpirationDateTextField"); // NOI18N
         UserMyCardsPanel.add(ExpirationDateTextField);
-        ExpirationDateTextField.setBounds(170, 80, 80, 16);
+        ExpirationDateTextField.setBounds(190, 380, 80, 20);
 
         PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PointsTextField.setName("PointsTextField"); // NOI18N
         UserMyCardsPanel.add(PointsTextField);
-        PointsTextField.setBounds(260, 80, 50, 16);
+        PointsTextField.setBounds(280, 380, 50, 20);
 
         AddPointsButton.setText("+");
         AddPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -2683,7 +2699,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMyCardsPanel.add(AddPointsButton);
-        AddPointsButton.setBounds(350, 80, 40, 20);
+        AddPointsButton.setBounds(370, 380, 40, 20);
 
         SubtractPointsButton.setText("-");
         SubtractPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -2696,7 +2712,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMyCardsPanel.add(SubtractPointsButton);
-        SubtractPointsButton.setBounds(310, 80, 40, 20);
+        SubtractPointsButton.setBounds(330, 380, 40, 20);
 
         BuyPointsButton.setText("Kup punkty");
         BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -2735,7 +2751,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMyCardsPanel.add(RemoveCardButton);
-        RemoveCardButton.setBounds(400, 80, 100, 23);
+        RemoveCardButton.setBounds(410, 380, 100, 23);
 
         UserContainerPanel.add(UserMyCardsPanel, "userMyCards");
 
@@ -3112,6 +3128,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
 
             loginPaneLayout.show(getContentPane(), viewPanel.toString());
+            DisplayCards();
         } else {
             MessageLabel.setText("Błędny login i/lub hasło");
             Password.setText("");
@@ -3707,15 +3724,31 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CashierRadioActionPerformed
 
     private void AddCardButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCardButton2ActionPerformed
+        Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails().getUserid(), 0, new StringBuilder());
+        if( card != null )
+            AddCardView( card );
+    }//GEN-LAST:event_AddCardButton2ActionPerformed
+
+    private void AddCardView( Cards card ) {
         int minPositionY = 80;
         int cardViewHeight = 25;
         int positionY = minPositionY + cardViewList.size()*cardViewHeight;
-        cardViewList.add(new CardView(cardViewList.size(), positionY, UserMyCardsPanel, this)); 
+        cardViewList.add(new CardView(cardViewList.size(), positionY, UserMyCardsPanel, this));
+        cardViewList.lastElement().SetTextFields(card.getCardid(), card.getActdate(), card.getExpdate(), card.getPoints());
         if( cardViewList.size() >= 10 ) {
             AddCardButton2.setEnabled(false);
         }
-    }//GEN-LAST:event_AddCardButton2ActionPerformed
-
+    }
+    
+    private void DisplayCards() {
+        int id = ClientController.GetClientIDFromLogin(SessionController.GetUserLogged());
+        List<Cards> cards = CardController.getUserCards
+            (id, new StringBuilder());
+        for( Cards card : cards ) {
+            AddCardView( card );
+        }
+        AvailablePointsTextField.setText( Integer.toString(ClientController.GetClientPoints(id)) );
+    }
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCardButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RemoveCardButtonActionPerformed

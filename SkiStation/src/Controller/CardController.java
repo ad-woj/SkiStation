@@ -28,13 +28,20 @@ public class CardController {
 
     
     public static boolean buyCard(int clientID, int points, StringBuilder logger){
+        Cards card = AddNewCard( clientID, points, logger );
+        if( card == null )
+            return false;
+        return true;
+    }
+    
+    public static Cards AddNewCard( int clientID, int points, StringBuilder logger ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
         int expYear;
         Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = '%d'", clientID ));
         if (query == null){
             logger.append("Client with this ID does not exist");
-            return false;
+            return null;
         }
         Clients client = (Clients) query.list().get(0);
         Cards card = new Cards();
@@ -55,11 +62,24 @@ public class CardController {
         } catch (HibernateException e){
             tr.rollback();
             logger.append("DB error, something went wrong");
-            return false;
+            return null;
         } finally {
             s.close();
         }
         logger.append(String.format("Successfully added %d points to user with ID = %d", points, clientID));
+        return card;
+    }
+    
+    public static Boolean DeleteCard( int cardID ) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction();
+        Query query = s.createQuery(String.format("DELETE FROM Cards C WHERE C.cardid = '%d'", cardID ));
+        if (query == null){
+            return false;
+        }
+        query.executeUpdate();
+        tr.commit();
+        s.close();
         return true;
     }
     
@@ -126,5 +146,30 @@ public class CardController {
         return cards;
     }
     
+    public static void UpdateCardPoints( int points, int cardID ) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction();
+        Query query = s.createQuery(String.format("UPDATE Cards SET points = '%d' WHERE cardid = '%d'", points, cardID ));
+        if (query == null){
+            s.close();
+            return;
+        }
+        query.executeUpdate();
+        tr.commit();
+        s.close();
+    }
     
+    public static int GetCardPoints( int cardID ) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction();
+        Query query = s.createQuery(String.format("FROM Cards C WHERE C.cardid = '%d'", cardID ));
+        if (query == null){
+            s.close();
+            return 0;
+        }
+        Cards card = (Cards)query.list().get(0);
+        tr.commit();
+        s.close();
+        return card.getPoints();
+    }
 }

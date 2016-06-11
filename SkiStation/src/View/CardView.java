@@ -4,8 +4,14 @@
  * and open the template in the editor.
  */
 package View;
+import Controller.CardController;
+import Controller.SessionController;
+import Controller.ClientController;
 import javax.swing.JPanel;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -37,31 +43,49 @@ public class CardView {
         myIndex = index;
         
         IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        IDTextField.setEnabled(false);
+        IDTextField.setEditable(false);
+        IDTextField.setBackground(new java.awt.Color(250, 250, 250));
         IDTextField.setName("IDTextField" + number); // NOI18N
         IDTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        IDTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         UserMyCardsPanel.add(IDTextField);
-        IDTextField.setBounds(20, positionY, 50, 20);
+        IDTextField.setBounds(20, positionY, 60, 20);
 
         ActivationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ActivationDateTextField.setEnabled(false);
+        ActivationDateTextField.setEditable(false);
+        ActivationDateTextField.setBackground(new java.awt.Color(250, 250, 250));
         ActivationDateTextField.setName("ActivationDateTextField" + number); // NOI18N
         ActivationDateTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ActivationDateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         UserMyCardsPanel.add(ActivationDateTextField);
-        ActivationDateTextField.setBounds(80, positionY, 80, 20);
+        ActivationDateTextField.setBounds(90, positionY, 80, 20);
 
         ExpirationDateTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ExpirationDateTextField.setEnabled(false);
+        ExpirationDateTextField.setEditable(false);
+        ExpirationDateTextField.setBackground(new java.awt.Color(250, 250, 250));
         ExpirationDateTextField.setName("ExpirationDateTextField" + number); // NOI18N
         ExpirationDateTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ExpirationDateTextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         UserMyCardsPanel.add(ExpirationDateTextField);
-        ExpirationDateTextField.setBounds(170, positionY, 80, 20);
+        ExpirationDateTextField.setBounds(180, positionY, 80, 20);
 
         PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PointsTextField.setName("PointsTextField" + number); // NOI18N
         PointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PointsTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PointsTextFieldActionPerformed(evt);
+            }
+        });
+        PointsTextField.addKeyListener(new java.awt.event.KeyListener() {
+            public void keyTyped(KeyEvent e) {
+                PointsTextFieldKeyTyped(e);
+            };
+            public void keyPressed(KeyEvent e){};
+            public void keyReleased(KeyEvent e){};
+                });
         UserMyCardsPanel.add(PointsTextField);
-        PointsTextField.setBounds(260, positionY, 50, 20);
+        PointsTextField.setBounds(270, positionY, 50, 20);
 
         AddPointsButton.setText("+");
         AddPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -74,7 +98,7 @@ public class CardView {
             }
         });
         UserMyCardsPanel.add(AddPointsButton);
-        AddPointsButton.setBounds(350, positionY, 40, 20);
+        AddPointsButton.setBounds(360, positionY, 40, 20);
 
         SubtractPointsButton.setText("-");
         SubtractPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -87,7 +111,7 @@ public class CardView {
             }
         });        
         UserMyCardsPanel.add(SubtractPointsButton);
-        SubtractPointsButton.setBounds(310, positionY, 40, 20);
+        SubtractPointsButton.setBounds(320, positionY, 40, 20);
         
         RemoveCardButton.setText("Usuń kartę");
         RemoveCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -107,6 +131,16 @@ public class CardView {
         myIndex = i;
     }
     
+    public void SetTextFields( int ID, Date startDate, Date endDate, int points ){
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String sd = df.format(startDate);
+        String ed = df.format(endDate);
+        IDTextField.setText(Integer.toString(ID));
+        ActivationDateTextField.setText(sd);
+        ExpirationDateTextField.setText(ed);
+        PointsTextField.setText(Integer.toString(points));
+    }
+    
     public void SlideUp( int distance ) {
         Point position = IDTextField.getLocation();
         IDTextField.setLocation( position.x, position.y - distance );
@@ -124,22 +158,57 @@ public class CardView {
         RemoveCardButton.setLocation( position.x, position.y - distance );
     } 
 
-    private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) {   
-        UserMyCardsPanel.remove(IDTextField);
-        UserMyCardsPanel.remove(ActivationDateTextField);
-        UserMyCardsPanel.remove(ExpirationDateTextField);
-        UserMyCardsPanel.remove(PointsTextField);
-        UserMyCardsPanel.remove(AddPointsButton);
-        UserMyCardsPanel.remove(SubtractPointsButton);
-        UserMyCardsPanel.remove(RemoveCardButton);
-        parent.DeleteCardView(myIndex);
+    private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        if( CardController.DeleteCard(Integer.decode(IDTextField.getText())) ) {
+            UserMyCardsPanel.remove(IDTextField);
+            UserMyCardsPanel.remove(ActivationDateTextField);
+            UserMyCardsPanel.remove(ExpirationDateTextField);
+            UserMyCardsPanel.remove(PointsTextField);
+            UserMyCardsPanel.remove(AddPointsButton);
+            UserMyCardsPanel.remove(SubtractPointsButton);
+            UserMyCardsPanel.remove(RemoveCardButton);
+            parent.DeleteCardView(myIndex);
+        }
     } 
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        // TODO add your handling code here:
+        int points = Integer.decode(PointsTextField.getText()) - 1;
+        int userPoints = Integer.decode(parent.GetAvailablePointsText()) + 1;
+        if( points >= 0 ) {
+            ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints );
+            parent.SetAvailablePointsText(Integer.toString(userPoints));
+            CardController.UpdateCardPoints(points, Integer.decode(IDTextField.getText()));
+            PointsTextField.setText(Integer.toString(points));
+            PointsTextField.repaint();
+        }
     } 
     
     private void AddPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+        int points = Integer.decode(PointsTextField.getText()) + 1;
+        int userPoints = Integer.decode(parent.GetAvailablePointsText()) - 1;
+        if( userPoints >= 0) {
+            ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints);
+            parent.SetAvailablePointsText(Integer.toString(userPoints));
+            CardController.UpdateCardPoints(points, Integer.decode(IDTextField.getText()));
+            PointsTextField.setText(Integer.toString(points));
+            PointsTextField.repaint();
+        }
+    }
+    
+    private void PointsTextFieldActionPerformed(java.awt.event.ActionEvent evt) { 
+
+    }
+    
+    private void PointsTextFieldKeyTyped(java.awt.event.KeyEvent evt) {
+        int id = Integer.decode(IDTextField.getText());
+        int points = Integer.decode(PointsTextField.getText());
+        int userPoints = Integer.decode(parent.GetAvailablePointsText());
+        userPoints += CardController.GetCardPoints(id) - points;
+        if( points >= 0 && userPoints >= 0) {
+            ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints );
+            parent.SetAvailablePointsText(Integer.toString(userPoints));
+            CardController.UpdateCardPoints(points, id);
+            PointsTextField.repaint();
+        }
     }
 }

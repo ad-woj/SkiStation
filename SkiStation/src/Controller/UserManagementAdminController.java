@@ -11,6 +11,8 @@ import DBClasses.Employees;
 import DBClasses.Users;
 import Tools.HibernateUtil;
 import java.util.List;
+import java.util.Set;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -33,12 +35,12 @@ public class UserManagementAdminController {
         return findUser(login) != null;
     }
     
-    private Users findUser(String login)
+    public Users findUser(String login)
     {
-         List quaryResult = s.createCriteria(Users.class).add(Restrictions.like("login", login)).list();
+         List queryResult = s.createCriteria(Users.class).add(Restrictions.like("login", login)).list();
          Users user;
-          if (quaryResult.size()>0) {
-            user = (Users)quaryResult.get(0);
+          if (queryResult.size()>0) {
+            user = (Users)queryResult.get(0);
           }else{
             user = null;        
           }
