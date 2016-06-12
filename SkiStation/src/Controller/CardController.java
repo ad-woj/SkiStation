@@ -73,11 +73,26 @@ public class CardController {
     public static Boolean DeleteCard( int cardID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
-        Query query = s.createQuery(String.format("DELETE FROM Cards C WHERE C.cardid = '%d'", cardID ));
+        Query query = s.createQuery(String.format("FROM Cards C WHERE C.cardid = '%d'", cardID ));
         if (query == null){
+            s.close();
             return false;
         }
+        Cards card = (Cards)query.list().get(0);
+        query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = '%d'", card.getClients().getClientid() ));
+        if (query == null){
+            s.close();
+            return false;
+        }
+        Clients c = (Clients)query.list().get(0);
+        query = s.createQuery(String.format("DELETE FROM Cards C WHERE C.cardid = '%d'", cardID ));
+        if (query == null){
+            s.close();
+            return false;
+        }
+        int points = GetCardPoints( cardID ) + ClientController.GetClientPoints(c.getClientid());
         query.executeUpdate();
+        ClientController.UpdateClientPoints(c.getClientid(), points);
         tr.commit();
         s.close();
         return true;

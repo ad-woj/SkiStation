@@ -5,13 +5,13 @@
  */
 package View;
 import Controller.CardController;
-import Controller.SessionController;
 import Controller.ClientController;
-import javax.swing.JPanel;
+import Controller.SessionController;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JPanel;
+import javax.swing.event.DocumentEvent;
 
 /**
  *
@@ -28,6 +28,8 @@ public class CardView {
     private javax.swing.JButton AddPointsButton;
     private javax.swing.JButton SubtractPointsButton;
     private javax.swing.JButton RemoveCardButton;
+    private Boolean ignoreTextChange = true;
+    private Boolean textUpdateNeeded = false;
     
     public CardView( int index, int positionY, JPanel panel, MainWindow mw ) {
         IDTextField = new javax.swing.JTextField();
@@ -72,18 +74,33 @@ public class CardView {
         PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PointsTextField.setName("PointsTextField" + number); // NOI18N
         PointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PointsTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PointsTextFieldActionPerformed(evt);
+        PointsTextField.addFocusListener(new java.awt.event.FocusListener() {
+            public void focusGained(java.awt.event.FocusEvent e) {
+            };
+            public void focusLost(java.awt.event.FocusEvent e){
+                if( PointsTextField.getText().length() == 0 ) {
+                    PointsTextChanged();
+                    PointsTextField.setText("0");
+                }
+                else if( textUpdateNeeded ) {
+                    int id = Integer.decode(IDTextField.getText());
+                    int cardPoints = CardController.GetCardPoints(id);
+                    PointsTextField.setText(Integer.toString(cardPoints));
+                    textUpdateNeeded = false;
+                }
+            };
+                });
+        PointsTextField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                PointsTextChanged();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                PointsTextChanged();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                PointsTextChanged();
             }
         });
-        PointsTextField.addKeyListener(new java.awt.event.KeyListener() {
-            public void keyTyped(KeyEvent e) {
-                PointsTextFieldKeyTyped(e);
-            };
-            public void keyPressed(KeyEvent e){};
-            public void keyReleased(KeyEvent e){};
-                });
         UserMyCardsPanel.add(PointsTextField);
         PointsTextField.setBounds(270, positionY, 50, 20);
 
@@ -171,7 +188,8 @@ public class CardView {
         }
     } 
     
-    private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+    private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
+        ignoreTextChange = true;                                                     
         int points = Integer.decode(PointsTextField.getText()) - 1;
         int userPoints = Integer.decode(parent.GetAvailablePointsText()) + 1;
         if( points >= 0 ) {
@@ -183,7 +201,8 @@ public class CardView {
         }
     } 
     
-    private void AddPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void AddPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
+        ignoreTextChange = true;
         int points = Integer.decode(PointsTextField.getText()) + 1;
         int userPoints = Integer.decode(parent.GetAvailablePointsText()) - 1;
         if( userPoints >= 0) {
@@ -195,20 +214,39 @@ public class CardView {
         }
     }
     
-    private void PointsTextFieldActionPerformed(java.awt.event.ActionEvent evt) { 
-
-    }
-    
-    private void PointsTextFieldKeyTyped(java.awt.event.KeyEvent evt) {
+    private void PointsTextChanged() {
+        if( ignoreTextChange ) {
+            ignoreTextChange = false;
+            return;
+        }
+        String text = PointsTextField.getText();
+        if( text.length() == 0 )
+            text = "0";
         int id = Integer.decode(IDTextField.getText());
-        int points = Integer.decode(PointsTextField.getText());
+        int cardPoints = CardController.GetCardPoints(id);
+        if( !isStringNumeric( text ) ) {
+            textUpdateNeeded = true;
+            return;
+        }
+        int points = Integer.decode( text );
         int userPoints = Integer.decode(parent.GetAvailablePointsText());
-        userPoints += CardController.GetCardPoints(id) - points;
+        userPoints += cardPoints - points;
         if( points >= 0 && userPoints >= 0) {
             ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints );
             parent.SetAvailablePointsText(Integer.toString(userPoints));
             CardController.UpdateCardPoints(points, id);
             PointsTextField.repaint();
         }
+        else
+            textUpdateNeeded = true;            
+    }
+    
+    private Boolean isStringNumeric( String in ) {
+        if( in.length() == 0 )
+            return false;
+        for( int i = 0; i < in.length(); i++ )
+            if( in.charAt(i) < '0' || in.charAt(i) > '9' )
+                return false;
+        return true;
     }
 }

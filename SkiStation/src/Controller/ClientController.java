@@ -20,12 +20,17 @@ public class ClientController {
     
         
     public static Boolean UpdateClientPoints( String login, int points ) {
-               
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        Transaction tr = s.beginTransaction();
+         
         int id = GetClientIDFromLogin( login );
+        return UpdateClientPoints( id, points );
+    }
+    
+    public static Boolean UpdateClientPoints( int id, int points ) {
+                      
         if( id < 0 )
             return false;
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction(); 
         Query query = s.createQuery(String.format("UPDATE Clients SET points = '%d' WHERE clientid = '%d'", points, id));
         if (query == null){
             s.close();
