@@ -39,11 +39,14 @@ public class CardController {
         Transaction tr = s.beginTransaction();
         int expYear;
         Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = '%d'", clientID ));
-        if (query == null){
+        List queryResult = query.list();
+                
+        if (queryResult.isEmpty()){
             logger.append("Client with this ID does not exist");
             return null;
         }
-        Clients client = (Clients) query.list().get(0);
+        
+        Clients client = (Clients) queryResult.get(0);
         Cards card = new Cards();
         card.setActdate(new Date());
         Calendar c1 = GregorianCalendar.getInstance();
