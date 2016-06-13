@@ -16,7 +16,6 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.util.List;
 import java.util.Vector;
-import javafx.beans.binding.StringBinding;
 import javax.swing.DefaultListModel;
 import javax.swing.table.*;
 
