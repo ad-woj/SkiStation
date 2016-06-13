@@ -3721,7 +3721,7 @@ public class MainWindow extends javax.swing.JFrame {
         cardViewList.lastElement().SetTextFields(card.getCardid(), card.getActdate(), card.getExpdate(), card.getPoints());
         if( cardViewList.size() >= 10 ) {
             AddCardButton2.setEnabled(false);
-        }
+        } 
     }
     
     private void DisplayCards() {
