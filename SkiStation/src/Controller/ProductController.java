@@ -58,7 +58,7 @@ public class ProductController {
             s.saveOrUpdate(product);
             tr.commit();
             
-            Pricelist defaultPriceList = (Pricelist)getPriceListsList("0").get(0);
+            Pricelist defaultPriceList = (Pricelist)getPriceListsList("1").get(0);
             addPriceItem(defaultPriceList, product, price); 
             
             logger.append("Added new product with name : " + newProductName);
@@ -109,7 +109,7 @@ public class ProductController {
         if (id == null) {
             return getPriceListsList();
         }else{
-            List quaryResult = s.createCriteria(Pricelist.class).add(Restrictions.eqOrIsNull("pricelistid", id)).list();
+            List quaryResult = s.createCriteria(Pricelist.class).add(Restrictions.eq("pricelistid", id)).list();
             return quaryResult;  
         }     
     }
