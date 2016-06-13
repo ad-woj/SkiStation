@@ -66,7 +66,7 @@ public class ProductController {
         }
     }
     
-    private void addPriceItem(Pricelist priceList, Product product, int price)
+    public void addPriceItem(Pricelist priceList, Product product, int price)
     {
         Transaction tr = s.beginTransaction();
             Itemprice itemprice = new Itemprice();
@@ -75,6 +75,34 @@ public class ProductController {
             itemprice.setPrice(price);
             s.saveOrUpdate(itemprice);
             tr.commit();
+    }
+    
+    public boolean addPriceItem(Pricelist priceList, Product product, int price, StringBuilder sb)
+    {
+        if (price <= 0) {
+            sb.append("Price is too low");
+            return false;               
+        }
+        
+        boolean existInList = false;
+        for (Object itempriceObj : priceList.getItemprices()) {
+            Itemprice itemPrice = (Itemprice)itempriceObj;
+            if (itemPrice.getProduct() == product) {
+                existInList = true;
+                break;                        
+            }
+        }
+        
+        if (existInList) {
+            sb.append("This product exist in this list");
+            return false;
+        }else  {
+            addPriceItem(priceList, product, price);
+            sb.append("Added !");
+             return true;
+        }     
+       
+        
     }
     
     public List getProductList()
@@ -113,6 +141,17 @@ public class ProductController {
             return quaryResult;  
         }     
     }
+    
+    public List getPriceItems(String id)
+    {
+        Pricelist priceList = (Pricelist)getPriceListsList(id).get(0);
+         List quaryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("pricelist", priceList)).list();
+         for (Object object : quaryResult) {
+            Itemprice ip = (Itemprice)object;
+            System.out.print(ip.getProduct().getName());
+        }
+         return quaryResult;                
+    }  
                     
     private Product findProduct(String name)
     {

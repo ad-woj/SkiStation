@@ -14,11 +14,13 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.util.List;
 import java.util.Vector;
+import javafx.beans.binding.StringBinding;
 import javax.swing.DefaultListModel;
 import javax.swing.table.*;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
 /**
  *
  * @author Adam
@@ -59,6 +61,9 @@ public class MainWindow extends javax.swing.JFrame {
         UserRoleChooseGroup = new javax.swing.ButtonGroup();
         jScrollPane2 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
         Login = new javax.swing.JPanel();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
@@ -220,6 +225,19 @@ public class MainWindow extends javax.swing.JFrame {
         ActualizeProductNameText = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        AddProductToPriceListPanel = new javax.swing.JPanel();
+        ProductPriceListAddItemPrice = new javax.swing.JButton();
+        ProductPriceListResult = new javax.swing.JLabel();
+        ProductPriceListFindProduct = new javax.swing.JTextField();
+        ProductPriceItemPriceLabel = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ProductPriceListItemPrices = new javax.swing.JTable();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        ProductPriceListProducts = new javax.swing.JTable();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        ProductPriceListPriceLists = new javax.swing.JTable();
+        ProductPriceItemPriceField = new javax.swing.JTextField();
+        ProductPriceListPriceListFind = new javax.swing.JTextField();
         AddProductPanel = new javax.swing.JPanel();
         AddNewProductButton1 = new javax.swing.JButton();
         NewProductNameTextField1 = new javax.swing.JTextField();
@@ -266,15 +284,6 @@ public class MainWindow extends javax.swing.JFrame {
         jSplitPane6 = new javax.swing.JSplitPane();
         jButton6 = new javax.swing.JButton();
         PriceListFindText = new javax.swing.JTextField();
-        jSplitPane7 = new javax.swing.JSplitPane();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jSplitPane8 = new javax.swing.JSplitPane();
-        jButton7 = new javax.swing.JButton();
-        jTextField14 = new javax.swing.JTextField();
-        EditProductButton1 = new javax.swing.JButton();
-        RemoveProductButton1 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -372,6 +381,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         jEditorPane1.setName("jEditorPane1"); // NOI18N
         jScrollPane2.setViewportView(jEditorPane1);
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 700));
@@ -1614,6 +1629,170 @@ public class MainWindow extends javax.swing.JFrame {
         AdminContainerPanel.add(EditProductPanel, "editProductAdminPanel");
         EditProductPanel.getAccessibleContext().setAccessibleName("");
 
+        AddProductToPriceListPanel.setName("AddProductToPriceListPanel"); // NOI18N
+        AddProductToPriceListPanel.setOpaque(false);
+        AddProductToPriceListPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                AddProductToPriceListPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        AddProductToPriceListPanel.setLayout(null);
+
+        ProductPriceListAddItemPrice.setBackground(new java.awt.Color(0, 0, 0));
+        ProductPriceListAddItemPrice.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ProductPriceListAddItemPrice.setForeground(new java.awt.Color(255, 255, 255));
+        ProductPriceListAddItemPrice.setText("Dodaj");
+        ProductPriceListAddItemPrice.setName("ProductPriceListAddItemPrice"); // NOI18N
+        ProductPriceListAddItemPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductPriceListAddItemPriceActionPerformed(evt);
+            }
+        });
+        AddProductToPriceListPanel.add(ProductPriceListAddItemPrice);
+        ProductPriceListAddItemPrice.setBounds(430, 300, 160, 40);
+
+        ProductPriceListResult.setName("ProductPriceListResult"); // NOI18N
+        AddProductToPriceListPanel.add(ProductPriceListResult);
+        ProductPriceListResult.setBounds(10, 300, 290, 40);
+
+        ProductPriceListFindProduct.setToolTipText("");
+        ProductPriceListFindProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProductPriceListFindProduct.setName("ProductPriceListFindProduct"); // NOI18N
+        ProductPriceListFindProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ProductPriceListFindProductKeyReleased(evt);
+            }
+        });
+        AddProductToPriceListPanel.add(ProductPriceListFindProduct);
+        ProductPriceListFindProduct.setBounds(430, 0, 160, 30);
+
+        ProductPriceItemPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ProductPriceItemPriceLabel.setText("Cena");
+        ProductPriceItemPriceLabel.setName("ProductPriceItemPriceLabel"); // NOI18N
+        AddProductToPriceListPanel.add(ProductPriceItemPriceLabel);
+        ProductPriceItemPriceLabel.setBounds(310, 310, 190, 30);
+
+        jScrollPane4.setName("jScrollPane4"); // NOI18N
+
+        ProductPriceListItemPrices.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Produkt", "Cena"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ProductPriceListItemPrices.setToolTipText("");
+        ProductPriceListItemPrices.setName("ProductPriceListItemPrices"); // NOI18N
+        jScrollPane4.setViewportView(ProductPriceListItemPrices);
+
+        AddProductToPriceListPanel.add(jScrollPane4);
+        jScrollPane4.setBounds(210, 30, 200, 260);
+
+        jScrollPane11.setName("jScrollPane11"); // NOI18N
+
+        ProductPriceListProducts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nazwa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        ProductPriceListProducts.setToolTipText("");
+        ProductPriceListProducts.setName("ProductPriceListProducts"); // NOI18N
+        jScrollPane11.setViewportView(ProductPriceListProducts);
+
+        AddProductToPriceListPanel.add(jScrollPane11);
+        jScrollPane11.setBounds(430, 30, 160, 260);
+
+        jScrollPane12.setName("jScrollPane12"); // NOI18N
+
+        ProductPriceListPriceLists.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Od", "Do"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        ProductPriceListPriceLists.setToolTipText("");
+        ProductPriceListPriceLists.setName("ProductPriceListPriceLists"); // NOI18N
+        ProductPriceListPriceLists.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                ProductPriceListPriceListsAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        ProductPriceListPriceLists.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductPriceListPriceListsMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(ProductPriceListPriceLists);
+
+        AddProductToPriceListPanel.add(jScrollPane12);
+        jScrollPane12.setBounds(0, 30, 200, 260);
+
+        ProductPriceItemPriceField.setText("0");
+        ProductPriceItemPriceField.setToolTipText("");
+        ProductPriceItemPriceField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProductPriceItemPriceField.setName("ProductPriceItemPriceField"); // NOI18N
+        AddProductToPriceListPanel.add(ProductPriceItemPriceField);
+        ProductPriceItemPriceField.setBounds(350, 300, 80, 40);
+
+        ProductPriceListPriceListFind.setToolTipText("");
+        ProductPriceListPriceListFind.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProductPriceListPriceListFind.setName("ProductPriceListPriceListFind"); // NOI18N
+        ProductPriceListPriceListFind.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ProductPriceListPriceListFindKeyReleased(evt);
+            }
+        });
+        AddProductToPriceListPanel.add(ProductPriceListPriceListFind);
+        ProductPriceListPriceListFind.setBounds(0, 0, 200, 30);
+
+        AdminContainerPanel.add(AddProductToPriceListPanel, "addProductToPriceListPanel");
+        AddProductToPriceListPanel.getAccessibleContext().setAccessibleName("");
+
         AddProductPanel.setName("AddProductPanel"); // NOI18N
         AddProductPanel.setOpaque(false);
         AddProductPanel.setLayout(null);
@@ -2084,95 +2263,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductsTables.addTab("Cennik", jSplitPane5);
 
-        jSplitPane7.setDividerLocation(30);
-        jSplitPane7.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jSplitPane7.setName("jSplitPane7"); // NOI18N
-
-        jScrollPane9.setName("jScrollPane9"); // NOI18N
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nr w katalogu", "ID Terminala", "ID Produktu"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTable4.setName("jTable4"); // NOI18N
-        jScrollPane9.setViewportView(jTable4);
-
-        jSplitPane7.setBottomComponent(jScrollPane9);
-
-        jSplitPane8.setDividerLocation(360);
-        jSplitPane8.setName("jSplitPane8"); // NOI18N
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
-        jButton7.setName("jButton7"); // NOI18N
-        jSplitPane8.setRightComponent(jButton7);
-
-        jTextField14.setName("jTextField14"); // NOI18N
-        jSplitPane8.setLeftComponent(jTextField14);
-
-        jSplitPane7.setLeftComponent(jSplitPane8);
-
-        ProductsTables.addTab("Lista Produktów", jSplitPane7);
-
         ProductsManagmentAdminPanel.add(ProductsTables);
         ProductsTables.setBounds(10, 20, 410, 320);
         ProductsTables.getAccessibleContext().setAccessibleName("Products");
-
-        EditProductButton1.setBackground(new java.awt.Color(0, 0, 0));
-        EditProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        EditProductButton1.setForeground(new java.awt.Color(255, 255, 255));
-        EditProductButton1.setText("Edytuj");
-        EditProductButton1.setBorder(null);
-        EditProductButton1.setName("EditProductButton1"); // NOI18N
-        EditProductButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditProductButton1ActionPerformed(evt);
-            }
-        });
-        ProductsManagmentAdminPanel.add(EditProductButton1);
-        EditProductButton1.setBounds(470, 90, 120, 30);
-
-        RemoveProductButton1.setBackground(new java.awt.Color(0, 0, 0));
-        RemoveProductButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        RemoveProductButton1.setForeground(new java.awt.Color(255, 255, 255));
-        RemoveProductButton1.setText("Usuń");
-        RemoveProductButton1.setName("RemoveProductButton1"); // NOI18N
-        ProductsManagmentAdminPanel.add(RemoveProductButton1);
-        RemoveProductButton1.setBounds(470, 130, 120, 30);
-
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Nowa Pozycja w Katalogu");
-        jButton8.setFocusTraversalPolicyProvider(true);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setName("jButton8"); // NOI18N
-        ProductsManagmentAdminPanel.add(jButton8);
-        jButton8.setBounds(430, 310, 160, 30);
 
         jButton9.setBackground(new java.awt.Color(0, 0, 0));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -3455,12 +3548,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchUserTextFieldActionPerformed
 
-    private void EditProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductButton1ActionPerformed
-        changeCard(AdminContainerPanel, "editProductAdminPanel", true);
-    }//GEN-LAST:event_EditProductButton1ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+
+        changeCard(AdminContainerPanel, "addProductToPriceListPanel", true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -3585,28 +3675,6 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelButton2ActionPerformed
 
-    private void ProductFindTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyTyped
-
-    }//GEN-LAST:event_ProductFindTextKeyTyped
-
-    private void ProductFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyReleased
-        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
-        model.setRowCount(0);
-        ProductController controller = new ProductController();
-
-        List products = controller.getProductList(ProductFindText.getText());
-        if (products!=null) {
-            for (Object productObj : products) {
-                Product product = (Product)productObj;
-                model.addRow(new Object[]{product.getProductid(),product.getName()});
-            }
-        }
-    }//GEN-LAST:event_ProductFindTextKeyReleased
-
-    private void ProductFindTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_ProductFindTextInputMethodTextChanged
-
-    }//GEN-LAST:event_ProductFindTextInputMethodTextChanged
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         changeCard(AdminContainerPanel, "addPriceListAdminPanel", true);      
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -3626,20 +3694,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void AddPriceListComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_AddPriceListComponentShown
             
     }//GEN-LAST:event_AddPriceListComponentShown
-
-    private void PriceListFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceListFindTextKeyReleased
-        DefaultTableModel model = (DefaultTableModel) PriceLists.getModel();
-        model.setRowCount(0);
-        ProductController controller = new ProductController();
-
-        List priceLists = controller.getPriceListsList(PriceListFindText.getText());
-        if (priceLists!=null) {
-            for (Object priceListObj : priceLists) {
-                Pricelist priceList = (Pricelist)priceListObj;
-                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
-            }
-        }
-    }//GEN-LAST:event_PriceListFindTextKeyReleased
 
     private void NewPriceListDateFromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPriceListDateFromActionPerformed
         // TODO add your handling code here:
@@ -3746,6 +3800,152 @@ public class MainWindow extends javax.swing.JFrame {
     private void CancelAddTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddTerminalButtonActionPerformed
         changeCard(AttractionManagementAdminPanel, "AttractionListPanel", true);
     }//GEN-LAST:event_CancelAddTerminalButtonActionPerformed
+
+    private void ProductPriceListAddItemPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductPriceListAddItemPriceActionPerformed
+        if (ProductPriceListPriceLists.getSelectedRow() < 0) {
+            ProductPriceListResult.setText("SelectPriceList!");
+            return;
+        }
+        if (ProductPriceListProducts.getSelectedRow() < 0) {
+            ProductPriceListResult.setText("SelectProduct!");
+            return;
+        }
+        
+        String priceListID = ProductPriceListPriceLists.getValueAt(ProductPriceListPriceLists.getSelectedRow(), 0).toString();
+        String productName= ProductPriceListProducts.getValueAt(ProductPriceListProducts.getSelectedRow(), 0).toString();
+        ProductController controller = new ProductController();
+        try{
+            int price = Integer.parseInt(ProductPriceItemPriceField.getText());
+            StringBuilder sb = new StringBuilder();
+            controller.addPriceItem((Pricelist)controller.getPriceListsList(priceListID).get(0),
+                                    (Product)controller.getProductList(productName).get(0), 
+                                    price,
+                                    sb);
+            RefestPriceItemsInList();
+            ProductPriceListResult.setText(sb.toString());
+        }catch(Exception e)
+        {
+            ProductPriceListResult.setText(e.getMessage());
+        }
+
+    }//GEN-LAST:event_ProductPriceListAddItemPriceActionPerformed
+
+    private void ProductPriceListFindProductKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductPriceListFindProductKeyReleased
+        DefaultTableModel model = (DefaultTableModel) ProductPriceListProducts.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List products = controller.getProductList(ProductPriceListFindProduct.getText());
+        if (products!=null) {
+            for (Object productObj : products) {
+                Product product = (Product)productObj;
+                model.addRow(new Object[]{product.getName()});
+            }
+        }
+    }//GEN-LAST:event_ProductPriceListFindProductKeyReleased
+
+    private void AddProductToPriceListPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AddProductToPriceListPanelAncestorAdded
+        DefaultTableModel model = (DefaultTableModel) ProductPriceListProducts.getModel();
+        model.setRowCount(0);
+        ProductPriceListProducts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ProductController controller = new ProductController();
+
+        List products = controller.getProductList();
+        if (products!=null) {
+            for (Object productObj : products) {
+                Product product = (Product)productObj;
+                model.addRow(new Object[]{product.getName()});
+            }
+        }
+    }//GEN-LAST:event_AddProductToPriceListPanelAncestorAdded
+
+    private void ProductPriceListPriceListFindKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductPriceListPriceListFindKeyReleased
+        DefaultTableModel model = (DefaultTableModel) ProductPriceListPriceLists.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List priceLists = controller.getPriceListsList(ProductPriceListPriceListFind.getText());
+        if (priceLists!=null) {
+            for (Object priceListObj : priceLists) {
+                Pricelist priceList = (Pricelist)priceListObj;
+                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
+            }
+        }
+    }//GEN-LAST:event_ProductPriceListPriceListFindKeyReleased
+
+    private void ProductPriceListPriceListsAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ProductPriceListPriceListsAncestorAdded
+        DefaultTableModel model = (DefaultTableModel) ProductPriceListPriceLists.getModel();
+        model.setRowCount(0);
+        ProductPriceListPriceLists.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ProductController controller = new ProductController();
+
+        List priceLists = controller.getPriceListsList();
+        if (priceLists!=null) {
+            for (Object priceListObj : priceLists) {
+                Pricelist priceList = (Pricelist)priceListObj;
+                  model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
+            }
+        }
+    }//GEN-LAST:event_ProductPriceListPriceListsAncestorAdded
+
+    private void RefestPriceItemsInList()
+    {
+        DefaultTableModel model = (DefaultTableModel) ProductPriceListItemPrices.getModel();
+        model.setRowCount(0);
+        if (ProductPriceListPriceLists.getSelectedRow() > -1) {
+            String priceListID = ProductPriceListPriceLists.getValueAt(ProductPriceListPriceLists.getSelectedRow(), 0).toString();
+
+            ProductController controller = new ProductController();
+
+            List itemPrices = controller.getPriceItems(priceListID);
+            if (itemPrices!=null) {
+                for (Object priceItemObj : itemPrices) {
+                    Itemprice itemPrice = (Itemprice)priceItemObj;
+                      model.addRow(new Object[]{itemPrice.getProduct().getName(),itemPrice.getPrice()});
+                }
+            }
+        }
+    }
+    
+    private void ProductPriceListPriceListsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductPriceListPriceListsMouseClicked
+        RefestPriceItemsInList();
+    }//GEN-LAST:event_ProductPriceListPriceListsMouseClicked
+
+    private void PriceListFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceListFindTextKeyReleased
+        DefaultTableModel model = (DefaultTableModel) PriceLists.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List priceLists = controller.getPriceListsList(PriceListFindText.getText());
+        if (priceLists!=null) {
+            for (Object priceListObj : priceLists) {
+                Pricelist priceList = (Pricelist)priceListObj;
+                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
+            }
+        }
+    }//GEN-LAST:event_PriceListFindTextKeyReleased
+
+    private void ProductFindTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyTyped
+
+    }//GEN-LAST:event_ProductFindTextKeyTyped
+
+    private void ProductFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyReleased
+        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
+        model.setRowCount(0);
+        ProductController controller = new ProductController();
+
+        List products = controller.getProductList(ProductFindText.getText());
+        if (products!=null) {
+            for (Object productObj : products) {
+                Product product = (Product)productObj;
+                model.addRow(new Object[]{product.getProductid(),product.getName()});
+            }
+        }
+    }//GEN-LAST:event_ProductFindTextKeyReleased
+
+    private void ProductFindTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_ProductFindTextInputMethodTextChanged
+
+    }//GEN-LAST:event_ProductFindTextInputMethodTextChanged
 
     private void FillTerminalList(String name)
     {  
@@ -3894,6 +4094,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AddPointsButton1;
     private javax.swing.JPanel AddPriceList;
     private javax.swing.JPanel AddProductPanel;
+    private javax.swing.JPanel AddProductToPriceListPanel;
     private javax.swing.JButton AddTerminalButton1;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JPanel AdminContainerPanel;
@@ -3973,7 +4174,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel EditPasswordLabel1;
     private javax.swing.JLabel EditPasswordLabel2;
     private javax.swing.JButton EditProductButton;
-    private javax.swing.JButton EditProductButton1;
     private javax.swing.JPanel EditProductPanel;
     private javax.swing.JButton EditTerminalButton;
     private javax.swing.JPanel EditUserAdmintPanel;
@@ -4052,7 +4252,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField ProductFindText;
     private javax.swing.JTable ProductList;
     private javax.swing.JLabel ProductNameLabel1;
+    private javax.swing.JTextField ProductPriceItemPriceField;
+    private javax.swing.JLabel ProductPriceItemPriceLabel;
     private javax.swing.JLabel ProductPriceLabel;
+    private javax.swing.JButton ProductPriceListAddItemPrice;
+    private javax.swing.JTextField ProductPriceListFindProduct;
+    private javax.swing.JTable ProductPriceListItemPrices;
+    private javax.swing.JTextField ProductPriceListPriceListFind;
+    private javax.swing.JTable ProductPriceListPriceLists;
+    private javax.swing.JTable ProductPriceListProducts;
+    private javax.swing.JLabel ProductPriceListResult;
     private javax.swing.JPanel ProductsManagmentAdminPanel;
     private javax.swing.JTabbedPane ProductsTables;
     private javax.swing.JPanel Register;
@@ -4062,7 +4271,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton RemoveCardButton1;
     private javax.swing.JButton RemoveCardButton2;
     private javax.swing.JButton RemoveProductButton;
-    private javax.swing.JButton RemoveProductButton1;
     private javax.swing.JPasswordField RepeatPassword;
     private javax.swing.JLabel RepeatPasswordLabel;
     private javax.swing.JList<String> ResultList;
@@ -4130,8 +4338,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -4169,27 +4375,28 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JSplitPane jSplitPane5;
     private javax.swing.JSplitPane jSplitPane6;
-    private javax.swing.JSplitPane jSplitPane7;
-    private javax.swing.JSplitPane jSplitPane8;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.MenuBar menuBar1;
     private javax.swing.JPanel pointsPackagesListPane;
     private javax.swing.JScrollPane pointsPackagesListScrollPane;
     // End of variables declaration//GEN-END:variables
