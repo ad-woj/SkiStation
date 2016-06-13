@@ -9,8 +9,10 @@ import DBClasses.Attraction;
 import DBClasses.Terminal;
 import Tools.HibernateUtil;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Junction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
@@ -30,6 +32,34 @@ public class TerminalController {
     public boolean exist(int terminalID)
     {
         return findTerminal(terminalID) != null;
+    }
+    
+    public List GetTerminalList(String text)
+    {
+        int possibleID=0;
+        
+        try
+        {
+            possibleID = Integer.parseInt(text);
+        }
+        catch(Exception e)
+        {
+            possibleID = -1;
+        }
+        
+        Criteria  c = s.createCriteria(Terminal.class);
+        Junction junction =  Restrictions.disjunction().add(Restrictions.eq("terminalid",possibleID ));
+        
+        List possibleAttractions = GetAttractionList(text);
+        
+         for (Object result : possibleAttractions) {
+            Attraction attraction = (Attraction)result;           
+            junction.add(Restrictions.eq("attraction", attraction));
+        }
+        
+        List queryResult = c.add(junction).list();
+        
+        return queryResult;    
     }
     
     public List GetAttractionList(String text)

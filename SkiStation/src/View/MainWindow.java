@@ -168,7 +168,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<String>();
+        ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -2377,6 +2377,15 @@ public class MainWindow extends javax.swing.JFrame {
         GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
         GatesManagementAdminPanel.setOpaque(false);
+        GatesManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                GatesManagementAdminPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         GatesManagementAdminPanel.setLayout(null);
 
         FindTerminalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
@@ -2387,6 +2396,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         SearchTerminalTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         SearchTerminalTextField.setName("SearchTerminalTextField"); // NOI18N
+        SearchTerminalTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SearchTerminalTextFieldKeyReleased(evt);
+            }
+        });
         GatesManagementAdminPanel.add(SearchTerminalTextField);
         SearchTerminalTextField.setBounds(30, 20, 380, 30);
 
@@ -3702,6 +3716,31 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButton2ActionPerformed
 
+    private void GatesManagementAdminPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesManagementAdminPanelAncestorAdded
+        FillTerminalList("");
+    }//GEN-LAST:event_GatesManagementAdminPanelAncestorAdded
+
+    private void SearchTerminalTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTerminalTextFieldKeyReleased
+        FillTerminalList(SearchTerminalTextField.getText());
+    }//GEN-LAST:event_SearchTerminalTextFieldKeyReleased
+
+    private void FillTerminalList(String name)
+    {  
+        TerminalController tc = new TerminalController();
+        
+        List results = tc.GetTerminalList(name);
+        
+        System.out.print("dasd: " + results.size());
+        
+        DefaultTableModel model = (DefaultTableModel) TerminalListTable.getModel();
+        model.setRowCount(0);
+        
+        for (Object result : results) {
+            Terminal terminal = (Terminal)result;           
+             model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName(), terminal.getLocktime() });
+        }
+    }
+    
     private void FillAttractionList(String name)
     {
         TerminalController tc = new TerminalController();
