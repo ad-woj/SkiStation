@@ -234,14 +234,6 @@ public class MainWindow extends javax.swing.JFrame {
         PriceListFromLabel = new javax.swing.JLabel();
         PriceListToLabel = new javax.swing.JLabel();
         NewPriceListResult = new javax.swing.JLabel();
-        AddTerminalPanel = new javax.swing.JPanel();
-        TerminalNameTextField = new javax.swing.JTextField();
-        AttractionTypeTextField = new javax.swing.JTextField();
-        TerminalNameLabel = new javax.swing.JLabel();
-        AttractionTypeLabel = new javax.swing.JLabel();
-        LockTimeLabel = new javax.swing.JLabel();
-        LockTimeComboBox = new javax.swing.JComboBox();
-        AddTerminalButton = new javax.swing.JButton();
         PriceListManagmentAdmintPanel = new javax.swing.JPanel();
         SearchProductTextField = new javax.swing.JTextField();
         FindProductButton = new javax.swing.JButton();
@@ -288,12 +280,22 @@ public class MainWindow extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         AttractionsAndGatesPanel = new javax.swing.JTabbedPane();
         AttractionManagementAdminPanel = new javax.swing.JPanel();
+        AttractionListPanel = new javax.swing.JPanel();
         FindAttractionButton = new javax.swing.JButton();
         SearchAttractionTextField = new javax.swing.JTextField();
         EditAttractionButton = new javax.swing.JButton();
         NewAttractionButton = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         AttractionListTable2 = new javax.swing.JTable();
+        AttractionsEditAddPanel = new javax.swing.JPanel();
+        TerminalNameTextField = new javax.swing.JTextField();
+        TerminalNameLabel = new javax.swing.JLabel();
+        AttractionTypeLabel = new javax.swing.JLabel();
+        LockTimeLabel = new javax.swing.JLabel();
+        AttractionTypeComboBox = new javax.swing.JComboBox();
+        CancelAddTerminalButton = new javax.swing.JButton();
+        AddTerminalButton1 = new javax.swing.JButton();
+        LockTimeComboBox1 = new javax.swing.JComboBox();
         GatesManagementAdminPanel = new javax.swing.JPanel();
         FindTerminalButton = new javax.swing.JButton();
         SearchTerminalTextField = new javax.swing.JTextField();
@@ -1725,60 +1727,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminContainerPanel.add(AddPriceList, "addPriceListAdminPanel");
 
-        AddTerminalPanel.setName("AddTerminalPanel"); // NOI18N
-        AddTerminalPanel.setOpaque(false);
-        AddTerminalPanel.setLayout(null);
-
-        TerminalNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        TerminalNameTextField.setName("TerminalNameTextField"); // NOI18N
-        AddTerminalPanel.add(TerminalNameTextField);
-        TerminalNameTextField.setBounds(30, 60, 240, 30);
-
-        AttractionTypeTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        AttractionTypeTextField.setName("AttractionTypeTextField"); // NOI18N
-        AttractionTypeTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AttractionTypeTextFieldActionPerformed(evt);
-            }
-        });
-        AddTerminalPanel.add(AttractionTypeTextField);
-        AttractionTypeTextField.setBounds(30, 120, 240, 30);
-
-        TerminalNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TerminalNameLabel.setText("Nazwa");
-        TerminalNameLabel.setName("TerminalNameLabel"); // NOI18N
-        AddTerminalPanel.add(TerminalNameLabel);
-        TerminalNameLabel.setBounds(30, 40, 70, 14);
-
-        AttractionTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AttractionTypeLabel.setText("Typ Atrakcji");
-        AttractionTypeLabel.setName("AttractionTypeLabel"); // NOI18N
-        AddTerminalPanel.add(AttractionTypeLabel);
-        AttractionTypeLabel.setBounds(30, 100, 90, 14);
-
-        LockTimeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        LockTimeLabel.setText("Czas Blokady");
-        LockTimeLabel.setName("LockTimeLabel"); // NOI18N
-        AddTerminalPanel.add(LockTimeLabel);
-        LockTimeLabel.setBounds(30, 160, 80, 14);
-
-        LockTimeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
-        LockTimeComboBox.setBorder(null);
-        LockTimeComboBox.setName("LockTimeComboBox"); // NOI18N
-        AddTerminalPanel.add(LockTimeComboBox);
-        LockTimeComboBox.setBounds(30, 180, 60, 30);
-
-        AddTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
-        AddTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AddTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
-        AddTerminalButton.setText("Dodaj");
-        AddTerminalButton.setName("AddTerminalButton"); // NOI18N
-        AddTerminalPanel.add(AddTerminalButton);
-        AddTerminalButton.setBounds(160, 230, 110, 30);
-
-        AdminContainerPanel.add(AddTerminalPanel, "addTerminalPanel");
-        AddTerminalPanel.getAccessibleContext().setAccessibleName("addTerminalPanel");
-
         PriceListManagmentAdmintPanel.setName("PriceListManagmentAdmintPanel"); // NOI18N
         PriceListManagmentAdmintPanel.setOpaque(false);
         PriceListManagmentAdmintPanel.setLayout(null);
@@ -2281,12 +2229,15 @@ public class MainWindow extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        AttractionManagementAdminPanel.setLayout(null);
+        AttractionManagementAdminPanel.setLayout(new java.awt.CardLayout());
+
+        AttractionListPanel.setName("AttractionListPanel"); // NOI18N
+        AttractionListPanel.setLayout(null);
 
         FindAttractionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
         FindAttractionButton.setIconTextGap(0);
         FindAttractionButton.setName("FindAttractionButton"); // NOI18N
-        AttractionManagementAdminPanel.add(FindAttractionButton);
+        AttractionListPanel.add(FindAttractionButton);
         FindAttractionButton.setBounds(410, 20, 39, 30);
 
         SearchAttractionTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2296,7 +2247,7 @@ public class MainWindow extends javax.swing.JFrame {
                 SearchAttractionTextFieldTyped(evt);
             }
         });
-        AttractionManagementAdminPanel.add(SearchAttractionTextField);
+        AttractionListPanel.add(SearchAttractionTextField);
         SearchAttractionTextField.setBounds(30, 20, 380, 30);
 
         EditAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
@@ -2310,7 +2261,7 @@ public class MainWindow extends javax.swing.JFrame {
                 EditAttractionButtonActionPerformed(evt);
             }
         });
-        AttractionManagementAdminPanel.add(EditAttractionButton);
+        AttractionListPanel.add(EditAttractionButton);
         EditAttractionButton.setBounds(470, 50, 120, 30);
 
         NewAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
@@ -2323,7 +2274,7 @@ public class MainWindow extends javax.swing.JFrame {
                 NewAttractionButtonActionPerformed(evt);
             }
         });
-        AttractionManagementAdminPanel.add(NewAttractionButton);
+        AttractionListPanel.add(NewAttractionButton);
         NewAttractionButton.setBounds(470, 280, 120, 30);
 
         jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2369,8 +2320,76 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionListTable2.setName("AttractionListTable2"); // NOI18N
         jScrollPane10.setViewportView(AttractionListTable2);
 
-        AttractionManagementAdminPanel.add(jScrollPane10);
+        AttractionListPanel.add(jScrollPane10);
         jScrollPane10.setBounds(30, 50, 420, 260);
+
+        AttractionManagementAdminPanel.add(AttractionListPanel, "AttractionListPanel");
+
+        AttractionsEditAddPanel.setName("AttractionsEditAddPanel"); // NOI18N
+        AttractionsEditAddPanel.setLayout(null);
+
+        TerminalNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TerminalNameTextField.setName("TerminalNameTextField"); // NOI18N
+        AttractionsEditAddPanel.add(TerminalNameTextField);
+        TerminalNameTextField.setBounds(30, 60, 240, 30);
+
+        TerminalNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TerminalNameLabel.setText("Nazwa");
+        TerminalNameLabel.setName("TerminalNameLabel"); // NOI18N
+        AttractionsEditAddPanel.add(TerminalNameLabel);
+        TerminalNameLabel.setBounds(30, 40, 70, 14);
+
+        AttractionTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AttractionTypeLabel.setText("Typ Atrakcji");
+        AttractionTypeLabel.setName("AttractionTypeLabel"); // NOI18N
+        AttractionsEditAddPanel.add(AttractionTypeLabel);
+        AttractionTypeLabel.setBounds(30, 100, 90, 14);
+
+        LockTimeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        LockTimeLabel.setText("Czas Blokady");
+        LockTimeLabel.setName("LockTimeLabel"); // NOI18N
+        AttractionsEditAddPanel.add(LockTimeLabel);
+        LockTimeLabel.setBounds(30, 160, 80, 14);
+
+        AttractionTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Stok", "Sklep" }));
+        AttractionTypeComboBox.setBorder(null);
+        AttractionTypeComboBox.setName("AttractionTypeComboBox"); // NOI18N
+        AttractionTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttractionTypeComboBoxActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(AttractionTypeComboBox);
+        AttractionTypeComboBox.setBounds(30, 120, 160, 30);
+
+        CancelAddTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
+        CancelAddTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        CancelAddTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
+        CancelAddTerminalButton.setText("Anuluj");
+        CancelAddTerminalButton.setName("CancelAddTerminalButton"); // NOI18N
+        CancelAddTerminalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelAddTerminalButtonActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(CancelAddTerminalButton);
+        CancelAddTerminalButton.setBounds(30, 230, 110, 30);
+
+        AddTerminalButton1.setBackground(new java.awt.Color(0, 0, 0));
+        AddTerminalButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddTerminalButton1.setForeground(new java.awt.Color(255, 255, 255));
+        AddTerminalButton1.setText("Dodaj");
+        AddTerminalButton1.setName("AddTerminalButton1"); // NOI18N
+        AttractionsEditAddPanel.add(AddTerminalButton1);
+        AddTerminalButton1.setBounds(150, 230, 110, 30);
+
+        LockTimeComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
+        LockTimeComboBox1.setBorder(null);
+        LockTimeComboBox1.setName("LockTimeComboBox1"); // NOI18N
+        AttractionsEditAddPanel.add(LockTimeComboBox1);
+        LockTimeComboBox1.setBounds(30, 180, 60, 30);
+
+        AttractionManagementAdminPanel.add(AttractionsEditAddPanel, "AttractionsEditAddPanel");
 
         AttractionsAndGatesPanel.addTab("Atrakcje", AttractionManagementAdminPanel);
 
@@ -3409,10 +3428,6 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EditTerminalButtonActionPerformed
 
-    private void AttractionTypeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionTypeTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AttractionTypeTextFieldActionPerformed
-
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
         changeCard(AdminContainerPanel, "addTerminalPanel", true);
     }//GEN-LAST:event_NewTerminalButtonActionPerformed
@@ -3696,7 +3711,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditAttractionButtonActionPerformed
 
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
-        // TODO add your handling code here:
+        changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
 
     private void SearchAttractionTextFieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchAttractionTextFieldTyped
@@ -3724,14 +3739,20 @@ public class MainWindow extends javax.swing.JFrame {
         FillTerminalList(SearchTerminalTextField.getText());
     }//GEN-LAST:event_SearchTerminalTextFieldKeyReleased
 
+    private void AttractionTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionTypeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
+
+    private void CancelAddTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddTerminalButtonActionPerformed
+        changeCard(AttractionManagementAdminPanel, "AttractionListPanel", true);
+    }//GEN-LAST:event_CancelAddTerminalButtonActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
         
         List results = tc.GetTerminalList(name);
-        
-        System.out.print("dasd: " + results.size());
-        
+
         DefaultTableModel model = (DefaultTableModel) TerminalListTable.getModel();
         model.setRowCount(0);
         
@@ -3873,8 +3894,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AddPointsButton1;
     private javax.swing.JPanel AddPriceList;
     private javax.swing.JPanel AddProductPanel;
-    private javax.swing.JButton AddTerminalButton;
-    private javax.swing.JPanel AddTerminalPanel;
+    private javax.swing.JButton AddTerminalButton1;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JPanel AdminContainerPanel;
     private javax.swing.JButton AdminLogoutButton;
@@ -3884,11 +3904,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AdminPanelBackButton;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JLabel AdminViewTitleLabel;
+    private javax.swing.JPanel AttractionListPanel;
     private javax.swing.JTable AttractionListTable2;
     private javax.swing.JPanel AttractionManagementAdminPanel;
+    private javax.swing.JComboBox AttractionTypeComboBox;
     private javax.swing.JLabel AttractionTypeLabel;
-    private javax.swing.JTextField AttractionTypeTextField;
     private javax.swing.JTabbedPane AttractionsAndGatesPanel;
+    private javax.swing.JPanel AttractionsEditAddPanel;
     private javax.swing.JLabel AvailablePointsLabel;
     private javax.swing.JLabel AvailablePointsLabel1;
     private javax.swing.JTextField AvailablePointsTextField;
@@ -3896,6 +3918,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
     private javax.swing.JButton BuyPointsButton;
+    private javax.swing.JButton CancelAddTerminalButton;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
     private javax.swing.JButton CancelButton2;
@@ -3974,7 +3997,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel IDLabel;
     private javax.swing.JLabel IDLabel1;
     private javax.swing.JTextField IDTextField1;
-    private javax.swing.JComboBox LockTimeComboBox;
+    private javax.swing.JComboBox LockTimeComboBox1;
     private javax.swing.JLabel LockTimeLabel;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
