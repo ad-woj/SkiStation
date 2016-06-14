@@ -3547,10 +3547,10 @@ public class MainWindow extends javax.swing.JFrame {
                     tempOverload = false;
                 
                 model.addRow(new Object[]{row[0], row[1], tempOverload});
-            }
-            changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
-            AdminPanelBackButton.setVisible(true);
+            }   
         }
+        changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+            AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
