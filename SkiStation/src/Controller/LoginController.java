@@ -10,6 +10,7 @@ import DBClasses.Users;
 import Tools.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import Model.ViewSwitcher;
 /**
  *
  * @author MG
@@ -42,15 +43,12 @@ public class LoginController {
             if (employee == null) {
                 viewName.append("UserMainPanel");
                 SessionController.setLoggedUserType(RegistrationController.UserTypes.Client);
-                SessionController.AddToPreviousViews("userMyCards");
             }else if (employee.getRole().equals(RegistrationController.UserTypes.Admin.toString()) ) {
                 viewName.append("adminPanelMain");
                 SessionController.setLoggedUserType(RegistrationController.UserTypes.Admin);
-                SessionController.AddToPreviousViews("adminMenuPanel");
             }else if (employee.getRole().equals(RegistrationController.UserTypes.Cashier.toString())) {
                 viewName.append("cashierPanel");
                 SessionController.setLoggedUserType(RegistrationController.UserTypes.Cashier);
-                SessionController.AddToPreviousViews("SearchPanel");
             }
             SessionController.SetUserLogged(login);
             System.out.println("Successful login"); 

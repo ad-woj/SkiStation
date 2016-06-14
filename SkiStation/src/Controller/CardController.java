@@ -34,11 +34,11 @@ public class CardController {
         return true;
     }
     
-    public static Cards AddNewCard( int clientID, int points, StringBuilder logger ) {
+    public static Cards AddNewCard( int userID, int points, StringBuilder logger ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
         int expYear;
-        Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = '%d'", clientID ));
+        Query query = s.createQuery(String.format("FROM Clients C WHERE C.users.userid = '%d'", userID ));
         if (query == null){
             logger.append("Client with this ID does not exist");
             return null;
@@ -66,7 +66,7 @@ public class CardController {
         } finally {
             s.close();
         }
-        logger.append(String.format("Successfully added %d points to user with ID = %d", points, clientID));
+        logger.append(String.format("Successfully added %d points to user with ID = %d", points, userID));
         return card;
     }
     

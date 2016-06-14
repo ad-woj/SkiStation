@@ -10,8 +10,8 @@ import Controller.SessionController;
 import java.awt.Point;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JPanel;
-import javax.swing.event.DocumentEvent;
+import javax.swing.*;
+import javax.swing.event.*;
 
 /**
  *
@@ -21,17 +21,18 @@ public class CardView {
     private MainWindow parent;
     private JPanel UserMyCardsPanel;
     private int myIndex;
-    private javax.swing.JTextField IDTextField;
-    private javax.swing.JTextField ActivationDateTextField;
-    private javax.swing.JTextField ExpirationDateTextField;
-    private javax.swing.JTextField PointsTextField;
-    private javax.swing.JButton AddPointsButton;
-    private javax.swing.JButton SubtractPointsButton;
-    private javax.swing.JButton RemoveCardButton;
+    private JTextField IDTextField;
+    private JTextField ActivationDateTextField;
+    private JTextField ExpirationDateTextField;
+    private JTextField PointsTextField;
+    private JButton AddPointsButton;
+    private JButton SubtractPointsButton;
+    private JButton RemoveCardButton;
     private Boolean ignoreTextChange = true;
     private Boolean textUpdateNeeded = false;
     
     public CardView( int index, int positionY, JPanel panel, MainWindow mw ) {
+        
         IDTextField = new javax.swing.JTextField();
         ActivationDateTextField = new javax.swing.JTextField();
         ExpirationDateTextField = new javax.swing.JTextField();
@@ -89,7 +90,7 @@ public class CardView {
                     textUpdateNeeded = false;
                 }
             };
-                });
+        });
         PointsTextField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
                 PointsTextChanged();
@@ -173,7 +174,7 @@ public class CardView {
         SubtractPointsButton.setLocation( position.x, position.y - distance );
         position = RemoveCardButton.getLocation();
         RemoveCardButton.setLocation( position.x, position.y - distance );
-    } 
+    }
 
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         if( CardController.DeleteCard(Integer.decode(IDTextField.getText())) ) {
@@ -184,6 +185,7 @@ public class CardView {
             UserMyCardsPanel.remove(AddPointsButton);
             UserMyCardsPanel.remove(SubtractPointsButton);
             UserMyCardsPanel.remove(RemoveCardButton);
+            UserMyCardsPanel.repaint();
             parent.DeleteCardView(myIndex);
         }
     } 
@@ -195,6 +197,7 @@ public class CardView {
         if( points >= 0 ) {
             ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints );
             parent.SetAvailablePointsText(Integer.toString(userPoints));
+            UserMyCardsPanel.repaint();
             CardController.UpdateCardPoints(points, Integer.decode(IDTextField.getText()));
             PointsTextField.setText(Integer.toString(points));
             PointsTextField.repaint();
@@ -208,6 +211,7 @@ public class CardView {
         if( userPoints >= 0) {
             ClientController.UpdateClientPoints(SessionController.GetUserLogged(), userPoints);
             parent.SetAvailablePointsText(Integer.toString(userPoints));
+            UserMyCardsPanel.repaint();
             CardController.UpdateCardPoints(points, Integer.decode(IDTextField.getText()));
             PointsTextField.setText(Integer.toString(points));
             PointsTextField.repaint();

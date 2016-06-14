@@ -5,6 +5,7 @@
  */
 package Controller;
 import java.util.Vector;
+import Model.ViewSwitcher;
 /**
  *
  * @author Marzena
@@ -15,7 +16,7 @@ public class SessionController {
     //maximum no action time for active session is 5 minutes (300000 miliseconds)
     private static final Integer MAX_TIME = 300000;
     private static RegistrationController.UserTypes loggedUserType;
-    private static Vector<String> previousViews = new Vector<>();
+    private static Vector<ViewSwitcher> previousViews = new Vector<>();
 
     public SessionController() {
         previousViews = new Vector<>();
@@ -59,14 +60,14 @@ public class SessionController {
         return loggedUserType;
     }
     
-    public static void AddToPreviousViews( String view ) {
+    public static void AddToPreviousViews( ViewSwitcher view ) {
         previousViews.add(view);
     }
     
-    public static String GetPreviousView() {
+    public static ViewSwitcher GetPreviousView() {
         // the last position in the vector is the current view
         if( previousViews.size() < 2 )
-            return "";
+            return new ViewSwitcher();
         return previousViews.elementAt(previousViews.size() - 2);
     }
     

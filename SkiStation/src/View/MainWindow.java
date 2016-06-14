@@ -21,6 +21,10 @@ import javax.swing.table.*;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
+import Model.ViewSwitcher;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
 /**
  *
  * @author Adam
@@ -38,15 +42,6 @@ public class MainWindow extends javax.swing.JFrame {
         KeyboardEventHandler eventHandler = new KeyboardEventHandler(this);
         AddKeyEventHandling(eventHandler);
         cardViewList = new Vector<>();
-    }
-    
-    public String GetAvailablePointsText() {
-        return AvailablePointsTextField.getText();
-    }
-
-    public void SetAvailablePointsText( String points ) {
-        AvailablePointsTextField.setText(points);
-        UserMyCardsPanel.repaint();
     }
     
     /**
@@ -173,7 +168,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -326,14 +321,6 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeTrafficButton = new javax.swing.JButton();
         UserContainerPanel = new javax.swing.JPanel();
         UserMyCardsPanel = new javax.swing.JPanel();
-        AvailablePointsLabel = new javax.swing.JLabel();
-        IDLabel = new javax.swing.JLabel();
-        ActivationDateLabel = new javax.swing.JLabel();
-        ExpirationDateLabel = new javax.swing.JLabel();
-        PointsLabel = new javax.swing.JLabel();
-        AvailablePointsTextField = new javax.swing.JTextField();
-        BuyPointsButton = new javax.swing.JButton();
-        AddCardButton2 = new javax.swing.JButton();
         UserBuyPointsPanel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -2722,91 +2709,6 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyCardsPanel.setName("UserMyCardsPanel"); // NOI18N
         UserMyCardsPanel.setOpaque(false);
         UserMyCardsPanel.setLayout(null);
-
-        AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        AvailablePointsLabel.setText("Nieprzydzielone punkty:");
-        AvailablePointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        AvailablePointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        AvailablePointsLabel.setName("AvailablePointsLabel"); // NOI18N
-        AvailablePointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMyCardsPanel.add(AvailablePointsLabel);
-        AvailablePointsLabel.setBounds(20, 20, 150, 20);
-
-        IDLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        IDLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        IDLabel.setText("ID");
-        IDLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        IDLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        IDLabel.setName("IDLabel"); // NOI18N
-        IDLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMyCardsPanel.add(IDLabel);
-        IDLabel.setBounds(30, 60, 40, 14);
-
-        ActivationDateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ActivationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ActivationDateLabel.setText("Data aktywacji");
-        ActivationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        ActivationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        ActivationDateLabel.setName("ActivationDateLabel"); // NOI18N
-        ActivationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMyCardsPanel.add(ActivationDateLabel);
-        ActivationDateLabel.setBounds(80, 60, 100, 14);
-
-        ExpirationDateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ExpirationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ExpirationDateLabel.setText("Data ważności");
-        ExpirationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        ExpirationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        ExpirationDateLabel.setName("ExpirationDateLabel"); // NOI18N
-        ExpirationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMyCardsPanel.add(ExpirationDateLabel);
-        ExpirationDateLabel.setBounds(170, 60, 100, 14);
-
-        PointsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        PointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PointsLabel.setText("Punkty");
-        PointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-        PointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-        PointsLabel.setName("PointsLabel"); // NOI18N
-        PointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-        UserMyCardsPanel.add(PointsLabel);
-        PointsLabel.setBounds(270, 60, 50, 14);
-
-        AvailablePointsTextField.setEditable(false);
-        AvailablePointsTextField.setBackground(new java.awt.Color(250, 250, 250));
-        AvailablePointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        AvailablePointsTextField.setText("0");
-        AvailablePointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
-        UserMyCardsPanel.add(AvailablePointsTextField);
-        AvailablePointsTextField.setBounds(170, 20, 50, 20);
-
-        BuyPointsButton.setText("Kup punkty");
-        BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.setName("BuyPointsButton"); // NOI18N
-        BuyPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuyPointsButtonActionPerformed(evt);
-            }
-        });
-        UserMyCardsPanel.add(BuyPointsButton);
-        BuyPointsButton.setBounds(230, 18, 100, 23);
-
-        AddCardButton2.setText("Dodaj kartę");
-        AddCardButton2.setMaximumSize(new java.awt.Dimension(67, 23));
-        AddCardButton2.setMinimumSize(new java.awt.Dimension(67, 23));
-        AddCardButton2.setName("AddCardButton2"); // NOI18N
-        AddCardButton2.setPreferredSize(new java.awt.Dimension(67, 23));
-        AddCardButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddCardButton2ActionPerformed(evt);
-            }
-        });
-        UserMyCardsPanel.add(AddCardButton2);
-        AddCardButton2.setBounds(400, 20, 100, 23);
-
         UserContainerPanel.add(UserMyCardsPanel, "userMyCards");
 
         UserBuyPointsPanel.setName("UserBuyPointsPanel"); // NOI18N
@@ -3109,21 +3011,193 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void DisplayCards( javax.swing.JPanel CardsPanel) {
+        AvailablePointsLabel = new JLabel();
+        IDLabel = new JLabel();
+        ActivationDateLabel = new JLabel();
+        ExpirationDateLabel = new JLabel();
+        PointsLabel = new JLabel();
+        AvailablePointsTextField = new JTextField();
+        BuyPointsButton = new JButton();
+        AddCardButton = new JButton();
+        
+        AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        AvailablePointsLabel.setText("Nieprzydzielone punkty:");
+        AvailablePointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        AvailablePointsLabel.setName("AvailablePointsLabel"); // NOI18N
+        AvailablePointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        CardsPanel.add(AvailablePointsLabel);
+        AvailablePointsLabel.setBounds(20, 20, 150, 20);
 
-    private void changeCard(Container container, String targetContainerName, boolean checkSession) {
-        CardLayout containerLayout = (CardLayout) container.getLayout();
+        IDLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        IDLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IDLabel.setText("ID");
+        IDLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        IDLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        IDLabel.setName("IDLabel"); // NOI18N
+        IDLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        CardsPanel.add(IDLabel);
+        IDLabel.setBounds(30, 60, 40, 14);
+
+        ActivationDateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ActivationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ActivationDateLabel.setText("Data aktywacji");
+        ActivationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        ActivationDateLabel.setName("ActivationDateLabel"); // NOI18N
+        ActivationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        CardsPanel.add(ActivationDateLabel);
+        ActivationDateLabel.setBounds(80, 60, 100, 14);
+
+        ExpirationDateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ExpirationDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExpirationDateLabel.setText("Data ważności");
+        ExpirationDateLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        ExpirationDateLabel.setName("ExpirationDateLabel"); // NOI18N
+        ExpirationDateLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        CardsPanel.add(ExpirationDateLabel);
+        ExpirationDateLabel.setBounds(170, 60, 100, 14);
+
+        PointsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PointsLabel.setText("Punkty");
+        PointsLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        PointsLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        PointsLabel.setName("PointsLabel"); // NOI18N
+        PointsLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        CardsPanel.add(PointsLabel);
+        PointsLabel.setBounds(270, 60, 50, 14);
+
+        AvailablePointsTextField.setEditable(false);
+        AvailablePointsTextField.setBackground(new java.awt.Color(250, 250, 250));
+        AvailablePointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        AvailablePointsTextField.setText("0");
+        AvailablePointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
+        CardsPanel.add(AvailablePointsTextField);
+        AvailablePointsTextField.setBounds(170, 20, 50, 20);
+
+        BuyPointsButton.setText("Kup punkty");
+        BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.setName("BuyPointsButton"); // NOI18N
+        BuyPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyPointsButtonActionPerformed(evt);
+            }
+        });
+        CardsPanel.add(BuyPointsButton);
+        BuyPointsButton.setBounds(230, 18, 100, 23);
+
+        AddCardButton.setText("Dodaj kartę");
+        AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        AddCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        AddCardButton.setName("AddCardButton2"); // NOI18N
+        AddCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        AddCardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCardButtonActionPerformed(evt);
+            }
+        });
+        CardsPanel.add(AddCardButton);
+        AddCardButton.setBounds(400, 20, 100, 23);
+        
+        int id = ClientController.GetClientIDFromLogin(SessionController.GetUserLogged());
+        List<Cards> cards = CardController.getUserCards
+            (id, new StringBuilder());
+        for( Cards card : cards ) {
+            AddCardView( card, CardsPanel );
+        }
+        AvailablePointsTextField.setText( Integer.toString(ClientController.GetClientPoints(id)) );
+    }    
+    
+    private void RemoveCardPanelComponents( javax.swing.JPanel CardsPanel ) {
+        CardsPanel.remove(AvailablePointsLabel);
+        CardsPanel.remove(IDLabel);
+        CardsPanel.remove(ActivationDateLabel);
+        CardsPanel.remove(ExpirationDateLabel);
+        CardsPanel.remove(PointsLabel);
+        CardsPanel.remove(AvailablePointsTextField);
+        CardsPanel.remove(BuyPointsButton);
+        CardsPanel.remove(AddCardButton);
+    }
+    
+    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        fillPackagesScrollPanel();
+        pointsPackagesListScrollPane.getViewport().setOpaque(false);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "userBuyPoints" );
+        changeCard( view, true );
+    }
+    
+    private void AddCardButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        AddCard();
+    }
+    
+    private void AddCard() {
+        Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails().getUserid(), 0, new StringBuilder());
+        if( card != null )
+            AddCardView( card, (JPanel)AddCardButton.getParent() );
+    }
+    
+    private void AddCardView( Cards card, javax.swing.JPanel CardsPanel ) {
+        int minPositionY = 80;
+        int cardViewHeight = 25;
+        int positionY = minPositionY + cardViewList.size()*cardViewHeight;
+        cardViewList.add(new CardView(cardViewList.size(), positionY, CardsPanel, this));
+        cardViewList.lastElement().SetTextFields(card.getCardid(), card.getActdate(), card.getExpdate(), card.getPoints());
+        if( cardViewList.size() >= 10 ) {
+            AddCardButton.setEnabled(false);
+        }
+    }
+    
+    public void DeleteCardView( int index ) {
+        cardViewList.remove(index);
+        for(int i = index; i < cardViewList.size(); i++)
+        {
+            cardViewList.elementAt(i).SetIndex(i);
+            cardViewList.elementAt(i).SlideUp(25);
+        }
+        int points = ClientController.GetClientPoints(ClientController.GetClientIDFromLogin(SessionController.GetUserLogged()));
+        AvailablePointsTextField.setText(Integer.toString(points));
+        UserMyCardsPanel.repaint();
+        if( !AddCardButton.isEnabled() )
+            AddCardButton.setEnabled(true);
+    }
+    
+    public String GetAvailablePointsText() {
+        return AvailablePointsTextField.getText();
+    }
+
+    public void SetAvailablePointsText( String points ) {
+        AvailablePointsTextField.setText(points);
+        UserMyCardsPanel.repaint();
+    }
+    
+    private void changeCard(ViewSwitcher target, boolean checkSession) {
+        CardLayout containerLayout = (CardLayout) target.mainContainer.getLayout();
+        CardLayout cardLayout = new CardLayout();
+        if( target.card != null )
+            cardLayout = (CardLayout) target.card.getLayout();
 
         if (checkSession) {
             if (SessionController.IsUserLogged()) {
-                containerLayout.show(container, targetContainerName);
+                containerLayout.show(target.mainContainer, target.containerName);
+                if( target.card != null )
+                    cardLayout.show(target.card, target.cardName);
             } else {
                 ExitSession();
                 return;
             }
+            SessionController.AddToPreviousViews(target);
         } else {
-            containerLayout.show(container, targetContainerName);
+            containerLayout.show(target.mainContainer, target.containerName);
+            if( target.card != null )
+                cardLayout.show(target.card, target.cardName);
         }
-        SessionController.AddToPreviousViews(targetContainerName);
     }
 
     private void LoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextFieldActionPerformed
@@ -3135,9 +3209,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordTextFieldActionPerformed
 
     private void CreateAccountLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountLinkMouseClicked
-        // TODO add your handling code here:
-        CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        loginPaneLayout.show(getContentPane(), "register");
+        ViewSwitcher view = new ViewSwitcher();
+        view.mainContainer = getContentPane();
+        view.containerName = "register";
+        changeCard( view, false );
         RegisterMessageLabel.setText("");
     }//GEN-LAST:event_CreateAccountLinkMouseClicked
 
@@ -3168,21 +3243,34 @@ public class MainWindow extends javax.swing.JFrame {
     public void PerformLoginAction() {
 
         StringBuilder viewPanel = new StringBuilder();
+        ViewSwitcher view = new ViewSwitcher();
         if (LoginController.logIn(LoginTextField.getText(), new String(PasswordTextField.getPassword()), viewPanel, loginStatusMessage)) {
             MessageLabel.setText("");
-            CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
+            view.mainContainer = getContentPane();
+            view.containerName = viewPanel.toString();
+            CardLayout loginPaneLayout = (CardLayout) view.mainContainer.getLayout();
 
             if (SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin) {
                 UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
                 AdminPanelBackButton.setVisible(false);
+                view.card = AdminContainerPanel;
+                view.cardName = "adminMenuPanel";
             } else {
                 UserChangeModeToAdminButton.setVisible(false);
                 CashierChangeModeToAdminButton.setVisible(false);
+                if( SessionController.getLoggedUserType() == RegistrationController.UserTypes.Cashier ) {
+                    view.card = CashierContainer;
+                    view.cardName = "SearchPanel";
+                }
+                else {
+                    view.card = UserContainerPanel;
+                    view.cardName = "userMyCards";
+                    DisplayCards( UserMyCardsPanel );
+                }
             }
 
-            loginPaneLayout.show(getContentPane(), viewPanel.toString());
-            DisplayCards();
+            changeCard( view, true );
         } else {
             MessageLabel.setText("Błędny login i/lub hasło");
             Password.setText("");
@@ -3252,7 +3340,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
-        changeCard(AdminContainerPanel, "userManagmentAdminPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "userManagmentAdminPanel");
+        changeCard(view, true);
         AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_UsersButtonActionPerformed
 
@@ -3262,13 +3351,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
         SessionController.ResetSession();
-        changeCard(getContentPane(), "login", false);
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "login");
+        changeCard(view, false);
         PasswordTextField.setText((""));
         LoginTextField.setText("");
         cardViewList.clear();
     }//GEN-LAST:event_AdminLogoutButtonActionPerformed
 
     private void UserLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButtonActionPerformed
+        RemoveCardPanelComponents( UserMyCardsPanel );
         AdminLogoutButtonActionPerformed(evt);
     }//GEN-LAST:event_UserLogoutButtonActionPerformed
 
@@ -3281,12 +3372,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UserMyAccountButton2ActionPerformed
 
     private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
-        changeCard(getContentPane(), "UserMainPanel", true);
-        changeCard(UserContainerPanel, "userMyCards", true);
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards");
+        changeCard(view, true);
     }//GEN-LAST:event_MyCardsButton2ActionPerformed
 
     private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
-        changeCard(getContentPane(), "myAccountPanel", true);
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "myAccountPanel");
+        changeCard(view, true);
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
     private void SetAccountInfo() {
@@ -3398,11 +3490,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void CashierModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierModeButtonActionPerformed
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
-        if (SessionController.IsUserLogged()) {
-            loginPaneLayout.show(getContentPane(), "CashierPanel");
-        } else {
-            ExitSession();
-        }
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "SearchPanel");
+        changeCard( view, true );
     }//GEN-LAST:event_CashierModeButtonActionPerformed
 
     private void DocumentEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentEditTextfieldActionPerformed
@@ -3422,7 +3511,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CityEditTextfieldActionPerformed
 
     private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
-        changeCard(getContentPane(), "adminPanelMain", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "adminMenuPanel");
+        changeCard( view, true );
+//changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_UserChangeModeToAdminButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
@@ -3451,7 +3542,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UserRadioActionPerformed
 
     private void AdminPanelBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelBackButtonActionPerformed
-        changeCard(AdminContainerPanel, "adminMenuPanel", true);
+        ViewSwitcher view = SessionController.GetPreviousView();
+        changeCard( view, true );
+//changeCard(AdminContainerPanel, "adminMenuPanel", true);
         AdminPanelBackButton.setVisible(false);
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
@@ -3479,7 +3572,9 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
             }
         }
-         changeCard(AdminContainerPanel, "card11", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "card11");
+        changeCard( view, true );
+         //changeCard(AdminContainerPanel, "card11", true);
          AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
@@ -3499,22 +3594,30 @@ public class MainWindow extends javax.swing.JFrame {
                 
                 model.addRow(new Object[]{row[0], row[1], tempOverload});
             }
-            changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+            ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "slopeManagmentAdminPanel");
+            changeCard( view, true );
+            //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
             AdminPanelBackButton.setVisible(true);
         }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
-        changeCard(AdminContainerPanel, "AttractionsAndGatesPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "AttractionsAndGatesPanel");
+        changeCard( view, true );
+//changeCard(AdminContainerPanel, "AttractionsAndGatesPanel", true);
         AdminPanelBackButton.setVisible(true);
     }//GEN-LAST:event_GatesButtonActionPerformed
 
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
-        changeCard(AdminContainerPanel, "addProductAdminPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductAdminPanel");
+        changeCard( view, true );
+//changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_NewProductButtonActionPerformed
 
     private void EditProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductButtonActionPerformed
-        changeCard(AdminContainerPanel, "editProductAdminPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "editProductAdminPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "editProductAdminPanel", true);
     }//GEN-LAST:event_EditProductButtonActionPerformed
 
     private void EditTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditTerminalButtonActionPerformed
@@ -3522,11 +3625,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditTerminalButtonActionPerformed
 
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
-        changeCard(AdminContainerPanel, "addTerminalPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addTerminalPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "addTerminalPanel", true);
     }//GEN-LAST:event_NewTerminalButtonActionPerformed
 
     private void EditUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserButtonActionPerformed
-        changeCard(AdminContainerPanel, "editUserAdminPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "editUserAdminPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "editUserAdminPanel", true);
     }//GEN-LAST:event_EditUserButtonActionPerformed
 
     private void DeleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserButtonActionPerformed
@@ -3549,24 +3656,33 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchUserTextFieldActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-
-        changeCard(AdminContainerPanel, "addProductToPriceListPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductToPriceListPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "addProductToPriceListPanel", true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        changeCard(AdminContainerPanel, "addProductAdminPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductAdminPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void EditClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditClientButtonActionPerformed
-        changeCard(CashierContainer, "ClientAccountEditPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ClientAccountEditPanel");
+        changeCard( view, true );
+        //changeCard(CashierContainer, "ClientAccountEditPanel", true);
     }//GEN-LAST:event_EditClientButtonActionPerformed
 
     private void ContactButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton3ActionPerformed
-        changeCard(CashierContainer, "ContactPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ContactPanel");
+        changeCard( view, true );
+        //changeCard(CashierContainer, "ContactPanel", true);
     }//GEN-LAST:event_ContactButton3ActionPerformed
 
     private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
-        changeCard(CashierContainer, "NewClientAccountPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "NewClientAccountPanel" );
+        changeCard( view, true );
+        //changeCard(CashierContainer, "NewClientAccountPanel", true);
     }//GEN-LAST:event_NewAccountButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -3574,11 +3690,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ClientModeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButton1ActionPerformed
-        changeCard(getContentPane(), "UserMainPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards" );
+        changeCard( view, true );
+        //changeCard(getContentPane(), "UserMainPanel", true);
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        changeCard(CashierContainer, "SearchPanel", true);  
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "SearchPanel" );
+        changeCard( view, true );
+        //changeCard(CashierContainer, "SearchPanel", true);  
         System.out.println("SearchPanel");
     }//GEN-LAST:event_SearchButtonActionPerformed
 
@@ -3633,7 +3753,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_NewPriceListButtonActionPerformed
 
     private void SlopeTrafficButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButton1ActionPerformed
-        changeCard(CashierContainer, "StationTrafficPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "StationTrafficPanel" );
+        changeCard( view, true );
+        //changeCard(CashierContainer, "StationTrafficPanel", true);
     }//GEN-LAST:event_SlopeTrafficButton1ActionPerformed
 
     private void StationTrafficTableShowed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_StationTrafficTableShowed
@@ -3656,7 +3778,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_StationTrafficTableShowed
 
     private void ClientCardsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButton1ActionPerformed
-              changeCard(CashierContainer, "ClientCardsPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ClientCardsPanel" );
+        changeCard( view, true );   
+        //changeCard(CashierContainer, "ClientCardsPanel", true);
     }//GEN-LAST:event_ClientCardsButton1ActionPerformed
 
     private void IDEditTextfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield2ActionPerformed
@@ -3676,7 +3800,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        changeCard(AdminContainerPanel, "addPriceListAdminPanel", true);      
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addPriceListAdminPanel");
+        changeCard( view, true );
+        //changeCard(AdminContainerPanel, "addPriceListAdminPanel", true);      
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void AddNewProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewProductButton1ActionPerformed
@@ -3717,14 +3843,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminMainPanelAncestorAdded
 
     private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
-        changeCard(getContentPane(), "adminPanelMain", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "adminMenuPanel");
+        changeCard( view, true );
+        //changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
-
-    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
-        fillPackagesScrollPanel();
-        pointsPackagesListScrollPane.getViewport().setOpaque(false);
-        changeCard(UserContainerPanel, "userBuyPoints", true);
-    }//GEN-LAST:event_BuyPointsButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -3734,38 +3856,14 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CashierRadioActionPerformed
 
-    private void AddCardButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCardButton2ActionPerformed
-        Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails().getUserid(), 0, new StringBuilder());
-        if( card != null )
-            AddCardView( card );
-    }//GEN-LAST:event_AddCardButton2ActionPerformed
-
-    private void AddCardView( Cards card ) {
-        int minPositionY = 80;
-        int cardViewHeight = 25;
-        int positionY = minPositionY + cardViewList.size()*cardViewHeight;
-        cardViewList.add(new CardView(cardViewList.size(), positionY, UserMyCardsPanel, this));
-        cardViewList.lastElement().SetTextFields(card.getCardid(), card.getActdate(), card.getExpdate(), card.getPoints());
-        if( cardViewList.size() >= 10 ) {
-            AddCardButton2.setEnabled(false);
-        }
-    }
-    
-    private void DisplayCards() {
-        int id = ClientController.GetClientIDFromLogin(SessionController.GetUserLogged());
-        List<Cards> cards = CardController.getUserCards
-            (id, new StringBuilder());
-        for( Cards card : cards ) {
-            AddCardView( card );
-        }
-        AvailablePointsTextField.setText( Integer.toString(ClientController.GetClientPoints(id)) );
-    }
     private void EditAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditAttractionButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EditAttractionButtonActionPerformed
 
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
-        changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AttractionManagementAdminPanel, "AttractionsEditAddPanel" );
+        changeCard( view, true );
+        //changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
 
     private void SearchAttractionTextFieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchAttractionTextFieldTyped
@@ -3777,12 +3875,16 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AttractionManagementAdminPanelAncestorAdded
 
     private void ContactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButtonActionPerformed
-        changeCard(UserContainerPanel, "UserContactPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "UserContactPanel" );
+        changeCard( view, true );
+        //changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButtonActionPerformed
 
     private void ContactButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton2ActionPerformed
-        changeCard(getContentPane(), "UserMainPanel", true);
-        changeCard(UserContainerPanel, "UserContactPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "UserContactPanel" );
+        changeCard( view, true );
+        //changeCard(getContentPane(), "UserMainPanel", true);
+        //changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButton2ActionPerformed
 
     private void GatesManagementAdminPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesManagementAdminPanelAncestorAdded
@@ -3798,7 +3900,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
 
     private void CancelAddTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddTerminalButtonActionPerformed
-        changeCard(AttractionManagementAdminPanel, "AttractionListPanel", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AttractionManagementAdminPanel,  "AttractionListPanel");
+        changeCard( view, true );
+        //changeCard(AttractionManagementAdminPanel, "AttractionListPanel", true);
     }//GEN-LAST:event_CancelAddTerminalButtonActionPerformed
 
     private void ProductPriceListAddItemPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductPriceListAddItemPriceActionPerformed
@@ -3989,7 +4093,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void MyCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        changeCard(UserContainerPanel, "userMyCards", true);
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards" );
+        changeCard( view, true );
+        //changeCard(UserContainerPanel, "userMyCards", true);
     }
     /**
      * @param args the command line arguments
@@ -4033,20 +4139,6 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton.addKeyListener(h);
     }
     
-    public void DeleteCardView( int index ) {
-        cardViewList.remove(index);
-        for(int i = index; i < cardViewList.size(); i++)
-        {
-            cardViewList.elementAt(i).SetIndex(i);
-            cardViewList.elementAt(i).SlideUp(25);
-        }
-        int points = ClientController.GetClientPoints(ClientController.GetClientIDFromLogin(SessionController.GetUserLogged()));
-        AvailablePointsTextField.setText(Integer.toString(points));
-        UserMyCardsPanel.repaint();
-        if( !AddCardButton2.isEnabled() )
-            AddCardButton2.setEnabled(true);
-    }
-    
     private void fillPackagesScrollPanel(){
         ProductController productController = new ProductController();
         
@@ -4082,14 +4174,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActionInfoLabel;
-    private javax.swing.JLabel ActivationDateLabel;
     private javax.swing.JLabel ActivationDateLabel1;
     private javax.swing.JTextField ActivationDateTextField1;
     private javax.swing.JTextField ActualizePriceTextField;
     private javax.swing.JButton ActualizeProductButton;
     private javax.swing.JTextField ActualizeProductNameText;
     private javax.swing.JButton AddCardButton1;
-    private javax.swing.JButton AddCardButton2;
     private javax.swing.JButton AddNewProductButton1;
     private javax.swing.JButton AddPointsButton1;
     private javax.swing.JPanel AddPriceList;
@@ -4112,13 +4202,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel AttractionTypeLabel;
     private javax.swing.JTabbedPane AttractionsAndGatesPanel;
     private javax.swing.JPanel AttractionsEditAddPanel;
-    private javax.swing.JLabel AvailablePointsLabel;
     private javax.swing.JLabel AvailablePointsLabel1;
-    private javax.swing.JTextField AvailablePointsTextField;
     private javax.swing.JTextField AvailablePointsTextField1;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
-    private javax.swing.JButton BuyPointsButton;
     private javax.swing.JButton CancelAddTerminalButton;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
@@ -4178,7 +4265,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton EditTerminalButton;
     private javax.swing.JPanel EditUserAdmintPanel;
     private javax.swing.JButton EditUserButton;
-    private javax.swing.JLabel ExpirationDateLabel;
     private javax.swing.JLabel ExpirationDateLabel1;
     private javax.swing.JTextField ExpirationDateTextField1;
     private javax.swing.JButton FindAttractionButton;
@@ -4194,7 +4280,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField IDEditTextfield;
     private javax.swing.JTextField IDEditTextfield1;
     private javax.swing.JTextField IDEditTextfield2;
-    private javax.swing.JLabel IDLabel;
     private javax.swing.JLabel IDLabel1;
     private javax.swing.JTextField IDTextField1;
     private javax.swing.JComboBox LockTimeComboBox1;
@@ -4239,7 +4324,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField PasswordEditTextfield2;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
-    private javax.swing.JLabel PointsLabel;
     private javax.swing.JLabel PointsLabel1;
     private javax.swing.JTextField PointsTextField1;
     private javax.swing.JButton PriceListButton;
@@ -4400,5 +4484,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel pointsPackagesListPane;
     private javax.swing.JScrollPane pointsPackagesListScrollPane;
     // End of variables declaration//GEN-END:variables
-    private Vector<CardView> cardViewList;
+    private Vector<CardView> cardViewList;    
+    private JLabel AvailablePointsLabel;
+    private JLabel IDLabel;
+    private JLabel ActivationDateLabel;
+    private JLabel ExpirationDateLabel;
+    private JLabel PointsLabel;
+    private JTextField AvailablePointsTextField;
+    private JButton BuyPointsButton;
+    private JButton AddCardButton;
 }
