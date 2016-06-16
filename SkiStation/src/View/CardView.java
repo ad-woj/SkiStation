@@ -175,17 +175,21 @@ public class CardView {
         position = RemoveCardButton.getLocation();
         RemoveCardButton.setLocation( position.x, position.y - distance );
     }
+    
+    public void DeleteView(){
+        UserMyCardsPanel.remove(IDTextField);
+        UserMyCardsPanel.remove(ActivationDateTextField);
+        UserMyCardsPanel.remove(ExpirationDateTextField);
+        UserMyCardsPanel.remove(PointsTextField);
+        UserMyCardsPanel.remove(AddPointsButton);
+        UserMyCardsPanel.remove(SubtractPointsButton);
+        UserMyCardsPanel.remove(RemoveCardButton);
+        UserMyCardsPanel.repaint();
+    }
 
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         if( CardController.DeleteCard(Integer.decode(IDTextField.getText())) ) {
-            UserMyCardsPanel.remove(IDTextField);
-            UserMyCardsPanel.remove(ActivationDateTextField);
-            UserMyCardsPanel.remove(ExpirationDateTextField);
-            UserMyCardsPanel.remove(PointsTextField);
-            UserMyCardsPanel.remove(AddPointsButton);
-            UserMyCardsPanel.remove(SubtractPointsButton);
-            UserMyCardsPanel.remove(RemoveCardButton);
-            UserMyCardsPanel.repaint();
+            DeleteView();
             parent.DeleteCardView(myIndex);
         }
     } 
@@ -202,7 +206,7 @@ public class CardView {
             PointsTextField.setText(Integer.toString(points));
             PointsTextField.repaint();
         }
-    } 
+    }
     
     private void AddPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         ignoreTextChange = true;

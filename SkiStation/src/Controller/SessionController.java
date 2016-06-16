@@ -74,4 +74,8 @@ public class SessionController {
     public static void DeleteLastView() {
         previousViews.remove(previousViews.lastElement());
     }
+    
+    public static int GetViewsCount() {
+        return previousViews.size();
+    }
 }

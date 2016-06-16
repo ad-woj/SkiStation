@@ -9,12 +9,13 @@ import Controller.*;
 import DBClasses.*;
 import java.awt.CardLayout;
 import java.awt.Container;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import java.util.List;
 import java.util.Vector;
-import javafx.beans.binding.StringBinding;
 import javax.swing.DefaultListModel;
 import javax.swing.table.*;
 
@@ -323,15 +324,29 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyCardsPanel = new javax.swing.JPanel();
         UserBuyPointsPanel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BuyAndPayButton = new javax.swing.JButton();
         pointsPackagesListScrollPane = new javax.swing.JScrollPane();
         pointsPackagesListPane = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        costSum = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        pointsSum = new javax.swing.JTextField();
+        buyPackagePointsMessage = new javax.swing.JLabel();
+        buyPointsPackageBackButton = new javax.swing.JButton();
         UserContactPanel = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        UserChoosePaymentMethodPanel = new javax.swing.JPanel();
+        BuyAndPayButton1 = new javax.swing.JButton();
+        BuyAndPayButton2 = new javax.swing.JButton();
+        mbankOptionLabel = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        transferujOptionLabel = new javax.swing.JLabel();
+        paypalOptionLabel = new javax.swing.JLabel();
+        BuyAndPayButton3 = new javax.swing.JButton();
+        BuyAndPayButton4 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
         UserMyAccountButton2 = new javax.swing.JButton();
@@ -2359,6 +2374,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane10.setName("jScrollPane10"); // NOI18N
+        jScrollPane10.setOpaque(false);
 
         AttractionListTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2475,7 +2491,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
-        GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -2532,6 +2547,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane6.setName("jScrollPane6"); // NOI18N
+        jScrollPane6.setOpaque(false);
 
         TerminalListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2699,6 +2715,11 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeTrafficButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SlopeTrafficButton.setName("SlopeTrafficButton"); // NOI18N
         SlopeTrafficButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        SlopeTrafficButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SlopeTrafficButtonActionPerformed(evt);
+            }
+        });
         UserMainPanel.add(SlopeTrafficButton);
         SlopeTrafficButton.setBounds(20, 190, 125, 30);
 
@@ -2719,17 +2740,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel28.setText("Wybierz pakiet(y):");
         jLabel28.setName("jLabel28"); // NOI18N
         UserBuyPointsPanel.add(jLabel28);
-        jLabel28.setBounds(200, 70, 150, 22);
+        jLabel28.setBounds(30, 40, 150, 22);
 
-        jButton2.setText("Kupuję i płacę");
-        jButton2.setName("jButton2"); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BuyAndPayButton.setText("Kupuję i płacę");
+        BuyAndPayButton.setName("BuyAndPayButton"); // NOI18N
+        BuyAndPayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BuyAndPayButtonActionPerformed(evt);
             }
         });
-        UserBuyPointsPanel.add(jButton2);
-        jButton2.setBounds(180, 330, 160, 40);
+        UserBuyPointsPanel.add(BuyAndPayButton);
+        BuyAndPayButton.setBounds(290, 250, 160, 40);
 
         pointsPackagesListScrollPane.setBorder(null);
         pointsPackagesListScrollPane.setName("pointsPackagesListScrollPane"); // NOI18N
@@ -2741,18 +2762,61 @@ public class MainWindow extends javax.swing.JFrame {
         pointsPackagesListScrollPane.setViewportView(pointsPackagesListPane);
 
         UserBuyPointsPanel.add(pointsPackagesListScrollPane);
-        pointsPackagesListScrollPane.setBounds(80, 120, 380, 80);
+        pointsPackagesListScrollPane.setBounds(30, 70, 220, 320);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel29.setText("Suma: XXX pkt.  XXX zł");
+        jLabel29.setText("zł");
         jLabel29.setName("jLabel29"); // NOI18N
         UserBuyPointsPanel.add(jLabel29);
-        jLabel29.setBounds(180, 210, 180, 17);
+        jLabel29.setBounds(410, 160, 40, 17);
 
-        jLabel30.setText("// [AW] Jeszcze muszę nad tym popracować.");
-        jLabel30.setName("jLabel30"); // NOI18N
-        UserBuyPointsPanel.add(jLabel30);
-        jLabel30.setBounds(140, 270, 260, 30);
+        costSum.setEditable(false);
+        costSum.setText("0");
+        costSum.setName("costSum"); // NOI18N
+        costSum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                costSumActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(costSum);
+        costSum.setBounds(330, 160, 70, 30);
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel34.setText("pkt.");
+        jLabel34.setName("jLabel34"); // NOI18N
+        UserBuyPointsPanel.add(jLabel34);
+        jLabel34.setBounds(410, 120, 30, 17);
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel35.setText("Podsumowanie:");
+        jLabel35.setName("jLabel35"); // NOI18N
+        UserBuyPointsPanel.add(jLabel35);
+        jLabel35.setBounds(330, 90, 110, 17);
+
+        pointsSum.setEditable(false);
+        pointsSum.setText("0");
+        pointsSum.setName("pointsSum"); // NOI18N
+        pointsSum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pointsSumActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(pointsSum);
+        pointsSum.setBounds(330, 120, 70, 30);
+
+        buyPackagePointsMessage.setName("buyPackagePointsMessage"); // NOI18N
+        UserBuyPointsPanel.add(buyPackagePointsMessage);
+        buyPackagePointsMessage.setBounds(290, 300, 230, 40);
+
+        buyPointsPackageBackButton.setText("Wróć");
+        buyPointsPackageBackButton.setName("buyPointsPackageBackButton"); // NOI18N
+        buyPointsPackageBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyPointsPackageBackButtonActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(buyPointsPackageBackButton);
+        buyPointsPackageBackButton.setBounds(30, 400, 100, 40);
 
         UserContainerPanel.add(UserBuyPointsPanel, "userBuyPoints");
 
@@ -2779,6 +2843,76 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel33.setBounds(30, 50, 300, 50);
 
         UserContainerPanel.add(UserContactPanel, "UserContactPanel");
+
+        UserChoosePaymentMethodPanel.setName("UserChoosePaymentMethodPanel"); // NOI18N
+        UserChoosePaymentMethodPanel.setOpaque(false);
+        UserChoosePaymentMethodPanel.setLayout(null);
+
+        BuyAndPayButton1.setText("Wróć");
+        BuyAndPayButton1.setName("BuyAndPayButton1"); // NOI18N
+        BuyAndPayButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyAndPayButton1ActionPerformed(evt);
+            }
+        });
+        UserChoosePaymentMethodPanel.add(BuyAndPayButton1);
+        BuyAndPayButton1.setBounds(30, 400, 100, 40);
+
+        BuyAndPayButton2.setText("Kupuję i płacę");
+        BuyAndPayButton2.setName("BuyAndPayButton2"); // NOI18N
+        BuyAndPayButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyAndPayButton2ActionPerformed(evt);
+            }
+        });
+        UserChoosePaymentMethodPanel.add(BuyAndPayButton2);
+        BuyAndPayButton2.setBounds(300, 90, 140, 60);
+
+        mbankOptionLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        mbankOptionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/paypal.png"))); // NOI18N
+        mbankOptionLabel.setName("mbankOptionLabel"); // NOI18N
+        UserChoosePaymentMethodPanel.add(mbankOptionLabel);
+        mbankOptionLabel.setBounds(50, 90, 160, 50);
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel38.setText("Wybierz metodę płatności:");
+        jLabel38.setName("jLabel38"); // NOI18N
+        UserChoosePaymentMethodPanel.add(jLabel38);
+        jLabel38.setBounds(30, 40, 240, 22);
+
+        transferujOptionLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        transferujOptionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/transferuj.jpg"))); // NOI18N
+        transferujOptionLabel.setName("transferujOptionLabel"); // NOI18N
+        UserChoosePaymentMethodPanel.add(transferujOptionLabel);
+        transferujOptionLabel.setBounds(50, 280, 250, 50);
+
+        paypalOptionLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        paypalOptionLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mbank.jpg"))); // NOI18N
+        paypalOptionLabel.setName("paypalOptionLabel"); // NOI18N
+        UserChoosePaymentMethodPanel.add(paypalOptionLabel);
+        paypalOptionLabel.setBounds(50, 190, 130, 50);
+
+        BuyAndPayButton3.setText("Kupuję i płacę");
+        BuyAndPayButton3.setName("BuyAndPayButton3"); // NOI18N
+        BuyAndPayButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyAndPayButton3ActionPerformed(evt);
+            }
+        });
+        UserChoosePaymentMethodPanel.add(BuyAndPayButton3);
+        BuyAndPayButton3.setBounds(300, 270, 140, 60);
+
+        BuyAndPayButton4.setText("Kupuję i płacę");
+        BuyAndPayButton4.setName("BuyAndPayButton4"); // NOI18N
+        BuyAndPayButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuyAndPayButton4ActionPerformed(evt);
+            }
+        });
+        UserChoosePaymentMethodPanel.add(BuyAndPayButton4);
+        BuyAndPayButton4.setBounds(300, 180, 140, 60);
+
+        UserContainerPanel.add(UserChoosePaymentMethodPanel, "userChoosePaymentMethod");
 
         UserMainPanel.add(UserContainerPanel);
         UserContainerPanel.setBounds(170, 150, 530, 550);
@@ -3019,7 +3153,7 @@ public class MainWindow extends javax.swing.JFrame {
         ExpirationDateLabel = new JLabel();
         PointsLabel = new JLabel();
         AvailablePointsTextField = new JTextField();
-        BuyPointsButton = new JButton();
+        BuyPointsButton2 = new JButton();
         AddCardButton = new JButton();
         
         AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3080,18 +3214,18 @@ public class MainWindow extends javax.swing.JFrame {
         CardsPanel.add(AvailablePointsTextField);
         AvailablePointsTextField.setBounds(170, 20, 50, 20);
 
-        BuyPointsButton.setText("Kup punkty");
-        BuyPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.setName("BuyPointsButton"); // NOI18N
-        BuyPointsButton.setPreferredSize(new java.awt.Dimension(67, 23));
-        BuyPointsButton.addActionListener(new java.awt.event.ActionListener() {
+        BuyPointsButton2.setText("Kup punkty");
+        BuyPointsButton2.setMaximumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton2.setMinimumSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton2.setName("BuyPointsButton"); // NOI18N
+        BuyPointsButton2.setPreferredSize(new java.awt.Dimension(67, 23));
+        BuyPointsButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuyPointsButtonActionPerformed(evt);
+                BuyPointsButton2ActionPerformed(evt);
             }
         });
-        CardsPanel.add(BuyPointsButton);
-        BuyPointsButton.setBounds(230, 18, 100, 23);
+        CardsPanel.add(BuyPointsButton2);
+        BuyPointsButton2.setBounds(230, 18, 100, 23);
 
         AddCardButton.setText("Dodaj kartę");
         AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3122,13 +3256,15 @@ public class MainWindow extends javax.swing.JFrame {
         CardsPanel.remove(ExpirationDateLabel);
         CardsPanel.remove(PointsLabel);
         CardsPanel.remove(AvailablePointsTextField);
-        CardsPanel.remove(BuyPointsButton);
+        CardsPanel.remove(BuyPointsButton2);
         CardsPanel.remove(AddCardButton);
     }
     
-    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void BuyPointsButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         fillPackagesScrollPanel();
         pointsPackagesListScrollPane.getViewport().setOpaque(false);
+        pointsSum.setText("0");
+        costSum.setText("0");
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "userBuyPoints" );
         changeCard( view, true );
     }
@@ -3248,17 +3384,18 @@ public class MainWindow extends javax.swing.JFrame {
             MessageLabel.setText("");
             view.mainContainer = getContentPane();
             view.containerName = viewPanel.toString();
-            CardLayout loginPaneLayout = (CardLayout) view.mainContainer.getLayout();
 
             if (SessionController.getLoggedUserType() == RegistrationController.UserTypes.Admin) {
                 UserChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to client panel when admin is logged
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
-                AdminPanelBackButton.setVisible(false);
+                AdminPanelBackButton.setVisible(true);
+                AdminPanelBackButton.setEnabled(false);
                 view.card = AdminContainerPanel;
                 view.cardName = "adminMenuPanel";
             } else {
                 UserChangeModeToAdminButton.setVisible(false);
                 CashierChangeModeToAdminButton.setVisible(false);
+                AdminPanelBackButton.setVisible(false);
                 if( SessionController.getLoggedUserType() == RegistrationController.UserTypes.Cashier ) {
                     view.card = CashierContainer;
                     view.cardName = "SearchPanel";
@@ -3342,11 +3479,12 @@ public class MainWindow extends javax.swing.JFrame {
     private void UsersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "userManagmentAdminPanel");
         changeCard(view, true);
-        AdminPanelBackButton.setVisible(true);
+        AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
         MyCardsButton2ActionPerformed(evt);
+        AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_ClientModeButtonActionPerformed
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
@@ -3360,6 +3498,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void UserLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButtonActionPerformed
         RemoveCardPanelComponents( UserMyCardsPanel );
+        for( CardView c : cardViewList ) {
+            c.DeleteView();
+        }
         AdminLogoutButtonActionPerformed(evt);
     }//GEN-LAST:event_UserLogoutButtonActionPerformed
 
@@ -3492,6 +3633,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "SearchPanel");
         changeCard( view, true );
+        AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_CashierModeButtonActionPerformed
 
     private void DocumentEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentEditTextfieldActionPerformed
@@ -3543,9 +3685,21 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void AdminPanelBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelBackButtonActionPerformed
         ViewSwitcher view = SessionController.GetPreviousView();
-        changeCard( view, true );
-//changeCard(AdminContainerPanel, "adminMenuPanel", true);
-        AdminPanelBackButton.setVisible(false);
+        if( view.card != null ) {
+            if (SessionController.IsUserLogged())
+                changeCard( view, false );
+            else {
+                ExitSession();
+                return;
+            }
+            SessionController.DeleteLastView();
+            if( SessionController.GetViewsCount() > 1 ) {
+                if( !AdminPanelBackButton.isEnabled() )
+                    AdminPanelBackButton.setEnabled(true);
+            } else {
+                AdminPanelBackButton.setEnabled(false);
+            }
+        }
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
@@ -3575,7 +3729,7 @@ public class MainWindow extends javax.swing.JFrame {
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "card11");
         changeCard( view, true );
          //changeCard(AdminContainerPanel, "card11", true);
-         AdminPanelBackButton.setVisible(true);
+        AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
@@ -3597,15 +3751,15 @@ public class MainWindow extends javax.swing.JFrame {
             ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "slopeManagmentAdminPanel");
             changeCard( view, true );
             //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
-            AdminPanelBackButton.setVisible(true);
+        AdminPanelBackButton.setEnabled(true);
         }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "AttractionsAndGatesPanel");
+        ViewSwitcher view = new ViewSwitcher( AdminContainerPanel, "AttractionsAndGatesPanel", AttractionManagementAdminPanel, "AttractionListPanel");
         changeCard( view, true );
 //changeCard(AdminContainerPanel, "AttractionsAndGatesPanel", true);
-        AdminPanelBackButton.setVisible(true);
+        AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_GatesButtonActionPerformed
 
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
@@ -3625,7 +3779,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditTerminalButtonActionPerformed
 
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addTerminalPanel");
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addTermianlPanel" );
         changeCard( view, true );
         //changeCard(AdminContainerPanel, "addTerminalPanel", true);
     }//GEN-LAST:event_NewTerminalButtonActionPerformed
@@ -3848,9 +4002,20 @@ public class MainWindow extends javax.swing.JFrame {
         //changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
+               
+    }//GEN-LAST:event_BuyPointsButtonActionPerformed
+
+    private void BuyAndPayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyAndPayButtonActionPerformed
+        if (Integer.parseInt(pointsSum.getText()) != 0) {
+            ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userChoosePaymentMethod");
+            changeCard(view, true);
+            //changeCard(UserContainerPanel, "userChoosePaymentMethod", true);
+            buyPackagePointsMessage.setText("");
+        } else {
+            buyPackagePointsMessage.setText("Choose at least one package");
+        }
+    }//GEN-LAST:event_BuyAndPayButtonActionPerformed
 
     private void CashierRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierRadioActionPerformed
         // TODO add your handling code here:
@@ -3861,7 +4026,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditAttractionButtonActionPerformed
 
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AttractionManagementAdminPanel, "AttractionsEditAddPanel" );
+        ViewSwitcher view = new ViewSwitcher( AdminContainerPanel, "AttractionsAndGatesPanel", AttractionManagementAdminPanel, "AttractionsEditAddPanel" );
         changeCard( view, true );
         //changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
@@ -3887,6 +4052,17 @@ public class MainWindow extends javax.swing.JFrame {
         //changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButton2ActionPerformed
 
+    private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SlopeTrafficButtonActionPerformed
+
+    private void costSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costSumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_costSumActionPerformed
+
+    private void pointsSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointsSumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pointsSumActionPerformed
     private void GatesManagementAdminPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesManagementAdminPanelAncestorAdded
         FillTerminalList("");
     }//GEN-LAST:event_GatesManagementAdminPanelAncestorAdded
@@ -4051,6 +4227,38 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ProductFindTextInputMethodTextChanged
 
+    private void BuyAndPayButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyAndPayButton1ActionPerformed
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userBuyPoints");
+        changeCard(view, true);
+        //changeCard(UserContainerPanel, "userBuyPoints", true);
+    }//GEN-LAST:event_BuyAndPayButton1ActionPerformed
+
+    private void BuyAndPayButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyAndPayButton2ActionPerformed
+        String loggedUser = SessionController.GetUserLogged();
+        int clientId = ClientController.GetClientIDFromLogin(loggedUser);
+        
+        ClientController.UpdateClientPoints(loggedUser, ClientController.GetClientPoints(clientId)+ Integer.parseInt(pointsSum.getText()));
+        
+        AvailablePointsTextField.setText(Integer.toString(ClientController.GetClientPoints(clientId)));
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards");
+        changeCard(view, true);
+        //changeCard(UserContainerPanel, "userMyCards", true);
+    }//GEN-LAST:event_BuyAndPayButton2ActionPerformed
+
+    private void BuyAndPayButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyAndPayButton3ActionPerformed
+        BuyAndPayButton2ActionPerformed(evt);
+    }//GEN-LAST:event_BuyAndPayButton3ActionPerformed
+
+    private void BuyAndPayButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyAndPayButton4ActionPerformed
+        BuyAndPayButton2ActionPerformed(evt);
+    }//GEN-LAST:event_BuyAndPayButton4ActionPerformed
+
+    private void buyPointsPackageBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyPointsPackageBackButtonActionPerformed
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards");
+        changeCard(view, true);
+        //changeCard(UserContainerPanel, "userMyCards", true);
+    }//GEN-LAST:event_buyPointsPackageBackButtonActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -4140,6 +4348,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void fillPackagesScrollPanel(){
+        pointsPackagesListPane.removeAll(); // Clearing panel
+        
         ProductController productController = new ProductController();
         
         List packages = productController.getProductList("pointsPackage");
@@ -4149,11 +4359,24 @@ public class MainWindow extends javax.swing.JFrame {
             String valueStr = product.getName().replace("pointsPackage", "");
 
             try {
-                int value = Integer.parseInt(valueStr);
-                int packagePrice = productController.getActualProductPrice(product);
-                if (value > 0 && packagePrice > 0) {
-                    JCheckBox checkBox = new JCheckBox(Integer.toString(value) + " pkt. - "
+                final int packageValue = Integer.parseInt(valueStr);
+                final int packagePrice = productController.getActualProductPrice(product);
+                if (packageValue > 0 && packagePrice > 0) {
+                    JCheckBox checkBox = new JCheckBox(Integer.toString(packageValue) + " pkt. - "
                             + Integer.toString(packagePrice) + " zł");
+                    
+                    checkBox.addItemListener(new ItemListener() {
+                        @Override
+                        public void itemStateChanged(ItemEvent e) {
+                            if (e.getStateChange() == ItemEvent.SELECTED){
+                                pointsSum.setText( Integer.toString( Integer.parseInt(pointsSum.getText()) + packageValue) );
+                                costSum.setText( Integer.toString( Integer.parseInt(costSum.getText()) + packagePrice) );
+                            } else {
+                                pointsSum.setText( Integer.toString( Integer.parseInt(pointsSum.getText()) - packageValue) );
+                                costSum.setText( Integer.toString( Integer.parseInt(costSum.getText()) - packagePrice) );
+                            }
+                        }
+                    });
 
                     JLabel priceLabel = new JLabel(Integer.toString(packagePrice));
                     priceLabel.setVisible(false);
@@ -4206,6 +4429,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField AvailablePointsTextField1;
     private javax.swing.JButton BackButton;
     private javax.swing.JLabel BackgroundImageLabel;
+    private javax.swing.JButton BuyAndPayButton;
+    private javax.swing.JButton BuyAndPayButton1;
+    private javax.swing.JButton BuyAndPayButton2;
+    private javax.swing.JButton BuyAndPayButton3;
+    private javax.swing.JButton BuyAndPayButton4;
     private javax.swing.JButton CancelAddTerminalButton;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
@@ -4404,6 +4632,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel UserBackgroundLabel3;
     private javax.swing.JPanel UserBuyPointsPanel;
     private javax.swing.JButton UserChangeModeToAdminButton;
+    private javax.swing.JPanel UserChoosePaymentMethodPanel;
     private javax.swing.JPanel UserContactPanel;
     private javax.swing.JPanel UserContainerPanel;
     private javax.swing.JButton UserLogoutButton;
@@ -4417,10 +4646,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JTextField UserSearchInputTextField;
     private javax.swing.JButton UsersButton;
+    private javax.swing.JLabel buyPackagePointsMessage;
+    private javax.swing.JButton buyPointsPackageBackButton;
+    private javax.swing.JTextField costSum;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
@@ -4447,10 +4678,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -4478,11 +4711,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel mbankOptionLabel;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
+    private javax.swing.JLabel paypalOptionLabel;
     private javax.swing.JPanel pointsPackagesListPane;
     private javax.swing.JScrollPane pointsPackagesListScrollPane;
+    private javax.swing.JTextField pointsSum;
+    private javax.swing.JLabel transferujOptionLabel;
     // End of variables declaration//GEN-END:variables
     private Vector<CardView> cardViewList;    
     private JLabel AvailablePointsLabel;
@@ -4491,6 +4728,6 @@ public class MainWindow extends javax.swing.JFrame {
     private JLabel ExpirationDateLabel;
     private JLabel PointsLabel;
     private JTextField AvailablePointsTextField;
-    private JButton BuyPointsButton;
+    private JButton BuyPointsButton2;
     private JButton AddCardButton;
 }
