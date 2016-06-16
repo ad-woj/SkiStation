@@ -23,6 +23,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
 import Model.ViewSwitcher;
+import Model.AccountInfo;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -3009,6 +3010,9 @@ public class MainWindow extends javax.swing.JFrame {
         MyAccountPanel.add(IDEditLabel);
         IDEditLabel.setBounds(230, 250, 50, 30);
 
+        IDEditTextfield.setEditable(false);
+        IDEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
+        IDEditTextfield.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         IDEditTextfield.setName("IDEditTextfield"); // NOI18N
         IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3274,7 +3278,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void AddCard() {
-        Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails().getUserid(), 0, new StringBuilder());
+        Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails(new String()).getUserid(), 0, new StringBuilder());
         if( card != null )
             AddCardView( card, (JPanel)AddCardButton.getParent() );
     }
@@ -3509,7 +3513,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UserLogoutButton2ActionPerformed
 
     private void UserMyAccountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButton2ActionPerformed
-        UserMyAccountButtonActionPerformed(evt);
+        //UserMyAccountButtonActionPerformed(evt);
     }//GEN-LAST:event_UserMyAccountButton2ActionPerformed
 
     private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
@@ -3520,30 +3524,50 @@ public class MainWindow extends javax.swing.JFrame {
     private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher(getContentPane(), "myAccountPanel");
         changeCard(view, true);
+        SetAccountInfo( new String());
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
-    private void SetAccountInfo() {
-        Users user = MyAccountController.GetAccountDetails();
+    private void SetAccountInfo( String login ) {
+        AccountInfo user = MyAccountController.GetAccountInfoString( login );
         if (user == null) {
             return;
         }
-        IDEditTextfield.setEnabled(true);
-        IDEditTextfield.setText(Integer.toString((user.getUserid())));
-        IDEditTextfield.setEnabled(false);
-        LoginEditTextfield.setText(user.getLogin());
-        LoginEditTextfield.setEditable(false);
-        NameEditTextfield.setText(user.getName());
-        NameEditTextfield.setEditable(false);
-        SurnameEditTextfield.setText(user.getSurname());
-        SurnameEditTextfield.setEditable(false);
-        StreetEditTextfield.setText(user.getAddresses().getStreet());
-        StreetEditTextfield.setEditable(false);
-        CityEditTextfield.setText(user.getAddresses().getCity());
-        CityEditTextfield.setEditable(false);
-        CountryEditTextfield.setText(user.getAddresses().getCountry());
-        CountryEditTextfield.setEditable(false);
-        DocumentEditTextfield.setText(user.getAddresses().getCountry());
-        DocumentEditTextfield.setEditable(false);
+        IDEditTextfield.setText(user.userID);
+        LoginEditTextfield.setText(user.login);
+        NameEditTextfield.setText(user.name);
+        SurnameEditTextfield.setText(user.surname);
+        StreetEditTextfield.setText(user.street);
+        CityEditTextfield.setText(user.city);
+        CountryEditTextfield.setText(user.country);
+        DocumentEditTextfield.setText(user.documentNumber);
+        SetFieldsEnabledAndColor( false, new java.awt.Color(245,245,245));
+    }
+    
+    public void SetFieldsEnabledAndColor( Boolean enabled, java.awt.Color color) {
+        java.awt.Color black = new java.awt.Color(0, 0, 0);
+        IDEditTextfield.setDisabledTextColor(black);
+        IDEditTextfield.setBackground(color);
+        LoginEditTextfield.setEditable(enabled);
+        LoginEditTextfield.setDisabledTextColor(black);
+        LoginEditTextfield.setBackground(color);
+        NameEditTextfield.setEditable(enabled);
+        NameEditTextfield.setDisabledTextColor(black);
+        NameEditTextfield.setBackground(color);
+        SurnameEditTextfield.setEditable(enabled);
+        SurnameEditTextfield.setDisabledTextColor(black);
+        SurnameEditTextfield.setBackground(color);
+        StreetEditTextfield.setEditable(enabled);
+        StreetEditTextfield.setDisabledTextColor(black);
+        StreetEditTextfield.setBackground(color);
+        CityEditTextfield.setEditable(enabled);
+        CityEditTextfield.setDisabledTextColor(black);
+        CityEditTextfield.setBackground(color);
+        CountryEditTextfield.setEditable(enabled);
+        CountryEditTextfield.setDisabledTextColor(black);
+        CountryEditTextfield.setBackground(color);
+        DocumentEditTextfield.setEditable(enabled);
+        DocumentEditTextfield.setDisabledTextColor(black);
+        DocumentEditTextfield.setBackground(color);
     }
 
     private void IDEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfieldActionPerformed
@@ -3555,15 +3579,8 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
-        EditMessageLabel.setText(MyAccountController.UpdateAccountDetails(GetDataFromTextfields()));
-        PasswordEditTextfield.setEnabled(false);
-        LoginEditTextfield.setEditable(false);
-        NameEditTextfield.setEditable(false);
-        SurnameEditTextfield.setEditable(false);
-        StreetEditTextfield.setEditable(false);
-        CityEditTextfield.setEditable(false);
-        CountryEditTextfield.setEditable(false);
-        SaveDetailsButton.setEnabled(false);
+        EditMessageLabel.setText(MyAccountController.UpdateAccountDetails(GetDataFromTextfields(), new String()));
+        SetFieldsEnabledAndColor( false, new java.awt.Color(245,245,245));
         CancelButton.setEnabled(false);
         DocumentEditTextfield.setEnabled(false);
     }//GEN-LAST:event_SaveDetailsButtonActionPerformed
@@ -3584,16 +3601,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
     private void EditDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButtonActionPerformed
         if (SessionController.IsUserLogged()) {
-            LoginEditTextfield.setEditable(false);
-            PasswordEditTextfield.setEditable(true);
-            NameEditTextfield.setEditable(true);
-            SurnameEditTextfield.setEditable(true);
-            StreetEditTextfield.setEditable(true);
-            CityEditTextfield.setEditable(true);
-            CountryEditTextfield.setEditable(true);
-            SaveDetailsButton.setEnabled(true);
+            SetFieldsEnabledAndColor( true, new java.awt.Color(255,255,255));
             CancelButton.setEnabled(true);
-            DocumentEditTextfield.setEnabled(true);
+            SaveDetailsButton.setEnabled(true);
         } else {
             ExitSession();
         }
@@ -3608,7 +3618,7 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
-        SetAccountInfo();
+        SetAccountInfo(new String());
         SaveDetailsButton.setEnabled(false);
         CancelButton.setEnabled(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
@@ -4053,7 +4063,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ContactButton2ActionPerformed
 
     private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_SlopeTrafficButtonActionPerformed
 
     private void costSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costSumActionPerformed
