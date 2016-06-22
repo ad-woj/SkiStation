@@ -170,7 +170,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<String>();
+        ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -281,6 +281,12 @@ public class MainWindow extends javax.swing.JFrame {
         jSplitPane6 = new javax.swing.JSplitPane();
         jButton6 = new javax.swing.JButton();
         PriceListFindText = new javax.swing.JTextField();
+        jSplitPane7 = new javax.swing.JSplitPane();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        CurrentPricesTable = new javax.swing.JTable();
+        jSplitPane8 = new javax.swing.JSplitPane();
+        jButton7 = new javax.swing.JButton();
+        CurrentPriceFindText = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -2265,6 +2271,74 @@ public class MainWindow extends javax.swing.JFrame {
         jSplitPane5.setLeftComponent(jSplitPane6);
 
         ProductsTables.addTab("Cennik", jSplitPane5);
+
+        jSplitPane7.setDividerLocation(30);
+        jSplitPane7.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane7.setName("jSplitPane7"); // NOI18N
+
+        jScrollPane9.setName("jScrollPane9"); // NOI18N
+
+        CurrentPricesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Produktu", "Nazwa", "Cena"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        CurrentPricesTable.setName("CurrentPricesTable"); // NOI18N
+        CurrentPricesTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                CurrentPricesTableAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane9.setViewportView(CurrentPricesTable);
+
+        jSplitPane7.setBottomComponent(jScrollPane9);
+
+        jSplitPane8.setDividerLocation(360);
+        jSplitPane8.setName("jSplitPane8"); // NOI18N
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
+        jButton7.setName("jButton7"); // NOI18N
+        jSplitPane8.setRightComponent(jButton7);
+
+        CurrentPriceFindText.setName("CurrentPriceFindText"); // NOI18N
+        CurrentPriceFindText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CurrentPriceFindTextKeyReleased(evt);
+            }
+        });
+        jSplitPane8.setLeftComponent(CurrentPriceFindText);
+
+        jSplitPane7.setLeftComponent(jSplitPane8);
+
+        ProductsTables.addTab("Aktualne ceny", jSplitPane7);
 
         ProductsManagmentAdminPanel.add(ProductsTables);
         ProductsTables.setBounds(10, 20, 410, 320);
@@ -4271,6 +4345,24 @@ public class MainWindow extends javax.swing.JFrame {
         //changeCard(UserContainerPanel, "userMyCards", true);
     }//GEN-LAST:event_buyPointsPackageBackButtonActionPerformed
 
+    private void CurrentPriceFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CurrentPriceFindTextKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CurrentPriceFindTextKeyReleased
+
+    private void CurrentPricesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CurrentPricesTableAncestorAdded
+        ProductController pd = new ProductController();
+        List products = pd.getProductList();
+        
+        DefaultTableModel model = (DefaultTableModel) CurrentPricesTable.getModel();
+        model.setRowCount(0);
+
+        for (Object productObject : products) {
+            Product product = (Product)productObject;
+            int price = pd.getActualProductPrice(product);
+            model.addRow(new Object[]{ product.getProductid(),product.getName(), price });
+        }
+    }//GEN-LAST:event_CurrentPricesTableAncestorAdded
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -4481,6 +4573,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CountryEditTextfield1;
     private javax.swing.JTextField CountryEditTextfield2;
     private javax.swing.JLabel CreateAccountLink;
+    private javax.swing.JTextField CurrentPriceFindText;
+    private javax.swing.JTable CurrentPricesTable;
     private javax.swing.JButton DeleteUserButton;
     private javax.swing.JTextField DocumentEditTextfield;
     private javax.swing.JTextField DocumentEditTextfield1;
@@ -4665,6 +4759,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -4713,10 +4808,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JSplitPane jSplitPane5;
     private javax.swing.JSplitPane jSplitPane6;
+    private javax.swing.JSplitPane jSplitPane7;
+    private javax.swing.JSplitPane jSplitPane8;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
