@@ -64,6 +64,10 @@ public class CashierController {
         SetText(textPane);
     }
     
+    public static String GetSelectedUser() {
+        return selectedUser != null ? selectedUser.getLogin() : null;
+    }
+    
     public void SetSelectedUserWithString(String newUserString, JTextPane textPane)
     {
         String convertedString = newUserString.subSequence(newUserString.indexOf("(") + 1, newUserString.indexOf(")")).toString();              
@@ -137,4 +141,5 @@ public class CashierController {
 
          return traffic;
     }
+    
 }
