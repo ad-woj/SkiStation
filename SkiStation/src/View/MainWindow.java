@@ -3489,6 +3489,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
         MyCardsButton2ActionPerformed(evt);
         AdminPanelBackButton.setEnabled(true);
+        DisplayCards(UserMyCardsPanel);
     }//GEN-LAST:event_ClientModeButtonActionPerformed
 
     private void AdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutButtonActionPerformed
@@ -3943,7 +3944,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void ClientCardsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientCardsButton1ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ClientCardsPanel" );
-        changeCard( view, true );   
+        changeCard( view, true ); 
+        DisplayCards(UserMyCardsPanel);
         //changeCard(CashierContainer, "ClientCardsPanel", true);
     }//GEN-LAST:event_ClientCardsButton1ActionPerformed
 
