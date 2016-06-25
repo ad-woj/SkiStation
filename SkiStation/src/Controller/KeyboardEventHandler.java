@@ -35,7 +35,7 @@ public class KeyboardEventHandler implements KeyListener {
             mainWindow.PerformLoginAction();
             break;
         case "RegisterButton":
-            mainWindow.PerformRegisterAction();
+            mainWindow.register();
             break;
         case "BackButton":
             mainWindow.PreviewView();

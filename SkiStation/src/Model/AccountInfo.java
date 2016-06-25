@@ -18,6 +18,7 @@ public class AccountInfo {
     public String street;
     public String city;
     public String country;
+    public String password;
     
     public AccountInfo() {
         name = new String();
@@ -28,5 +29,6 @@ public class AccountInfo {
         street = new String();
         city = new String();
         country = new String();
+        password = new String();
     }
 }

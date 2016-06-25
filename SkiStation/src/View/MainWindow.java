@@ -11,6 +11,7 @@ import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -130,20 +131,19 @@ public class MainWindow extends javax.swing.JFrame {
         SurnameEditTextfield1 = new javax.swing.JTextField();
         NameEditLabel1 = new javax.swing.JLabel();
         SurnameEditLabel1 = new javax.swing.JLabel();
-        IDEditLabel1 = new javax.swing.JLabel();
-        IDEditTextfield1 = new javax.swing.JTextField();
         StreetEditTextfield1 = new javax.swing.JTextField();
         CityEditTextfield1 = new javax.swing.JTextField();
         CountryEditTextfield1 = new javax.swing.JTextField();
         StreetEditLabel1 = new javax.swing.JLabel();
         CityEditLabel1 = new javax.swing.JLabel();
         CountryEditLabel1 = new javax.swing.JLabel();
-        EditDetailsButton1 = new javax.swing.JButton();
         SaveDetailsButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         CancelButton1 = new javax.swing.JButton();
         EditMessageLabel1 = new javax.swing.JLabel();
         DocumentEditTextfield1 = new javax.swing.JTextField();
+        PasswordEditTextfield3 = new javax.swing.JTextField();
+        EditPasswordLabel3 = new javax.swing.JLabel();
         ClientCardsPanel = new javax.swing.JPanel();
         StationTrafficPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -816,6 +816,7 @@ public class MainWindow extends javax.swing.JFrame {
         NewClientAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
         NewClientAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
         NewClientAccountPanel.setName(""); // NOI18N
+        NewClientAccountPanel.setOpaque(false);
         NewClientAccountPanel.setLayout(null);
 
         MyAccountLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -828,20 +829,18 @@ public class MainWindow extends javax.swing.JFrame {
         EditLoginLabel1.setText("Login");
         EditLoginLabel1.setName("EditLoginLabel1"); // NOI18N
         NewClientAccountPanel.add(EditLoginLabel1);
-        EditLoginLabel1.setBounds(10, 100, 80, 30);
+        EditLoginLabel1.setBounds(10, 70, 80, 30);
 
         EditPasswordLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        EditPasswordLabel1.setText("Hasło");
+        EditPasswordLabel1.setText("Powtórz hasło");
         EditPasswordLabel1.setName("EditPasswordLabel1"); // NOI18N
         NewClientAccountPanel.add(EditPasswordLabel1);
-        EditPasswordLabel1.setBounds(10, 130, 80, 30);
+        EditPasswordLabel1.setBounds(10, 130, 100, 30);
 
         LoginEditTextfield1.setName("LoginEditTextfield1"); // NOI18N
         NewClientAccountPanel.add(LoginEditTextfield1);
-        LoginEditTextfield1.setBounds(110, 100, 180, 30);
+        LoginEditTextfield1.setBounds(110, 70, 180, 30);
 
-        PasswordEditTextfield1.setEditable(false);
-        PasswordEditTextfield1.setText("*****");
         PasswordEditTextfield1.setName("PasswordEditTextfield1"); // NOI18N
         NewClientAccountPanel.add(PasswordEditTextfield1);
         PasswordEditTextfield1.setBounds(110, 130, 180, 30);
@@ -865,21 +864,6 @@ public class MainWindow extends javax.swing.JFrame {
         SurnameEditLabel1.setName("SurnameEditLabel1"); // NOI18N
         NewClientAccountPanel.add(SurnameEditLabel1);
         SurnameEditLabel1.setBounds(10, 190, 80, 30);
-
-        IDEditLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        IDEditLabel1.setText("ID");
-        IDEditLabel1.setName("IDEditLabel1"); // NOI18N
-        NewClientAccountPanel.add(IDEditLabel1);
-        IDEditLabel1.setBounds(10, 70, 80, 30);
-
-        IDEditTextfield1.setName("IDEditTextfield1"); // NOI18N
-        IDEditTextfield1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDEditTextfield1ActionPerformed(evt);
-            }
-        });
-        NewClientAccountPanel.add(IDEditTextfield1);
-        IDEditTextfield1.setBounds(110, 70, 180, 30);
 
         StreetEditTextfield1.setName("StreetEditTextfield1"); // NOI18N
         NewClientAccountPanel.add(StreetEditTextfield1);
@@ -911,18 +895,7 @@ public class MainWindow extends javax.swing.JFrame {
         NewClientAccountPanel.add(CountryEditLabel1);
         CountryEditLabel1.setBounds(10, 310, 80, 30);
 
-        EditDetailsButton1.setText("Edytuj Dane");
-        EditDetailsButton1.setName("EditDetailsButton1"); // NOI18N
-        EditDetailsButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditDetailsButton1ActionPerformed(evt);
-            }
-        });
-        NewClientAccountPanel.add(EditDetailsButton1);
-        EditDetailsButton1.setBounds(110, 360, 180, 23);
-
         SaveDetailsButton1.setText("Zapisz");
-        SaveDetailsButton1.setEnabled(false);
         SaveDetailsButton1.setName("SaveDetailsButton1"); // NOI18N
         SaveDetailsButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -930,7 +903,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         NewClientAccountPanel.add(SaveDetailsButton1);
-        SaveDetailsButton1.setBounds(210, 390, 80, 23);
+        SaveDetailsButton1.setBounds(210, 360, 80, 23);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Nr dokumentu");
@@ -939,7 +912,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel11.setBounds(10, 220, 100, 30);
 
         CancelButton1.setText("Anuluj");
-        CancelButton1.setEnabled(false);
         CancelButton1.setName("CancelButton1"); // NOI18N
         CancelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -947,16 +919,26 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         NewClientAccountPanel.add(CancelButton1);
-        CancelButton1.setBounds(110, 390, 73, 23);
+        CancelButton1.setBounds(110, 360, 73, 23);
 
         EditMessageLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditMessageLabel1.setName("EditMessageLabel1"); // NOI18N
         NewClientAccountPanel.add(EditMessageLabel1);
-        EditMessageLabel1.setBounds(110, 420, 180, 20);
+        EditMessageLabel1.setBounds(110, 390, 180, 20);
 
         DocumentEditTextfield1.setName("DocumentEditTextfield1"); // NOI18N
         NewClientAccountPanel.add(DocumentEditTextfield1);
         DocumentEditTextfield1.setBounds(110, 220, 180, 30);
+
+        PasswordEditTextfield3.setName("PasswordEditTextfield3"); // NOI18N
+        NewClientAccountPanel.add(PasswordEditTextfield3);
+        PasswordEditTextfield3.setBounds(110, 100, 180, 30);
+
+        EditPasswordLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditPasswordLabel3.setText("Hasło");
+        EditPasswordLabel3.setName("EditPasswordLabel3"); // NOI18N
+        NewClientAccountPanel.add(EditPasswordLabel3);
+        EditPasswordLabel3.setBounds(10, 100, 80, 30);
 
         CashierContainer.add(NewClientAccountPanel, "NewClientAccountPanel");
 
@@ -1079,6 +1061,8 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel.add(SearchButton2);
         SearchButton2.setBounds(220, 10, 70, 40);
 
+        CardScanStatusTextField.setEditable(false);
+        CardScanStatusTextField.setBackground(new java.awt.Color(255, 255, 255));
         CardScanStatusTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CardScanStatusTextField.setText("Skanuj");
         CardScanStatusTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1208,6 +1192,7 @@ public class MainWindow extends javax.swing.JFrame {
         SelectedUserPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SelectedUserPanel.setName("SelectedUserPanel"); // NOI18N
 
+        SelecetedUserTextPlane.setEditable(false);
         SelecetedUserTextPlane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         SelecetedUserTextPlane.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SelecetedUserTextPlane.setText("Użytkownik: brak");
@@ -3287,6 +3272,13 @@ public class MainWindow extends javax.swing.JFrame {
         view.containerName = "register";
         changeCard( view, false );
         RegisterMessageLabel.setText("");
+        Name.setText("");
+        Surname.setText("");
+        LoginTextField1.setText("");
+        DocumentNumber.setText("");
+        Street.setText("");
+        City.setText("");
+        Country.setText("");
     }//GEN-LAST:event_CreateAccountLinkMouseClicked
 
     private void LoginTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField1ActionPerformed
@@ -3372,34 +3364,48 @@ public class MainWindow extends javax.swing.JFrame {
         loginPaneLayout.show(getContentPane(), "login");
         MessageLabel.setText("");
     }
+    
+    public void register() {
+        RegisterButtonActionPerformed( null );
+    }
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
-        PerformRegisterAction();
+        String errorMessage;
+        if (RepeatPassword.getText().compareTo(Password.getText()) == 0) {
+            AccountInfo info = new AccountInfo();
+            info.name = Name.getText();
+            info.surname = Surname.getText();
+            info.login = LoginTextField1.getText();
+            info.documentNumber = DocumentNumber.getText();
+            info.street = Street.getText();
+            info.city = City.getText();
+            info.country = Country.getText();
+            info.password = Password.getText();
+            errorMessage = PerformRegisterAction( info, true );
+            MessageLabel.setText("");
+        } else {
+            errorMessage = "Błędnie powtórzone hasło";
+        }
+        RegisterMessageLabel.setText(errorMessage);
+        Password.setText("");
+        RepeatPassword.setText("");
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
-    public void PerformRegisterAction() {
+    public String PerformRegisterAction( AccountInfo info, Boolean changeCard ) {
 
         RegistrationController regController = new RegistrationController();
         String errorMessage = "";
         Boolean isSuccess;
-        if (RepeatPassword.getText().compareTo(Password.getText()) == 0) {
-            isSuccess = regController.register(Name.getText(), Surname.getText(), City.getText(), Country.getText(), Street.getText(), LoginTextField1.getText(), new String(Password.getPassword()), DocumentNumber.getText());
-            if (isSuccess) {
-                MessageLabel.setText("");
+        isSuccess = regController.register(info.name, info.surname, info.city, info.country, info.street, info.login, info.password, info.documentNumber );
+        if (isSuccess) {
+            if( changeCard ) {
                 CardLayout loginPaneLayout = (CardLayout) getContentPane().getLayout();
                 loginPaneLayout.show(getContentPane(), "login");
-                return;
-            } else {
-                LoginTextField1.setText("");
-                errorMessage = "Wybierz inny login";
             }
+            return "Konto utworzone";
         } else {
-            errorMessage = "Błędnie powtórzone hasło";
+            return "Wybierz inny login";
         }
-
-        RegisterMessageLabel.setText(errorMessage);
-        Password.setText("");
-        RepeatPassword.setText("");
     }
 
     private String getSelectedButtonText(ButtonGroup buttonGroup) {
@@ -3552,20 +3558,29 @@ public class MainWindow extends javax.swing.JFrame {
         CancelButton.setEnabled(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
-    private void IDEditTextfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDEditTextfield1ActionPerformed
-
-    private void EditDetailsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditDetailsButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditDetailsButton1ActionPerformed
-
     private void SaveDetailsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveDetailsButton1ActionPerformed
-        // TODO add your handling code here:
+        String message;
+        if( PasswordEditTextfield1.getText().contentEquals(PasswordEditTextfield3.getText()) ) {
+            AccountInfo info = new AccountInfo();
+            info.name = NameEditTextfield1.getText();
+            info.surname = SurnameEditTextfield.getText();
+            info.login = LoginEditTextfield1.getText();
+            info.password = PasswordEditTextfield1.getText();
+            info.documentNumber = DocumentEditTextfield1.getText();
+            info.street = StreetEditTextfield1.getText();
+            info.city = CityEditTextfield1.getText();
+            info.country = CountryEditTextfield1.getText();
+            message = PerformRegisterAction( info, false );
+        } else {
+            message = "Błędnie powtórzone hasło";
+        }
+        EditMessageLabel1.setText(message);
+        PasswordEditTextfield1.setText("");
+        PasswordEditTextfield3.setText("");
     }//GEN-LAST:event_SaveDetailsButton1ActionPerformed
 
     private void CancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButton1ActionPerformed
-        // TODO add your handling code here:
+        changeCard( SessionController.GetPreviousView(), true );
     }//GEN-LAST:event_CancelButton1ActionPerformed
 
     private void CashierModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierModeButtonActionPerformed
@@ -3777,7 +3792,17 @@ public class MainWindow extends javax.swing.JFrame {
     private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "NewClientAccountPanel" );
         changeCard( view, true );
-        //changeCard(CashierContainer, "NewClientAccountPanel", true);
+        
+        NameEditTextfield1.setText("");
+        SurnameEditTextfield1.setText("");
+        LoginEditTextfield1.setText("");
+        PasswordEditTextfield1.setText("");
+        PasswordEditTextfield3.setText("");
+        DocumentEditTextfield1.setText("");
+        StreetEditTextfield1.setText("");
+        CityEditTextfield1.setText("");
+        CountryEditTextfield1.setText("");
+        EditMessageLabel1.setText("");
     }//GEN-LAST:event_NewAccountButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -4454,7 +4479,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton EditAttractionButton;
     private javax.swing.JButton EditClientButton;
     private javax.swing.JButton EditDetailsButton;
-    private javax.swing.JButton EditDetailsButton1;
     private javax.swing.JButton EditDetailsButton2;
     private javax.swing.JLabel EditLoginLabel;
     private javax.swing.JLabel EditLoginLabel1;
@@ -4465,6 +4489,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel EditPasswordLabel;
     private javax.swing.JLabel EditPasswordLabel1;
     private javax.swing.JLabel EditPasswordLabel2;
+    private javax.swing.JLabel EditPasswordLabel3;
     private javax.swing.JButton EditProductButton;
     private javax.swing.JPanel EditProductPanel;
     private javax.swing.JButton EditTerminalButton;
@@ -4478,10 +4503,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
     private javax.swing.JLabel IDEditLabel;
-    private javax.swing.JLabel IDEditLabel1;
     private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
-    private javax.swing.JTextField IDEditTextfield1;
     private javax.swing.JTextField IDEditTextfield2;
     private javax.swing.JComboBox LockTimeComboBox1;
     private javax.swing.JLabel LockTimeLabel;
@@ -4522,6 +4545,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField PasswordEditTextfield;
     private javax.swing.JTextField PasswordEditTextfield1;
     private javax.swing.JTextField PasswordEditTextfield2;
+    private javax.swing.JTextField PasswordEditTextfield3;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JButton PriceListButton;
