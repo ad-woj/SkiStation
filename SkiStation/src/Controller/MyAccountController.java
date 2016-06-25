@@ -25,7 +25,7 @@ public class MyAccountController {
         
         Session s = HibernateUtil.getSessionFactory().openSession();
         if( login.isEmpty() )
-            login = SessionController.GetUserLogged();
+            return null;
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s'", login) );
         if( query.list().isEmpty() || login.equals("") )
             return new Users();
@@ -68,28 +68,16 @@ public class MyAccountController {
     
     public static AccountInfo GetAccountInfoString( String login ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        if( login.isEmpty() )
-            login = SessionController.GetUserLogged();
         AccountInfo info = new AccountInfo();
-        if( login.isEmpty() )
-            login = SessionController.GetUserLogged();
+        if( login == null || login.isEmpty() )
+            return info;
         
         Query query = s.createQuery(String.format("FROM Users U WHERE U.login = '%s'", login) );
         if( query.list().isEmpty() || login.equals("") )
             return info;
-        Users user;
-        Employees employee= null;
-            
-        user = (Users)query.list().get(0);
-        Query query2 = s.createQuery(String.format("FROM Employees E WHERE E.users = '%d'",user.getUserid()));
-            
-        if(query2.list().size() > 0)
-        {
-            employee =  (Employees)query2.list().get(0);
-        }
-        if (employee != null) {
-            user.setUserid( employee.getEmployeeid() );
-        }
+        
+        Users user = (Users)query.list().get(0);
+        
         info.name = user.getName();
         info.surname = user.getSurname();
         info.login = user.getLogin();
@@ -99,20 +87,29 @@ public class MyAccountController {
             info.street = address.getStreet();
             info.city = address.getCity();
             info.country = address.getCountry();
-        } else {
-            info.street = "";
-            info.city = "";
-            info.country = "";
         }
         s.close();
         return info;
     }
-      
     
-    public static String UpdateAccountDetails( Users newUser, String login ){
-        Users oldUser = GetAccountDetails( login );
-        UpdateUserAddress( newUser.getAddresses(), login );
+    public static String GetLoginFromID( int userID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
+        Query query = s.createQuery(String.format("FROM Users U WHERE U.userid = '%s'", userID) );
+        if( query.list().isEmpty() )
+            return null;
+        Users user = (Users)query.list().get(0);
+        String login = user.getLogin();
+        s.close();
+        return login;
+    }      
+    
+    public static String UpdateAccountDetails( Users newUser, int userID ){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        String login = GetLoginFromID( userID );
+        Users oldUser = GetAccountDetails( login );
+        if( oldUser == null )
+            return "Błąd aktualizacji";
+        UpdateUserAddress( newUser.getAddresses(), login );
         Transaction tr = s.beginTransaction();
         if( newUser.getLogin().equals("") )
             return "Nieprawidłowy login";

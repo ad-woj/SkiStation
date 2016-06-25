@@ -341,8 +341,6 @@ public class MainWindow extends javax.swing.JFrame {
         BuyAndPayButton4 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
-        UserMyAccountButton2 = new javax.swing.JButton();
-        UserLogoutButton2 = new javax.swing.JButton();
         EditLoginLabel = new javax.swing.JLabel();
         EditPasswordLabel = new javax.swing.JLabel();
         LoginEditTextfield = new javax.swing.JTextField();
@@ -361,15 +359,11 @@ public class MainWindow extends javax.swing.JFrame {
         CountryEditLabel = new javax.swing.JLabel();
         EditDetailsButton = new javax.swing.JButton();
         SaveDetailsButton = new javax.swing.JButton();
-        MyCardsButton2 = new javax.swing.JButton();
-        SlopeTrafficButton2 = new javax.swing.JButton();
-        ContactButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         CancelButton = new javax.swing.JButton();
         EditMessageLabel = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         DocumentEditTextfield = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
 
         jScrollPane2.setName("jScrollPane2"); // NOI18N
 
@@ -691,6 +685,11 @@ public class MainWindow extends javax.swing.JFrame {
         EditPasswordLabel2.setBounds(10, 130, 80, 30);
 
         LoginEditTextfield2.setName("LoginEditTextfield2"); // NOI18N
+        LoginEditTextfield2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginEditTextfield2ActionPerformed(evt);
+            }
+        });
         ClientAccountEditPanel.add(LoginEditTextfield2);
         LoginEditTextfield2.setBounds(110, 100, 180, 30);
 
@@ -2877,56 +2876,45 @@ public class MainWindow extends javax.swing.JFrame {
 
         getContentPane().add(UserMainPanel, "UserMainPanel");
 
+        MyAccountPanel.setAutoscrolls(true);
         MyAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
         MyAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
         MyAccountPanel.setName("MyAccountPanel"); // NOI18N
+        MyAccountPanel.setOpaque(false);
         MyAccountPanel.setLayout(null);
 
-        UserMyAccountButton2.setText("Moje Konto");
-        UserMyAccountButton2.setName("UserMyAccountButton2"); // NOI18N
-        UserMyAccountButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserMyAccountButton2ActionPerformed(evt);
-            }
-        });
-        MyAccountPanel.add(UserMyAccountButton2);
-        UserMyAccountButton2.setBounds(480, 20, 100, 23);
-
-        UserLogoutButton2.setText("Wyloguj");
-        UserLogoutButton2.setName("UserLogoutButton2"); // NOI18N
-        UserLogoutButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLogoutButton2ActionPerformed(evt);
-            }
-        });
-        MyAccountPanel.add(UserLogoutButton2);
-        UserLogoutButton2.setBounds(580, 20, 80, 23);
-
         EditLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
+        EditLoginLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditLoginLabel.setForeground(new java.awt.Color(0, 51, 51));
         EditLoginLabel.setText("Login:");
         EditLoginLabel.setName("EditLoginLabel"); // NOI18N
         MyAccountPanel.add(EditLoginLabel);
-        EditLoginLabel.setBounds(230, 280, 50, 30);
+        EditLoginLabel.setBounds(10, 100, 50, 30);
 
+        EditPasswordLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditPasswordLabel.setText("Hasło:");
         EditPasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
         EditPasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
         EditPasswordLabel.setName("EditPasswordLabel"); // NOI18N
         EditPasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
         MyAccountPanel.add(EditPasswordLabel);
-        EditPasswordLabel.setBounds(230, 310, 50, 30);
+        EditPasswordLabel.setBounds(10, 130, 50, 30);
 
         LoginEditTextfield.setName("LoginEditTextfield"); // NOI18N
+        LoginEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginEditTextfieldActionPerformed(evt);
+            }
+        });
         MyAccountPanel.add(LoginEditTextfield);
-        LoginEditTextfield.setBounds(320, 280, 230, 30);
+        LoginEditTextfield.setBounds(110, 100, 230, 30);
 
         PasswordEditTextfield.setEditable(false);
         PasswordEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
         PasswordEditTextfield.setText("*****");
         PasswordEditTextfield.setName("PasswordEditTextfield"); // NOI18N
         MyAccountPanel.add(PasswordEditTextfield);
-        PasswordEditTextfield.setBounds(320, 310, 230, 30);
+        PasswordEditTextfield.setBounds(110, 130, 230, 30);
 
         NameEditTextfield.setName("NameEditTextfield"); // NOI18N
         NameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -2935,7 +2923,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(NameEditTextfield);
-        NameEditTextfield.setBounds(320, 340, 230, 30);
+        NameEditTextfield.setBounds(110, 160, 230, 30);
 
         SurnameEditTextfield.setName("SurnameEditTextfield"); // NOI18N
         SurnameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -2944,22 +2932,25 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(SurnameEditTextfield);
-        SurnameEditTextfield.setBounds(320, 370, 230, 30);
+        SurnameEditTextfield.setBounds(110, 190, 230, 30);
 
+        NameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NameEditLabel.setText("Imię:");
         NameEditLabel.setName("NameEditLabel"); // NOI18N
         MyAccountPanel.add(NameEditLabel);
-        NameEditLabel.setBounds(230, 340, 50, 30);
+        NameEditLabel.setBounds(10, 160, 50, 30);
 
+        SurnameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SurnameEditLabel.setText("Nazwisko:");
         SurnameEditLabel.setName("SurnameEditLabel"); // NOI18N
         MyAccountPanel.add(SurnameEditLabel);
-        SurnameEditLabel.setBounds(230, 370, 60, 30);
+        SurnameEditLabel.setBounds(10, 190, 60, 30);
 
+        IDEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         IDEditLabel.setText("ID:");
         IDEditLabel.setName("IDEditLabel"); // NOI18N
         MyAccountPanel.add(IDEditLabel);
-        IDEditLabel.setBounds(230, 250, 50, 30);
+        IDEditLabel.setBounds(10, 70, 80, 30);
 
         IDEditTextfield.setEditable(false);
         IDEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
@@ -2971,11 +2962,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(IDEditTextfield);
-        IDEditTextfield.setBounds(320, 250, 230, 30);
+        IDEditTextfield.setBounds(110, 70, 230, 30);
 
         StreetEditTextfield.setName("StreetEditTextfield"); // NOI18N
         MyAccountPanel.add(StreetEditTextfield);
-        StreetEditTextfield.setBounds(320, 430, 230, 30);
+        StreetEditTextfield.setBounds(110, 250, 230, 30);
 
         CityEditTextfield.setName("CityEditTextfield"); // NOI18N
         CityEditTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -2984,26 +2975,29 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(CityEditTextfield);
-        CityEditTextfield.setBounds(320, 460, 230, 30);
+        CityEditTextfield.setBounds(110, 280, 230, 30);
 
         CountryEditTextfield.setName("CountryEditTextfield"); // NOI18N
         MyAccountPanel.add(CountryEditTextfield);
-        CountryEditTextfield.setBounds(320, 490, 230, 30);
+        CountryEditTextfield.setBounds(110, 310, 230, 30);
 
+        StreetEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StreetEditLabel.setText("Ulica:");
         StreetEditLabel.setName("StreetEditLabel"); // NOI18N
         MyAccountPanel.add(StreetEditLabel);
-        StreetEditLabel.setBounds(230, 430, 90, 30);
+        StreetEditLabel.setBounds(10, 250, 90, 30);
 
+        CityEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CityEditLabel.setText("Miasto:");
         CityEditLabel.setName("CityEditLabel"); // NOI18N
         MyAccountPanel.add(CityEditLabel);
-        CityEditLabel.setBounds(230, 460, 90, 30);
+        CityEditLabel.setBounds(10, 280, 90, 30);
 
+        CountryEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CountryEditLabel.setText("Kraj:");
         CountryEditLabel.setName("CountryEditLabel"); // NOI18N
         MyAccountPanel.add(CountryEditLabel);
-        CountryEditLabel.setBounds(230, 490, 90, 30);
+        CountryEditLabel.setBounds(10, 310, 90, 30);
 
         EditDetailsButton.setText("Edytuj Dane");
         EditDetailsButton.setName("EditDetailsButton"); // NOI18N
@@ -3013,7 +3007,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(EditDetailsButton);
-        EditDetailsButton.setBounds(330, 530, 210, 23);
+        EditDetailsButton.setBounds(120, 350, 210, 23);
 
         SaveDetailsButton.setText("Zapisz");
         SaveDetailsButton.setEnabled(false);
@@ -3024,37 +3018,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(SaveDetailsButton);
-        SaveDetailsButton.setBounds(460, 560, 80, 23);
+        SaveDetailsButton.setBounds(250, 380, 80, 23);
 
-        MyCardsButton2.setText("Moje karty");
-        MyCardsButton2.setName("MyCardsButton2"); // NOI18N
-        MyCardsButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MyCardsButton2ActionPerformed(evt);
-            }
-        });
-        MyAccountPanel.add(MyCardsButton2);
-        MyCardsButton2.setBounds(20, 160, 125, 30);
-
-        SlopeTrafficButton2.setText("Natężenie stoku");
-        SlopeTrafficButton2.setName("SlopeTrafficButton2"); // NOI18N
-        MyAccountPanel.add(SlopeTrafficButton2);
-        SlopeTrafficButton2.setBounds(20, 190, 125, 30);
-
-        ContactButton2.setText("Kontakt");
-        ContactButton2.setName("ContactButton2"); // NOI18N
-        ContactButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContactButton2ActionPerformed(evt);
-            }
-        });
-        MyAccountPanel.add(ContactButton2);
-        ContactButton2.setBounds(20, 220, 125, 30);
-
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Nr dokumentu:");
         jLabel10.setName("jLabel10"); // NOI18N
         MyAccountPanel.add(jLabel10);
-        jLabel10.setBounds(230, 400, 90, 30);
+        jLabel10.setBounds(10, 220, 100, 30);
 
         CancelButton.setText("Anuluj");
         CancelButton.setEnabled(false);
@@ -3065,7 +3035,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(CancelButton);
-        CancelButton.setBounds(380, 560, 80, 23);
+        CancelButton.setBounds(170, 380, 80, 23);
 
         EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -3075,11 +3045,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("DejaVu Serif", 0, 30)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Moje Konto");
+        jLabel14.setText("Dane konta");
         jLabel14.setName("jLabel14"); // NOI18N
         MyAccountPanel.add(jLabel14);
-        jLabel14.setBounds(330, 180, 210, 40);
+        jLabel14.setBounds(90, 10, 270, 30);
 
+        DocumentEditTextfield.setEditable(false);
+        DocumentEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
+        DocumentEditTextfield.setDisabledTextColor(new java.awt.Color(245, 245, 245));
         DocumentEditTextfield.setName("DocumentEditTextfield"); // NOI18N
         DocumentEditTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3087,13 +3060,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         MyAccountPanel.add(DocumentEditTextfield);
-        DocumentEditTextfield.setBounds(320, 400, 230, 30);
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
-        jLabel9.setText("Moje Konto");
-        jLabel9.setName("jLabel9"); // NOI18N
-        MyAccountPanel.add(jLabel9);
-        jLabel9.setBounds(0, 0, 700, 700);
+        DocumentEditTextfield.setBounds(110, 220, 230, 30);
 
         getContentPane().add(MyAccountPanel, "myAccountPanel");
         MyAccountPanel.getAccessibleContext().setAccessibleName("");
@@ -3453,7 +3420,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
-        MyCardsButton2ActionPerformed(evt);
+        MyCardsButtonActionPerformed(evt);
         AdminPanelBackButton.setEnabled(true);
     }//GEN-LAST:event_ClientModeButtonActionPerformed
 
@@ -3475,44 +3442,33 @@ public class MainWindow extends javax.swing.JFrame {
         AdminLogoutButtonActionPerformed(evt);
     }//GEN-LAST:event_UserLogoutButtonActionPerformed
 
-    private void UserLogoutButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLogoutButton2ActionPerformed
-        UserLogoutButtonActionPerformed(evt);
-    }//GEN-LAST:event_UserLogoutButton2ActionPerformed
-
-    private void UserMyAccountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButton2ActionPerformed
-        //UserMyAccountButtonActionPerformed(evt);
-    }//GEN-LAST:event_UserMyAccountButton2ActionPerformed
-
-    private void MyCardsButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyCardsButton2ActionPerformed
-        RemoveCardPanelComponents( UserMyCardsPanel );
-        for( CardView c : cardViewList ) {
-            c.DeleteView();
-        }
-        cardViewList.clear();
-        DisplayCards(UserMyCardsPanel, SessionController.GetUserLogged());
-        ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards");
-        changeCard(view, true);
-    }//GEN-LAST:event_MyCardsButton2ActionPerformed
-
     private void UserMyAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMyAccountButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher(getContentPane(), "myAccountPanel");
+        UserContainerPanel.add(MyAccountPanel, "myAccountPanel");
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "myAccountPanel" );
         changeCard(view, true);
-        SetAccountInfo( new String());
+        SetAccountInfo( SessionController.GetUserLogged() );
     }//GEN-LAST:event_UserMyAccountButtonActionPerformed
 
     private void SetAccountInfo( String login ) {
         AccountInfo user = MyAccountController.GetAccountInfoString( login );
-        if (user == null) {
-            return;
-        }
+        
         IDEditTextfield.setText(user.userID);
         LoginEditTextfield.setText(user.login);
+        if( user.userID.isEmpty() ) {
+            PasswordEditTextfield.setText("");
+            EditDetailsButton.setEnabled(false);
+        }
+        else {
+            PasswordEditTextfield.setText("*****");
+            EditDetailsButton.setEnabled(true);
+        }
         NameEditTextfield.setText(user.name);
         SurnameEditTextfield.setText(user.surname);
         StreetEditTextfield.setText(user.street);
         CityEditTextfield.setText(user.city);
         CountryEditTextfield.setText(user.country);
         DocumentEditTextfield.setText(user.documentNumber);
+
         SetFieldsEnabledAndColor( false, new java.awt.Color(245,245,245));
     }
     
@@ -3552,7 +3508,7 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
-        EditMessageLabel.setText(MyAccountController.UpdateAccountDetails(GetDataFromTextfields(), new String()));
+        EditMessageLabel.setText(MyAccountController.UpdateAccountDetails(GetDataFromTextfields(), Integer.decode(IDEditTextfield.getText())));
         SetFieldsEnabledAndColor( false, new java.awt.Color(245,245,245));
         CancelButton.setEnabled(false);
         DocumentEditTextfield.setEnabled(false);
@@ -3591,7 +3547,7 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
-        SetAccountInfo(new String());
+        SetAccountInfo(MyAccountController.GetLoginFromID(Integer.decode(IDEditTextfield.getText())));
         SaveDetailsButton.setEnabled(false);
         CancelButton.setEnabled(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
@@ -3805,7 +3761,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void EditClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditClientButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ClientAccountEditPanel");
+        CashierContainer.add(MyAccountPanel, "myAccountPanel");
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "myAccountPanel");
+        SetAccountInfo( CashierController.GetSelectedUser() );
         changeCard( view, true );
         //changeCard(CashierContainer, "ClientAccountEditPanel", true);
     }//GEN-LAST:event_EditClientButtonActionPerformed
@@ -4040,13 +3998,6 @@ public class MainWindow extends javax.swing.JFrame {
         //changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButtonActionPerformed
 
-    private void ContactButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton2ActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "UserContactPanel" );
-        changeCard( view, true );
-        //changeCard(getContentPane(), "UserMainPanel", true);
-        //changeCard(UserContainerPanel, "UserContactPanel", true);
-    }//GEN-LAST:event_ContactButton2ActionPerformed
-
     private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed
 
     }//GEN-LAST:event_SlopeTrafficButtonActionPerformed
@@ -4276,6 +4227,14 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UserSearchInputTextFieldActionPerformed
 
+    private void LoginEditTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEditTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginEditTextfieldActionPerformed
+
+    private void LoginEditTextfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEditTextfield2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginEditTextfield2ActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -4318,6 +4277,12 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void MyCardsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        RemoveCardPanelComponents( UserMyCardsPanel );
+        for( CardView c : cardViewList ) {
+            c.DeleteView();
+        }
+        cardViewList.clear();
+        DisplayCards(UserMyCardsPanel, SessionController.GetUserLogged());
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "userMyCards" );
         changeCard( view, true );
         //changeCard(UserContainerPanel, "userMyCards", true);
@@ -4469,7 +4434,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton ClientModeButton;
     private javax.swing.JButton ClientModeButton1;
     private javax.swing.JButton ContactButton;
-    private javax.swing.JButton ContactButton2;
     private javax.swing.JButton ContactButton3;
     private javax.swing.JPanel ContactPanel;
     private javax.swing.JTextField Country;
@@ -4535,7 +4499,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel MyAccountLabel2;
     private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JButton MyCardsButton;
-    private javax.swing.JButton MyCardsButton2;
     private javax.swing.JTextField Name;
     private javax.swing.JLabel NameEditLabel;
     private javax.swing.JLabel NameEditLabel1;
@@ -4609,7 +4572,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable SlopeTraffic;
     private javax.swing.JButton SlopeTrafficButton;
     private javax.swing.JButton SlopeTrafficButton1;
-    private javax.swing.JButton SlopeTrafficButton2;
     private javax.swing.JScrollPane SlopeTrafficScrollPane;
     private javax.swing.JPanel StationTrafficPanel;
     private javax.swing.JTable StationTrafficTable;
@@ -4640,11 +4602,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel UserContactPanel;
     private javax.swing.JPanel UserContainerPanel;
     private javax.swing.JButton UserLogoutButton;
-    private javax.swing.JButton UserLogoutButton2;
     private javax.swing.JPanel UserMainPanel;
     private javax.swing.JPanel UserManagmentAdmintPanel;
     private javax.swing.JButton UserMyAccountButton;
-    private javax.swing.JButton UserMyAccountButton2;
     private javax.swing.JPanel UserMyCardsPanel;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
@@ -4694,7 +4654,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
