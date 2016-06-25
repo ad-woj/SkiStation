@@ -182,24 +182,24 @@ public class MainWindow extends javax.swing.JFrame {
         ClientModeButton = new javax.swing.JButton();
         EditUserAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
-        FindLoginTextField = new javax.swing.JTextField();
+        LoginTextField2 = new javax.swing.JTextField();
         UserRadio = new javax.swing.JRadioButton();
         CashierRadio = new javax.swing.JRadioButton();
         AdminRadio = new javax.swing.JRadioButton();
         UpdateResultLabel = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        NameTextField2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        SurnameTextField2 = new javax.swing.JTextField();
+        DocumentTextField2 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        StreetTextField2 = new javax.swing.JTextField();
+        CityTextField2 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        CountryTextField2 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         EditProductPanel = new javax.swing.JPanel();
         ActualizeProductButton = new javax.swing.JButton();
@@ -1339,18 +1339,18 @@ public class MainWindow extends javax.swing.JFrame {
         EditUserAdmintPanel.add(UpdateUser);
         UpdateUser.setBounds(400, 280, 110, 30);
 
-        FindLoginTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        FindLoginTextField.setMaximumSize(new java.awt.Dimension(6, 22));
-        FindLoginTextField.setMinimumSize(new java.awt.Dimension(6, 22));
-        FindLoginTextField.setName("FindLoginTextField"); // NOI18N
-        FindLoginTextField.setPreferredSize(new java.awt.Dimension(59, 22));
-        FindLoginTextField.addActionListener(new java.awt.event.ActionListener() {
+        LoginTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LoginTextField2.setMaximumSize(new java.awt.Dimension(6, 22));
+        LoginTextField2.setMinimumSize(new java.awt.Dimension(6, 22));
+        LoginTextField2.setName("LoginTextField2"); // NOI18N
+        LoginTextField2.setPreferredSize(new java.awt.Dimension(59, 22));
+        LoginTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindLoginTextFieldActionPerformed(evt);
+                LoginTextField2ActionPerformed(evt);
             }
         });
-        EditUserAdmintPanel.add(FindLoginTextField);
-        FindLoginTextField.setBounds(170, 10, 220, 30);
+        EditUserAdmintPanel.add(LoginTextField2);
+        LoginTextField2.setBounds(170, 10, 220, 30);
 
         UserRoleChooseGroup.add(UserRadio);
         UserRadio.setText("User");
@@ -1396,24 +1396,24 @@ public class MainWindow extends javax.swing.JFrame {
         EditUserAdmintPanel.add(jLabel16);
         jLabel16.setBounds(110, 70, 60, 20);
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField5.setName("jTextField5"); // NOI18N
-        EditUserAdmintPanel.add(jTextField5);
-        jTextField5.setBounds(170, 40, 220, 30);
+        NameTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NameTextField2.setName("NameTextField2"); // NOI18N
+        EditUserAdmintPanel.add(NameTextField2);
+        NameTextField2.setBounds(170, 40, 220, 30);
 
         jLabel19.setName("jLabel19"); // NOI18N
         EditUserAdmintPanel.add(jLabel19);
         jLabel19.setBounds(40, 110, 0, 0);
 
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField6.setName("jTextField6"); // NOI18N
-        EditUserAdmintPanel.add(jTextField6);
-        jTextField6.setBounds(170, 70, 220, 30);
+        SurnameTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SurnameTextField2.setName("SurnameTextField2"); // NOI18N
+        EditUserAdmintPanel.add(SurnameTextField2);
+        SurnameTextField2.setBounds(170, 70, 220, 30);
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField7.setName("jTextField7"); // NOI18N
-        EditUserAdmintPanel.add(jTextField7);
-        jTextField7.setBounds(170, 100, 220, 30);
+        DocumentTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DocumentTextField2.setName("DocumentTextField2"); // NOI18N
+        EditUserAdmintPanel.add(DocumentTextField2);
+        DocumentTextField2.setBounds(170, 100, 220, 30);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Login");
@@ -1427,15 +1427,15 @@ public class MainWindow extends javax.swing.JFrame {
         EditUserAdmintPanel.add(jLabel21);
         jLabel21.setBounds(110, 100, 60, 20);
 
-        jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField8.setName("jTextField8"); // NOI18N
-        EditUserAdmintPanel.add(jTextField8);
-        jTextField8.setBounds(170, 130, 220, 30);
+        StreetTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        StreetTextField2.setName("StreetTextField2"); // NOI18N
+        EditUserAdmintPanel.add(StreetTextField2);
+        StreetTextField2.setBounds(170, 130, 220, 30);
 
-        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField9.setName("jTextField9"); // NOI18N
-        EditUserAdmintPanel.add(jTextField9);
-        jTextField9.setBounds(170, 160, 220, 30);
+        CityTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CityTextField2.setName("CityTextField2"); // NOI18N
+        EditUserAdmintPanel.add(CityTextField2);
+        CityTextField2.setBounds(170, 160, 220, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel22.setText("Ulica");
@@ -1449,10 +1449,10 @@ public class MainWindow extends javax.swing.JFrame {
         EditUserAdmintPanel.add(jLabel23);
         jLabel23.setBounds(110, 160, 50, 20);
 
-        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField10.setName("jTextField10"); // NOI18N
-        EditUserAdmintPanel.add(jTextField10);
-        jTextField10.setBounds(170, 190, 220, 30);
+        CountryTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CountryTextField2.setName("CountryTextField2"); // NOI18N
+        EditUserAdmintPanel.add(CountryTextField2);
+        CountryTextField2.setBounds(170, 190, 220, 30);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel24.setText("Kraj");
@@ -3618,19 +3618,33 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
+        Users user = new Users();
+        Addresses address = new Addresses();
+        user.setLogin(LoginTextField2.getText());
+        user.setName(NameTextField2.getText());
+        user.setSurname(SurnameTextField2.getText());
+        user.setDocumentnumber(DocumentTextField2.getText());
+        address.setStreet(StreetTextField2.getText());
+        address.setCity(CityTextField2.getText());
+        address.setCountry(CountryTextField2.getText());
+        user.setAddresses(address);
+        int row = TerminalListTable1.getSelectedRow();
+        int id = (int)TerminalListTable1.getValueAt(row, 0);
+        UpdateResultLabel.setText(MyAccountController.UpdateAccountDetails(user, id));
+        
         UserManagementAdminController controller = new UserManagementAdminController();
         String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
-        if (controller.exist(FindLoginTextField.getText())) {
-            controller.updateUser(FindLoginTextField.getText(), choosingRole);
+        if (controller.exist(LoginTextField2.getText())) {
+            controller.updateUser(LoginTextField2.getText(), choosingRole);
             UpdateResultLabel.setText("Updated!");
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }
     }//GEN-LAST:event_UpdateUserActionPerformed
 
-    private void FindLoginTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindLoginTextFieldActionPerformed
+    private void LoginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField2ActionPerformed
         
-    }//GEN-LAST:event_FindLoginTextFieldActionPerformed
+    }//GEN-LAST:event_LoginTextField2ActionPerformed
 
     private void UserRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserRadioActionPerformed
         if (!SessionController.IsUserLogged()) {
@@ -3755,6 +3769,16 @@ public class MainWindow extends javax.swing.JFrame {
     private void EditUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "editUserAdminPanel");
         changeCard( view, true );
+        int row = TerminalListTable1.getSelectedRow();
+        int id = (int)TerminalListTable1.getValueAt(row, 0);
+        AccountInfo info = MyAccountController.GetAccountInfoString(MyAccountController.GetLoginFromID(id));
+        LoginTextField2.setText(info.login);
+        NameTextField2.setText(info.name);
+        SurnameTextField2.setText(info.surname);
+        DocumentTextField2.setText(info.documentNumber);
+        StreetTextField2.setText(info.street);
+        CityTextField2.setText(info.city);
+        CountryTextField2.setText(info.country);
         //changeCard(AdminContainerPanel, "editUserAdminPanel", true);
     }//GEN-LAST:event_EditUserButtonActionPerformed
 
@@ -3763,8 +3787,10 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
+        int row = TerminalListTable1.getSelectedRow();
+        int id = (int)TerminalListTable1.getValueAt(row, 0);
         UserManagementAdminController controller = new UserManagementAdminController();
-        if (controller.removeUser(SearchUserTextField.getText())) {
+        if (controller.removeUser(MyAccountController.GetLoginFromID(id))) {
             UpdateResultLabel.setText("Removed");
         } else {
             UpdateResultLabel.setText("User does not exist!");
@@ -4467,6 +4493,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CityEditTextfield;
     private javax.swing.JTextField CityEditTextfield1;
     private javax.swing.JTextField CityEditTextfield2;
+    private javax.swing.JTextField CityTextField2;
     private javax.swing.JPanel ClientAccountEditPanel;
     private javax.swing.JButton ClientCardsButton1;
     private javax.swing.JPanel ClientCardsPanel;
@@ -4482,6 +4509,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CountryEditTextfield;
     private javax.swing.JTextField CountryEditTextfield1;
     private javax.swing.JTextField CountryEditTextfield2;
+    private javax.swing.JTextField CountryTextField2;
     private javax.swing.JLabel CreateAccountLink;
     private javax.swing.JTextField CurrentPriceFindText;
     private javax.swing.JTable CurrentPricesTable;
@@ -4490,6 +4518,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField DocumentEditTextfield1;
     private javax.swing.JTextField DocumentEditTextfield2;
     private javax.swing.JTextField DocumentNumber;
+    private javax.swing.JTextField DocumentTextField2;
     private javax.swing.JButton EditAttractionButton;
     private javax.swing.JButton EditClientButton;
     private javax.swing.JButton EditDetailsButton;
@@ -4510,7 +4539,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel EditUserAdmintPanel;
     private javax.swing.JButton EditUserButton;
     private javax.swing.JButton FindAttractionButton;
-    private javax.swing.JTextField FindLoginTextField;
     private javax.swing.JButton FindProductButton;
     private javax.swing.JButton FindTerminalButton;
     private javax.swing.JButton FindUserButton;
@@ -4530,6 +4558,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
+    private javax.swing.JTextField LoginTextField2;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel MessageLabel;
     private javax.swing.JLabel MyAccountLabel1;
@@ -4543,6 +4572,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField NameEditTextfield;
     private javax.swing.JTextField NameEditTextfield1;
     private javax.swing.JTextField NameEditTextfield2;
+    private javax.swing.JTextField NameTextField2;
     private javax.swing.JButton NewAccountButton;
     private javax.swing.JButton NewAttractionButton;
     private javax.swing.JPanel NewClientAccountPanel;
@@ -4620,6 +4650,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField StreetEditTextfield;
     private javax.swing.JTextField StreetEditTextfield1;
     private javax.swing.JTextField StreetEditTextfield2;
+    private javax.swing.JTextField StreetTextField2;
     private javax.swing.JTextField Surname;
     private javax.swing.JLabel SurnameEditLabel;
     private javax.swing.JLabel SurnameEditLabel1;
@@ -4627,6 +4658,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField SurnameEditTextfield;
     private javax.swing.JTextField SurnameEditTextfield1;
     private javax.swing.JTextField SurnameEditTextfield2;
+    private javax.swing.JTextField SurnameTextField2;
     private javax.swing.JTable TerminalListTable;
     private javax.swing.JTable TerminalListTable1;
     private javax.swing.JLabel TerminalNameLabel;
@@ -4710,12 +4742,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane6;
     private javax.swing.JSplitPane jSplitPane7;
     private javax.swing.JSplitPane jSplitPane8;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel mbankOptionLabel;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
