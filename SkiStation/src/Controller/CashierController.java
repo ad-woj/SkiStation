@@ -70,6 +70,8 @@ public class CashierController {
     
     public void SetSelectedUserWithString(String newUserString, JTextPane textPane)
     {
+        if( newUserString == null )
+            return;
         String convertedString = newUserString.subSequence(newUserString.indexOf("(") + 1, newUserString.indexOf(")")).toString();              
         List queryResult = s.createCriteria(Users.class).add(Restrictions.like("login", convertedString,MatchMode.EXACT)).list();
         

@@ -28,6 +28,7 @@ public class CardView {
     private JButton AddPointsButton;
     private JButton SubtractPointsButton;
     private JButton RemoveCardButton;
+    private JButton PrintCardButton;
     private Boolean ignoreTextChange = true;
     private Boolean textUpdateNeeded = false;
     
@@ -40,6 +41,7 @@ public class CardView {
         AddPointsButton = new javax.swing.JButton();
         SubtractPointsButton = new javax.swing.JButton();
         RemoveCardButton = new javax.swing.JButton();
+        PrintCardButton = new javax.swing.JButton();
         String number = Integer.toString(index);
         parent = mw;
         UserMyCardsPanel = panel;
@@ -104,8 +106,10 @@ public class CardView {
         });
         UserMyCardsPanel.add(PointsTextField);
         PointsTextField.setBounds(270, positionY, 50, 20);
-
+        
+        positionY--;
         AddPointsButton.setText("+");
+        AddPointsButton.setMargin(new java.awt.Insets(0, -10, 0, -10));
         AddPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         AddPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         AddPointsButton.setName("AddPointsButton" + number); // NOI18N
@@ -116,9 +120,10 @@ public class CardView {
             }
         });
         UserMyCardsPanel.add(AddPointsButton);
-        AddPointsButton.setBounds(360, positionY, 40, 20);
+        AddPointsButton.setBounds(355, positionY, 30, 23);
 
         SubtractPointsButton.setText("-");
+        SubtractPointsButton.setMargin(new java.awt.Insets(0, -10, 0, -10));
         SubtractPointsButton.setMaximumSize(new java.awt.Dimension(67, 23));
         SubtractPointsButton.setMinimumSize(new java.awt.Dimension(67, 23));
         SubtractPointsButton.setName("SubtractPointsButton" + number); // NOI18N
@@ -129,9 +134,10 @@ public class CardView {
             }
         });        
         UserMyCardsPanel.add(SubtractPointsButton);
-        SubtractPointsButton.setBounds(320, positionY, 40, 20);
+        SubtractPointsButton.setBounds(325, positionY, 30, 23);
         
-        RemoveCardButton.setText("Usuń kartę");
+        RemoveCardButton.setText("Usuń");
+        RemoveCardButton.setMargin(new java.awt.Insets(0, -10, 0, -10));
         RemoveCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
         RemoveCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
         RemoveCardButton.setName("RemoveCardButton" + number); // NOI18N
@@ -142,7 +148,30 @@ public class CardView {
             }
         });
         UserMyCardsPanel.add(RemoveCardButton);
-        RemoveCardButton.setBounds(400, positionY, 100, 23);
+        RemoveCardButton.setBounds(390, positionY, 60, 23);
+        
+        if( UserMyCardsPanel.getName().equalsIgnoreCase( "clientCardsPanel" )) {
+            PrintCardButton.setText("Wydaj");
+            PrintCardButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GiveOutCardButtonActionPerformed(evt);
+                }
+            });
+        } else {
+            PrintCardButton.setText("Drukuj");
+            PrintCardButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    PrintCardButtonActionPerformed(evt);
+                }
+            });
+        }
+        PrintCardButton.setMargin(new java.awt.Insets(0, -10, 0, -10));
+        PrintCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
+        PrintCardButton.setMinimumSize(new java.awt.Dimension(67, 23));
+        PrintCardButton.setName("RemoveCardButton" + number); // NOI18N
+        PrintCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
+        UserMyCardsPanel.add(PrintCardButton);
+        PrintCardButton.setBounds(450, positionY, 60, 23);
     }
     
     public void SetIndex( int i ) {
@@ -174,6 +203,8 @@ public class CardView {
         SubtractPointsButton.setLocation( position.x, position.y - distance );
         position = RemoveCardButton.getLocation();
         RemoveCardButton.setLocation( position.x, position.y - distance );
+        position = PrintCardButton.getLocation();
+        PrintCardButton.setLocation( position.x, position.y - distance );
     }
     
     public void DeleteView(){
@@ -184,6 +215,7 @@ public class CardView {
         UserMyCardsPanel.remove(AddPointsButton);
         UserMyCardsPanel.remove(SubtractPointsButton);
         UserMyCardsPanel.remove(RemoveCardButton);
+        UserMyCardsPanel.remove(PrintCardButton);
         UserMyCardsPanel.repaint();
     }
 
@@ -193,6 +225,16 @@ public class CardView {
             parent.DeleteCardView(myIndex);
         }
     } 
+    
+    private void PrintCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        String text = "SkiStation/t Karta na punkty/n/n ID karty: " + "/n" + "Data ważności: " 
+                + "/n" + "Właścicel: " + "/n" + "ID clienta: " + ""; 
+    }
+        
+    private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        String text = "SkiStation/t Karta na punkty/n/n ID karty: " + "/n" + "Ważna do: " 
+                + "/n" + "Właścicel: " + "/n" + "ID clienta: " + "";
+    }
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         ignoreTextChange = true;                                                     
