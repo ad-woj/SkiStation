@@ -2244,7 +2244,7 @@ public class MainWindow extends javax.swing.JFrame {
         ProductsManagmentAdminPanel.add(jButton11);
         jButton11.setBounds(430, 190, 160, 30);
 
-        AdminContainerPanel.add(ProductsManagmentAdminPanel, "card11");
+        AdminContainerPanel.add(ProductsManagmentAdminPanel, "productsManagementPanel");
 
         AttractionsAndGatesPanel.setName("AttractionsAndGatesPanel"); // NOI18N
 
@@ -2541,9 +2541,8 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.add(AdminLogoutButton);
         AdminLogoutButton.setBounds(600, 40, 80, 23);
 
-        AdminViewTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AdminViewTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         AdminViewTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AdminViewTitleLabel.setText("Atrakcje i bramki");
         AdminViewTitleLabel.setName("AdminViewTitleLabel"); // NOI18N
         AdminMainPanel.add(AdminViewTitleLabel);
         AdminViewTitleLabel.setBounds(90, 174, 500, 50);
@@ -3319,6 +3318,7 @@ public class MainWindow extends javax.swing.JFrame {
                 CashierChangeModeToAdminButton.setVisible(true); // Adding return-to-admin-panel button to cashier panel when admin is logged
                 AdminPanelBackButton.setVisible(true);
                 AdminPanelBackButton.setEnabled(false);
+                AdminViewTitleLabel.setText("Menu");
                 view.card = AdminContainerPanel;
                 view.cardName = "adminMenuPanel";
             } else {
@@ -3423,6 +3423,7 @@ public class MainWindow extends javax.swing.JFrame {
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "userManagmentAdminPanel");
         changeCard(view, true);
         AdminPanelBackButton.setEnabled(true);
+        AdminViewTitleLabel.setText("Użytkownicy");
     }//GEN-LAST:event_UsersButtonActionPerformed
 
     private void ClientModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientModeButtonActionPerformed
@@ -3653,6 +3654,16 @@ public class MainWindow extends javax.swing.JFrame {
             } else {
                 AdminPanelBackButton.setEnabled(false);
             }
+            if( view.cardName == "productsManagementPanel" ) {                
+                AdminViewTitleLabel.setText("Cennik");
+            } else if ( view.cardName == "AttractionsAndGatesPanel" ) {
+                AdminViewTitleLabel.setText("Atrakcje i Bramki");
+            } else if( view.cardName == "userManagmentAdminPanel" ) {
+                AdminViewTitleLabel.setText("Użytkownicy");
+            } else if( view.cardName == "slopeManagmentAdminPanel" ) {
+                AdminViewTitleLabel.setText("Stok");
+            } else if( view.cardName == "adminMenuPanel" )          
+                AdminViewTitleLabel.setText("Menu");
         }
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
@@ -3680,10 +3691,11 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
             }
         }
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "card11");
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "productsManagementPanel");
         changeCard( view, true );
          //changeCard(AdminContainerPanel, "card11", true);
         AdminPanelBackButton.setEnabled(true);
+        AdminViewTitleLabel.setText("Cennik");
     }//GEN-LAST:event_PriceListButtonActionPerformed
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
@@ -3706,6 +3718,7 @@ public class MainWindow extends javax.swing.JFrame {
             changeCard( view, true );
             //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
         AdminPanelBackButton.setEnabled(true);
+        AdminViewTitleLabel.setText("Stok");
         }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
@@ -3714,6 +3727,7 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard( view, true );
 //changeCard(AdminContainerPanel, "AttractionsAndGatesPanel", true);
         AdminPanelBackButton.setEnabled(true);
+        AdminViewTitleLabel.setText("Atrakcje i Bramki");
     }//GEN-LAST:event_GatesButtonActionPerformed
 
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
