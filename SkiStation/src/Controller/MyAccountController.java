@@ -81,6 +81,7 @@ public class MyAccountController {
         info.name = user.getName();
         info.surname = user.getSurname();
         info.login = user.getLogin();
+        info.documentNumber = user.getDocumentnumber();
         info.userID = Integer.toString(user.getUserid());
         Addresses address = user.getAddresses();
         if( address != null ) {

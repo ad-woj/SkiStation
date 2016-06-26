@@ -247,7 +247,7 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeTraffic = new javax.swing.JTable();
         UserManagmentAdmintPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        TerminalListTable1 = new javax.swing.JTable();
+        UserListTable = new javax.swing.JTable();
         FindUserButton = new javax.swing.JButton();
         SearchUserTextField = new javax.swing.JTextField();
         EditUserButton = new javax.swing.JButton();
@@ -1382,7 +1382,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         UpdateResultLabel.setName("UpdateResultLabel"); // NOI18N
         EditUserAdmintPanel.add(UpdateResultLabel);
-        UpdateResultLabel.setBounds(400, 320, 110, 30);
+        UpdateResultLabel.setBounds(400, 320, 140, 30);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Imię");
@@ -1782,6 +1782,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         SearchProductTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         SearchProductTextField.setName("SearchProductTextField"); // NOI18N
+        SearchProductTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchProductTextFieldActionPerformed(evt);
+            }
+        });
         PriceListManagmentAdmintPanel.add(SearchProductTextField);
         SearchProductTextField.setBounds(30, 20, 380, 30);
 
@@ -1911,7 +1916,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane7.setName("jScrollPane7"); // NOI18N
 
-        TerminalListTable1.setModel(new javax.swing.table.DefaultTableModel(
+        UserListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1941,8 +1946,8 @@ public class MainWindow extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        TerminalListTable1.setName("TerminalListTable1"); // NOI18N
-        jScrollPane7.setViewportView(TerminalListTable1);
+        UserListTable.setName("UserListTable"); // NOI18N
+        jScrollPane7.setViewportView(UserListTable);
 
         UserManagmentAdmintPanel.add(jScrollPane7);
         jScrollPane7.setBounds(30, 50, 420, 260);
@@ -1963,6 +1968,11 @@ public class MainWindow extends javax.swing.JFrame {
         SearchUserTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchUserTextFieldActionPerformed(evt);
+            }
+        });
+        SearchUserTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SearchUserTextFieldKeyTyped(evt);
             }
         });
         UserManagmentAdmintPanel.add(SearchUserTextField);
@@ -2273,6 +2283,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         SearchAttractionTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         SearchAttractionTextField.setName("SearchAttractionTextField"); // NOI18N
+        SearchAttractionTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchAttractionTextFieldActionPerformed(evt);
+            }
+        });
         SearchAttractionTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 SearchAttractionTextFieldTyped(evt);
@@ -3628,15 +3643,14 @@ public class MainWindow extends javax.swing.JFrame {
         address.setCity(CityTextField2.getText());
         address.setCountry(CountryTextField2.getText());
         user.setAddresses(address);
-        int row = TerminalListTable1.getSelectedRow();
-        int id = (int)TerminalListTable1.getValueAt(row, 0);
-        UpdateResultLabel.setText(MyAccountController.UpdateAccountDetails(user, id));
+        int row = UserListTable.getSelectedRow();
+        int id = (int)UserListTable.getValueAt(row, 0);
         
         UserManagementAdminController controller = new UserManagementAdminController();
         String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
         if (controller.exist(LoginTextField2.getText())) {
-            controller.updateUser(LoginTextField2.getText(), choosingRole);
-            UpdateResultLabel.setText("Updated!");
+            UpdateResultLabel.setText(MyAccountController.UpdateAccountDetails(user, id));
+            controller.updateUser(LoginTextField2.getText(), choosingRole);            
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }
@@ -3769,8 +3783,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void EditUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "editUserAdminPanel");
         changeCard( view, true );
-        int row = TerminalListTable1.getSelectedRow();
-        int id = (int)TerminalListTable1.getValueAt(row, 0);
+        int row = UserListTable.getSelectedRow();
+        int id = (int)UserListTable.getValueAt(row, 0);
         AccountInfo info = MyAccountController.GetAccountInfoString(MyAccountController.GetLoginFromID(id));
         LoginTextField2.setText(info.login);
         NameTextField2.setText(info.name);
@@ -3779,6 +3793,18 @@ public class MainWindow extends javax.swing.JFrame {
         StreetTextField2.setText(info.street);
         CityTextField2.setText(info.city);
         CountryTextField2.setText(info.country);
+        UpdateResultLabel.setText("");
+        UserManagementAdminController ac = new UserManagementAdminController();
+        switch(ac.getUserRole(info.login)) {
+            case "User":
+                UserRadio.setSelected(true);
+                break;
+            case "Admin":
+                AdminRadio.setSelected(true);
+                break;
+            case "Cashier":
+                CashierRadio.setSelected(true);
+        }
         //changeCard(AdminContainerPanel, "editUserAdminPanel", true);
     }//GEN-LAST:event_EditUserButtonActionPerformed
 
@@ -3787,8 +3813,8 @@ public class MainWindow extends javax.swing.JFrame {
             ExitSession();
             return;
         }
-        int row = TerminalListTable1.getSelectedRow();
-        int id = (int)TerminalListTable1.getValueAt(row, 0);
+        int row = UserListTable.getSelectedRow();
+        int id = (int)UserListTable.getValueAt(row, 0);
         UserManagementAdminController controller = new UserManagementAdminController();
         if (controller.removeUser(MyAccountController.GetLoginFromID(id))) {
             UpdateResultLabel.setText("Removed");
@@ -4300,6 +4326,27 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LoginEditTextfield2ActionPerformed
 
+    private void SearchUserTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchUserTextFieldKeyTyped
+        DefaultTableModel model = (DefaultTableModel) UserListTable.getModel();
+        model.setRowCount(0);
+        
+        CashierController cc = new CashierController();
+        UserManagementAdminController ac = new UserManagementAdminController();
+        List results = cc.GetUsersList(SearchUserTextField.getText());
+        for (Object result : results) {
+            Users user = (Users)result;           
+            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.getUserRole(user.getLogin()) });
+        }
+    }//GEN-LAST:event_SearchUserTextFieldKeyTyped
+
+    private void SearchProductTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProductTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchProductTextFieldActionPerformed
+
+    private void SearchAttractionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchAttractionTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchAttractionTextFieldActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -4660,7 +4707,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField SurnameEditTextfield2;
     private javax.swing.JTextField SurnameTextField2;
     private javax.swing.JTable TerminalListTable;
-    private javax.swing.JTable TerminalListTable1;
     private javax.swing.JLabel TerminalNameLabel;
     private javax.swing.JTextField TerminalNameTextField;
     private javax.swing.JLabel UpdateResultLabel;
@@ -4671,6 +4717,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel UserChoosePaymentMethodPanel;
     private javax.swing.JPanel UserContactPanel;
     private javax.swing.JPanel UserContainerPanel;
+    private javax.swing.JTable UserListTable;
     private javax.swing.JButton UserLogoutButton;
     private javax.swing.JPanel UserMainPanel;
     private javax.swing.JPanel UserManagmentAdmintPanel;

@@ -53,15 +53,15 @@ public class UserManagementAdminController {
             return null;
         }
         System.out.println(user.getUserid());
-         List quaryResult = s.createCriteria(Employees.class).add(Restrictions.eq("users", user)).list();
-         Employees role;
-          if (quaryResult.size()>0) {
+        List quaryResult = s.createCriteria(Employees.class).add(Restrictions.eq("users", user)).list();
+        Employees role;
+        if (quaryResult.size()>0) {
             role = ((Employees)quaryResult.get(0));
-          }else{
+        }else{
             role = null;      
-          }
+        }
 
-          return role;   
+        return role;   
     }
     
     private boolean setUserRole(Users user, String role)
@@ -134,12 +134,12 @@ public class UserManagementAdminController {
         
         
         if (address!=null) {
-            s.delete(address);
+            //s.delete(address);
         }
         if (role!=null) {
-            s.delete(role);
+            //s.delete(role);
         }
-        s.delete(user);
+        //s.delete(user);
         
         tr.commit();
         
