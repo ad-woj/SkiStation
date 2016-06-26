@@ -118,29 +118,31 @@ public class UserManagementAdminController {
         if (user==null) {
             return false;
         }
-        
-        Transaction tr = s.beginTransaction();
-        
         Employees role = getUserRole(user);  
-        Addresses address = user.getAddresses();
+        Addresses address = user.getAddresses(); 
+        s.close();
+        Clients client = ClientController.GetClient( user.getUserid() );
+        s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tr = s.beginTransaction();       
         
-        
-        user.setAddresses(null);
-        Object[] clients =  user.getClientses().toArray();
-        for (Object client : clients) {
-            Clients c = (Clients)client;
-            c.setUsers(null);
+        Query q;
+        if( client != null ) {
+            q = s.createQuery( String.format("DELETE Clients C WHERE C.clientid = '%d'", client.getClientid()) );
+            q.executeUpdate();
         }
-        
-        
-        if (address!=null) {
-            //s.delete(address);
-        }
+       
         if (role!=null) {
-            //s.delete(role);
+            q = s.createQuery( String.format("DELETE Employees C WHERE C.employeeid = '%d'", role.getEmployeeid()) );
+            q.executeUpdate();
         }
-        //s.delete(user);
         
+        q = s.createQuery( String.format("DELETE Users C WHERE C.userid = '%d'", user.getUserid()) );
+        q.executeUpdate();
+         
+        if (address!=null) {
+            q = s.createQuery( String.format("DELETE Addresses C WHERE C.addressid = '%d'", address.getAddressid()) );
+            q.executeUpdate();
+        }
         tr.commit();
         
         return true;

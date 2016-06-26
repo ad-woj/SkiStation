@@ -3818,6 +3818,8 @@ public class MainWindow extends javax.swing.JFrame {
         UserManagementAdminController controller = new UserManagementAdminController();
         if (controller.removeUser(MyAccountController.GetLoginFromID(id))) {
             UpdateResultLabel.setText("Removed");
+            SearchUserTextFieldKeyTyped(null);
+            repaint();
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }

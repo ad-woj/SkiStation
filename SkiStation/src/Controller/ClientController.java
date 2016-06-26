@@ -54,16 +54,23 @@ public class ClientController {
             return -1;
         }
         Clients client = (Clients) query.list().get(0);
+        s.close();
         return client.getClientid();
     }
     
     public static int GetClientPoints( int clientID ) {
+        Clients client = GetClient( clientID );
+        return client.getPoints();
+    }
+    
+    public static Clients GetClient( int clientID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = '%d'", clientID));
         if (query == null){
-            return 0;
+            return null;
         }
         Clients client = (Clients) query.list().get(0);
-        return client.getPoints();
+        s.close();
+        return client;
     }
 }
