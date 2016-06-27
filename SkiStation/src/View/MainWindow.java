@@ -3210,6 +3210,7 @@ public class MainWindow extends javax.swing.JFrame {
         JPanel parent = (JPanel)AddCardButton.getParent();
         if( parent.getName().equalsIgnoreCase( "clientCardsPanel" ))
             login = CashierController.GetSelectedUser();
+        else login = SessionController.GetUserLogged();
         Cards card = CardController.AddNewCard(MyAccountController.GetAccountDetails(login).getUserid(), 0, new StringBuilder());
         if( card != null )
             AddCardView( card, (JPanel)AddCardButton.getParent() );
