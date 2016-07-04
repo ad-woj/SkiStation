@@ -156,7 +156,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -181,19 +181,6 @@ public class MainWindow extends javax.swing.JFrame {
         GatesButton = new javax.swing.JButton();
         CashierModeButton = new javax.swing.JButton();
         ClientModeButton = new javax.swing.JButton();
-        GatesProductsPanel = new javax.swing.JPanel();
-        GatesProductsAddToGate = new javax.swing.JButton();
-        GatesProductsResultLabel = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        GatesProductsGatesProductList = new javax.swing.JTable();
-        jScrollPane16 = new javax.swing.JScrollPane();
-        GatesProductsAwailableProducts = new javax.swing.JTable();
-        jScrollPane17 = new javax.swing.JScrollPane();
-        GatesProductsGatesList = new javax.swing.JTable();
-        GatesProductsRemoveFromGate = new javax.swing.JButton();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
         EditUserAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         LoginTextField2 = new javax.swing.JTextField();
@@ -320,7 +307,6 @@ public class MainWindow extends javax.swing.JFrame {
         SearchTerminalTextField = new javax.swing.JTextField();
         EditTerminalButton = new javax.swing.JButton();
         NewTerminalButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         TerminalListTable = new javax.swing.JTable();
         AdminLogoutButton = new javax.swing.JButton();
@@ -1367,162 +1353,6 @@ public class MainWindow extends javax.swing.JFrame {
         ClientModeButton.setBounds(290, 200, 160, 80);
 
         AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
-
-        GatesProductsPanel.setName("GatesProductsPanel"); // NOI18N
-        GatesProductsPanel.setOpaque(false);
-        GatesProductsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                GatesProductsPanelAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        GatesProductsPanel.setLayout(null);
-
-        GatesProductsAddToGate.setBackground(new java.awt.Color(0, 0, 0));
-        GatesProductsAddToGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        GatesProductsAddToGate.setForeground(new java.awt.Color(255, 255, 255));
-        GatesProductsAddToGate.setText("<<<<");
-        GatesProductsAddToGate.setName("GatesProductsAddToGate"); // NOI18N
-        GatesProductsAddToGate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GatesProductsAddToGateActionPerformed(evt);
-            }
-        });
-        GatesProductsPanel.add(GatesProductsAddToGate);
-        GatesProductsAddToGate.setBounds(430, 300, 160, 40);
-
-        GatesProductsResultLabel.setName("GatesProductsResultLabel"); // NOI18N
-        GatesProductsPanel.add(GatesProductsResultLabel);
-        GatesProductsResultLabel.setBounds(10, 300, 290, 40);
-
-        jScrollPane10.setName("jScrollPane10"); // NOI18N
-
-        GatesProductsGatesProductList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nazwa"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        GatesProductsGatesProductList.setToolTipText("");
-        GatesProductsGatesProductList.setName("GatesProductsGatesProductList"); // NOI18N
-        jScrollPane10.setViewportView(GatesProductsGatesProductList);
-
-        GatesProductsPanel.add(jScrollPane10);
-        jScrollPane10.setBounds(210, 30, 200, 260);
-
-        jScrollPane16.setName("jScrollPane16"); // NOI18N
-
-        GatesProductsAwailableProducts.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nazwa"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        GatesProductsAwailableProducts.setToolTipText("");
-        GatesProductsAwailableProducts.setName("GatesProductsAwailableProducts"); // NOI18N
-        jScrollPane16.setViewportView(GatesProductsAwailableProducts);
-
-        GatesProductsPanel.add(jScrollPane16);
-        jScrollPane16.setBounds(430, 30, 160, 260);
-
-        jScrollPane17.setName("jScrollPane17"); // NOI18N
-
-        GatesProductsGatesList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nazwa Atrakcji"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        GatesProductsGatesList.setToolTipText("");
-        GatesProductsGatesList.setName("GatesProductsGatesList"); // NOI18N
-        GatesProductsGatesList.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                GatesProductsGatesListAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        GatesProductsGatesList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GatesProductsGatesListMouseClicked(evt);
-            }
-        });
-        jScrollPane17.setViewportView(GatesProductsGatesList);
-
-        GatesProductsPanel.add(jScrollPane17);
-        jScrollPane17.setBounds(0, 30, 200, 260);
-
-        GatesProductsRemoveFromGate.setBackground(new java.awt.Color(0, 0, 0));
-        GatesProductsRemoveFromGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        GatesProductsRemoveFromGate.setForeground(new java.awt.Color(255, 255, 255));
-        GatesProductsRemoveFromGate.setText(">>>>");
-        GatesProductsRemoveFromGate.setName("GatesProductsRemoveFromGate"); // NOI18N
-        GatesProductsRemoveFromGate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GatesProductsRemoveFromGateActionPerformed(evt);
-            }
-        });
-        GatesProductsPanel.add(GatesProductsRemoveFromGate);
-        GatesProductsRemoveFromGate.setBounds(250, 300, 160, 40);
-
-        jLabel39.setText("Terminale");
-        jLabel39.setName("jLabel39"); // NOI18N
-        GatesProductsPanel.add(jLabel39);
-        jLabel39.setBounds(10, 10, 190, 14);
-
-        jLabel40.setText("Produkty w terminalu");
-        jLabel40.setName("jLabel40"); // NOI18N
-        GatesProductsPanel.add(jLabel40);
-        jLabel40.setBounds(210, 10, 200, 14);
-
-        jLabel41.setText("Dostepne produkty");
-        jLabel41.setName("jLabel41"); // NOI18N
-        GatesProductsPanel.add(jLabel41);
-        jLabel41.setBounds(430, 10, 160, 14);
-
-        AdminContainerPanel.add(GatesProductsPanel, "gatesProductsPanel");
 
         EditUserAdmintPanel.setName("EditUserAdmintPanel"); // NOI18N
         EditUserAdmintPanel.setOpaque(false);
@@ -2759,16 +2589,6 @@ public class MainWindow extends javax.swing.JFrame {
         TerminalListPanel.add(NewTerminalButton);
         NewTerminalButton.setBounds(470, 280, 120, 30);
 
-        jButton3.setText("Zarządzaj");
-        jButton3.setName("jButton3"); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        TerminalListPanel.add(jButton3);
-        jButton3.setBounds(470, 230, 120, 30);
-
         jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane6.setName("jScrollPane6"); // NOI18N
         jScrollPane6.setOpaque(false);
@@ -3495,14 +3315,16 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void DisplayCards( javax.swing.JPanel CardsPanel, String clientName ) {
+    private void DisplayCards( javax.swing.JPanel CardsPanel, final String clientName ) {
         AvailablePointsLabel = new JLabel();
         IDLabel = new JLabel();
         ActivationDateLabel = new JLabel();
         ExpirationDateLabel = new JLabel();
         PointsLabel = new JLabel();
         AvailablePointsTextField = new JTextField();
+        ManualChargePointsAmountTextField = new JTextField();
         BuyPointsButton2 = new JButton();
+        CashierChargePointsToClientAccountButton = new JButton();
         AddCardButton = new JButton();
         
         AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3562,7 +3384,16 @@ public class MainWindow extends javax.swing.JFrame {
         AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
         CardsPanel.add(AvailablePointsTextField);
         AvailablePointsTextField.setBounds(170, 20, 50, 20);
-
+        
+        ManualChargePointsAmountTextField.setEditable(true);
+        ManualChargePointsAmountTextField.setBackground(new java.awt.Color(250, 250, 250));
+        ManualChargePointsAmountTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ManualChargePointsAmountTextField.setText("");
+        ManualChargePointsAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ManualChargePointsAmountTextField.setName("ManualChargePointsAmountTextField"); // NOI18N
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(ManualChargePointsAmountTextField);
+        ManualChargePointsAmountTextField.setBounds(230, 20, 50, 20);
+   
         BuyPointsButton2.setText("Kup punkty");
         BuyPointsButton2.setMaximumSize(new java.awt.Dimension(67, 23));
         BuyPointsButton2.setMinimumSize(new java.awt.Dimension(67, 23));
@@ -3573,8 +3404,25 @@ public class MainWindow extends javax.swing.JFrame {
                 BuyPointsButton2ActionPerformed(evt);
             }
         });
-        CardsPanel.add(BuyPointsButton2);
+        if (!CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(BuyPointsButton2);
         BuyPointsButton2.setBounds(230, 18, 100, 23);
+        
+        
+        CashierChargePointsToClientAccountButton.setText("Doładuj");
+        CashierChargePointsToClientAccountButton.setMaximumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setMinimumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setName("CashierChargePointsToClientAccount"); // NOI18N
+        CashierChargePointsToClientAccountButton.setPreferredSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Integer pointsAmount = 0;
+                if ((!ManualChargePointsAmountTextField.getText().isEmpty()) && clientName != null)
+                    pointsAmount = Integer.parseInt( ManualChargePointsAmountTextField.getText() );
+                if (pointsAmount > 0) CashierChargePointsToClientAccount(pointsAmount, clientName);
+            }
+        });
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(CashierChargePointsToClientAccountButton);
+        CashierChargePointsToClientAccountButton.setBounds(280, 18, 100, 23);
 
         AddCardButton.setText("Dodaj kartę");
         AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3615,6 +3463,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardsPanel.remove(ActivationDateLabel);
         CardsPanel.remove(ExpirationDateLabel);
         CardsPanel.remove(PointsLabel);
+        CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(BuyPointsButton2);
         CardsPanel.remove(AddCardButton);
@@ -3676,6 +3525,14 @@ public class MainWindow extends javax.swing.JFrame {
     public void SetAvailablePointsText( String points ) {
         AvailablePointsTextField.setText(points);
         UserMyCardsPanel.repaint();
+    }
+    
+    private void CashierChargePointsToClientAccount(Integer points, String user) {                                                 
+        int clientId = ClientController.GetClientIDFromLogin(user);
+        System.out.println(points + user);
+        ClientController.UpdateClientPoints(user, ClientController.GetClientPoints(clientId)+ points);
+        
+        AvailablePointsTextField.setText(Integer.toString(ClientController.GetClientPoints(clientId)));
     }
     
     private void changeCard(ViewSwitcher target, boolean checkSession) {
@@ -4925,107 +4782,6 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
 
-    private void GatesProductsAddToGateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesProductsAddToGateActionPerformed
-            if (GatesProductsGatesList.getSelectedRow() > -1) {
-                int terminalID = Integer.parseInt(GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString());
-                if (GatesProductsAwailableProducts.getSelectedRow() > -1) {
-                    int productID = Integer.parseInt(GatesProductsAwailableProducts.getValueAt(GatesProductsAwailableProducts.getSelectedRow(), 0).toString());
-
-                    GateProductsController controller = new GateProductsController();
-                    StringBuilder logger = new StringBuilder();
-                    controller.addProductToTerminal(terminalID,productID,logger);
-                    GatesProductsResultLabel.setText(logger.toString());
-                    
-                }else{
-                    GatesProductsResultLabel.setText("Select product!");
-                }
-            }else{
-                GatesProductsResultLabel.setText("Select terminal!");
-            }
-            GatesProductRefreshGateProductsList();
-    }//GEN-LAST:event_GatesProductsAddToGateActionPerformed
-
-    private void GatesProductsGatesListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesProductsGatesListAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GatesProductsGatesListAncestorAdded
-
-    private void GatesProductsGatesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GatesProductsGatesListMouseClicked
-        GatesProductRefreshGateProductsList();
-    }//GEN-LAST:event_GatesProductsGatesListMouseClicked
-
-    private void GatesProductsPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesProductsPanelAncestorAdded
-        RefreshGatesProductsPanel();
-    }//GEN-LAST:event_GatesProductsPanelAncestorAdded
-
-    private void RefreshGatesProductsPanel()
-    {
-        GateProductsController sm = new GateProductsController();
-        
-        DefaultTableModel model = (DefaultTableModel) GatesProductsGatesList.getModel();
-        model.setRowCount(0);
-        
-        List terminals = sm.GetTerminals();
-        for (Object terminalObj : terminals) {
-            Terminal terminal = (Terminal)terminalObj;           
-             model.addRow(new Object[]{ terminal.getTerminalid(), terminal.getAttraction().getName()});
-        } 
-
-        model = (DefaultTableModel) GatesProductsAwailableProducts.getModel();
-        model.setRowCount(0);
-        
-        List products = sm.GetProducts();
-        for (Object productObj : products) {
-            Product product = (Product)productObj;           
-             model.addRow(new Object[]{ product.getProductid(),product.getName()});
-        } 
-
-    }
-        
-    private void GatesProductsRemoveFromGateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesProductsRemoveFromGateActionPerformed
-                      
-            if (GatesProductsGatesList.getSelectedRow() > -1) {
-                int terminalID = Integer.parseInt(GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString());
-                if (GatesProductsGatesProductList.getSelectedRow() > -1) {
-                    int productID = Integer.parseInt(GatesProductsGatesProductList.getValueAt(GatesProductsGatesProductList.getSelectedRow(), 0).toString());
-
-                    GateProductsController controller = new GateProductsController();
-                    StringBuilder logger = new StringBuilder();
-                    controller.removeProductFromTerminal(terminalID,productID,logger);
-                    GatesProductsResultLabel.setText(logger.toString());
-                    
-                }else{
-                    GatesProductsResultLabel.setText("Select product!");
-                }
-            }else{
-                GatesProductsResultLabel.setText("Select terminal!");
-            }
-            GatesProductRefreshGateProductsList();
-    }//GEN-LAST:event_GatesProductsRemoveFromGateActionPerformed
-
-    private void GatesProductRefreshGateProductsList()
-    {
-                DefaultTableModel model = (DefaultTableModel) GatesProductsGatesProductList.getModel();
-        model.setRowCount(0);
-        if (GatesProductsGatesList.getSelectedRow() > -1) {
-            String terminalID = GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString();
-
-            ProductController controller = new ProductController();
-            List productsInTerminal = controller.GetProductsFromTerminal(Integer.parseInt(terminalID));
-            if (productsInTerminal!=null) {
-                for (Object productObj : productsInTerminal) {
-                    Productitem productItem = (Productitem)productObj;
-                    int currentPrice = controller.getActualProductPrice(productItem.getProduct());
-                      model.addRow(new Object[]{productItem.getProduct().getProductid(), productItem.getProduct().getName(),currentPrice});
-                }
-            }
-        }
-    }
-    
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       ViewSwitcher view = new ViewSwitcher( getContentPane(), "AdminContainerPanel", AdminContainerPanel, "gatesProductsPanel" );
-        changeCard(view, true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -5278,13 +5034,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton FindUserButton;
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
-    private javax.swing.JButton GatesProductsAddToGate;
-    private javax.swing.JTable GatesProductsAwailableProducts;
-    private javax.swing.JTable GatesProductsGatesList;
-    private javax.swing.JTable GatesProductsGatesProductList;
-    private javax.swing.JPanel GatesProductsPanel;
-    private javax.swing.JButton GatesProductsRemoveFromGate;
-    private javax.swing.JLabel GatesProductsResultLabel;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
@@ -5435,7 +5184,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -5472,24 +5220,18 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
-    private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -5521,6 +5263,8 @@ public class MainWindow extends javax.swing.JFrame {
     private JLabel ExpirationDateLabel;
     private JLabel PointsLabel;
     private JTextField AvailablePointsTextField;
+    private JTextField ManualChargePointsAmountTextField;
     private JButton BuyPointsButton2;
     private JButton AddCardButton;
+    private JButton CashierChargePointsToClientAccountButton;
 }
