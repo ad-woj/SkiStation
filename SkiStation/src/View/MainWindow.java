@@ -3296,14 +3296,14 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Nazwa Atrakcji"
+                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -4387,7 +4387,7 @@ public class MainWindow extends javax.swing.JFrame {
         List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
         if (traffic != null){
             DefaultTableModel model = (DefaultTableModel) SlopeTraffic.getModel();
-            model.removeRow(0);
+            model.setRowCount(0);
             boolean tempOverload;
             for (int i = 0; i < traffic.size(); i++){
                 Object[] row = traffic.get(i);
@@ -4648,7 +4648,7 @@ public class MainWindow extends javax.swing.JFrame {
         List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
         if (traffic != null){
             DefaultTableModel model = (DefaultTableModel) StationTrafficTable.getModel();
-            model.removeRow(0);
+            model.setRowCount(0);
             boolean tempOverload;
             for (int i = 0; i < traffic.size(); i++){
                 Object[] row = traffic.get(i);
@@ -4783,11 +4783,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ContactButtonActionPerformed
 
     private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed
-        System.out.println("Button!");
+        
         List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
         if (traffic != null){
             DefaultTableModel model = (DefaultTableModel) UserTrafficTable.getModel();
-            model.removeRow(0);
+            model.setRowCount(0);
             boolean tempOverload;
             for (int i = 0; i < traffic.size(); i++){
                 Object[] row = traffic.get(i);
