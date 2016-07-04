@@ -63,7 +63,6 @@ public class RegistrationController {
            Clients newClient = new Clients();
            newClient.setRegistrationdate(new Date());
            newClient.setUsers(newUser);  
-           newClient.setPoints(0);
            
            s.saveOrUpdate(newClient);
            

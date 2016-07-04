@@ -8,9 +8,11 @@ package Controller;
 import DBClasses.Itemprice;
 import DBClasses.Pricelist;
 import DBClasses.Product;
+import DBClasses.Productitem;
 import Tools.HibernateUtil;
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -210,7 +212,11 @@ public class ProductController {
             }
         }
     
-    
+    public List GetProductsFromTerminal(int terminalID)
+    {         
+          List products = s.createQuery(String.format("FROM Productitem C WHERE C.terminal = '%d'", terminalID )).list();
+          return products; 
+    }
         
     public int getActualProductPrice(Product product) {
 
