@@ -5,8 +5,10 @@
  */
 package View;
 import Controller.CardController;
+import Controller.CashierController;
 import Controller.ClientController;
 import Controller.SessionController;
+import DBClasses.Users;
 import java.awt.Point;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,6 +36,7 @@ public class CardView {
     
     public CardView( int index, int positionY, JPanel panel, MainWindow mw ) {
         
+        
         IDTextField = new javax.swing.JTextField();
         ActivationDateTextField = new javax.swing.JTextField();
         ExpirationDateTextField = new javax.swing.JTextField();
@@ -41,11 +44,12 @@ public class CardView {
         AddPointsButton = new javax.swing.JButton();
         SubtractPointsButton = new javax.swing.JButton();
         RemoveCardButton = new javax.swing.JButton();
-        PrintCardButton = new javax.swing.JButton();
+        PrintCardButton = new javax.swing.JButton();       
         String number = Integer.toString(index);
         parent = mw;
         UserMyCardsPanel = panel;
         myIndex = index;
+
         
         IDTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IDTextField.setEditable(false);
@@ -74,6 +78,9 @@ public class CardView {
         UserMyCardsPanel.add(ExpirationDateTextField);
         ExpirationDateTextField.setBounds(180, positionY, 80, 20);
 
+        
+
+        
         PointsTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PointsTextField.setName("PointsTextField" + number); // NOI18N
         PointsTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -172,6 +179,9 @@ public class CardView {
         PrintCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMyCardsPanel.add(PrintCardButton);
         PrintCardButton.setBounds(450, positionY, 60, 23);
+        
+        parent.GetPrintCardPanel().setVisible(false);
+        
     }
     
     public void SetIndex( int i ) {
@@ -227,13 +237,13 @@ public class CardView {
     } 
     
     private void PrintCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-        String text = "SkiStation/t Karta na punkty/n/n ID karty: " + "/n" + "Data ważności: " 
-                + "/n" + "Właścicel: " + "/n" + "ID clienta: " + ""; 
+        parent.GetPrintCardPanel().setVisible(true);
+        parent.GetPrintCardText().setText(GetCardPrintData(SessionController.GetLoggedUserData()));
     }
         
     private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-        String text = "SkiStation/t Karta na punkty/n/n ID karty: " + "/n" + "Ważna do: " 
-                + "/n" + "Właścicel: " + "/n" + "ID clienta: " + "";
+        parent.GetPrintCardPanel().setVisible(true);
+        parent.GetPrintCardText().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
     }
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
@@ -263,6 +273,7 @@ public class CardView {
             PointsTextField.repaint();
         }
     }
+
     
     private void PointsTextChanged() {
         if( ignoreTextChange ) {
@@ -298,5 +309,18 @@ public class CardView {
             if( in.charAt(i) < '0' || in.charAt(i) > '9' )
                 return false;
         return true;
+    }
+    
+    private String GetCardPrintData(Users user)
+    {
+        if(user==null)
+        {
+            return "NoUser";
+        }
+        
+        String text = "Wydrukowano kartę na punkty: \n\nID karty: " + IDTextField.getText() + "\n" + "Data ważności: " + ExpirationDateTextField.getText()
+                + "\n" + "Właścicel: " + user.getName() + "\n" + "ID clienta: " + user.getUserid(); 
+        
+        return text;
     }
 }
