@@ -25,9 +25,14 @@ import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
 import Model.ViewSwitcher;
 import Model.AccountInfo;
+import java.time.Clock;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 /**
  *
  * @author Adam
@@ -146,6 +151,10 @@ public class MainWindow extends javax.swing.JFrame {
         PasswordEditTextfield3 = new javax.swing.JTextField();
         EditPasswordLabel3 = new javax.swing.JLabel();
         ClientCardsPanel = new javax.swing.JPanel();
+        PrintCardDataPanel1 = new javax.swing.JPanel();
+        PrintCardDataOkButton1 = new javax.swing.JButton();
+        PrintCardDataTextPanel1 = new javax.swing.JScrollPane();
+        PrintCardDataText1 = new javax.swing.JTextArea();
         StationTrafficPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         StationTrafficTable = new javax.swing.JTable();
@@ -276,6 +285,22 @@ public class MainWindow extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        AttractionsEditAddPanel = new javax.swing.JPanel();
+        AttractionNameTextField = new javax.swing.JTextField();
+        TerminalNameLabel = new javax.swing.JLabel();
+        AttractionTypeComboBox = new javax.swing.JComboBox();
+        CancelAddAttractionButton = new javax.swing.JButton();
+        AddAttractionButton = new javax.swing.JButton();
+        AttractionTypeLabel = new javax.swing.JLabel();
+        AddAttractionMessage = new javax.swing.JLabel();
+        TerminalsEditAddPanel = new javax.swing.JPanel();
+        LockTimeLabel1 = new javax.swing.JLabel();
+        CancelAddTerminalButton1 = new javax.swing.JButton();
+        AddTerminalButton1 = new javax.swing.JButton();
+        LockTimeComboBox2 = new javax.swing.JComboBox();
+        jLabel30 = new javax.swing.JLabel();
+        ChosenAttractionLabel = new javax.swing.JLabel();
+        AddTerminalMessageLabel = new javax.swing.JLabel();
         AttractionsAndGatesPanel = new javax.swing.JTabbedPane();
         AttractionManagementAdminPanel = new javax.swing.JPanel();
         AttractionListPanel = new javax.swing.JPanel();
@@ -283,18 +308,10 @@ public class MainWindow extends javax.swing.JFrame {
         SearchAttractionTextField = new javax.swing.JTextField();
         EditAttractionButton = new javax.swing.JButton();
         NewAttractionButton = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
+        AttractionTable = new javax.swing.JScrollPane();
         AttractionListTable2 = new javax.swing.JTable();
-        AttractionsEditAddPanel = new javax.swing.JPanel();
-        TerminalNameTextField = new javax.swing.JTextField();
-        TerminalNameLabel = new javax.swing.JLabel();
-        AttractionTypeLabel = new javax.swing.JLabel();
-        LockTimeLabel = new javax.swing.JLabel();
-        AttractionTypeComboBox = new javax.swing.JComboBox();
-        CancelAddTerminalButton = new javax.swing.JButton();
-        AddTerminalButton1 = new javax.swing.JButton();
-        LockTimeComboBox1 = new javax.swing.JComboBox();
         GatesManagementAdminPanel = new javax.swing.JPanel();
+        TerminalListPanel = new javax.swing.JPanel();
         FindTerminalButton = new javax.swing.JButton();
         SearchTerminalTextField = new javax.swing.JTextField();
         EditTerminalButton = new javax.swing.JButton();
@@ -315,6 +332,10 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeTrafficButton = new javax.swing.JButton();
         UserContainerPanel = new javax.swing.JPanel();
         UserMyCardsPanel = new javax.swing.JPanel();
+        PrintCardDataPanel = new javax.swing.JPanel();
+        PrintCardDataOkButton = new javax.swing.JButton();
+        PrintCardDataTextPanel = new javax.swing.JScrollPane();
+        PrintCardDataText = new javax.swing.JTextArea();
         UserBuyPointsPanel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         BuyAndPayButton = new javax.swing.JButton();
@@ -370,7 +391,7 @@ public class MainWindow extends javax.swing.JFrame {
         DocumentEditTextfield = new javax.swing.JTextField();
         Symulator = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         SymulatorBuyButton = new javax.swing.JButton();
         SymulatorResultLabel = new javax.swing.JLabel();
@@ -972,6 +993,34 @@ public class MainWindow extends javax.swing.JFrame {
         ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
         ClientCardsPanel.setOpaque(false);
         ClientCardsPanel.setLayout(null);
+
+        PrintCardDataPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        PrintCardDataPanel1.setName("PrintCardDataPanel1"); // NOI18N
+        PrintCardDataPanel1.setLayout(null);
+
+        PrintCardDataOkButton1.setText("OK");
+        PrintCardDataOkButton1.setName("PrintCardDataOkButton1"); // NOI18N
+        PrintCardDataOkButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintCardDataOkButton1ActionPerformed(evt);
+            }
+        });
+        PrintCardDataPanel1.add(PrintCardDataOkButton1);
+        PrintCardDataOkButton1.setBounds(210, 450, 47, 23);
+
+        PrintCardDataTextPanel1.setName("PrintCardDataTextPanel1"); // NOI18N
+
+        PrintCardDataText1.setColumns(20);
+        PrintCardDataText1.setRows(5);
+        PrintCardDataText1.setName("PrintCardDataText1"); // NOI18N
+        PrintCardDataTextPanel1.setViewportView(PrintCardDataText1);
+
+        PrintCardDataPanel1.add(PrintCardDataTextPanel1);
+        PrintCardDataTextPanel1.setBounds(20, 20, 430, 420);
+
+        ClientCardsPanel.add(PrintCardDataPanel1);
+        PrintCardDataPanel1.setBounds(20, 20, 470, 490);
+
         CashierContainer.add(ClientCardsPanel, "ClientCardsPanel");
 
         StationTrafficPanel.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -2100,10 +2149,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2292,6 +2341,129 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminContainerPanel.add(ProductsManagmentAdminPanel, "productsManagementPanel");
 
+        AttractionsEditAddPanel.setName("AttractionsEditAddPanel"); // NOI18N
+        AttractionsEditAddPanel.setLayout(null);
+
+        AttractionNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AttractionNameTextField.setName("AttractionNameTextField"); // NOI18N
+        AttractionsEditAddPanel.add(AttractionNameTextField);
+        AttractionNameTextField.setBounds(30, 60, 240, 30);
+
+        TerminalNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TerminalNameLabel.setText("Nazwa");
+        TerminalNameLabel.setName("TerminalNameLabel"); // NOI18N
+        AttractionsEditAddPanel.add(TerminalNameLabel);
+        TerminalNameLabel.setBounds(30, 40, 70, 14);
+
+        AttractionTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Stok", "Sklep" }));
+        AttractionTypeComboBox.setBorder(null);
+        AttractionTypeComboBox.setName("AttractionTypeComboBox"); // NOI18N
+        AttractionTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttractionTypeComboBoxActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(AttractionTypeComboBox);
+        AttractionTypeComboBox.setBounds(30, 120, 160, 30);
+
+        CancelAddAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
+        CancelAddAttractionButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        CancelAddAttractionButton.setForeground(new java.awt.Color(255, 255, 255));
+        CancelAddAttractionButton.setText("Anuluj");
+        CancelAddAttractionButton.setName("CancelAddAttractionButton"); // NOI18N
+        CancelAddAttractionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelAddAttractionButtonActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(CancelAddAttractionButton);
+        CancelAddAttractionButton.setBounds(30, 230, 110, 30);
+
+        AddAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
+        AddAttractionButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddAttractionButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddAttractionButton.setText("Dodaj");
+        AddAttractionButton.setName("AddAttractionButton"); // NOI18N
+        AddAttractionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAttractionButtonActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(AddAttractionButton);
+        AddAttractionButton.setBounds(150, 230, 110, 30);
+
+        AttractionTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AttractionTypeLabel.setText("Typ Atrakcji");
+        AttractionTypeLabel.setName("AttractionTypeLabel"); // NOI18N
+        AttractionsEditAddPanel.add(AttractionTypeLabel);
+        AttractionTypeLabel.setBounds(30, 100, 90, 14);
+
+        AddAttractionMessage.setName("AddAttractionMessage"); // NOI18N
+        AttractionsEditAddPanel.add(AddAttractionMessage);
+        AddAttractionMessage.setBounds(150, 270, 180, 30);
+
+        AdminContainerPanel.add(AttractionsEditAddPanel, "AttractionsEditAddPanel");
+
+        TerminalsEditAddPanel.setName("TerminalsEditAddPanel"); // NOI18N
+        TerminalsEditAddPanel.setOpaque(false);
+        TerminalsEditAddPanel.setLayout(null);
+
+        LockTimeLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        LockTimeLabel1.setText("Czas Blokady");
+        LockTimeLabel1.setName("LockTimeLabel1"); // NOI18N
+        TerminalsEditAddPanel.add(LockTimeLabel1);
+        LockTimeLabel1.setBounds(30, 110, 80, 14);
+
+        CancelAddTerminalButton1.setBackground(new java.awt.Color(0, 0, 0));
+        CancelAddTerminalButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        CancelAddTerminalButton1.setForeground(new java.awt.Color(255, 255, 255));
+        CancelAddTerminalButton1.setText("Anuluj");
+        CancelAddTerminalButton1.setName("CancelAddTerminalButton1"); // NOI18N
+        CancelAddTerminalButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelAddTerminalButton1ActionPerformed(evt);
+            }
+        });
+        TerminalsEditAddPanel.add(CancelAddTerminalButton1);
+        CancelAddTerminalButton1.setBounds(30, 200, 110, 30);
+
+        AddTerminalButton1.setBackground(new java.awt.Color(0, 0, 0));
+        AddTerminalButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        AddTerminalButton1.setForeground(new java.awt.Color(255, 255, 255));
+        AddTerminalButton1.setText("Dodaj");
+        AddTerminalButton1.setName("AddTerminalButton1"); // NOI18N
+        AddTerminalButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTerminalButton1ActionPerformed(evt);
+            }
+        });
+        TerminalsEditAddPanel.add(AddTerminalButton1);
+        AddTerminalButton1.setBounds(150, 200, 110, 30);
+
+        LockTimeComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
+        LockTimeComboBox2.setBorder(null);
+        LockTimeComboBox2.setName("LockTimeComboBox2"); // NOI18N
+        TerminalsEditAddPanel.add(LockTimeComboBox2);
+        LockTimeComboBox2.setBounds(30, 130, 60, 30);
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel30.setText("Wybrana atrakcja:");
+        jLabel30.setName("jLabel30"); // NOI18N
+        TerminalsEditAddPanel.add(jLabel30);
+        jLabel30.setBounds(30, 40, 130, 30);
+
+        ChosenAttractionLabel.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        ChosenAttractionLabel.setName("ChosenAttractionLabel"); // NOI18N
+        TerminalsEditAddPanel.add(ChosenAttractionLabel);
+        ChosenAttractionLabel.setBounds(170, 40, 130, 30);
+
+        AddTerminalMessageLabel.setName("AddTerminalMessageLabel"); // NOI18N
+        TerminalsEditAddPanel.add(AddTerminalMessageLabel);
+        AddTerminalMessageLabel.setBounds(150, 244, 220, 20);
+
+        AdminContainerPanel.add(TerminalsEditAddPanel, "TerminalsEditAddPanel");
+        TerminalsEditAddPanel.getAccessibleContext().setAccessibleName("");
+
         AttractionsAndGatesPanel.setName("AttractionsAndGatesPanel"); // NOI18N
 
         AttractionManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -2359,9 +2531,9 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionListPanel.add(NewAttractionButton);
         NewAttractionButton.setBounds(470, 280, 120, 30);
 
-        jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane10.setName("jScrollPane10"); // NOI18N
-        jScrollPane10.setOpaque(false);
+        AttractionTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AttractionTable.setName("AttractionTable"); // NOI18N
+        AttractionTable.setOpaque(false);
 
         AttractionListTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2401,83 +2573,18 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         AttractionListTable2.setName("AttractionListTable2"); // NOI18N
-        jScrollPane10.setViewportView(AttractionListTable2);
+        AttractionTable.setViewportView(AttractionListTable2);
 
-        AttractionListPanel.add(jScrollPane10);
-        jScrollPane10.setBounds(30, 50, 420, 260);
+        AttractionListPanel.add(AttractionTable);
+        AttractionTable.setBounds(30, 50, 420, 260);
 
         AttractionManagementAdminPanel.add(AttractionListPanel, "AttractionListPanel");
-
-        AttractionsEditAddPanel.setName("AttractionsEditAddPanel"); // NOI18N
-        AttractionsEditAddPanel.setLayout(null);
-
-        TerminalNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        TerminalNameTextField.setName("TerminalNameTextField"); // NOI18N
-        AttractionsEditAddPanel.add(TerminalNameTextField);
-        TerminalNameTextField.setBounds(30, 60, 240, 30);
-
-        TerminalNameLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        TerminalNameLabel.setText("Nazwa");
-        TerminalNameLabel.setName("TerminalNameLabel"); // NOI18N
-        AttractionsEditAddPanel.add(TerminalNameLabel);
-        TerminalNameLabel.setBounds(30, 40, 70, 14);
-
-        AttractionTypeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AttractionTypeLabel.setText("Typ Atrakcji");
-        AttractionTypeLabel.setName("AttractionTypeLabel"); // NOI18N
-        AttractionsEditAddPanel.add(AttractionTypeLabel);
-        AttractionTypeLabel.setBounds(30, 100, 90, 14);
-
-        LockTimeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        LockTimeLabel.setText("Czas Blokady");
-        LockTimeLabel.setName("LockTimeLabel"); // NOI18N
-        AttractionsEditAddPanel.add(LockTimeLabel);
-        LockTimeLabel.setBounds(30, 160, 80, 14);
-
-        AttractionTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Stok", "Sklep" }));
-        AttractionTypeComboBox.setBorder(null);
-        AttractionTypeComboBox.setName("AttractionTypeComboBox"); // NOI18N
-        AttractionTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AttractionTypeComboBoxActionPerformed(evt);
-            }
-        });
-        AttractionsEditAddPanel.add(AttractionTypeComboBox);
-        AttractionTypeComboBox.setBounds(30, 120, 160, 30);
-
-        CancelAddTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
-        CancelAddTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        CancelAddTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
-        CancelAddTerminalButton.setText("Anuluj");
-        CancelAddTerminalButton.setName("CancelAddTerminalButton"); // NOI18N
-        CancelAddTerminalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelAddTerminalButtonActionPerformed(evt);
-            }
-        });
-        AttractionsEditAddPanel.add(CancelAddTerminalButton);
-        CancelAddTerminalButton.setBounds(30, 230, 110, 30);
-
-        AddTerminalButton1.setBackground(new java.awt.Color(0, 0, 0));
-        AddTerminalButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AddTerminalButton1.setForeground(new java.awt.Color(255, 255, 255));
-        AddTerminalButton1.setText("Dodaj");
-        AddTerminalButton1.setName("AddTerminalButton1"); // NOI18N
-        AttractionsEditAddPanel.add(AddTerminalButton1);
-        AddTerminalButton1.setBounds(150, 230, 110, 30);
-
-        LockTimeComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1s", "2s", "3s", "4s" }));
-        LockTimeComboBox1.setBorder(null);
-        LockTimeComboBox1.setName("LockTimeComboBox1"); // NOI18N
-        AttractionsEditAddPanel.add(LockTimeComboBox1);
-        LockTimeComboBox1.setBounds(30, 180, 60, 30);
-
-        AttractionManagementAdminPanel.add(AttractionsEditAddPanel, "AttractionsEditAddPanel");
 
         AttractionsAndGatesPanel.addTab("Atrakcje", AttractionManagementAdminPanel);
 
         GatesManagementAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
+        GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -2487,12 +2594,15 @@ public class MainWindow extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        GatesManagementAdminPanel.setLayout(null);
+        GatesManagementAdminPanel.setLayout(new java.awt.CardLayout());
+
+        TerminalListPanel.setName("TerminalListPanel"); // NOI18N
+        TerminalListPanel.setLayout(null);
 
         FindTerminalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search1.PNG"))); // NOI18N
         FindTerminalButton.setIconTextGap(0);
         FindTerminalButton.setName("FindTerminalButton"); // NOI18N
-        GatesManagementAdminPanel.add(FindTerminalButton);
+        TerminalListPanel.add(FindTerminalButton);
         FindTerminalButton.setBounds(410, 20, 39, 30);
 
         SearchTerminalTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2502,7 +2612,7 @@ public class MainWindow extends javax.swing.JFrame {
                 SearchTerminalTextFieldKeyReleased(evt);
             }
         });
-        GatesManagementAdminPanel.add(SearchTerminalTextField);
+        TerminalListPanel.add(SearchTerminalTextField);
         SearchTerminalTextField.setBounds(30, 20, 380, 30);
 
         EditTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
@@ -2516,7 +2626,7 @@ public class MainWindow extends javax.swing.JFrame {
                 EditTerminalButtonActionPerformed(evt);
             }
         });
-        GatesManagementAdminPanel.add(EditTerminalButton);
+        TerminalListPanel.add(EditTerminalButton);
         EditTerminalButton.setBounds(470, 50, 120, 30);
 
         NewTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
@@ -2529,7 +2639,7 @@ public class MainWindow extends javax.swing.JFrame {
                 NewTerminalButtonActionPerformed(evt);
             }
         });
-        GatesManagementAdminPanel.add(NewTerminalButton);
+        TerminalListPanel.add(NewTerminalButton);
         NewTerminalButton.setBounds(470, 280, 120, 30);
 
         jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2572,8 +2682,10 @@ public class MainWindow extends javax.swing.JFrame {
             TerminalListTable.getColumnModel().getColumn(2).setHeaderValue("Czas Blokady");
         }
 
-        GatesManagementAdminPanel.add(jScrollPane6);
+        TerminalListPanel.add(jScrollPane6);
         jScrollPane6.setBounds(30, 50, 420, 260);
+
+        GatesManagementAdminPanel.add(TerminalListPanel, "card8");
 
         AttractionsAndGatesPanel.addTab("Bramki", GatesManagementAdminPanel);
 
@@ -2715,7 +2827,44 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserMyCardsPanel.setName("UserMyCardsPanel"); // NOI18N
         UserMyCardsPanel.setOpaque(false);
+        UserMyCardsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                UserMyCardsPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         UserMyCardsPanel.setLayout(null);
+
+        PrintCardDataPanel.setBackground(new java.awt.Color(204, 204, 204));
+        PrintCardDataPanel.setName("PrintCardDataPanel"); // NOI18N
+        PrintCardDataPanel.setLayout(null);
+
+        PrintCardDataOkButton.setText("OK");
+        PrintCardDataOkButton.setName("PrintCardDataOkButton"); // NOI18N
+        PrintCardDataOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintCardDataOkButtonActionPerformed(evt);
+            }
+        });
+        PrintCardDataPanel.add(PrintCardDataOkButton);
+        PrintCardDataOkButton.setBounds(210, 460, 47, 23);
+
+        PrintCardDataTextPanel.setName("PrintCardDataTextPanel"); // NOI18N
+
+        PrintCardDataText.setColumns(20);
+        PrintCardDataText.setRows(5);
+        PrintCardDataText.setName("PrintCardDataText"); // NOI18N
+        PrintCardDataTextPanel.setViewportView(PrintCardDataText);
+
+        PrintCardDataPanel.add(PrintCardDataTextPanel);
+        PrintCardDataTextPanel.setBounds(20, 20, 430, 420);
+
+        UserMyCardsPanel.add(PrintCardDataPanel);
+        PrintCardDataPanel.setBounds(20, 20, 470, 490);
+
         UserContainerPanel.add(UserMyCardsPanel, "userMyCards");
 
         UserBuyPointsPanel.setName("UserBuyPointsPanel"); // NOI18N
@@ -2900,8 +3049,245 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserContainerPanel.add(UserChoosePaymentMethodPanel, "userChoosePaymentMethod");
 
-        UserTraffic.setName("UserTraffic");
-        UserTraffic.setLayout(null);
+        UserMainPanel.add(UserContainerPanel);
+        UserContainerPanel.setBounds(170, 150, 530, 550);
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
+        jLabel27.setText("Moje Konto");
+        jLabel27.setName("jLabel27"); // NOI18N
+        UserMainPanel.add(jLabel27);
+        jLabel27.setBounds(0, 0, 700, 700);
+
+        getContentPane().add(UserMainPanel, "UserMainPanel");
+
+        MyAccountPanel.setAutoscrolls(true);
+        MyAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        MyAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
+        MyAccountPanel.setName("MyAccountPanel"); // NOI18N
+        MyAccountPanel.setOpaque(false);
+        MyAccountPanel.setLayout(null);
+
+        EditLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
+        EditLoginLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditLoginLabel.setForeground(new java.awt.Color(0, 51, 51));
+        EditLoginLabel.setText("Login:");
+        EditLoginLabel.setName("EditLoginLabel"); // NOI18N
+        MyAccountPanel.add(EditLoginLabel);
+        EditLoginLabel.setBounds(10, 100, 50, 30);
+
+        EditPasswordLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditPasswordLabel.setText("Hasło:");
+        EditPasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
+        EditPasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
+        EditPasswordLabel.setName("EditPasswordLabel"); // NOI18N
+        EditPasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
+        MyAccountPanel.add(EditPasswordLabel);
+        EditPasswordLabel.setBounds(10, 130, 50, 30);
+
+        LoginEditTextfield.setName("LoginEditTextfield"); // NOI18N
+        LoginEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(LoginEditTextfield);
+        LoginEditTextfield.setBounds(110, 100, 230, 30);
+
+        PasswordEditTextfield.setEditable(false);
+        PasswordEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
+        PasswordEditTextfield.setText("*****");
+        PasswordEditTextfield.setName("PasswordEditTextfield"); // NOI18N
+        MyAccountPanel.add(PasswordEditTextfield);
+        PasswordEditTextfield.setBounds(110, 130, 230, 30);
+
+        NameEditTextfield.setName("NameEditTextfield"); // NOI18N
+        NameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(NameEditTextfield);
+        NameEditTextfield.setBounds(110, 160, 230, 30);
+
+        SurnameEditTextfield.setName("SurnameEditTextfield"); // NOI18N
+        SurnameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SurnameEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(SurnameEditTextfield);
+        SurnameEditTextfield.setBounds(110, 190, 230, 30);
+
+        NameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NameEditLabel.setText("Imię:");
+        NameEditLabel.setName("NameEditLabel"); // NOI18N
+        MyAccountPanel.add(NameEditLabel);
+        NameEditLabel.setBounds(10, 160, 50, 30);
+
+        SurnameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SurnameEditLabel.setText("Nazwisko:");
+        SurnameEditLabel.setName("SurnameEditLabel"); // NOI18N
+        MyAccountPanel.add(SurnameEditLabel);
+        SurnameEditLabel.setBounds(10, 190, 60, 30);
+
+        IDEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        IDEditLabel.setText("ID:");
+        IDEditLabel.setName("IDEditLabel"); // NOI18N
+        MyAccountPanel.add(IDEditLabel);
+        IDEditLabel.setBounds(10, 70, 80, 30);
+
+        IDEditTextfield.setEditable(false);
+        IDEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
+        IDEditTextfield.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        IDEditTextfield.setName("IDEditTextfield"); // NOI18N
+        IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(IDEditTextfield);
+        IDEditTextfield.setBounds(110, 70, 230, 30);
+
+        StreetEditTextfield.setName("StreetEditTextfield"); // NOI18N
+        MyAccountPanel.add(StreetEditTextfield);
+        StreetEditTextfield.setBounds(110, 250, 230, 30);
+
+        CityEditTextfield.setName("CityEditTextfield"); // NOI18N
+        CityEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CityEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(CityEditTextfield);
+        CityEditTextfield.setBounds(110, 280, 230, 30);
+
+        CountryEditTextfield.setName("CountryEditTextfield"); // NOI18N
+        MyAccountPanel.add(CountryEditTextfield);
+        CountryEditTextfield.setBounds(110, 310, 230, 30);
+
+        StreetEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StreetEditLabel.setText("Ulica:");
+        StreetEditLabel.setName("StreetEditLabel"); // NOI18N
+        MyAccountPanel.add(StreetEditLabel);
+        StreetEditLabel.setBounds(10, 250, 90, 30);
+
+        CityEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CityEditLabel.setText("Miasto:");
+        CityEditLabel.setName("CityEditLabel"); // NOI18N
+        MyAccountPanel.add(CityEditLabel);
+        CityEditLabel.setBounds(10, 280, 90, 30);
+
+        CountryEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CountryEditLabel.setText("Kraj:");
+        CountryEditLabel.setName("CountryEditLabel"); // NOI18N
+        MyAccountPanel.add(CountryEditLabel);
+        CountryEditLabel.setBounds(10, 310, 90, 30);
+
+        EditDetailsButton.setText("Edytuj Dane");
+        EditDetailsButton.setName("EditDetailsButton"); // NOI18N
+        EditDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditDetailsButtonActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(EditDetailsButton);
+        EditDetailsButton.setBounds(120, 350, 210, 23);
+
+        SaveDetailsButton.setText("Zapisz");
+        SaveDetailsButton.setEnabled(false);
+        SaveDetailsButton.setName("SaveDetailsButton"); // NOI18N
+        SaveDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveDetailsButtonActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(SaveDetailsButton);
+        SaveDetailsButton.setBounds(250, 380, 80, 23);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Nr dokumentu:");
+        jLabel10.setName("jLabel10"); // NOI18N
+        MyAccountPanel.add(jLabel10);
+        jLabel10.setBounds(10, 220, 100, 30);
+
+        CancelButton.setText("Anuluj");
+        CancelButton.setEnabled(false);
+        CancelButton.setName("CancelButton"); // NOI18N
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(CancelButton);
+        CancelButton.setBounds(170, 380, 80, 23);
+
+        EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        EditMessageLabel.setName("EditMessageLabel"); // NOI18N
+        MyAccountPanel.add(EditMessageLabel);
+        EditMessageLabel.setBounds(360, 590, 180, 20);
+
+        jLabel14.setFont(new java.awt.Font("DejaVu Serif", 0, 30)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Dane konta");
+        jLabel14.setName("jLabel14"); // NOI18N
+        MyAccountPanel.add(jLabel14);
+        jLabel14.setBounds(90, 10, 270, 30);
+
+        DocumentEditTextfield.setEditable(false);
+        DocumentEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
+        DocumentEditTextfield.setDisabledTextColor(new java.awt.Color(245, 245, 245));
+        DocumentEditTextfield.setName("DocumentEditTextfield"); // NOI18N
+        DocumentEditTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocumentEditTextfieldActionPerformed(evt);
+            }
+        });
+        MyAccountPanel.add(DocumentEditTextfield);
+        DocumentEditTextfield.setBounds(110, 220, 230, 30);
+
+        getContentPane().add(MyAccountPanel, "myAccountPanel");
+        MyAccountPanel.getAccessibleContext().setAccessibleName("");
+
+        Symulator.setName("Symulator"); // NOI18N
+        Symulator.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                SymulatorAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        Symulator.setLayout(null);
+
+        jLabel9.setText("Cards");
+        jLabel9.setName("jLabel9"); // NOI18N
+        Symulator.add(jLabel9);
+        jLabel9.setBounds(10, 210, 200, 20);
+
+        jLabel37.setText("Terminals");
+        jLabel37.setName("jLabel30"); // NOI18N
+        Symulator.add(jLabel37);
+        jLabel37.setBounds(230, 210, 200, 20);
+
+        jLabel36.setText("Products");
+        jLabel36.setName("jLabel36"); // NOI18N
+        Symulator.add(jLabel36);
+        jLabel36.setBounds(390, 210, 160, 20);
+
+        SymulatorBuyButton.setBackground(new java.awt.Color(0, 0, 0));
+        SymulatorBuyButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        SymulatorBuyButton.setForeground(new java.awt.Color(255, 255, 255));
+        SymulatorBuyButton.setText("Kup");
+        SymulatorBuyButton.setName("SymulatorBuyButton"); // NOI18N
+        SymulatorBuyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SymulatorBuyButtonActionPerformed(evt);
+            }
+        });
+        Symulator.add(SymulatorBuyButton);
+        SymulatorBuyButton.setBounds(480, 500, 160, 40);
 
         UserTrafficScrollPane.setName("UserTrafficScrollPane"); // NOI18N
 
@@ -2910,14 +3296,14 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "ID", "Nazwa Atrakcji"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3140,8 +3526,8 @@ public class MainWindow extends javax.swing.JFrame {
     MyAccountPanel.add(DocumentEditTextfield);
     DocumentEditTextfield.setBounds(110, 220, 230, 30);
 
-    getContentPane().add(MyAccountPanel, "myAccountPanel");
-    MyAccountPanel.getAccessibleContext().setAccessibleName("");
+        Symulator.add(jScrollPane13);
+        jScrollPane13.setBounds(230, 230, 150, 260);
 
     Symulator.setName("Symulator"); // NOI18N
     Symulator.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -3285,8 +3671,8 @@ public class MainWindow extends javax.swing.JFrame {
     });
     jScrollPane15.setViewportView(SymulatorCardsList);
 
-    Symulator.add(jScrollPane15);
-    jScrollPane15.setBounds(50, 230, 200, 260);
+        Symulator.add(jScrollPane15);
+        jScrollPane15.setBounds(10, 230, 200, 260);
 
     BackgroundImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
     BackgroundImageLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -3299,14 +3685,16 @@ public class MainWindow extends javax.swing.JFrame {
     pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void DisplayCards( javax.swing.JPanel CardsPanel, String clientName ) {
+    private void DisplayCards( javax.swing.JPanel CardsPanel, final String clientName ) {
         AvailablePointsLabel = new JLabel();
         IDLabel = new JLabel();
         ActivationDateLabel = new JLabel();
         ExpirationDateLabel = new JLabel();
         PointsLabel = new JLabel();
         AvailablePointsTextField = new JTextField();
+        ManualChargePointsAmountTextField = new JTextField();
         BuyPointsButton2 = new JButton();
+        CashierChargePointsToClientAccountButton = new JButton();
         AddCardButton = new JButton();
         
         AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3366,7 +3754,16 @@ public class MainWindow extends javax.swing.JFrame {
         AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
         CardsPanel.add(AvailablePointsTextField);
         AvailablePointsTextField.setBounds(170, 20, 50, 20);
-
+        
+        ManualChargePointsAmountTextField.setEditable(true);
+        ManualChargePointsAmountTextField.setBackground(new java.awt.Color(250, 250, 250));
+        ManualChargePointsAmountTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ManualChargePointsAmountTextField.setText("");
+        ManualChargePointsAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ManualChargePointsAmountTextField.setName("ManualChargePointsAmountTextField"); // NOI18N
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(ManualChargePointsAmountTextField);
+        ManualChargePointsAmountTextField.setBounds(230, 20, 50, 20);
+   
         BuyPointsButton2.setText("Kup punkty");
         BuyPointsButton2.setMaximumSize(new java.awt.Dimension(67, 23));
         BuyPointsButton2.setMinimumSize(new java.awt.Dimension(67, 23));
@@ -3377,8 +3774,25 @@ public class MainWindow extends javax.swing.JFrame {
                 BuyPointsButton2ActionPerformed(evt);
             }
         });
-        CardsPanel.add(BuyPointsButton2);
+        if (!CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(BuyPointsButton2);
         BuyPointsButton2.setBounds(230, 18, 100, 23);
+        
+        
+        CashierChargePointsToClientAccountButton.setText("Doładuj");
+        CashierChargePointsToClientAccountButton.setMaximumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setMinimumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setName("CashierChargePointsToClientAccount"); // NOI18N
+        CashierChargePointsToClientAccountButton.setPreferredSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Integer pointsAmount = 0;
+                if ((!ManualChargePointsAmountTextField.getText().isEmpty()) && clientName != null)
+                    pointsAmount = Integer.parseInt( ManualChargePointsAmountTextField.getText() );
+                if (pointsAmount > 0) CashierChargePointsToClientAccount(pointsAmount, clientName);
+            }
+        });
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(CashierChargePointsToClientAccountButton);
+        CashierChargePointsToClientAccountButton.setBounds(280, 18, 100, 23);
 
         AddCardButton.setText("Dodaj kartę");
         AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3419,6 +3833,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardsPanel.remove(ActivationDateLabel);
         CardsPanel.remove(ExpirationDateLabel);
         CardsPanel.remove(PointsLabel);
+        CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(BuyPointsButton2);
         CardsPanel.remove(AddCardButton);
@@ -3480,6 +3895,14 @@ public class MainWindow extends javax.swing.JFrame {
     public void SetAvailablePointsText( String points ) {
         AvailablePointsTextField.setText(points);
         UserMyCardsPanel.repaint();
+    }
+    
+    private void CashierChargePointsToClientAccount(Integer points, String user) {                                                 
+        int clientId = ClientController.GetClientIDFromLogin(user);
+        System.out.println(points + user);
+        ClientController.UpdateClientPoints(user, ClientController.GetClientPoints(clientId)+ points);
+        
+        AvailablePointsTextField.setText(Integer.toString(ClientController.GetClientPoints(clientId)));
     }
     
     private void changeCard(ViewSwitcher target, boolean checkSession) {
@@ -3986,7 +4409,32 @@ public class MainWindow extends javax.swing.JFrame {
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( AdminContainerPanel, "AttractionsAndGatesPanel", AttractionManagementAdminPanel, "AttractionListPanel");
         changeCard( view, true );
-//changeCard(AdminContainerPanel, "AttractionsAndGatesPanel", true);
+        TerminalController tc = new TerminalController();
+        DefaultTableModel model = (DefaultTableModel) AttractionListTable2.getModel();
+        model.setRowCount(0);
+        List atr = tc.GetAttractionList("");
+        if( atr != null ) {
+            for (Object atrObj : atr) {
+                Attraction attraction = (Attraction)atrObj;
+               
+                model.addRow(new Object[]{attraction.getAttractionid(),attraction.getName(), attraction.getType()});
+            }
+        }
+        AdminPanelBackButton.setEnabled(true);
+        AdminViewTitleLabel.setText("Atrakcje i Bramki");
+        
+        DefaultTableModel model2 = (DefaultTableModel) TerminalListTable.getModel();
+        model.setRowCount(0);
+        List terminalList = tc.GetTerminalList("");
+        if( terminalList != null ) {
+            for (Object termObj : terminalList) {
+               Terminal term = (Terminal)termObj;
+               String atrName = "";
+               if( term.getAttraction() != null )
+                   atrName = term.getAttraction().getName();
+               model.addRow(new Object[]{term.getTerminalid(), atrName, term.getLocktime()});
+            }
+        }
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Atrakcje i Bramki");
     }//GEN-LAST:event_GatesButtonActionPerformed
@@ -4008,9 +4456,18 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditTerminalButtonActionPerformed
 
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addTermianlPanel" );
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "TerminalsEditAddPanel" );
         changeCard( view, true );
-        //changeCard(AdminContainerPanel, "addTerminalPanel", true);
+        //Dimention d = AttractionListTable2.getSize();
+        int row = AttractionListTable2.getSelectedRow();
+        String selectedAttraction = null;
+        if( row >= 0 )
+            selectedAttraction = (String)AttractionListTable2.getValueAt(row, 1);
+        if( selectedAttraction == null ) {
+            selectedAttraction = "brak";
+            AddTerminalButton1.setEnabled(false);
+        } else AddTerminalButton1.setEnabled(true);
+        ChosenAttractionLabel.setText(selectedAttraction);
     }//GEN-LAST:event_NewTerminalButtonActionPerformed
 
     private void EditUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditUserButtonActionPerformed
@@ -4306,7 +4763,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_EditAttractionButtonActionPerformed
 
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( AdminContainerPanel, "AttractionsAndGatesPanel", AttractionManagementAdminPanel, "AttractionsEditAddPanel" );
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "AttractionsEditAddPanel" );
         changeCard( view, true );
         //changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
@@ -4362,15 +4819,12 @@ public class MainWindow extends javax.swing.JFrame {
         FillTerminalList(SearchTerminalTextField.getText());
     }//GEN-LAST:event_SearchTerminalTextFieldKeyReleased
 
-    private void AttractionTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionTypeComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
-
-    private void CancelAddTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddTerminalButtonActionPerformed
-        ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AttractionManagementAdminPanel,  "AttractionListPanel");
-        changeCard( view, true );
+    private void CancelAddAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddAttractionButtonActionPerformed
+        //ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AttractionManagementAdminPanel,  "AttractionListPanel");
+        //changeCard( view, true );
         //changeCard(AttractionManagementAdminPanel, "AttractionListPanel", true);
-    }//GEN-LAST:event_CancelAddTerminalButtonActionPerformed
+        AdminPanelBackButtonActionPerformed( evt );
+    }//GEN-LAST:event_CancelAddAttractionButtonActionPerformed
 
     private void ProductPriceListAddItemPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductPriceListAddItemPriceActionPerformed
         if (ProductPriceListPriceLists.getSelectedRow() < 0) {
@@ -4613,20 +5067,33 @@ public class MainWindow extends javax.swing.JFrame {
         
         if (SymulatorProductList.getSelectedRow() > -1) {
             int[] productsID = SymulatorProductList.getSelectedRows();
+            List<Integer> productsToBuy = new ArrayList<Integer>();
             int sum =0;
             for (int i : productsID) {
-                int productID = Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString());
+                productsToBuy.add(Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString()));
                 int price = Integer.parseInt(SymulatorProductList.getValueAt(i, 2).toString());
                 sum+=price;
             }
              if (SymulatorCardsList.getSelectedRow() > -1) {
+                 if (SymulatorTerminalList.getSelectedRow() > -1) {
                   int cardID = Integer.parseInt(SymulatorCardsList.getValueAt(SymulatorCardsList.getSelectedRow(), 0).toString());
-                  sm.BuyProductsFor(cardID, sum);
+                  int terminalID = Integer.parseInt(SymulatorTerminalList.getValueAt(SymulatorTerminalList.getSelectedRow(), 0).toString());
+                  StringBuilder logger = new StringBuilder();
+                  sm.BuyProductsFor(cardID,terminalID, sum, productsToBuy,logger);
+                  SymulatorResultLabel.setText(logger.toString());
+                 }else{
+                 SymulatorResultLabel.setText("Select terminal!");
+                  }
+
+             }else{
+                 SymulatorResultLabel.setText("Select card!");
              }
+        }else{
+            SymulatorResultLabel.setText("Select product to buy");
         }
         
         
-        RefreshSimulator();
+        RefreshSimulatorCardsList();
     }//GEN-LAST:event_SymulatorBuyButtonActionPerformed
 
     private void SymulatorCardsListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_SymulatorCardsListAncestorAdded
@@ -4660,8 +5127,22 @@ public class MainWindow extends javax.swing.JFrame {
         List terminals = sm.GetTerminals();
         for (Object terminalObj : terminals) {
             Terminal terminal = (Terminal)terminalObj;           
-             model.addRow(new Object[]{ terminal.getTerminalid()});
+             model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName()});
         } 
+    }
+    
+    private void RefreshSimulatorCardsList()
+    {
+         Symulator sm = new Symulator();
+        
+        DefaultTableModel model = (DefaultTableModel) SymulatorCardsList.getModel();
+        model.setRowCount(0);
+        
+        List cards = sm.GetCards();
+        for (Object cardObj : cards) {
+            Cards card = (Cards)cardObj;           
+             model.addRow(new Object[]{ card.getCardid(),card.getPoints()});
+        }
     }
     
     private void SymulatorTerminalListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SymulatorTerminalListMouseClicked
@@ -4682,6 +5163,52 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_SymulatorTerminalListMouseClicked
+
+    private void AddAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAttractionButtonActionPerformed
+        String atrName = AttractionNameTextField.getText();
+        String attrType = (String)AttractionTypeComboBox.getModel().getSelectedItem();
+        AttractionController ac = new AttractionController();
+        StringBuilder message = new StringBuilder();
+        if( atrName != null && attrType != null ) {
+            ac.addAttraction(atrName, attrType, message);
+        }
+        AddAttractionMessage.setText(message.toString());
+    }//GEN-LAST:event_AddAttractionButtonActionPerformed
+
+    private void CancelAddTerminalButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelAddTerminalButton1ActionPerformed
+        AdminPanelBackButtonActionPerformed( evt );
+    }//GEN-LAST:event_CancelAddTerminalButton1ActionPerformed
+
+    private void AddTerminalButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTerminalButton1ActionPerformed
+        String lockTime = (String)LockTimeComboBox2.getModel().getSelectedItem();
+        if( lockTime != null && lockTime.length() > 0 ) {
+            lockTime = lockTime.substring(0, lockTime.length()-1);
+        }
+        String attraction = ChosenAttractionLabel.getText();
+        TerminalController tc = new TerminalController();
+        int id = tc.GetAttractionID(attraction);
+        StringBuilder message = new StringBuilder();
+        if( lockTime != null ) {
+            tc.addTerminal(id, Integer.decode(lockTime), message);
+            AddTerminalMessageLabel.setText(message.toString());
+        }
+    }//GEN-LAST:event_AddTerminalButton1ActionPerformed
+
+    private void AttractionTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionTypeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
+
+    private void UserMyCardsPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_UserMyCardsPanelAncestorAdded
+
+    }//GEN-LAST:event_UserMyCardsPanelAncestorAdded
+
+    private void PrintCardDataOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintCardDataOkButtonActionPerformed
+        PrintCardDataPanel.setVisible(false);
+    }//GEN-LAST:event_PrintCardDataOkButtonActionPerformed
+
+    private void PrintCardDataOkButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintCardDataOkButton1ActionPerformed
+        PrintCardDataPanel1.setVisible(false);
+    }//GEN-LAST:event_PrintCardDataOkButton1ActionPerformed
 
     private void FillTerminalList(String name)
     {  
@@ -4777,6 +5304,26 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton.addKeyListener(h);
     }
     
+    public JPanel GetPrintCardPanel()
+    {
+        return PrintCardDataPanel;
+    }
+    
+      public JPanel GetPrintCardPanel1()
+    {
+        return PrintCardDataPanel1;
+    }
+    
+    public JTextArea GetPrintCardText()
+    {
+        return PrintCardDataText;
+    }
+    
+       public JTextArea GetPrintCardText1()
+    {
+        return PrintCardDataText1;
+    }
+    
     private void fillPackagesScrollPanel(){
         pointsPackagesListPane.removeAll(); // Clearing panel
         
@@ -4830,11 +5377,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField ActualizePriceTextField;
     private javax.swing.JButton ActualizeProductButton;
     private javax.swing.JTextField ActualizeProductNameText;
+    private javax.swing.JButton AddAttractionButton;
+    private javax.swing.JLabel AddAttractionMessage;
     private javax.swing.JButton AddNewProductButton1;
     private javax.swing.JPanel AddPriceList;
     private javax.swing.JPanel AddProductPanel;
     private javax.swing.JPanel AddProductToPriceListPanel;
     private javax.swing.JButton AddTerminalButton1;
+    private javax.swing.JLabel AddTerminalMessageLabel;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JPanel AdminContainerPanel;
     private javax.swing.JButton AdminLogoutButton;
@@ -4847,6 +5397,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel AttractionListPanel;
     private javax.swing.JTable AttractionListTable2;
     private javax.swing.JPanel AttractionManagementAdminPanel;
+    private javax.swing.JTextField AttractionNameTextField;
+    private javax.swing.JScrollPane AttractionTable;
     private javax.swing.JComboBox AttractionTypeComboBox;
     private javax.swing.JLabel AttractionTypeLabel;
     private javax.swing.JTabbedPane AttractionsAndGatesPanel;
@@ -4859,7 +5411,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton BuyAndPayButton2;
     private javax.swing.JButton BuyAndPayButton3;
     private javax.swing.JButton BuyAndPayButton4;
-    private javax.swing.JButton CancelAddTerminalButton;
+    private javax.swing.JButton CancelAddAttractionButton;
+    private javax.swing.JButton CancelAddTerminalButton1;
     private javax.swing.JButton CancelButton;
     private javax.swing.JButton CancelButton1;
     private javax.swing.JButton CancelButton2;
@@ -4870,6 +5423,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JRadioButton CashierRadio;
+    private javax.swing.JLabel ChosenAttractionLabel;
     private javax.swing.JTextField City;
     private javax.swing.JLabel CityEditLabel;
     private javax.swing.JLabel CityEditLabel1;
@@ -4932,8 +5486,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
     private javax.swing.JTextField IDEditTextfield2;
-    private javax.swing.JComboBox LockTimeComboBox1;
-    private javax.swing.JLabel LockTimeLabel;
+    private javax.swing.JComboBox LockTimeComboBox2;
+    private javax.swing.JLabel LockTimeLabel1;
     private javax.swing.JPanel Login;
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginEditTextfield;
@@ -4983,6 +5537,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable PriceListTable;
     private javax.swing.JLabel PriceListToLabel;
     private javax.swing.JTable PriceLists;
+    private javax.swing.JButton PrintCardDataOkButton;
+    private javax.swing.JButton PrintCardDataOkButton1;
+    private javax.swing.JPanel PrintCardDataPanel;
+    private javax.swing.JPanel PrintCardDataPanel1;
+    private javax.swing.JTextArea PrintCardDataText;
+    private javax.swing.JTextArea PrintCardDataText1;
+    private javax.swing.JScrollPane PrintCardDataTextPanel;
+    private javax.swing.JScrollPane PrintCardDataTextPanel1;
     private javax.swing.JTextField ProductFindText;
     private javax.swing.JTable ProductList;
     private javax.swing.JLabel ProductNameLabel1;
@@ -5049,9 +5611,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable SymulatorProductList;
     private javax.swing.JLabel SymulatorResultLabel;
     private javax.swing.JTable SymulatorTerminalList;
+    private javax.swing.JPanel TerminalListPanel;
     private javax.swing.JTable TerminalListTable;
     private javax.swing.JLabel TerminalNameLabel;
-    private javax.swing.JTextField TerminalNameTextField;
+    private javax.swing.JPanel TerminalsEditAddPanel;
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
     private javax.swing.JLabel UserBackgroundLabel3;
@@ -5114,6 +5677,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -5122,7 +5686,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
@@ -5159,6 +5722,8 @@ public class MainWindow extends javax.swing.JFrame {
     private JLabel ExpirationDateLabel;
     private JLabel PointsLabel;
     private JTextField AvailablePointsTextField;
+    private JTextField ManualChargePointsAmountTextField;
     private JButton BuyPointsButton2;
     private JButton AddCardButton;
+    private JButton CashierChargePointsToClientAccountButton;
 }

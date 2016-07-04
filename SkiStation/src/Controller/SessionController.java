@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 package Controller;
+import DBClasses.Users;
 import java.util.Vector;
 import Model.ViewSwitcher;
+import Tools.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author Marzena
@@ -77,5 +81,11 @@ public class SessionController {
     
     public static int GetViewsCount() {
         return previousViews.size();
+    }
+    
+    public static Users GetLoggedUserData()
+    {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return (Users)s.createCriteria(Users.class).add(Restrictions.like("login", userLogged)).list().get(0);
     }
 }

@@ -144,4 +144,9 @@ public class CashierController {
          return traffic;
     }
     
+    public static Users GetSelectedUserData()
+    {
+        return selectedUser;
+    }
+    
 }
