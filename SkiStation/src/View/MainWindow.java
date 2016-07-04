@@ -26,6 +26,7 @@ import javax.swing.ListSelectionModel;
 import Model.ViewSwitcher;
 import Model.AccountInfo;
 import java.time.Clock;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -3219,17 +3220,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel9.setText("Cards");
         jLabel9.setName("jLabel9"); // NOI18N
         Symulator.add(jLabel9);
-        jLabel9.setBounds(50, 200, 200, 20);
+        jLabel9.setBounds(10, 210, 200, 20);
 
         jLabel37.setText("Terminals");
         jLabel37.setName("jLabel30"); // NOI18N
         Symulator.add(jLabel37);
-        jLabel37.setBounds(260, 200, 200, 20);
+        jLabel37.setBounds(230, 210, 200, 20);
 
         jLabel36.setText("Products");
         jLabel36.setName("jLabel36"); // NOI18N
         Symulator.add(jLabel36);
-        jLabel36.setBounds(420, 200, 160, 20);
+        jLabel36.setBounds(390, 210, 160, 20);
 
         SymulatorBuyButton.setBackground(new java.awt.Color(0, 0, 0));
         SymulatorBuyButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -3255,14 +3256,14 @@ public class MainWindow extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID"
+                "ID", "Nazwa Atrakcji"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3283,7 +3284,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane13.setViewportView(SymulatorTerminalList);
 
         Symulator.add(jScrollPane13);
-        jScrollPane13.setBounds(260, 230, 100, 260);
+        jScrollPane13.setBounds(230, 230, 150, 260);
 
         jScrollPane14.setName("jScrollPane14"); // NOI18N
 
@@ -3347,7 +3348,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane15.setViewportView(SymulatorCardsList);
 
         Symulator.add(jScrollPane15);
-        jScrollPane15.setBounds(50, 230, 200, 260);
+        jScrollPane15.setBounds(10, 230, 200, 260);
 
         BackgroundImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
         BackgroundImageLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -3360,14 +3361,16 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void DisplayCards( javax.swing.JPanel CardsPanel, String clientName ) {
+    private void DisplayCards( javax.swing.JPanel CardsPanel, final String clientName ) {
         AvailablePointsLabel = new JLabel();
         IDLabel = new JLabel();
         ActivationDateLabel = new JLabel();
         ExpirationDateLabel = new JLabel();
         PointsLabel = new JLabel();
         AvailablePointsTextField = new JTextField();
+        ManualChargePointsAmountTextField = new JTextField();
         BuyPointsButton2 = new JButton();
+        CashierChargePointsToClientAccountButton = new JButton();
         AddCardButton = new JButton();
         
         AvailablePointsLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -3427,7 +3430,16 @@ public class MainWindow extends javax.swing.JFrame {
         AvailablePointsTextField.setName("AvailablePointsTextField"); // NOI18N
         CardsPanel.add(AvailablePointsTextField);
         AvailablePointsTextField.setBounds(170, 20, 50, 20);
-
+        
+        ManualChargePointsAmountTextField.setEditable(true);
+        ManualChargePointsAmountTextField.setBackground(new java.awt.Color(250, 250, 250));
+        ManualChargePointsAmountTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ManualChargePointsAmountTextField.setText("");
+        ManualChargePointsAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ManualChargePointsAmountTextField.setName("ManualChargePointsAmountTextField"); // NOI18N
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(ManualChargePointsAmountTextField);
+        ManualChargePointsAmountTextField.setBounds(230, 20, 50, 20);
+   
         BuyPointsButton2.setText("Kup punkty");
         BuyPointsButton2.setMaximumSize(new java.awt.Dimension(67, 23));
         BuyPointsButton2.setMinimumSize(new java.awt.Dimension(67, 23));
@@ -3438,8 +3450,25 @@ public class MainWindow extends javax.swing.JFrame {
                 BuyPointsButton2ActionPerformed(evt);
             }
         });
-        CardsPanel.add(BuyPointsButton2);
+        if (!CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(BuyPointsButton2);
         BuyPointsButton2.setBounds(230, 18, 100, 23);
+        
+        
+        CashierChargePointsToClientAccountButton.setText("Doładuj");
+        CashierChargePointsToClientAccountButton.setMaximumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setMinimumSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.setName("CashierChargePointsToClientAccount"); // NOI18N
+        CashierChargePointsToClientAccountButton.setPreferredSize(new java.awt.Dimension(110, 23));
+        CashierChargePointsToClientAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Integer pointsAmount = 0;
+                if ((!ManualChargePointsAmountTextField.getText().isEmpty()) && clientName != null)
+                    pointsAmount = Integer.parseInt( ManualChargePointsAmountTextField.getText() );
+                if (pointsAmount > 0) CashierChargePointsToClientAccount(pointsAmount, clientName);
+            }
+        });
+        if (CardsPanel.equals(ClientCardsPanel)) CardsPanel.add(CashierChargePointsToClientAccountButton);
+        CashierChargePointsToClientAccountButton.setBounds(280, 18, 100, 23);
 
         AddCardButton.setText("Dodaj kartę");
         AddCardButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3480,6 +3509,7 @@ public class MainWindow extends javax.swing.JFrame {
         CardsPanel.remove(ActivationDateLabel);
         CardsPanel.remove(ExpirationDateLabel);
         CardsPanel.remove(PointsLabel);
+        CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(AvailablePointsTextField);
         CardsPanel.remove(BuyPointsButton2);
         CardsPanel.remove(AddCardButton);
@@ -3541,6 +3571,14 @@ public class MainWindow extends javax.swing.JFrame {
     public void SetAvailablePointsText( String points ) {
         AvailablePointsTextField.setText(points);
         UserMyCardsPanel.repaint();
+    }
+    
+    private void CashierChargePointsToClientAccount(Integer points, String user) {                                                 
+        int clientId = ClientController.GetClientIDFromLogin(user);
+        System.out.println(points + user);
+        ClientController.UpdateClientPoints(user, ClientController.GetClientPoints(clientId)+ points);
+        
+        AvailablePointsTextField.setText(Integer.toString(ClientController.GetClientPoints(clientId)));
     }
     
     private void changeCard(ViewSwitcher target, boolean checkSession) {
@@ -4686,20 +4724,33 @@ public class MainWindow extends javax.swing.JFrame {
         
         if (SymulatorProductList.getSelectedRow() > -1) {
             int[] productsID = SymulatorProductList.getSelectedRows();
+            List<Integer> productsToBuy = new ArrayList<Integer>();
             int sum =0;
             for (int i : productsID) {
-                int productID = Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString());
+                productsToBuy.add(Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString()));
                 int price = Integer.parseInt(SymulatorProductList.getValueAt(i, 2).toString());
                 sum+=price;
             }
              if (SymulatorCardsList.getSelectedRow() > -1) {
+                 if (SymulatorTerminalList.getSelectedRow() > -1) {
                   int cardID = Integer.parseInt(SymulatorCardsList.getValueAt(SymulatorCardsList.getSelectedRow(), 0).toString());
-                  sm.BuyProductsFor(cardID, sum);
+                  int terminalID = Integer.parseInt(SymulatorTerminalList.getValueAt(SymulatorTerminalList.getSelectedRow(), 0).toString());
+                  StringBuilder logger = new StringBuilder();
+                  sm.BuyProductsFor(cardID,terminalID, sum, productsToBuy,logger);
+                  SymulatorResultLabel.setText(logger.toString());
+                 }else{
+                 SymulatorResultLabel.setText("Select terminal!");
+                  }
+
+             }else{
+                 SymulatorResultLabel.setText("Select card!");
              }
+        }else{
+            SymulatorResultLabel.setText("Select product to buy");
         }
         
         
-        RefreshSimulator();
+        RefreshSimulatorCardsList();
     }//GEN-LAST:event_SymulatorBuyButtonActionPerformed
 
     private void SymulatorCardsListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_SymulatorCardsListAncestorAdded
@@ -4733,8 +4784,22 @@ public class MainWindow extends javax.swing.JFrame {
         List terminals = sm.GetTerminals();
         for (Object terminalObj : terminals) {
             Terminal terminal = (Terminal)terminalObj;           
-             model.addRow(new Object[]{ terminal.getTerminalid()});
+             model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName()});
         } 
+    }
+    
+    private void RefreshSimulatorCardsList()
+    {
+         Symulator sm = new Symulator();
+        
+        DefaultTableModel model = (DefaultTableModel) SymulatorCardsList.getModel();
+        model.setRowCount(0);
+        
+        List cards = sm.GetCards();
+        for (Object cardObj : cards) {
+            Cards card = (Cards)cardObj;           
+             model.addRow(new Object[]{ card.getCardid(),card.getPoints()});
+        }
     }
     
     private void SymulatorTerminalListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SymulatorTerminalListMouseClicked
@@ -5293,6 +5358,8 @@ public class MainWindow extends javax.swing.JFrame {
     private JLabel ExpirationDateLabel;
     private JLabel PointsLabel;
     private JTextField AvailablePointsTextField;
+    private JTextField ManualChargePointsAmountTextField;
     private JButton BuyPointsButton2;
     private JButton AddCardButton;
+    private JButton CashierChargePointsToClientAccountButton;
 }
