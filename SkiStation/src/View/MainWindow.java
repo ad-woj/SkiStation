@@ -151,6 +151,10 @@ public class MainWindow extends javax.swing.JFrame {
         PasswordEditTextfield3 = new javax.swing.JTextField();
         EditPasswordLabel3 = new javax.swing.JLabel();
         ClientCardsPanel = new javax.swing.JPanel();
+        PrintCardDataPanel1 = new javax.swing.JPanel();
+        PrintCardDataOkButton1 = new javax.swing.JButton();
+        PrintCardDataTextPanel1 = new javax.swing.JScrollPane();
+        PrintCardDataText1 = new javax.swing.JTextArea();
         StationTrafficPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         StationTrafficTable = new javax.swing.JTable();
@@ -986,6 +990,34 @@ public class MainWindow extends javax.swing.JFrame {
         ClientCardsPanel.setName("ClientCardsPanel"); // NOI18N
         ClientCardsPanel.setOpaque(false);
         ClientCardsPanel.setLayout(null);
+
+        PrintCardDataPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        PrintCardDataPanel1.setName("PrintCardDataPanel1"); // NOI18N
+        PrintCardDataPanel1.setLayout(null);
+
+        PrintCardDataOkButton1.setText("OK");
+        PrintCardDataOkButton1.setName("PrintCardDataOkButton1"); // NOI18N
+        PrintCardDataOkButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintCardDataOkButton1ActionPerformed(evt);
+            }
+        });
+        PrintCardDataPanel1.add(PrintCardDataOkButton1);
+        PrintCardDataOkButton1.setBounds(210, 450, 47, 23);
+
+        PrintCardDataTextPanel1.setName("PrintCardDataTextPanel1"); // NOI18N
+
+        PrintCardDataText1.setColumns(20);
+        PrintCardDataText1.setRows(5);
+        PrintCardDataText1.setName("PrintCardDataText1"); // NOI18N
+        PrintCardDataTextPanel1.setViewportView(PrintCardDataText1);
+
+        PrintCardDataPanel1.add(PrintCardDataTextPanel1);
+        PrintCardDataTextPanel1.setBounds(20, 20, 430, 420);
+
+        ClientCardsPanel.add(PrintCardDataPanel1);
+        PrintCardDataPanel1.setBounds(20, 20, 470, 490);
+
         CashierContainer.add(ClientCardsPanel, "ClientCardsPanel");
 
         StationTrafficPanel.setMaximumSize(new java.awt.Dimension(700, 700));
@@ -4863,6 +4895,10 @@ public class MainWindow extends javax.swing.JFrame {
         PrintCardDataPanel.setVisible(false);
     }//GEN-LAST:event_PrintCardDataOkButtonActionPerformed
 
+    private void PrintCardDataOkButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintCardDataOkButton1ActionPerformed
+        PrintCardDataPanel1.setVisible(false);
+    }//GEN-LAST:event_PrintCardDataOkButton1ActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -4962,9 +4998,19 @@ public class MainWindow extends javax.swing.JFrame {
         return PrintCardDataPanel;
     }
     
+      public JPanel GetPrintCardPanel1()
+    {
+        return PrintCardDataPanel1;
+    }
+    
     public JTextArea GetPrintCardText()
     {
         return PrintCardDataText;
+    }
+    
+       public JTextArea GetPrintCardText1()
+    {
+        return PrintCardDataText1;
     }
     
     private void fillPackagesScrollPanel(){
@@ -5181,9 +5227,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel PriceListToLabel;
     private javax.swing.JTable PriceLists;
     private javax.swing.JButton PrintCardDataOkButton;
+    private javax.swing.JButton PrintCardDataOkButton1;
     private javax.swing.JPanel PrintCardDataPanel;
+    private javax.swing.JPanel PrintCardDataPanel1;
     private javax.swing.JTextArea PrintCardDataText;
+    private javax.swing.JTextArea PrintCardDataText1;
     private javax.swing.JScrollPane PrintCardDataTextPanel;
+    private javax.swing.JScrollPane PrintCardDataTextPanel1;
     private javax.swing.JTextField ProductFindText;
     private javax.swing.JTable ProductList;
     private javax.swing.JLabel ProductNameLabel1;

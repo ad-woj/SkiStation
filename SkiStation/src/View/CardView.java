@@ -181,7 +181,7 @@ public class CardView {
         PrintCardButton.setBounds(450, positionY, 60, 23);
         
         parent.GetPrintCardPanel().setVisible(false);
-        
+        parent.GetPrintCardPanel1().setVisible(false);
     }
     
     public void SetIndex( int i ) {
@@ -242,8 +242,8 @@ public class CardView {
     }
         
     private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-        parent.GetPrintCardPanel().setVisible(true);
-        parent.GetPrintCardText().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
+        parent.GetPrintCardPanel1().setVisible(true);
+        parent.GetPrintCardText1().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
     }
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
