@@ -15,6 +15,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Junction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.Query;
 
 /**
  *
@@ -92,9 +93,25 @@ public class TerminalController {
           return attraction;     
     }
     
+    public int GetAttractionID( String name ) {
+        Query queryList = s.createQuery( String.format("FROM Attraction a WHERE a.name = '%s'", name) );
+        if( queryList == null ) {
+            return -1;
+        }
+        Attraction atr = (Attraction)queryList.list().get(0);
+        if( atr != null )
+            return atr.getAttractionid();
+        return -1;
+    }
+    
     public boolean addTerminal(int parentAttractionID, int lockTime, StringBuilder message)
     {
-        Attraction parentAttraction = findAttraction(parentAttractionID);
+        Attraction parentAttraction = null;
+        Query queryList = s.createQuery( String.format("FROM Attraction a WHERE a.attractionid = '%d'", parentAttractionID) );
+        if( queryList == null ) {
+            return false;
+        }
+        parentAttraction = (Attraction)queryList.list().get(0);
         if (parentAttraction!=null) {
             Transaction tr = s.beginTransaction();
             
