@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
 import Model.ViewSwitcher;
 import Model.AccountInfo;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -3354,17 +3355,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel9.setText("Cards");
         jLabel9.setName("jLabel9"); // NOI18N
         Symulator.add(jLabel9);
-        jLabel9.setBounds(50, 200, 200, 20);
+        jLabel9.setBounds(10, 210, 200, 20);
 
         jLabel37.setText("Terminals");
         jLabel37.setName("jLabel30"); // NOI18N
         Symulator.add(jLabel37);
-        jLabel37.setBounds(260, 200, 200, 20);
+        jLabel37.setBounds(230, 210, 200, 20);
 
         jLabel36.setText("Products");
         jLabel36.setName("jLabel36"); // NOI18N
         Symulator.add(jLabel36);
-        jLabel36.setBounds(420, 200, 160, 20);
+        jLabel36.setBounds(390, 210, 160, 20);
 
         SymulatorBuyButton.setBackground(new java.awt.Color(0, 0, 0));
         SymulatorBuyButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -3390,14 +3391,14 @@ public class MainWindow extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID"
+                "ID", "Nazwa Atrakcji"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3418,7 +3419,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane13.setViewportView(SymulatorTerminalList);
 
         Symulator.add(jScrollPane13);
-        jScrollPane13.setBounds(260, 230, 100, 260);
+        jScrollPane13.setBounds(230, 230, 150, 260);
 
         jScrollPane14.setName("jScrollPane14"); // NOI18N
 
@@ -3482,7 +3483,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane15.setViewportView(SymulatorCardsList);
 
         Symulator.add(jScrollPane15);
-        jScrollPane15.setBounds(50, 230, 200, 260);
+        jScrollPane15.setBounds(10, 230, 200, 260);
 
         BackgroundImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
         BackgroundImageLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -4821,20 +4822,33 @@ public class MainWindow extends javax.swing.JFrame {
         
         if (SymulatorProductList.getSelectedRow() > -1) {
             int[] productsID = SymulatorProductList.getSelectedRows();
+            List<Integer> productsToBuy = new ArrayList<Integer>();
             int sum =0;
             for (int i : productsID) {
-                int productID = Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString());
+                productsToBuy.add(Integer.parseInt(SymulatorProductList.getValueAt(i, 0).toString()));
                 int price = Integer.parseInt(SymulatorProductList.getValueAt(i, 2).toString());
                 sum+=price;
             }
              if (SymulatorCardsList.getSelectedRow() > -1) {
+                 if (SymulatorTerminalList.getSelectedRow() > -1) {
                   int cardID = Integer.parseInt(SymulatorCardsList.getValueAt(SymulatorCardsList.getSelectedRow(), 0).toString());
-                  sm.BuyProductsFor(cardID, sum);
+                  int terminalID = Integer.parseInt(SymulatorTerminalList.getValueAt(SymulatorTerminalList.getSelectedRow(), 0).toString());
+                  StringBuilder logger = new StringBuilder();
+                  sm.BuyProductsFor(cardID,terminalID, sum, productsToBuy,logger);
+                  SymulatorResultLabel.setText(logger.toString());
+                 }else{
+                 SymulatorResultLabel.setText("Select terminal!");
+                  }
+
+             }else{
+                 SymulatorResultLabel.setText("Select card!");
              }
+        }else{
+            SymulatorResultLabel.setText("Select product to buy");
         }
         
         
-        RefreshSimulator();
+        RefreshSimulatorCardsList();
     }//GEN-LAST:event_SymulatorBuyButtonActionPerformed
 
     private void SymulatorCardsListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_SymulatorCardsListAncestorAdded
@@ -4868,8 +4882,22 @@ public class MainWindow extends javax.swing.JFrame {
         List terminals = sm.GetTerminals();
         for (Object terminalObj : terminals) {
             Terminal terminal = (Terminal)terminalObj;           
-             model.addRow(new Object[]{ terminal.getTerminalid()});
+             model.addRow(new Object[]{ terminal.getTerminalid(),terminal.getAttraction().getName()});
         } 
+    }
+    
+    private void RefreshSimulatorCardsList()
+    {
+         Symulator sm = new Symulator();
+        
+        DefaultTableModel model = (DefaultTableModel) SymulatorCardsList.getModel();
+        model.setRowCount(0);
+        
+        List cards = sm.GetCards();
+        for (Object cardObj : cards) {
+            Cards card = (Cards)cardObj;           
+             model.addRow(new Object[]{ card.getCardid(),card.getPoints()});
+        }
     }
     
     private void SymulatorTerminalListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SymulatorTerminalListMouseClicked

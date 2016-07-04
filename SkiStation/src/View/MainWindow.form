@@ -5492,7 +5492,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="200" width="200" height="20"/>
+              <AbsoluteConstraints x="10" y="210" width="200" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -5503,7 +5503,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="200" width="200" height="20"/>
+              <AbsoluteConstraints x="230" y="210" width="200" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -5514,7 +5514,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="420" y="200" width="160" height="20"/>
+              <AbsoluteConstraints x="390" y="210" width="160" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -5560,7 +5560,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="230" width="100" height="260"/>
+              <AbsoluteConstraints x="230" y="230" width="150" height="260"/>
             </Constraint>
           </Constraints>
 
@@ -5569,8 +5569,9 @@
             <Component class="javax.swing.JTable" name="SymulatorTerminalList">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="1" rowCount="0">
+                  <Table columnCount="2" rowCount="0">
                     <Column editable="false" title="ID" type="java.lang.Integer"/>
+                    <Column editable="false" title="Nazwa Atrakcji" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -5621,7 +5622,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="230" width="200" height="260"/>
+              <AbsoluteConstraints x="10" y="230" width="200" height="260"/>
             </Constraint>
           </Constraints>
 
