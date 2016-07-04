@@ -66,6 +66,10 @@ public class GateProductsController {
              return;
         }
         
+        if (terminal.getAttraction().getType() == "Stok" && productItems.size()>0) {
+            logger.append("Can't add more products to sloper terminal");
+            return;
+        }
         Transaction tr = s.beginTransaction();
               
         Productitem p = new Productitem();
