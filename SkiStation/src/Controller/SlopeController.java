@@ -30,12 +30,13 @@ public class SlopeController {
             hourBefore = dateHelper.format(c1.getTime());
 
             Session s = HibernateUtil.getSessionFactory().openSession();
-            Query query = s.createQuery(String.format("SELECT t.terminalid, count(c.useid) FROM Cardusage c, Terminal t, Attraction a " +
+            Query query = s.createQuery(String.format("SELECT t.terminalid, SUM(CASE WHEN c.usedate <= '%s' AND c.usedate >= '%s' THEN 1 ELSE 0 END)"
+                    + " FROM Cardusage c, Terminal t, Attraction a " +
                                  "WHERE c.terminal = t.terminalid " +
                                    "AND t.attraction.attractionid = a.attractionid " +
                                    "AND a.type = 'slope' " +
-                                   "AND c.usedate <= '%s' " +
-                                 "AND c.usedate >= '%s' " +
+                                 //  "AND c.usedate <= '%s' " +
+                                // "AND c.usedate >= '%s' " +
                                   "GROUP BY t.terminalid", currentDate, hourBefore));
             List< Object[]> queryList = query.list();
             if (queryList.isEmpty()) {
