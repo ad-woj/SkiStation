@@ -165,7 +165,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<String>();
+        ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -190,6 +190,19 @@ public class MainWindow extends javax.swing.JFrame {
         GatesButton = new javax.swing.JButton();
         CashierModeButton = new javax.swing.JButton();
         ClientModeButton = new javax.swing.JButton();
+        GateProductsPanel = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        GatesProductsAddFromGate = new javax.swing.JButton();
+        GatesProductsRemoveFromGate = new javax.swing.JButton();
+        GatesProductsResultLabel = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        GatesProductsGatesProductList = new javax.swing.JTable();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        GatesProductsAwailableProducts = new javax.swing.JTable();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        GatesProductsGatesList = new javax.swing.JTable();
         EditUserAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         LoginTextField2 = new javax.swing.JTextField();
@@ -318,6 +331,7 @@ public class MainWindow extends javax.swing.JFrame {
         NewTerminalButton = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         TerminalListTable = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
         AdminLogoutButton = new javax.swing.JButton();
         AdminViewTitleLabel = new javax.swing.JLabel();
         AdminPanelBackButton = new javax.swing.JButton();
@@ -361,9 +375,6 @@ public class MainWindow extends javax.swing.JFrame {
         paypalOptionLabel = new javax.swing.JLabel();
         BuyAndPayButton3 = new javax.swing.JButton();
         BuyAndPayButton4 = new javax.swing.JButton();
-        UserTraffic = new javax.swing.JPanel();
-        UserTrafficScrollPane = new javax.swing.JScrollPane();
-        UserTrafficTable = new javax.swing.JTable();
         jLabel27 = new javax.swing.JLabel();
         MyAccountPanel = new javax.swing.JPanel();
         EditLoginLabel = new javax.swing.JLabel();
@@ -1032,14 +1043,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         StationTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "ID", "Zjazd", "Natężenie (%)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -1053,12 +1067,6 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        DefaultTableCellRenderer centerRenderer2 = new DefaultTableCellRenderer();
-        centerRenderer2.setHorizontalAlignment (JLabel.CENTER);
-        StationTrafficTable.setDefaultRenderer (String.class, centerRenderer2);
-        StationTrafficTable.setDefaultRenderer (Long.class, centerRenderer2);
-        DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)StationTrafficTable.getTableHeader().getDefaultRenderer();
-        renderer2.setHorizontalAlignment (JLabel.CENTER);
         StationTrafficTable.setEnabled(false);
         StationTrafficTable.setName("StationTrafficTable"); // NOI18N
         StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -1400,6 +1408,166 @@ public class MainWindow extends javax.swing.JFrame {
         ClientModeButton.setBounds(290, 200, 160, 80);
 
         AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
+
+        GateProductsPanel.setName("gatesProductsPanel"); // NOI18N
+        GateProductsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                GateProductsPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        GateProductsPanel.setLayout(null);
+
+        jLabel39.setText("Terminale");
+        jLabel39.setName("jLabel39"); // NOI18N
+        GateProductsPanel.add(jLabel39);
+        jLabel39.setBounds(0, 10, 200, 20);
+
+        jLabel40.setText("Produkty w terminalach");
+        jLabel40.setName("jLabel40"); // NOI18N
+        GateProductsPanel.add(jLabel40);
+        jLabel40.setBounds(190, 10, 200, 20);
+
+        jLabel41.setText("Dostepne Produkty");
+        jLabel41.setName("jLabel41"); // NOI18N
+        GateProductsPanel.add(jLabel41);
+        jLabel41.setBounds(400, 10, 160, 20);
+
+        GatesProductsAddFromGate.setBackground(new java.awt.Color(0, 0, 0));
+        GatesProductsAddFromGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        GatesProductsAddFromGate.setForeground(new java.awt.Color(255, 255, 255));
+        GatesProductsAddFromGate.setText("<<<");
+        GatesProductsAddFromGate.setName("GatesProductsAddFromGate"); // NOI18N
+        GatesProductsAddFromGate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GatesProductsAddFromGateActionPerformed(evt);
+            }
+        });
+        GateProductsPanel.add(GatesProductsAddFromGate);
+        GatesProductsAddFromGate.setBounds(400, 300, 160, 40);
+
+        GatesProductsRemoveFromGate.setBackground(new java.awt.Color(0, 0, 0));
+        GatesProductsRemoveFromGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        GatesProductsRemoveFromGate.setForeground(new java.awt.Color(255, 255, 255));
+        GatesProductsRemoveFromGate.setText(">>>>");
+        GatesProductsRemoveFromGate.setName("GatesProductsRemoveFromGate"); // NOI18N
+        GatesProductsRemoveFromGate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GatesProductsRemoveFromGateActionPerformed(evt);
+            }
+        });
+        GateProductsPanel.add(GatesProductsRemoveFromGate);
+        GatesProductsRemoveFromGate.setBounds(210, 300, 160, 40);
+
+        GatesProductsResultLabel.setName("GatesProductsResultLabel"); // NOI18N
+        GateProductsPanel.add(GatesProductsResultLabel);
+        GatesProductsResultLabel.setBounds(50, 300, 290, 40);
+
+        jScrollPane16.setName("jScrollPane16"); // NOI18N
+
+        GatesProductsGatesProductList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nazwa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        GatesProductsGatesProductList.setToolTipText("");
+        GatesProductsGatesProductList.setName("GatesProductsGatesProductList"); // NOI18N
+        GatesProductsGatesProductList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GatesProductsGatesProductListMouseClicked(evt);
+            }
+        });
+        jScrollPane16.setViewportView(GatesProductsGatesProductList);
+
+        GateProductsPanel.add(jScrollPane16);
+        jScrollPane16.setBounds(190, 30, 180, 260);
+
+        jScrollPane17.setName("jScrollPane17"); // NOI18N
+
+        GatesProductsAwailableProducts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nazwa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        GatesProductsAwailableProducts.setToolTipText("");
+        GatesProductsAwailableProducts.setName("GatesProductsAwailableProducts"); // NOI18N
+        jScrollPane17.setViewportView(GatesProductsAwailableProducts);
+
+        GateProductsPanel.add(jScrollPane17);
+        jScrollPane17.setBounds(400, 30, 230, 260);
+
+        jScrollPane18.setName("jScrollPane18"); // NOI18N
+
+        GatesProductsGatesList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Atrakcja"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        GatesProductsGatesList.setToolTipText("");
+        GatesProductsGatesList.setName("GatesProductsGatesList"); // NOI18N
+        GatesProductsGatesList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                GatesProductsGatesListAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        GatesProductsGatesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GatesProductsGatesListMouseClicked(evt);
+            }
+        });
+        jScrollPane18.setViewportView(GatesProductsGatesList);
+
+        GateProductsPanel.add(jScrollPane18);
+        jScrollPane18.setBounds(0, 30, 160, 260);
+
+        AdminContainerPanel.add(GateProductsPanel, "gatesProductsPanel");
 
         EditUserAdmintPanel.setName("EditUserAdmintPanel"); // NOI18N
         EditUserAdmintPanel.setOpaque(false);
@@ -1962,11 +2130,11 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "Slope ID", "Traffic", "Overloaded"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -1980,12 +2148,6 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment (JLabel.CENTER);
-        SlopeTraffic.setDefaultRenderer (String.class, centerRenderer);
-        SlopeTraffic.setDefaultRenderer (Long.class, centerRenderer);
-        DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)SlopeTraffic.getTableHeader().getDefaultRenderer();
-        renderer.setHorizontalAlignment (JLabel.CENTER);
         SlopeTraffic.setName("SlopeTraffic"); // NOI18N
         SlopeTrafficScrollPane.setViewportView(SlopeTraffic);
 
@@ -2149,10 +2311,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2684,6 +2846,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         TerminalListPanel.add(jScrollPane6);
         jScrollPane6.setBounds(30, 50, 420, 260);
+
+        jButton3.setText("zarzadzaj");
+        jButton3.setName("jButton3"); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        TerminalListPanel.add(jButton3);
+        jButton3.setBounds(470, 250, 120, 23);
 
         GatesManagementAdminPanel.add(TerminalListPanel, "card8");
 
@@ -3289,21 +3461,25 @@ public class MainWindow extends javax.swing.JFrame {
         Symulator.add(SymulatorBuyButton);
         SymulatorBuyButton.setBounds(480, 500, 160, 40);
 
-        UserTrafficScrollPane.setName("UserTrafficScrollPane"); // NOI18N
+        SymulatorResultLabel.setName("SymulatorResultLabel"); // NOI18N
+        Symulator.add(SymulatorResultLabel);
+        SymulatorResultLabel.setBounds(60, 500, 290, 40);
 
-        UserTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
+        jScrollPane13.setName("jScrollPane13"); // NOI18N
+
+        SymulatorTerminalList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "ID", "Nazwa Atrakcji"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3313,376 +3489,92 @@ public class MainWindow extends javax.swing.JFrame {
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
-        }
-    );
-    DefaultTableCellRenderer centerRenderer3 = new DefaultTableCellRenderer();
-    centerRenderer3.setHorizontalAlignment (JLabel.CENTER);
-    UserTrafficTable.setDefaultRenderer (String.class, centerRenderer3);
-    UserTrafficTable.setDefaultRenderer (Long.class, centerRenderer3);
-    DefaultTableCellRenderer renderer3 = (DefaultTableCellRenderer)UserTrafficTable.getTableHeader().getDefaultRenderer();
-    renderer3.setHorizontalAlignment (JLabel.CENTER);
-    UserTrafficTable.setName("UserTrafficTable"); // NOI18N
-    UserTrafficScrollPane.setViewportView(UserTrafficTable);
-
-    UserTraffic.add(UserTrafficScrollPane);
-    UserTrafficScrollPane.setBounds(39, 5, 452, 402);
-
-    UserContainerPanel.add(UserTraffic, "card6");
-
-    UserMainPanel.add(UserContainerPanel);
-    UserContainerPanel.setBounds(170, 150, 530, 550);
-
-    jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
-    jLabel27.setText("Moje Konto");
-    jLabel27.setName("jLabel27"); // NOI18N
-    UserMainPanel.add(jLabel27);
-    jLabel27.setBounds(0, 0, 700, 700);
-
-    getContentPane().add(UserMainPanel, "UserMainPanel");
-
-    MyAccountPanel.setAutoscrolls(true);
-    MyAccountPanel.setMaximumSize(new java.awt.Dimension(700, 700));
-    MyAccountPanel.setMinimumSize(new java.awt.Dimension(700, 700));
-    MyAccountPanel.setName("MyAccountPanel"); // NOI18N
-    MyAccountPanel.setOpaque(false);
-    MyAccountPanel.setLayout(null);
-
-    EditLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
-    EditLoginLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    EditLoginLabel.setForeground(new java.awt.Color(0, 51, 51));
-    EditLoginLabel.setText("Login:");
-    EditLoginLabel.setName("EditLoginLabel"); // NOI18N
-    MyAccountPanel.add(EditLoginLabel);
-    EditLoginLabel.setBounds(10, 100, 50, 30);
-
-    EditPasswordLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    EditPasswordLabel.setText("Hasło:");
-    EditPasswordLabel.setMaximumSize(new java.awt.Dimension(29, 14));
-    EditPasswordLabel.setMinimumSize(new java.awt.Dimension(29, 14));
-    EditPasswordLabel.setName("EditPasswordLabel"); // NOI18N
-    EditPasswordLabel.setPreferredSize(new java.awt.Dimension(29, 14));
-    MyAccountPanel.add(EditPasswordLabel);
-    EditPasswordLabel.setBounds(10, 130, 50, 30);
-
-    LoginEditTextfield.setName("LoginEditTextfield"); // NOI18N
-    LoginEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            LoginEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(LoginEditTextfield);
-    LoginEditTextfield.setBounds(110, 100, 230, 30);
-
-    PasswordEditTextfield.setEditable(false);
-    PasswordEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
-    PasswordEditTextfield.setText("*****");
-    PasswordEditTextfield.setName("PasswordEditTextfield"); // NOI18N
-    MyAccountPanel.add(PasswordEditTextfield);
-    PasswordEditTextfield.setBounds(110, 130, 230, 30);
-
-    NameEditTextfield.setName("NameEditTextfield"); // NOI18N
-    NameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            NameEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(NameEditTextfield);
-    NameEditTextfield.setBounds(110, 160, 230, 30);
-
-    SurnameEditTextfield.setName("SurnameEditTextfield"); // NOI18N
-    SurnameEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            SurnameEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(SurnameEditTextfield);
-    SurnameEditTextfield.setBounds(110, 190, 230, 30);
-
-    NameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    NameEditLabel.setText("Imię:");
-    NameEditLabel.setName("NameEditLabel"); // NOI18N
-    MyAccountPanel.add(NameEditLabel);
-    NameEditLabel.setBounds(10, 160, 50, 30);
-
-    SurnameEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    SurnameEditLabel.setText("Nazwisko:");
-    SurnameEditLabel.setName("SurnameEditLabel"); // NOI18N
-    MyAccountPanel.add(SurnameEditLabel);
-    SurnameEditLabel.setBounds(10, 190, 60, 30);
-
-    IDEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    IDEditLabel.setText("ID:");
-    IDEditLabel.setName("IDEditLabel"); // NOI18N
-    MyAccountPanel.add(IDEditLabel);
-    IDEditLabel.setBounds(10, 70, 80, 30);
-
-    IDEditTextfield.setEditable(false);
-    IDEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
-    IDEditTextfield.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-    IDEditTextfield.setName("IDEditTextfield"); // NOI18N
-    IDEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            IDEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(IDEditTextfield);
-    IDEditTextfield.setBounds(110, 70, 230, 30);
-
-    StreetEditTextfield.setName("StreetEditTextfield"); // NOI18N
-    MyAccountPanel.add(StreetEditTextfield);
-    StreetEditTextfield.setBounds(110, 250, 230, 30);
-
-    CityEditTextfield.setName("CityEditTextfield"); // NOI18N
-    CityEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            CityEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(CityEditTextfield);
-    CityEditTextfield.setBounds(110, 280, 230, 30);
-
-    CountryEditTextfield.setName("CountryEditTextfield"); // NOI18N
-    MyAccountPanel.add(CountryEditTextfield);
-    CountryEditTextfield.setBounds(110, 310, 230, 30);
-
-    StreetEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    StreetEditLabel.setText("Ulica:");
-    StreetEditLabel.setName("StreetEditLabel"); // NOI18N
-    MyAccountPanel.add(StreetEditLabel);
-    StreetEditLabel.setBounds(10, 250, 90, 30);
-
-    CityEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    CityEditLabel.setText("Miasto:");
-    CityEditLabel.setName("CityEditLabel"); // NOI18N
-    MyAccountPanel.add(CityEditLabel);
-    CityEditLabel.setBounds(10, 280, 90, 30);
-
-    CountryEditLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    CountryEditLabel.setText("Kraj:");
-    CountryEditLabel.setName("CountryEditLabel"); // NOI18N
-    MyAccountPanel.add(CountryEditLabel);
-    CountryEditLabel.setBounds(10, 310, 90, 30);
-
-    EditDetailsButton.setText("Edytuj Dane");
-    EditDetailsButton.setName("EditDetailsButton"); // NOI18N
-    EditDetailsButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            EditDetailsButtonActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(EditDetailsButton);
-    EditDetailsButton.setBounds(120, 350, 210, 23);
-
-    SaveDetailsButton.setText("Zapisz");
-    SaveDetailsButton.setEnabled(false);
-    SaveDetailsButton.setName("SaveDetailsButton"); // NOI18N
-    SaveDetailsButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            SaveDetailsButtonActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(SaveDetailsButton);
-    SaveDetailsButton.setBounds(250, 380, 80, 23);
-
-    jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    jLabel10.setText("Nr dokumentu:");
-    jLabel10.setName("jLabel10"); // NOI18N
-    MyAccountPanel.add(jLabel10);
-    jLabel10.setBounds(10, 220, 100, 30);
-
-    CancelButton.setText("Anuluj");
-    CancelButton.setEnabled(false);
-    CancelButton.setName("CancelButton"); // NOI18N
-    CancelButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            CancelButtonActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(CancelButton);
-    CancelButton.setBounds(170, 380, 80, 23);
-
-    EditMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-    EditMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-    EditMessageLabel.setName("EditMessageLabel"); // NOI18N
-    MyAccountPanel.add(EditMessageLabel);
-    EditMessageLabel.setBounds(360, 590, 180, 20);
-
-    jLabel14.setFont(new java.awt.Font("DejaVu Serif", 0, 30)); // NOI18N
-    jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel14.setText("Dane konta");
-    jLabel14.setName("jLabel14"); // NOI18N
-    MyAccountPanel.add(jLabel14);
-    jLabel14.setBounds(90, 10, 270, 30);
-
-    DocumentEditTextfield.setEditable(false);
-    DocumentEditTextfield.setBackground(new java.awt.Color(245, 245, 245));
-    DocumentEditTextfield.setDisabledTextColor(new java.awt.Color(245, 245, 245));
-    DocumentEditTextfield.setName("DocumentEditTextfield"); // NOI18N
-    DocumentEditTextfield.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            DocumentEditTextfieldActionPerformed(evt);
-        }
-    });
-    MyAccountPanel.add(DocumentEditTextfield);
-    DocumentEditTextfield.setBounds(110, 220, 230, 30);
+        });
+        SymulatorTerminalList.setToolTipText("");
+        SymulatorTerminalList.setName("SymulatorTerminalList"); // NOI18N
+        SymulatorTerminalList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SymulatorTerminalListMouseClicked(evt);
+            }
+        });
+        jScrollPane13.setViewportView(SymulatorTerminalList);
 
         Symulator.add(jScrollPane13);
         jScrollPane13.setBounds(230, 230, 150, 260);
 
-    Symulator.setName("Symulator"); // NOI18N
-    Symulator.addAncestorListener(new javax.swing.event.AncestorListener() {
-        public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-        }
-        public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            SymulatorAncestorAdded(evt);
-        }
-        public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-        }
-    });
-    Symulator.setLayout(null);
+        jScrollPane14.setName("jScrollPane14"); // NOI18N
 
-    jLabel9.setText("Cards");
-    jLabel9.setName("jLabel9"); // NOI18N
-    Symulator.add(jLabel9);
-    jLabel9.setBounds(50, 200, 200, 20);
+        SymulatorProductList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-    jLabel30.setText("Terminals");
-    jLabel30.setName("jLabel30"); // NOI18N
-    Symulator.add(jLabel30);
-    jLabel30.setBounds(260, 200, 200, 20);
+            },
+            new String [] {
+                "ID", "Nazwa", "Cena"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
 
-    jLabel36.setText("Products");
-    jLabel36.setName("jLabel36"); // NOI18N
-    Symulator.add(jLabel36);
-    jLabel36.setBounds(420, 200, 160, 20);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        SymulatorProductList.setToolTipText("");
+        SymulatorProductList.setName("SymulatorProductList"); // NOI18N
+        jScrollPane14.setViewportView(SymulatorProductList);
 
-    SymulatorBuyButton.setBackground(new java.awt.Color(0, 0, 0));
-    SymulatorBuyButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-    SymulatorBuyButton.setForeground(new java.awt.Color(255, 255, 255));
-    SymulatorBuyButton.setText("Kup");
-    SymulatorBuyButton.setName("SymulatorBuyButton"); // NOI18N
-    SymulatorBuyButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            SymulatorBuyButtonActionPerformed(evt);
-        }
-    });
-    Symulator.add(SymulatorBuyButton);
-    SymulatorBuyButton.setBounds(480, 500, 160, 40);
+        Symulator.add(jScrollPane14);
+        jScrollPane14.setBounds(390, 230, 250, 260);
 
-    SymulatorResultLabel.setName("SymulatorResultLabel"); // NOI18N
-    Symulator.add(SymulatorResultLabel);
-    SymulatorResultLabel.setBounds(60, 500, 290, 40);
+        jScrollPane15.setName("jScrollPane15"); // NOI18N
 
-    jScrollPane13.setName("jScrollPane13"); // NOI18N
+        SymulatorCardsList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-    SymulatorTerminalList.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
+            },
+            new String [] {
+                "ID", "Punkty"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class
+            };
 
-        },
-        new String [] {
-            "ID"
-        }
-    ) {
-        Class[] types = new Class [] {
-            java.lang.Integer.class
-        };
-        boolean[] canEdit = new boolean [] {
-            false
-        };
-
-        public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
-        }
-
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return canEdit [columnIndex];
-        }
-    });
-    SymulatorTerminalList.setToolTipText("");
-    SymulatorTerminalList.setName("SymulatorTerminalList"); // NOI18N
-    SymulatorTerminalList.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            SymulatorTerminalListMouseClicked(evt);
-        }
-    });
-    jScrollPane13.setViewportView(SymulatorTerminalList);
-
-    Symulator.add(jScrollPane13);
-    jScrollPane13.setBounds(260, 230, 100, 260);
-
-    jScrollPane14.setName("jScrollPane14"); // NOI18N
-
-    SymulatorProductList.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-
-        },
-        new String [] {
-            "ID", "Nazwa", "Cena"
-        }
-    ) {
-        Class[] types = new Class [] {
-            java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
-        };
-
-        public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
-        }
-    });
-    SymulatorProductList.setToolTipText("");
-    SymulatorProductList.setName("SymulatorProductList"); // NOI18N
-    jScrollPane14.setViewportView(SymulatorProductList);
-
-    Symulator.add(jScrollPane14);
-    jScrollPane14.setBounds(390, 230, 250, 260);
-
-    jScrollPane15.setName("jScrollPane15"); // NOI18N
-
-    SymulatorCardsList.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-
-        },
-        new String [] {
-            "ID", "Punkty"
-        }
-    ) {
-        Class[] types = new Class [] {
-            java.lang.Integer.class, java.lang.Integer.class
-        };
-
-        public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
-        }
-    });
-    SymulatorCardsList.setToolTipText("");
-    SymulatorCardsList.setName("SymulatorCardsList"); // NOI18N
-    SymulatorCardsList.addAncestorListener(new javax.swing.event.AncestorListener() {
-        public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-        }
-        public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            SymulatorCardsListAncestorAdded(evt);
-        }
-        public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-        }
-    });
-    SymulatorCardsList.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            SymulatorCardsListMouseClicked(evt);
-        }
-    });
-    jScrollPane15.setViewportView(SymulatorCardsList);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        SymulatorCardsList.setToolTipText("");
+        SymulatorCardsList.setName("SymulatorCardsList"); // NOI18N
+        SymulatorCardsList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                SymulatorCardsListAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        SymulatorCardsList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SymulatorCardsListMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(SymulatorCardsList);
 
         Symulator.add(jScrollPane15);
         jScrollPane15.setBounds(10, 230, 200, 260);
 
-    BackgroundImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
-    BackgroundImageLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-    BackgroundImageLabel1.setName("BackgroundImageLabel1"); // NOI18N
-    Symulator.add(BackgroundImageLabel1);
-    BackgroundImageLabel1.setBounds(0, 0, 1310, 890);
+        BackgroundImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.jpg"))); // NOI18N
+        BackgroundImageLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        BackgroundImageLabel1.setName("BackgroundImageLabel1"); // NOI18N
+        Symulator.add(BackgroundImageLabel1);
+        BackgroundImageLabel1.setBounds(0, 0, 1310, 890);
 
-    getContentPane().add(Symulator, "symulator");
+        getContentPane().add(Symulator, "symulator");
 
-    pack();
+        pack();
     }// </editor-fold>//GEN-END:initComponents
     
     private void DisplayCards( javax.swing.JPanel CardsPanel, final String clientName ) {
@@ -4784,7 +4676,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed
         
-        List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
+     /*   List <Object []> traffic = SlopeController.getTrafficList(loginStatusMessage);
         if (traffic != null){
             DefaultTableModel model = (DefaultTableModel) UserTrafficTable.getModel();
             model.setRowCount(0);
@@ -4801,7 +4693,7 @@ public class MainWindow extends javax.swing.JFrame {
         ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "card6");
         changeCard(view, true);
         
-        }
+        }*/
     }//GEN-LAST:event_SlopeTrafficButtonActionPerformed
 
     private void costSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costSumActionPerformed
@@ -5198,6 +5090,51 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AttractionTypeComboBoxActionPerformed
 
+    private void RefreshGatesProductsPanel()
+    {
+        GateProductsController sm = new GateProductsController();
+        
+        DefaultTableModel model = (DefaultTableModel) GatesProductsGatesList.getModel();
+        model.setRowCount(0);
+        
+        List terminals = sm.GetTerminals();
+        for (Object terminalObj : terminals) {
+            Terminal terminal = (Terminal)terminalObj;           
+             model.addRow(new Object[]{ terminal.getTerminalid(), terminal.getAttraction().getName()});
+        } 
+
+        model = (DefaultTableModel) GatesProductsAwailableProducts.getModel();
+        model.setRowCount(0);
+        
+        List products = sm.GetProducts();
+        for (Object productObj : products) {
+            Product product = (Product)productObj;           
+             model.addRow(new Object[]{ product.getProductid(),product.getName()});
+        } 
+
+    }
+
+
+    private void GatesProductRefreshGateProductsList()
+    {
+                DefaultTableModel model = (DefaultTableModel) GatesProductsGatesProductList.getModel();
+        model.setRowCount(0);
+        if (GatesProductsGatesList.getSelectedRow() > -1) {
+            String terminalID = GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString();
+
+            ProductController controller = new ProductController();
+            List productsInTerminal = controller.GetProductsFromTerminal(Integer.parseInt(terminalID));
+            if (productsInTerminal!=null) {
+                for (Object productObj : productsInTerminal) {
+                    Productitem productItem = (Productitem)productObj;
+                    int currentPrice = controller.getActualProductPrice(productItem.getProduct());
+                      model.addRow(new Object[]{productItem.getProduct().getProductid(), productItem.getProduct().getName(),currentPrice});
+                }
+            }
+        }
+    }
+
+    
     private void UserMyCardsPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_UserMyCardsPanelAncestorAdded
 
     }//GEN-LAST:event_UserMyCardsPanelAncestorAdded
@@ -5209,6 +5146,67 @@ public class MainWindow extends javax.swing.JFrame {
     private void PrintCardDataOkButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintCardDataOkButton1ActionPerformed
         PrintCardDataPanel1.setVisible(false);
     }//GEN-LAST:event_PrintCardDataOkButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        ViewSwitcher view = new ViewSwitcher( getContentPane(), "AdminContainerPanel", AdminContainerPanel, "gatesProductsPanel" );
+        changeCard(view, true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void GatesProductsAddFromGateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesProductsAddFromGateActionPerformed
+                   if (GatesProductsGatesList.getSelectedRow() > -1) {
+                int terminalID = Integer.parseInt(GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString());
+                if (GatesProductsAwailableProducts.getSelectedRow() > -1) {
+                    int productID = Integer.parseInt(GatesProductsAwailableProducts.getValueAt(GatesProductsAwailableProducts.getSelectedRow(), 0).toString());
+
+                    GateProductsController controller = new GateProductsController();
+                    StringBuilder logger = new StringBuilder();
+                    controller.addProductToTerminal(terminalID,productID,logger);
+                    GatesProductsResultLabel.setText(logger.toString());
+                    
+                }else{
+                    GatesProductsResultLabel.setText("Select product!");
+                }
+            }else{
+                GatesProductsResultLabel.setText("Select terminal!");
+            }
+            GatesProductRefreshGateProductsList();
+    }//GEN-LAST:event_GatesProductsAddFromGateActionPerformed
+
+    private void GatesProductsGatesProductListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GatesProductsGatesProductListMouseClicked
+
+    }//GEN-LAST:event_GatesProductsGatesProductListMouseClicked
+
+    private void GatesProductsGatesListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GatesProductsGatesListAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GatesProductsGatesListAncestorAdded
+
+    private void GatesProductsGatesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GatesProductsGatesListMouseClicked
+         GatesProductRefreshGateProductsList();
+    }//GEN-LAST:event_GatesProductsGatesListMouseClicked
+
+    private void GateProductsPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_GateProductsPanelAncestorAdded
+        RefreshGatesProductsPanel();
+    }//GEN-LAST:event_GateProductsPanelAncestorAdded
+
+    private void GatesProductsRemoveFromGateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesProductsRemoveFromGateActionPerformed
+                    if (GatesProductsGatesList.getSelectedRow() > -1) {
+                int terminalID = Integer.parseInt(GatesProductsGatesList.getValueAt(GatesProductsGatesList.getSelectedRow(), 0).toString());
+                if (GatesProductsGatesProductList.getSelectedRow() > -1) {
+                    int productID = Integer.parseInt(GatesProductsGatesProductList.getValueAt(GatesProductsGatesProductList.getSelectedRow(), 0).toString());
+
+                    GateProductsController controller = new GateProductsController();
+                    StringBuilder logger = new StringBuilder();
+                    controller.removeProductFromTerminal(terminalID,productID,logger);
+                    GatesProductsResultLabel.setText(logger.toString());
+                    
+                }else{
+                    GatesProductsResultLabel.setText("Select product!");
+                }
+            }else{
+                GatesProductsResultLabel.setText("Select terminal!");
+            }
+            GatesProductRefreshGateProductsList();
+    }//GEN-LAST:event_GatesProductsRemoveFromGateActionPerformed
 
     private void FillTerminalList(String name)
     {  
@@ -5480,8 +5478,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton FindProductButton;
     private javax.swing.JButton FindTerminalButton;
     private javax.swing.JButton FindUserButton;
+    private javax.swing.JPanel GateProductsPanel;
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
+    private javax.swing.JButton GatesProductsAddFromGate;
+    private javax.swing.JTable GatesProductsAwailableProducts;
+    private javax.swing.JTable GatesProductsGatesList;
+    private javax.swing.JTable GatesProductsGatesProductList;
+    private javax.swing.JButton GatesProductsRemoveFromGate;
+    private javax.swing.JLabel GatesProductsResultLabel;
     private javax.swing.JLabel IDEditLabel;
     private javax.swing.JLabel IDEditLabel2;
     private javax.swing.JTextField IDEditTextfield;
@@ -5632,9 +5637,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JTextField UserSearchInputTextField;
-    private javax.swing.JPanel UserTraffic;
-    private javax.swing.JScrollPane UserTrafficScrollPane;
-    private javax.swing.JTable UserTrafficTable;
     private javax.swing.JButton UsersButton;
     private javax.swing.JLabel buyPackagePointsMessage;
     private javax.swing.JButton buyPointsPackageBackButton;
@@ -5643,6 +5645,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -5679,7 +5682,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -5691,6 +5697,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
