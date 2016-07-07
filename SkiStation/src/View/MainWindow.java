@@ -2265,6 +2265,15 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductsManagmentAdminPanel.setName("ProductsManagmentAdminPanel"); // NOI18N
         ProductsManagmentAdminPanel.setOpaque(false);
+        ProductsManagmentAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                ProductsManagmentAdminPanelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         ProductsManagmentAdminPanel.setLayout(null);
 
         ProductsTables.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -4255,29 +4264,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed
-        ProductFindText.setText("");
-        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
-         model.setRowCount(0);
-         ProductController controller = new ProductController();
-         List products = controller.getProductList();
-         if (products!=null) {
-             for (Object productObj : products) {
-                 Product product = (Product)productObj;
-                 
-                 model.addRow(new Object[]{product.getProductid(),product.getName()});
-             }
-        }
-         
-        PriceListFindText.setText("");
-        model = (DefaultTableModel) PriceLists.getModel();
-         model.setRowCount(0);
-         List priceLists = controller.getPriceListsList();
-        if (priceLists!=null) {
-            for (Object priceListObj : priceLists) {
-                Pricelist priceList = (Pricelist)priceListObj;
-                model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
-            }
-        }
+
+        
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "productsManagementPanel");
         changeCard( view, true );
          //changeCard(AdminContainerPanel, "card11", true);
@@ -4842,37 +4830,47 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ProductPriceListPriceListsMouseClicked
 
     private void PriceListFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceListFindTextKeyReleased
+        RefreshPriceList(PriceListFindText.getText());
+    }//GEN-LAST:event_PriceListFindTextKeyReleased
+
+    private void RefreshPriceList(String text)
+    {
         DefaultTableModel model = (DefaultTableModel) PriceLists.getModel();
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List priceLists = controller.getPriceListsList(PriceListFindText.getText());
+        List priceLists = controller.getPriceListsList(text);
         if (priceLists!=null) {
             for (Object priceListObj : priceLists) {
                 Pricelist priceList = (Pricelist)priceListObj;
                 model.addRow(new Object[]{priceList.getPricelistid(),priceList.getStartdate(),priceList.getEnddate()});
             }
         }
-    }//GEN-LAST:event_PriceListFindTextKeyReleased
-
+    }
+    
     private void ProductFindTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyTyped
 
     }//GEN-LAST:event_ProductFindTextKeyTyped
 
     private void ProductFindTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductFindTextKeyReleased
-        DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
+        RefreshProductsList(ProductFindText.getText());
+    }//GEN-LAST:event_ProductFindTextKeyReleased
+
+    private void RefreshProductsList(String text)
+    {
+                DefaultTableModel model = (DefaultTableModel) ProductList.getModel();
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List products = controller.getProductList(ProductFindText.getText());
+        List products = controller.getProductList(text);
         if (products!=null) {
             for (Object productObj : products) {
                 Product product = (Product)productObj;
                 model.addRow(new Object[]{product.getProductid(),product.getName()});
             }
         }
-    }//GEN-LAST:event_ProductFindTextKeyReleased
-
+    }
+    
     private void ProductFindTextInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_ProductFindTextInputMethodTextChanged
 
     }//GEN-LAST:event_ProductFindTextInputMethodTextChanged
@@ -4914,7 +4912,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_CurrentPriceFindTextKeyReleased
 
     private void CurrentPricesTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CurrentPricesTableAncestorAdded
-        ProductController pd = new ProductController();
+
+    }//GEN-LAST:event_CurrentPricesTableAncestorAdded
+
+    
+    private void RefreshCurrentPrices()
+    {
+                ProductController pd = new ProductController();
         List products = pd.getProductList();
         
         DefaultTableModel model = (DefaultTableModel) CurrentPricesTable.getModel();
@@ -4925,8 +4929,8 @@ public class MainWindow extends javax.swing.JFrame {
             int price = pd.getActualProductPrice(product);
             model.addRow(new Object[]{ product.getProductid(),product.getName(), price });
         }
-    }//GEN-LAST:event_CurrentPricesTableAncestorAdded
-
+    }
+    
     private void UserSearchInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSearchInputTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UserSearchInputTextFieldActionPerformed
@@ -5246,6 +5250,12 @@ public class MainWindow extends javax.swing.JFrame {
     private void UserListTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_UserListTableAncestorAdded
        RefreshAdminManagementUsersList();
     }//GEN-LAST:event_UserListTableAncestorAdded
+
+    private void ProductsManagmentAdminPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ProductsManagmentAdminPanelAncestorAdded
+        RefreshProductsList("");
+        RefreshPriceList("");
+        RefreshCurrentPrices();
+    }//GEN-LAST:event_ProductsManagmentAdminPanelAncestorAdded
 
     private void FillTerminalList(String name)
     {  
