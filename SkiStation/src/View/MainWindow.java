@@ -2194,6 +2194,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserListTable.setName("UserListTable"); // NOI18N
+        UserListTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                UserListTableAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane7.setViewportView(UserListTable);
 
         UserManagmentAdmintPanel.add(jScrollPane7);
@@ -4202,6 +4211,8 @@ public class MainWindow extends javax.swing.JFrame {
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }
+        
+        RefreshAdminManagementUsersList();
     }//GEN-LAST:event_UpdateUserActionPerformed
 
     private void LoginTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTextField2ActionPerformed
@@ -4405,6 +4416,8 @@ public class MainWindow extends javax.swing.JFrame {
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }
+        
+        RefreshAdminManagementUsersList();
     }//GEN-LAST:event_DeleteUserButtonActionPerformed
 
     private void SearchUserTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchUserTextFieldActionPerformed
@@ -4932,13 +4945,35 @@ public class MainWindow extends javax.swing.JFrame {
         
         CashierController cc = new CashierController();
         UserManagementAdminController ac = new UserManagementAdminController();
-        List results = cc.GetUsersList(SearchUserTextField.getText());
+       List results;
+        if (!SearchUserTextField.getText().equals("")) {
+            results = cc.GetUsersList(SearchUserTextField.getText());    
+        }else{
+            results = ac.GetUsers(); 
+        }
+        
         for (Object result : results) {
             Users user = (Users)result;           
             model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.getUserRole(user.getLogin()) });
         }
     }//GEN-LAST:event_SearchUserTextFieldKeyTyped
 
+    private void RefreshAdminManagementUsersList()
+    {
+        SearchUserTextField.setText("");
+        DefaultTableModel model = (DefaultTableModel) UserListTable.getModel();
+        model.setRowCount(0);
+        
+        CashierController cc = new CashierController();
+        UserManagementAdminController ac = new UserManagementAdminController();
+        
+        List results = ac.GetUsers();
+        for (Object result : results) {
+            Users user = (Users)result;  
+            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.getUserRole(user.getLogin()) });
+        }
+    }
+    
     private void SearchProductTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProductTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SearchProductTextFieldActionPerformed
@@ -5207,6 +5242,10 @@ public class MainWindow extends javax.swing.JFrame {
             }
             GatesProductRefreshGateProductsList();
     }//GEN-LAST:event_GatesProductsRemoveFromGateActionPerformed
+
+    private void UserListTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_UserListTableAncestorAdded
+       RefreshAdminManagementUsersList();
+    }//GEN-LAST:event_UserListTableAncestorAdded
 
     private void FillTerminalList(String name)
     {  

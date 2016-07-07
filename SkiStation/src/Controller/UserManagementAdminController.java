@@ -121,12 +121,14 @@ public class UserManagementAdminController {
         Employees role = getUserRole(user);  
         Addresses address = user.getAddresses(); 
         s.close();
-        Clients client = ClientController.GetClient( user.getUserid() );
+        
+        Clients client = ClientController.GetClientFromUserID( user.getUserid() );
         s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();       
         
         Query q;
         if( client != null ) {
+            System.out.print(login + "   " + user.getUserid());
             q = s.createQuery( String.format("DELETE Clients C WHERE C.clientid = '%d'", client.getClientid()) );
             q.executeUpdate();
         }
@@ -146,5 +148,10 @@ public class UserManagementAdminController {
         tr.commit();
         
         return true;
+    }
+    
+    public List GetUsers()
+    {
+        return s.createCriteria(Users.class).list();
     }
 }
