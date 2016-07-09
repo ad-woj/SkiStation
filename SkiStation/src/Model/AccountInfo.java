@@ -19,6 +19,7 @@ public class AccountInfo {
     public String city;
     public String country;
     public String password;
+    public Boolean active;
     
     public AccountInfo() {
         name = new String();
@@ -30,5 +31,6 @@ public class AccountInfo {
         city = new String();
         country = new String();
         password = new String();
+        active = false;
     }
 }

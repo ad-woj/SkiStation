@@ -65,7 +65,7 @@ public class ClientController {
     
     public static Clients GetClient( int clientID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientID = '%d'", clientID));
+        Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = %d", clientID));
         if (query == null || query.list().isEmpty()){
             return null;
         }

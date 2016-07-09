@@ -83,6 +83,7 @@ public class MyAccountController {
         info.login = user.getLogin();
         info.documentNumber = user.getDocumentnumber();
         info.userID = Integer.toString(user.getUserid());
+        info.active = user.getActive();
         Addresses address = user.getAddresses();
         if( address != null ) {
             info.street = address.getStreet();
@@ -125,6 +126,7 @@ public class MyAccountController {
         oldUser.setSurname(newUser.getSurname());
         oldUser.setLogin(newUser.getLogin());
         oldUser.setDocumentnumber(newUser.getDocumentnumber());
+        oldUser.setActive(newUser.getActive());
         s.saveOrUpdate(oldUser);
         tr.commit();
         s.close();

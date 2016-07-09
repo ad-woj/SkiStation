@@ -26,6 +26,9 @@
         <property name="documentnumber" type="string">
             <column name="documentnumber" length="30" not-null="true" />
         </property>
+        <property name="active" type="boolean">
+            <column name="active" not-null="true" />
+        </property>
         <set name="employeeses" table="employees" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="users_userid" not-null="true" />

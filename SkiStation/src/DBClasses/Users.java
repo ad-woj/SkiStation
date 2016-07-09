@@ -18,6 +18,7 @@ public class Users  implements java.io.Serializable {
      private String name;
      private String surname;
      private String documentnumber;
+     private Boolean active;
      private Set employeeses = new HashSet(0);
      private Set clientses = new HashSet(0);
 
@@ -33,8 +34,9 @@ public class Users  implements java.io.Serializable {
         this.name = name;
         this.surname = surname;
         this.documentnumber = documentnumber;
+        this.active = active;
     }
-    public Users(int userid, Addresses addresses, String login, String password, String name, String surname, String documentnumber, Set employeeses, Set clientses) {
+    public Users(int userid, Addresses addresses, String login, String password, String name, String surname, String documentnumber, Boolean active, Set employeeses, Set clientses) {
        this.userid = userid;
        this.addresses = addresses;
        this.login = login;
@@ -42,6 +44,7 @@ public class Users  implements java.io.Serializable {
        this.name = name;
        this.surname = surname;
        this.documentnumber = documentnumber;
+       this.active = active;
        this.employeeses = employeeses;
        this.clientses = clientses;
     }
@@ -95,6 +98,15 @@ public class Users  implements java.io.Serializable {
     public void setDocumentnumber(String documentnumber) {
         this.documentnumber = documentnumber;
     }
+    
+    public Boolean getActive() {
+        return this.active;
+    }
+    
+    public void setActive(Boolean active){
+        this.active = active;
+    }
+    
     public Set getEmployeeses() {
         return this.employeeses;
     }
