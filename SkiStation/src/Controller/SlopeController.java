@@ -34,7 +34,7 @@ public class SlopeController {
                     + " FROM Cardusage c, Terminal t, Attraction a " +
                                  "WHERE c.terminal = t.terminalid " +
                                    "AND t.attraction.attractionid = a.attractionid " +
-                                   "AND a.type = 'slope' " +
+                                   "AND a.type = 'Stok' " +
                                  //  "AND c.usedate <= '%s' " +
                                 // "AND c.usedate >= '%s' " +
                                   "GROUP BY t.terminalid", currentDate, hourBefore));
