@@ -15,28 +15,45 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 /**
- *
+ * Klasa do zarzadzania produktami wewnatrz terminala
  * @author Rafał
  */
 public class GateProductsController {
     private Session s;
     
+    /**
+     * domyślny konstruktor ,  otwiera sesje dla  instancji controllera   
+     */
     public GateProductsController()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
+    /**
+     * Zwraca liste terminali
+     * @return lista terminali
+     */
     public List GetTerminals()
     {
         return s.createCriteria(Terminal.class).list();
     }
    
+    /**
+     * Zwraca liste produktow
+     * @return lista prduktow
+     */
     public List GetProducts()
     {
         return s.createCriteria(Product.class).list();
     }
     
-    public void addProductToTerminal(int terminalID, int productID, StringBuilder logger)
+    /**
+     * Dodaje do terminala produkt
+     * @param terminalID id terminala
+     * @param productID id produktu
+     * @param logger logger do wyswitlania w widoku rezultatu akcji
+     */
+    public void AddProductToTerminal(int terminalID, int productID, StringBuilder logger)
     {
         List terminals =  s.createQuery(String.format("FROM Terminal C WHERE C.terminalid = '%d'", terminalID )).list();
         List productItems =  s.createQuery(String.format("FROM Productitem C WHERE C.terminal = '%d'", terminalID )).list();
@@ -82,7 +99,13 @@ public class GateProductsController {
         
     }
     
-    public void removeProductFromTerminal(int terminalID, int productID, StringBuilder logger)
+    /**
+     * Usuwa dostepnosc produktu w terminalu
+     * @param terminalID id terminala
+     * @param productID id produktu
+     * @param logger logger do wyswietlanie rezultatu wykonania akcji
+     */
+    public void RemoveProductFromTerminal(int terminalID, int productID, StringBuilder logger)
     {
         List productItems =  s.createQuery(String.format("FROM Productitem C WHERE C.terminal = '%d' AND C.product = '%d'", terminalID,productID )).list(); 
         Productitem p = null;

@@ -19,22 +19,34 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- *
+ * Symulator stoku, mozemy w nim symulowac kupowania produktów w bramkach
  * @author Rafał
  */
 public class Symulator {
-        private Session s;
+    private Session s;
     
+     /**
+     * domyślny konstruktor ,  otwiera sesje dla instancji controllera   
+     */
     public Symulator()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
+    /**
+     * Zwraca liste wszystkich kart w systemie
+     * @return lista kart
+     */
     public List GetCards()
     {
         return s.createCriteria(Cards.class).list();
     }
     
+    /**
+     * zwraca ilość pkt posiadanych przez karte o podanym ID
+     * @param cardID id karty
+     * @return liczba pkt posiadanych przez karte 
+     */
     public int GetCardPoints(int cardID )
     {
         List list = s.createCriteria(Cards.class).add(Restrictions.like("cardid", cardID)).list();
@@ -45,11 +57,23 @@ public class Symulator {
         }
     }
     
+    /**
+     * Zwraca liste wszystkich terminali w systemia
+     * @return lista terminali
+     */
     public List GetTerminals()
     {
         return s.createCriteria(Terminal.class).list();
     }
     
+    /**
+     * Wykonuje operacje kupienia produków przez karte, tworzy wpisy do bazy danych związane z zakupami
+     * @param cardID id kupujacej karty 
+     * @param terminalID id terminala w ktorym dokonywane sa zakupy
+     * @param sum suma wszyskich kupowanych produktow
+     * @param productIDs id produktow do kupienia
+     * @param logger logger do wyswietlania wyniku operacji na widoku
+     */
     public void BuyProductsFor(int cardID,int terminalID,int sum, List<Integer> productIDs, StringBuilder logger)
     {
         
@@ -71,7 +95,7 @@ public class Symulator {
                     s.saveOrUpdate(cardUsage);
 
                     for (Integer productID : productIDs) {
-                        Itemprice itemPrice = getCurrentProductPrice(productID);
+                        Itemprice itemPrice = GetCurrentProductPrice(productID);
                         if (itemPrice!=null) {     
                             System.out.print(itemPrice.getPrice());
                             Boughtitem boughtItem = new Boughtitem();
@@ -100,8 +124,13 @@ public class Symulator {
             return ;
         }
     }
-    
-        private Itemprice getCurrentProductPrice(int productID) {
+     
+     /**
+     * Zwraca aktualna cena produktu
+     * @param productID id produktu ktorego cena zostanie pobrana
+     * @return cena produktu jako itemPrice
+     */
+        private Itemprice GetCurrentProductPrice(int productID) {
             
         List queryResult =  s.createQuery(String.format("FROM Itemprice C WHERE C.product = '%d'", productID )).list();
         Itemprice mostActualPrice = null;

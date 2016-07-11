@@ -44,7 +44,7 @@ public class ClientController {
     
     public static int GetClientIDFromLogin( String login ) {
         UserManagementAdminController controller = new UserManagementAdminController();
-        Users u = controller.findUser(login);
+        Users u = controller.FindUser(login);
         if (u == null){
             return -1;
         }        

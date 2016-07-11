@@ -18,17 +18,27 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- *
+ * Klasa sluzy do zarzadzania produktami w panelu admina
  * @author Rafał
  */
 public class ProductController {
     private Session s;
     
+    /**
+     * domyślny konstruktor ,  otwiera sesje dla  instancji controllera   
+     */
     public ProductController()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
+    /**
+     * Tworzy produkt o podanej nazwie z podana cena, dodatkowo dodaje go do domyslnego cennika
+     * @param newProductName nazwa produktu
+     * @param newProductPrice cena produktu
+     * @param logger logger do wyswietlania wyniku operacji w widoku
+     * @return bool czy operacja sie powiodla
+     */
     public boolean CreateProduct(String newProductName,String newProductPrice, StringBuilder logger)
     {
         int price =0;
@@ -50,7 +60,7 @@ public class ProductController {
             return false;   
         }
         
-        if (findProduct(newProductName)!=null) {
+        if (FindProduct(newProductName)!=null) {
             logger.append("Product with the same name already exist");
             return false;                 
         }else{
@@ -60,15 +70,21 @@ public class ProductController {
             s.saveOrUpdate(product);
             tr.commit();
             
-            Pricelist defaultPriceList = (Pricelist)getPriceListsList("1").get(0);
-            addPriceItem(defaultPriceList, product, price); 
+            Pricelist defaultPriceList = (Pricelist)GetPriceListsList("1").get(0);
+            ProductController.this.AddPriceItem(defaultPriceList, product, price); 
             
             logger.append("Added new product with name : " + newProductName);
             return true;
         }
     }
     
-    public void addPriceItem(Pricelist priceList, Product product, int price)
+    /**
+     * Dodaje produkt do cennika
+     * @param priceList cennik do ktorego ma zostac dodany produkt
+     * @param product produkt do dodania
+     * @param price z jaka cena
+     */
+    private void AddPriceItem(Pricelist priceList, Product product, int price)
     {
         Transaction tr = s.beginTransaction();
             Itemprice itemprice = new Itemprice();
@@ -79,7 +95,15 @@ public class ProductController {
             tr.commit();
     }
     
-    public boolean addPriceItem(Pricelist priceList, Product product, int price, StringBuilder sb)
+    /**
+     * Dodaje produkt do cennika
+     * @param priceList cennik do ktorego ma zostac dodany produkt
+     * @param product produkt do dodania
+     * @param price z jaka cena
+     * @param sb logger do wystietlania wyniku dzialania operacji na widoku
+     * @return informuje o powodzeniu
+     */
+    public boolean AddPriceItem(Pricelist priceList, Product product, int price, StringBuilder sb)
     {
         if (price <= 0) {
             sb.append("Price is too low");
@@ -99,7 +123,7 @@ public class ProductController {
             sb.append("This product exist in this list");
             return false;
         }else  {
-            addPriceItem(priceList, product, price);
+            ProductController.this.AddPriceItem(priceList, product, price);
             sb.append("Added !");
              return true;
         }     
@@ -107,46 +131,67 @@ public class ProductController {
         
     }
     
-    public List getProductList()
+    /**
+     * Zwraca liste wszystkich produktow
+     * @return lista produktow
+     */
+    public List GetProductList()
     {
          List quaryResult = s.createCriteria(Product.class).list();
          return quaryResult;                
     }
     
-    
-    
-    public List getProductList(String text)
+    /**
+     * Zwraca przefiltrowana liste produktow po nazwie
+     * @param text filtr
+     * @return lista produktow
+     */
+    public List GetProductList(String text)
     {
          List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", ("%"+text+"%"))).list();
          return quaryResult;                
     }
         
-    public List getPriceListsList()
+    /**
+     * Zwraca liste wszystkich cennikow
+     * @return lista cennikow 
+     */
+    public List GetPriceListsList()
     {
          List quaryResult = s.createCriteria(Pricelist.class).list();
          return quaryResult;                
     }  
     
-    public List getPriceListsList(String text)
+    /**
+     * Zwraca przefitrowana po ID liste cennikow
+     * @param idString id cennika
+     * @return lista cennikow
+     */
+    public List GetPriceListsList(String idString)
     {
         Integer id;
         try{
-        id = Integer.parseInt(text);
+        id = Integer.parseInt(idString);
         }catch(Exception e){
             id =null;
         }
              
         if (id == null) {
-            return getPriceListsList();
+            return ProductController.this.GetPriceListsList();
         }else{
             List quaryResult = s.createCriteria(Pricelist.class).add(Restrictions.eq("pricelistid", id)).list();
             return quaryResult;  
         }     
     }
     
-    public List getPriceItems(String id)
+    /**
+     * Zwraca ceny produktow w cenniku
+     * @param id id cennika
+     * @return lista cen jako ItemPrice'y
+     */
+    public List GetPriceItems(String id)
     {
-        Pricelist priceList = (Pricelist)getPriceListsList(id).get(0);
+        Pricelist priceList = (Pricelist)GetPriceListsList(id).get(0);
          List quaryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("pricelist", priceList)).list();
          for (Object object : quaryResult) {
             Itemprice ip = (Itemprice)object;
@@ -155,7 +200,12 @@ public class ProductController {
          return quaryResult;                
     }  
                     
-    private Product findProduct(String name)
+    /**
+     * Zwraca produkt o podanej nazwie
+     * @param name nazwa produktu
+     * @return znaleziony produkt lub null
+     */
+    private Product FindProduct(String name)
     {
          List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", name)).list();
          Product product;
@@ -167,11 +217,18 @@ public class ProductController {
           return product;     
     }
     
-        public boolean CreatePriceList(String from,String to, StringBuilder logger)
+    /**
+     * Tworzy nowy cennik
+     * @param from data od
+     * @param to data do
+     * @param logger logger do wyswietlania tekstu w widoku
+     * @return czy udalo sie utworzyc nowy cennik
+     */
+    public boolean CreatePriceList(String from,String to, StringBuilder logger)
     {
         
-        Date fromDate = getDateFromString(from);
-        Date toDate = getDateFromString(to);
+        Date fromDate = GetDateFromString(from);
+        Date toDate = GetDateFromString(to);
         if (fromDate == null || toDate == null) {
             logger.append("Date format error");
             return false;
@@ -187,7 +244,12 @@ public class ProductController {
         }
     }
         
-        private Date getDateFromString(String text)
+    /**
+     * Parser stringa do daty
+     * @param text data jako string dd-mm-rr
+     * @return data
+     */
+        private Date GetDateFromString(String text)
         {
             System.out.print(text);
             String[] dateStrings = text.split("-");
@@ -203,22 +265,36 @@ public class ProductController {
             }
             
         }
-        public void addDefaultPriceListIfNotExist()
+
+    /**
+     *  Dodaje domyslny cennik jezeli nie istnieje
+     */
+    public void AddDefaultPriceListIfNotExist()
         {
-            List list = getPriceListsList();
+            List list = ProductController.this.GetPriceListsList();
             if (list.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
                 CreatePriceList("1-1-2000","1-1-2099",sb);
             }
         }
     
+    /**
+     * Zwraca liste produktow dostepnych w terminalu
+     * @param terminalID id etrminala
+     * @return lista produktow
+     */
     public List GetProductsFromTerminal(int terminalID)
     {         
           List products = s.createQuery(String.format("FROM Productitem C WHERE C.terminal = '%d'", terminalID )).list();
           return products; 
     }
         
-    public int getActualProductPrice(Product product) {
+    /**
+     * Zwraca aktualna cena produktu
+     * @param product produkt ktorego cene chcemy dostac
+     * @return cena 
+     */
+    public int GetActualProductPrice(Product product) {
 
         List queryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("product", product)).list(); // Retrieving all product prices, don't care about their dates 
         Itemprice mostActualPrice = null;

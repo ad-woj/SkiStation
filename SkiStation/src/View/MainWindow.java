@@ -4248,9 +4248,9 @@ public class MainWindow extends javax.swing.JFrame {
         
         UserManagementAdminController controller = new UserManagementAdminController();
         String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
-        if (controller.exist(LoginTextField2.getText())) {
+        if (controller.Exist(LoginTextField2.getText())) {
             UpdateResultLabel.setText(MyAccountController.UpdateAccountDetails(user, id));
-            controller.updateUser(LoginTextField2.getText(), choosingRole);            
+            controller.UpdateUser(LoginTextField2.getText(), choosingRole);            
         } else {
             UpdateResultLabel.setText("User does not exist!");
         }
@@ -4411,7 +4411,7 @@ public class MainWindow extends javax.swing.JFrame {
         userActiveCheckboxInAdminPanel.setSelected(info.active);
         UpdateResultLabel.setText("");
         UserManagementAdminController ac = new UserManagementAdminController();
-        switch(ac.getUserRole(info.login)) {
+        switch(ac.GetUserRole(info.login)) {
             case "User":
                 UserRadio.setSelected(true);
                 break;
@@ -4611,9 +4611,9 @@ public class MainWindow extends javax.swing.JFrame {
         
         UserManagementAdminController controller = new UserManagementAdminController();
         String choosingRole = getSelectedButtonText(UserRoleChooseGroup);
-        if (controller.exist(LoginTextField2.getText())) {
+        if (controller.Exist(LoginTextField2.getText())) {
             EditMessageLabel2.setText(MyAccountController.UpdateAccountDetails(user, id));
-            controller.updateUser(LoginTextField2.getText(), choosingRole);            
+            controller.UpdateUser(LoginTextField2.getText(), choosingRole);            
         } else {
             EditMessageLabel2.setText("User does not exist!");
         }
@@ -4663,7 +4663,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void AdminMainPanelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_AdminMainPanelAncestorAdded
              ProductController pd = new ProductController();
-             pd.addDefaultPriceListIfNotExist();
+             pd.AddDefaultPriceListIfNotExist();
     }//GEN-LAST:event_AdminMainPanelAncestorAdded
 
     private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
@@ -4775,8 +4775,8 @@ public class MainWindow extends javax.swing.JFrame {
         try{
             int price = Integer.parseInt(ProductPriceItemPriceField.getText());
             StringBuilder sb = new StringBuilder();
-            controller.addPriceItem((Pricelist)controller.getPriceListsList(priceListID).get(0),
-                                    (Product)controller.getProductList(productName).get(0), 
+            controller.AddPriceItem((Pricelist)controller.GetPriceListsList(priceListID).get(0),
+                                    (Product)controller.GetProductList(productName).get(0), 
                                     price,
                                     sb);
             RefestPriceItemsInList();
@@ -4793,7 +4793,7 @@ public class MainWindow extends javax.swing.JFrame {
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List products = controller.getProductList(ProductPriceListFindProduct.getText());
+        List products = controller.GetProductList(ProductPriceListFindProduct.getText());
         if (products!=null) {
             for (Object productObj : products) {
                 Product product = (Product)productObj;
@@ -4808,7 +4808,7 @@ public class MainWindow extends javax.swing.JFrame {
         ProductPriceListProducts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         ProductController controller = new ProductController();
 
-        List products = controller.getProductList();
+        List products = controller.GetProductList();
         if (products!=null) {
             for (Object productObj : products) {
                 Product product = (Product)productObj;
@@ -4822,7 +4822,7 @@ public class MainWindow extends javax.swing.JFrame {
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List priceLists = controller.getPriceListsList(ProductPriceListPriceListFind.getText());
+        List priceLists = controller.GetPriceListsList(ProductPriceListPriceListFind.getText());
         if (priceLists!=null) {
             for (Object priceListObj : priceLists) {
                 Pricelist priceList = (Pricelist)priceListObj;
@@ -4837,7 +4837,7 @@ public class MainWindow extends javax.swing.JFrame {
         ProductPriceListPriceLists.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         ProductController controller = new ProductController();
 
-        List priceLists = controller.getPriceListsList();
+        List priceLists = controller.GetPriceListsList();
         if (priceLists!=null) {
             for (Object priceListObj : priceLists) {
                 Pricelist priceList = (Pricelist)priceListObj;
@@ -4855,7 +4855,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             ProductController controller = new ProductController();
 
-            List itemPrices = controller.getPriceItems(priceListID);
+            List itemPrices = controller.GetPriceItems(priceListID);
             if (itemPrices!=null) {
                 for (Object priceItemObj : itemPrices) {
                     Itemprice itemPrice = (Itemprice)priceItemObj;
@@ -4879,7 +4879,7 @@ public class MainWindow extends javax.swing.JFrame {
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List priceLists = controller.getPriceListsList(text);
+        List priceLists = controller.GetPriceListsList(text);
         if (priceLists!=null) {
             for (Object priceListObj : priceLists) {
                 Pricelist priceList = (Pricelist)priceListObj;
@@ -4902,7 +4902,7 @@ public class MainWindow extends javax.swing.JFrame {
         model.setRowCount(0);
         ProductController controller = new ProductController();
 
-        List products = controller.getProductList(text);
+        List products = controller.GetProductList(text);
         if (products!=null) {
             for (Object productObj : products) {
                 Product product = (Product)productObj;
@@ -4959,14 +4959,14 @@ public class MainWindow extends javax.swing.JFrame {
     private void RefreshCurrentPrices()
     {
                 ProductController pd = new ProductController();
-        List products = pd.getProductList();
+        List products = pd.GetProductList();
         
         DefaultTableModel model = (DefaultTableModel) CurrentPricesTable.getModel();
         model.setRowCount(0);
 
         for (Object productObject : products) {
             Product product = (Product)productObject;
-            int price = pd.getActualProductPrice(product);
+            int price = pd.GetActualProductPrice(product);
             model.addRow(new Object[]{ product.getProductid(),product.getName(), price });
         }
     }
@@ -4998,7 +4998,7 @@ public class MainWindow extends javax.swing.JFrame {
         
         for (Object result : results) {
             Users user = (Users)result;           
-            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.getUserRole(user.getLogin()) });
+            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.GetUserRole(user.getLogin()) });
         }
     }//GEN-LAST:event_SearchUserTextFieldKeyTyped
 
@@ -5014,7 +5014,7 @@ public class MainWindow extends javax.swing.JFrame {
         List results = ac.GetUsers();
         for (Object result : results) {
             Users user = (Users)result;  
-            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.getUserRole(user.getLogin()) });
+            model.addRow(new Object[]{ user.getUserid(), user.getName(), user.getSurname(), ac.GetUserRole(user.getLogin()) });
         }
     }
     
@@ -5128,7 +5128,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (productsInTerminal!=null) {
                 for (Object productObj : productsInTerminal) {
                     Productitem productItem = (Productitem)productObj;
-                    int currentPrice = controller.getActualProductPrice(productItem.getProduct());
+                    int currentPrice = controller.GetActualProductPrice(productItem.getProduct());
                       model.addRow(new Object[]{productItem.getProduct().getProductid(), productItem.getProduct().getName(),currentPrice});
                 }
             }
@@ -5206,7 +5206,7 @@ public class MainWindow extends javax.swing.JFrame {
             if (productsInTerminal!=null) {
                 for (Object productObj : productsInTerminal) {
                     Productitem productItem = (Productitem)productObj;
-                    int currentPrice = controller.getActualProductPrice(productItem.getProduct());
+                    int currentPrice = controller.GetActualProductPrice(productItem.getProduct());
                       model.addRow(new Object[]{productItem.getProduct().getProductid(), productItem.getProduct().getName(),currentPrice});
                 }
             }
@@ -5239,7 +5239,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                     GateProductsController controller = new GateProductsController();
                     StringBuilder logger = new StringBuilder();
-                    controller.addProductToTerminal(terminalID,productID,logger);
+                    controller.AddProductToTerminal(terminalID,productID,logger);
                     GatesProductsResultLabel.setText(logger.toString());
                     
                 }else{
@@ -5275,7 +5275,7 @@ public class MainWindow extends javax.swing.JFrame {
 
                     GateProductsController controller = new GateProductsController();
                     StringBuilder logger = new StringBuilder();
-                    controller.removeProductFromTerminal(terminalID,productID,logger);
+                    controller.RemoveProductFromTerminal(terminalID,productID,logger);
                     GatesProductsResultLabel.setText(logger.toString());
                     
                 }else{
@@ -5420,7 +5420,7 @@ public class MainWindow extends javax.swing.JFrame {
         
         ProductController productController = new ProductController();
         
-        List packages = productController.getProductList("pointsPackage");
+        List packages = productController.GetProductList("pointsPackage");
         
         for (Object packageObj : packages){
             Product product = (Product) packageObj;
@@ -5428,7 +5428,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             try {
                 final int packageValue = Integer.parseInt(valueStr);
-                final int packagePrice = productController.getActualProductPrice(product);
+                final int packagePrice = productController.GetActualProductPrice(product);
                 if (packageValue > 0 && packagePrice > 0) {
                     JCheckBox checkBox = new JCheckBox(Integer.toString(packageValue) + " pkt. - "
                             + Integer.toString(packagePrice) + " zł");

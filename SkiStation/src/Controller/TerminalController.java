@@ -18,19 +18,22 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.Query;
 
 /**
- *
+ * controller uzywany do zarzadzania terminalami w panelu admina
  * @author Rafał
  */
 public class TerminalController {
     
     private Session s;
     
+    /**
+     * domyślny konstruktor ,  otwiera sesje dla instancji controllera   
+     */
     public TerminalController()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
-    public boolean exist(int terminalID)
+    public boolean Exist(int terminalID)
     {
         return findTerminal(terminalID) != null;
     }
