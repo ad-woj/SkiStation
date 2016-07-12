@@ -53,7 +53,7 @@ public class PDFCreator {
             nextx += colWidth;
         }
 
-        contentStream.setFont( PDType1Font.HELVETICA_BOLD , 12 );
+        contentStream.setFont( PDType1Font.TIMES_ROMAN , 12 );
 
         contentStream.beginText();
         contentStream.moveTextPositionByAmount(margin,y + 10);
