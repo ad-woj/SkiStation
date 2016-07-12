@@ -9,9 +9,13 @@ import Controller.CashierController;
 import Controller.ClientController;
 import Controller.SessionController;
 import DBClasses.Users;
+import Model.PDFCreator;
 import java.awt.Point;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.event.*;
 
@@ -161,14 +165,22 @@ public class CardView {
             PrintCardButton.setText("Wydaj");
             PrintCardButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    GiveOutCardButtonActionPerformed(evt);
+                    try {
+                        GiveOutCardButtonActionPerformed(evt);
+                    } catch (IOException ex) {
+                        Logger.getLogger(CardView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
         } else {
             PrintCardButton.setText("Drukuj");
             PrintCardButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    PrintCardButtonActionPerformed(evt);
+                    try {
+                        PrintCardButtonActionPerformed(evt);
+                    } catch (IOException ex) {
+                        Logger.getLogger(CardView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
         }
@@ -236,14 +248,18 @@ public class CardView {
         }
     } 
     
-    private void PrintCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+    private void PrintCardButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         parent.GetPrintCardPanel().setVisible(true);
         parent.GetPrintCardText().setText(GetCardPrintData(SessionController.GetLoggedUserData()));
+        PDFCreator pdfCreator = new PDFCreator();
+        pdfCreator.create(GetCardPDFData(SessionController.GetLoggedUserData()));
     }
         
-    private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+    private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         parent.GetPrintCardPanel1().setVisible(true);
         parent.GetPrintCardText1().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
+        PDFCreator pdfCreator = new PDFCreator();
+        pdfCreator.create(GetCardPDFData(CashierController.GetSelectedUserData()));
     }
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
@@ -318,9 +334,29 @@ public class CardView {
             return "NoUser";
         }
         
-        String text = "Wydrukowano kartę na punkty: \n\nID karty: " + IDTextField.getText() + "\n" + "Data ważności: " + ExpirationDateTextField.getText()
-                + "\n" + "Właścicel: " + user.getName() + "\n" + "ID clienta: " + user.getUserid(); 
-        
+        String text = "Wydrukowano kartę na punkty: \n\n"
+                + "\n" + "Właścicel: " + user.getName()
+                + "\n" + "ID clienta: " + user.getUserid()
+                + "\n" + "ID karty: " + IDTextField.getText()
+                + "\n" + "Data ważności: " + ExpirationDateTextField.getText();
+
         return text;
+    }
+    
+    private String[][] GetCardPDFData(Users user)
+    {
+        if(user==null)
+        {
+            return null;
+        }
+        
+        String[][] content = {
+            {"Owner",user.getName()},
+            {"Client ID",String.valueOf(user.getUserid())},
+            {"Card ID",IDTextField.getText()},
+            {"Expiration Date",ExpirationDateTextField.getText()}
+        } ;
+        
+        return content;
     }
 }
