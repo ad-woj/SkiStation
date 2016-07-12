@@ -374,7 +374,7 @@ public class MainWindow extends javax.swing.JFrame {
         paypalOptionLabel = new javax.swing.JLabel();
         BuyAndPayButton3 = new javax.swing.JButton();
         BuyAndPayButton4 = new javax.swing.JButton();
-		UserTraffic = new javax.swing.JPanel();
+        UserTraffic = new javax.swing.JPanel();
         UserTrafficScrollPane = new javax.swing.JScrollPane();
         UserTrafficTable = new javax.swing.JTable();
         jLabel27 = new javax.swing.JLabel();
@@ -1058,14 +1058,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         StationTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "ID", "Zjazd", "Natężenie (%)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -1079,12 +1082,6 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-		DefaultTableCellRenderer centerRenderer2 = new DefaultTableCellRenderer();
-        centerRenderer2.setHorizontalAlignment (JLabel.CENTER);
-        StationTrafficTable.setDefaultRenderer (String.class, centerRenderer2);
-        StationTrafficTable.setDefaultRenderer (Long.class, centerRenderer2);
-        DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)StationTrafficTable.getTableHeader().getDefaultRenderer();
-        renderer2.setHorizontalAlignment (JLabel.CENTER);
         StationTrafficTable.setEnabled(false);
         StationTrafficTable.setName("StationTrafficTable"); // NOI18N
         StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -2008,11 +2005,11 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
+                "Slope ID", "Traffic", "Overloaded"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -2026,12 +2023,6 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment (JLabel.CENTER);
-        SlopeTraffic.setDefaultRenderer (String.class, centerRenderer);
-        SlopeTraffic.setDefaultRenderer (Long.class, centerRenderer);
-        DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)SlopeTraffic.getTableHeader().getDefaultRenderer();
-        renderer.setHorizontalAlignment (JLabel.CENTER);
         SlopeTraffic.setName("SlopeTraffic"); // NOI18N
         SlopeTrafficScrollPane.setViewportView(SlopeTraffic);
 
@@ -3271,6 +3262,28 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserContainerPanel.add(UserChoosePaymentMethodPanel, "userChoosePaymentMethod");
 
+        UserTraffic.setName("UserTraffic"); // NOI18N
+
+        UserTrafficScrollPane.setName("UserTrafficScrollPane"); // NOI18N
+
+        UserTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        UserTrafficTable.setName("UserTrafficTable"); // NOI18N
+        UserTrafficScrollPane.setViewportView(UserTrafficTable);
+
+        UserTraffic.add(UserTrafficScrollPane);
+
+        UserContainerPanel.add(UserTraffic, "card6");
+
         UserMainPanel.add(UserContainerPanel);
         UserContainerPanel.setBounds(170, 150, 530, 550);
 
@@ -3551,33 +3564,6 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-
-		UserTrafficScrollPane.setName("UserTrafficScrollPane"); // NOI18N
-
-        UserTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        }
-    );
         SymulatorTerminalList.setToolTipText("");
         SymulatorTerminalList.setName("SymulatorTerminalList"); // NOI18N
         SymulatorTerminalList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3586,18 +3572,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         jScrollPane13.setViewportView(SymulatorTerminalList);
-	DefaultTableCellRenderer centerRenderer3 = new DefaultTableCellRenderer();
-    centerRenderer3.setHorizontalAlignment (JLabel.CENTER);
-    UserTrafficTable.setDefaultRenderer (String.class, centerRenderer3);
-    UserTrafficTable.setDefaultRenderer (Long.class, centerRenderer3);
-    DefaultTableCellRenderer renderer3 = (DefaultTableCellRenderer)UserTrafficTable.getTableHeader().getDefaultRenderer();
-    renderer3.setHorizontalAlignment (JLabel.CENTER);
-    UserTrafficTable.setName("UserTrafficTable"); // NOI18N
-    UserTrafficScrollPane.setViewportView(UserTrafficTable);
 
-    UserTraffic.add(UserTrafficScrollPane);
-    UserTrafficScrollPane.setBounds(39, 5, 452, 402);
-	UserContainerPanel.add(UserTraffic, "card6");
         Symulator.add(jScrollPane13);
         jScrollPane13.setBounds(230, 230, 150, 260);
 
@@ -4347,13 +4322,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
-    private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed      
+    private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "productsManagementPanel");
         changeCard( view, true );
          //changeCard(AdminContainerPanel, "card11", true);
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Cennik");
-    }//GEN-LAST:event_PriceListButtonActionPerformed
+    }                                               
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
 
@@ -5779,7 +5754,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JTextField UserSearchInputTextField;
-	private javax.swing.JPanel UserTraffic;
+    private javax.swing.JPanel UserTraffic;
     private javax.swing.JScrollPane UserTrafficScrollPane;
     private javax.swing.JTable UserTrafficTable;
     private javax.swing.JButton UsersButton;
