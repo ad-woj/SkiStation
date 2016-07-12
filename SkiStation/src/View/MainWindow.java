@@ -3964,6 +3964,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         PerformLoginAction();
+        
+        GetPrintCardPanel().setVisible(false);
+        GetPrintCardPanel1().setVisible(false);
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     public void PerformLoginAction() {
@@ -4347,13 +4350,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AdminPanelBackButtonActionPerformed
 
-    private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceListButtonActionPerformed      
+    private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "productsManagementPanel");
         changeCard( view, true );
          //changeCard(AdminContainerPanel, "card11", true);
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Cennik");
-    }//GEN-LAST:event_PriceListButtonActionPerformed
+    }                                               
 
     private void SlopeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeButtonActionPerformed
 
