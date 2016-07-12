@@ -3939,6 +3939,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         PerformLoginAction();
+        
+        GetPrintCardPanel().setVisible(false);
+        GetPrintCardPanel1().setVisible(false);
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     public void PerformLoginAction() {
