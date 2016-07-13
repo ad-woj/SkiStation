@@ -72,10 +72,10 @@ public class UserManagementAdminController {
             return null;
         }
         System.out.println(user.getUserid());
-        List quaryResult = s.createCriteria(Employees.class).add(Restrictions.eq("users", user)).list();
+        List queryResult = s.createCriteria(Employees.class).add(Restrictions.eq("users", user)).list();
         Employees role;
-        if (quaryResult.size()>0) {
-            role = ((Employees)quaryResult.get(0));
+        if (queryResult.size()>0) {
+            role = ((Employees)queryResult.get(0));
         }else{
             role = null;      
         }

@@ -74,10 +74,10 @@ public class TerminalController {
     
     private Terminal findTerminal(int terminalID)
     {
-         List quaryResult = s.createCriteria(Terminal.class).add(Restrictions.like("terminalid", terminalID)).list();
+         List queryResult = s.createCriteria(Terminal.class).add(Restrictions.like("terminalid", terminalID)).list();
          Terminal terminal;
-          if (quaryResult.size()>0) {
-            terminal = (Terminal)quaryResult.get(0);
+          if (queryResult.size()>0) {
+            terminal = (Terminal)queryResult.get(0);
           }else{
             terminal = null;        
           }
@@ -86,10 +86,10 @@ public class TerminalController {
     
     private Attraction findAttraction(int attractionID)
     {
-         List quaryResult = s.createCriteria(Attraction.class).add(Restrictions.like("attractionid", attractionID)).list();
+         List queryResult = s.createCriteria(Attraction.class).add(Restrictions.like("attractionid", attractionID)).list();
          Attraction attraction;
-          if (quaryResult.size()>0) {
-            attraction = (Attraction)quaryResult.get(0);
+          if (queryResult.size()>0) {
+            attraction = (Attraction)queryResult.get(0);
           }else{
             attraction = null;        
           }
