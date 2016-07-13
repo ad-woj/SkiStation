@@ -252,14 +252,14 @@ public class CardView {
         parent.GetPrintCardPanel().setVisible(true);
         parent.GetPrintCardText().setText(GetCardPrintData(SessionController.GetLoggedUserData()));
         PDFCreator pdfCreator = new PDFCreator();
-        pdfCreator.create(GetCardPDFData(SessionController.GetLoggedUserData()));
+        
     }
         
     private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         parent.GetPrintCardPanel1().setVisible(true);
         parent.GetPrintCardText1().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
         PDFCreator pdfCreator = new PDFCreator();
-        pdfCreator.create(GetCardPDFData(CashierController.GetSelectedUserData()));
+        
     }
     
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
