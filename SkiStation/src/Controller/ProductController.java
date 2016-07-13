@@ -137,8 +137,8 @@ public class ProductController {
      */
     public List GetProductList()
     {
-         List quaryResult = s.createCriteria(Product.class).list();
-         return quaryResult;                
+         List queryResult = s.createCriteria(Product.class).list();
+         return queryResult;                
     }
     
     /**
@@ -148,8 +148,8 @@ public class ProductController {
      */
     public List GetProductList(String text)
     {
-         List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", ("%"+text+"%"))).list();
-         return quaryResult;                
+         List queryResult = s.createCriteria(Product.class).add(Restrictions.like("name", ("%"+text+"%"))).list();
+         return queryResult;                
     }
         
     /**
@@ -158,8 +158,8 @@ public class ProductController {
      */
     public List GetPriceListsList()
     {
-         List quaryResult = s.createCriteria(Pricelist.class).list();
-         return quaryResult;                
+         List queryResult = s.createCriteria(Pricelist.class).list();
+         return queryResult;                
     }  
     
     /**
@@ -179,8 +179,8 @@ public class ProductController {
         if (id == null) {
             return ProductController.this.GetPriceListsList();
         }else{
-            List quaryResult = s.createCriteria(Pricelist.class).add(Restrictions.eq("pricelistid", id)).list();
-            return quaryResult;  
+            List queryResult = s.createCriteria(Pricelist.class).add(Restrictions.eq("pricelistid", id)).list();
+            return queryResult;  
         }     
     }
     
@@ -192,12 +192,12 @@ public class ProductController {
     public List GetPriceItems(String id)
     {
         Pricelist priceList = (Pricelist)GetPriceListsList(id).get(0);
-         List quaryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("pricelist", priceList)).list();
-         for (Object object : quaryResult) {
+         List queryResult = s.createCriteria(Itemprice.class).add(Restrictions.eq("pricelist", priceList)).list();
+         for (Object object : queryResult) {
             Itemprice ip = (Itemprice)object;
             System.out.print(ip.getProduct().getName());
         }
-         return quaryResult;                
+         return queryResult;                
     }  
                     
     /**
@@ -207,10 +207,10 @@ public class ProductController {
      */
     private Product FindProduct(String name)
     {
-         List quaryResult = s.createCriteria(Product.class).add(Restrictions.like("name", name)).list();
+         List queryResult = s.createCriteria(Product.class).add(Restrictions.like("name", name)).list();
          Product product;
-          if (quaryResult.size()>0) {
-            product = (Product)quaryResult.get(0);
+          if (queryResult.size()>0) {
+            product = (Product)queryResult.get(0);
           }else{
             product = null;        
           }
