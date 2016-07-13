@@ -10,17 +10,27 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
  
 /**
- *
+ * Klasa służąca do aktualizacji danych w tabeli Attractions w bazie danych
  * @author Adam
  */
 public class AttractionController {
  
     private Session s;
  
+    /**
+     * Konstruktor otwiera nową sesję
+     */
     public AttractionController() {
         s = HibernateUtil.getSessionFactory().openSession();
     }
  
+    /**
+     * Dodaje nowy rekord do tabeli Attractions w bazie danych
+     * @param name - nazwa atrakcji
+     * @param type - typ aktrakcji
+     * @param message - wiadomość o powodzeniu operacji
+     * @return 
+     */
     public Attraction addAttraction(String name, String type, StringBuilder message) {
  
         try {

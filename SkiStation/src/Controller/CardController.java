@@ -21,12 +21,18 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 /**
- *
+ * Klasa pobierajaca dane i zapisująca je do tabeli Cards w bazie danych
  * @author MG
  */
 public class CardController {
 
-    
+    /**
+     * Kupuje nową kartę i dodaje ją do puli kart klienta o podanym id
+     * @param clientID - id klienta
+     * @param points - liczba punktów przydzielonych do nowej karty
+     * @param logger - wiadomość dotycząca powodzenia transakcji
+     * @return - czy transakcja się powiodła
+     */
     public static boolean buyCard(int clientID, int points, StringBuilder logger){
         Cards card = AddNewCard( clientID, points, logger );
         if( card == null )
@@ -34,6 +40,13 @@ public class CardController {
         return true;
     }
     
+    /**
+     * Dodaje kartę do puli kart klienta o podanym id
+     * @param userID - id użytkownika
+     * @param points - liczba punktów przydzielonych do karty
+     * @param logger - wiadomość dotycząca powodzenia transakcji
+     * @return - obiekt nowej karty
+     */
     public static Cards AddNewCard( int userID, int points, StringBuilder logger ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
@@ -73,6 +86,11 @@ public class CardController {
         return card;
     }
     
+    /**
+     * Usuwa kartę o podanym id
+     * @param cardID - id karty
+     * @return - czy operacja sie powiodła
+     */
     public static Boolean DeleteCard( int cardID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
@@ -101,6 +119,13 @@ public class CardController {
         return true;
     }
     
+    /**
+     * Dodaje punkty do podanej karty na podstawie id karty
+     * @param cardID - id karty
+     * @param pointsToAdd - liczba punktów do przydzielenia
+     * @param logger - wiadomość o powodzeniu operacji
+     * @return - czy operacja się powiodła
+     */
     public static boolean chargeCard(int cardID, int pointsToAdd, StringBuilder logger){
         
         int currentPoints = 0;
@@ -133,6 +158,12 @@ public class CardController {
         return true;
     }
     
+    /**
+     * Zwraca listę kart danego klienta
+     * @param clientID - id klienta
+     * @param logger - wiadomość o powodzeniu operacji
+     * @return - lista kart klienta
+     */
     public static List getUserCards(int clientID, StringBuilder logger){
         
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -164,6 +195,11 @@ public class CardController {
         return cards;
     }
     
+    /**
+     * Aktualizuje liczbę punktów przydzielonych do karty
+     * @param points - nowa liczba punktów
+     * @param cardID - id karty
+     */
     public static void UpdateCardPoints( int points, int cardID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();
@@ -177,6 +213,11 @@ public class CardController {
         s.close();
     }
     
+    /**
+     * Zwraca liczbę punktów przydzielonych do karty
+     * @param cardID - id karty
+     * @return liczba punktów
+     */
     public static int GetCardPoints( int cardID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Transaction tr = s.beginTransaction();

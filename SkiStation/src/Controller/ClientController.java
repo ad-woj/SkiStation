@@ -13,18 +13,29 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 /**
- *
+ * Klasa pobierajaca dane i zapisująca je do tabeli Clients w bazie danych
  * @author Marzena
  */
 public class ClientController {
     
-        
+    /**
+     * Aktualizuje punkty nieprzydzielone do żadnej z kart klienta
+     * @param login - login klienta
+     * @param points - nowa liczba punktów klienta
+     * @return - czy operacja się powiodła
+     */    
     public static Boolean UpdateClientPoints( String login, int points ) {
          
         int id = GetClientIDFromLogin( login );
         return UpdateClientPoints( id, points );
     }
     
+    /**
+     * Aktualizuje punkty nieprzydzielone do żadnej z kart klienta
+     * @param id - id klienta
+     * @param points - nowa liczba punktów klienta
+     * @return - czy operacja się powiodła
+     */
     public static Boolean UpdateClientPoints( int id, int points ) {
                       
         if( id < 0 )
@@ -42,6 +53,11 @@ public class ClientController {
         return true;
     }
     
+    /**
+     * Zwraca id klienta na podstawie loginu
+     * @param login
+     * @return id klienta
+     */
     public static int GetClientIDFromLogin( String login ) {
         UserManagementAdminController controller = new UserManagementAdminController();
         Users u = controller.FindUser(login);
@@ -58,11 +74,21 @@ public class ClientController {
         return client.getClientid();
     }
     
+    /**
+     * zwraca punkty klienta nieprzydzielone do żadnej z kart
+     * @param clientID
+     * @return punkty klienta
+     */
     public static int GetClientPoints( int clientID ) {
         Clients client = GetClient( clientID );
         return client.getPoints();
     }
     
+    /**
+     * Zwraca obiekt klienta na podstawie id
+     * @param clientID
+     * @return obiekt klienta
+     */
     public static Clients GetClient( int clientID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query query = s.createQuery(String.format("FROM Clients C WHERE C.clientid = %d", clientID));

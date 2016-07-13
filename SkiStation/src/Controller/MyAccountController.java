@@ -16,11 +16,16 @@ import org.hibernate.criterion.Restrictions;
 import Model.AccountInfo;
 
 /**
- *
+ * Klasa obsługująca aktualizację danych osobowych użytkowników
  * @author Marzena
  */
 public class MyAccountController {
     
+    /**
+     * Zwraca dane osobowe konta o danym loginie
+     * @param login - login użytkownika
+     * @return obiekt klasy Users zawierający podstawowe dane użytkownika
+     */
     public static Users GetAccountDetails( String login ) {
         
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -37,6 +42,12 @@ public class MyAccountController {
         return user;
     }
     
+    /**
+     * Aktualizuje dane dotyczące adresu danego użytkownika
+     * @param newAddress - nowe danr adresowe
+     * @param login - login uzytkownika
+     * @return - obiekt klasy Addresses ze zaktualizowanymi danymi
+     */
     public static Addresses UpdateUserAddress( Addresses newAddress, String login ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Addresses address = new Addresses();
@@ -66,6 +77,11 @@ public class MyAccountController {
         return address;
     }
     
+    /**
+     * Zwraca dane konta użytkownika w formie tekstowej gotowej do wyśietlenia
+     * @param login - login uzytkownika
+     * @return - obiekt przechowujący wszystkie dane w formie tekstowej
+     */
     public static AccountInfo GetAccountInfoString( String login ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         AccountInfo info = new AccountInfo();
@@ -94,6 +110,11 @@ public class MyAccountController {
         return info;
     }
     
+    /**
+     * Zwraca login użytkownika na podstawie jego id
+     * @param userID - id użytkownika
+     * @return - login użytkownika
+     */
     public static String GetLoginFromID( int userID ) {
         Session s = HibernateUtil.getSessionFactory().openSession();
         Query query = s.createQuery(String.format("FROM Users U WHERE U.userid = '%s'", userID) );
@@ -105,6 +126,12 @@ public class MyAccountController {
         return login;
     }      
     
+    /**
+     * Aktualizuje dane użytkownika
+     * @param newUser - obiekt zawierający nowe dane
+     * @param userID - id użytkownika
+     * @return - wiadomość o powodzeniu operacji
+     */
     public static String UpdateAccountDetails( Users newUser, int userID ){
         Session s = HibernateUtil.getSessionFactory().openSession();
         String login = GetLoginFromID( userID );

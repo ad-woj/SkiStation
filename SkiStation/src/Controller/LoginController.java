@@ -12,11 +12,19 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import Model.ViewSwitcher;
 /**
- *
+ * Klasa obsługująca logowanie użytkownika do systemu
  * @author MG
  */
 public class LoginController {
     
+    /**
+     * Weryfikuje logowanie oraz loguje uzytkowników do systemu
+     * @param login - login użytkownika
+     * @param password - hasło użytkownika
+     * @param viewName - nazwa panelu, który załaduję się po zalogowaniu
+     * @param loginStatusMessage - wiadomość o powodzeniu operacji
+     * @return - czy operacja się powiodła
+     */
     public static boolean logIn(String login, String password, StringBuilder viewName, StringBuilder loginStatusMessage){
         
         Session s = HibernateUtil.getSessionFactory().openSession();

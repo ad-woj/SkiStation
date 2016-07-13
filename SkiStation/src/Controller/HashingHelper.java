@@ -8,11 +8,16 @@ package Controller;
 import java.security.MessageDigest;
 
 /**
- *
+ * Klasa służąca do szyfrowania haseł użytkowników
  * @author MG
  */
 public class HashingHelper {
 
+    /**
+     * Szyfruje podany tekst
+     * @param base - hasło do zaszyfrowania
+     * @return tekst po zaszyfrowaniu
+     */
     public static String sha256(String base) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

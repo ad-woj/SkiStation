@@ -24,7 +24,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
- *
+ * Klasa obsługująca funkcje dostępne w panelu kasjera
  * @author Bluu
  */
 public class CashierController {
@@ -32,12 +32,19 @@ public class CashierController {
     private static Users selectedUser;
     private Session s;
     
-    
+    /**
+     * konstruktor otwierający nową sesję
+     */
     public CashierController()
     {
         s = HibernateUtil.getSessionFactory().openSession();
     }
     
+    /**
+     * Zwraca listę użytkowników, których login, imię lub nazwisko zawiera podany ciąg znaków
+     * @param text
+     * @return lista użytkowników
+     */
     public List GetUsersList(String text)
     {
          List queryResult = s.createCriteria(Users.class).add(Restrictions.disjunction()
@@ -48,6 +55,10 @@ public class CashierController {
           return queryResult;     
     }
     
+    /**
+     * Zwraca losowego uzytkownika
+     * @return obiekt klasy Users
+     */
     public Users GetRandomUser()
     {
         List queryResult = s.createCriteria(Users.class).list();
@@ -58,16 +69,30 @@ public class CashierController {
         return (Users)queryResult.get(randomIndex);     
     }
     
+    /**
+     * Zapisuje wybranego do edycji użytkownika
+     * @param newUser - wybrany użytkownik
+     * @param textPane - pole tekstowe, w którym wyświetlane jest imię, nazwisko i login wybranego użytkownika
+     */
     public static void SetSelectedUser(Users newUser, JTextPane textPane)
     {
         selectedUser = newUser;
         SetText(textPane);
     }
     
+    /**
+     * Zwraca login użytkownika wybranego do edycji
+     * @return login użytkownika
+     */
     public static String GetSelectedUser() {
         return selectedUser != null ? selectedUser.getLogin() : null;
     }
     
+    /**
+     * Zapisuje wybranego do edycji użytkownika na podstawie podanego loginu
+     * @param newUserString - login użytkownika
+     * @param textPane - pole tekstowe, w którym wyświetlane jest imię, nazwisko i login wybranego użytkownika
+     */
     public void SetSelectedUserWithString(String newUserString, JTextPane textPane)
     {
         if( newUserString == null )
@@ -82,17 +107,29 @@ public class CashierController {
 
         SetText(textPane);
     }
-
+    /**
+     * Ustawia tekst w polu tekstowym wyświetlającym wybranego użytkownika
+     * @param textPane - pole tekstowe, w którym wyświetlane jest imię, nazwisko i login wybranego użytkownika
+     */
     private static void SetText(JTextPane textPane)
     {
         textPane.setText("Użytkownik: " + GetUserConvertedName(selectedUser));
     }
     
+    /**
+     * formatuje tekst zawierający imię, nazwisko i login użytkownika do wyświetlenia
+     * @param user - wybrany użytkownik
+     * @return sformatowany tekst
+     */
     public static String GetUserConvertedName(Users user)
     {
         return user.getName() + " " + user.getSurname() + " (" + user.getLogin() + ")";
     }
     
+    /**
+     * Zwarac wszystkie rekordy z tabeli Attraction w bazie danych
+     * @return lista obiektów typu Attraction
+     */
     public List GetSkiAttractions()
     {
         List queryResult = s.createCriteria(Attraction.class).add(Restrictions.like("type", "stok")).list();
@@ -101,6 +138,10 @@ public class CashierController {
         
     }
     
+    /**
+     * Zwraca aktualną datę
+     * @return aktualna data
+     */
     private Date GetDateNow()
     {
         DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
@@ -115,6 +156,11 @@ public class CashierController {
         return date;
     }
     
+    /**
+     * Zwraca liczbę osób korzystających w danej chwili z atrakcji
+     * @param attraction
+     * @return liczba osób korzystających w danej chwili z atrakcji
+     */
     public int GetSkiAttractionTraffic(Attraction attraction)
     {
         int traffic = 0;
@@ -144,6 +190,10 @@ public class CashierController {
          return traffic;
     }
     
+    /**
+     * Zwraca uzytkownika wybranego do edycji
+     * @return 
+     */
     public static Users GetSelectedUserData()
     {
         return selectedUser;
