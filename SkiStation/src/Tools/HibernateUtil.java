@@ -16,6 +16,9 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateUtil {
 
+    /**
+     * Uchwyt dla SessionFactory
+     */
     private static final SessionFactory sessionFactory;
     
     static {
@@ -30,6 +33,10 @@ public class HibernateUtil {
         }
     }
     
+    /**
+     * Getter dla SessionFactory
+     * @return SessionFactory
+     */
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
