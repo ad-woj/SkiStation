@@ -56,6 +56,10 @@ public class AccountInfo {
      */
     public Boolean active;
     
+    
+     /** 
+     * Domyślny konstruktor inicjalizujący zmienne
+     */
     public AccountInfo() {
         name = new String();
         surname = new String();

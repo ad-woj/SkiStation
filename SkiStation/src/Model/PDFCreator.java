@@ -15,7 +15,7 @@ public class PDFCreator {
       /**
      * Tworzy PDF z kartą na podstawie listy zawartości podanej jako argument
      * @param content dane potrzebne do wypelnienia pól w karcie
-     * @throws java.io.IOException
+     * @throws java.io.IOException wyjątek wyrzucany w przypadku nieudanego tworzenia dokumentu PDF
      */
     public void create(String[][] content) throws IOException{
         try (PDDocument doc = new PDDocument()) {
