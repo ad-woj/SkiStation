@@ -63,6 +63,7 @@ public class MainWindow extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         Login = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
@@ -162,7 +163,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<String>();
+        ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -437,6 +438,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         Login.setName("LoginPanel"); // NOI18N
         Login.setLayout(null);
+
+        jButton4.setText("Help");
+        jButton4.setName("jButton4"); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Login.add(jButton4);
+        jButton4.setBounds(310, 390, 180, 23);
 
         jButton2.setText("Symulator");
         jButton2.setName("jButton2"); // NOI18N
@@ -5327,6 +5338,10 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userActiveCheckboxInAdminPanelActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        HelpWindow hw = new HelpWindow("test");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -5769,6 +5784,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
