@@ -64,6 +64,7 @@ public class MainWindow extends javax.swing.JFrame {
         menu2 = new java.awt.Menu();
         Login = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
         MessageLabel = new javax.swing.JLabel();
@@ -461,6 +462,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         Login.add(jButton2);
         jButton2.setBounds(10, 650, 140, 40);
+
+        jButton4.setText("test help");
+        jButton4.setName("jButton4"); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Login.add(jButton4);
+        jButton4.setBounds(210, 300, 240, 23);
 
         LoginButton.setText("Zaloguj");
         LoginButton.setName("LoginPanel"); // NOI18N
@@ -2250,10 +2261,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -5398,6 +5409,10 @@ public class MainWindow extends javax.swing.JFrame {
         GetPrintCardPanel1().setVisible(false);
     }//GEN-LAST:event_LoginAncestorAdded
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        new HelpWindow("test");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -5845,6 +5860,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
