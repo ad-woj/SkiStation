@@ -70,6 +70,9 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
+      <Events>
+        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="LoginAncestorAdded"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="login"/>
@@ -80,20 +83,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Help"/>
-            <Property name="name" type="java.lang.String" value="jButton4" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="390" width="180" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Symulator"/>
@@ -105,6 +94,20 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="10" y="650" width="140" height="40"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="test help"/>
+            <Property name="name" type="java.lang.String" value="jButton4" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="210" y="300" width="240" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -657,6 +660,69 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
+        <Container class="javax.swing.JPanel" name="CashierHelpPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="CashierHelpPanel" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="200" y="150" width="470" height="490"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="CashierHelpPanelOkButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="OK"/>
+                <Property name="name" type="java.lang.String" value="CashierHelpPanelOkButton" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CashierHelpPanelOkButtonActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="210" y="450" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="CashierHelpPanelTextPanel">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="CashierHelpPanelTextPanel" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="20" width="440" height="420"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="CashierHelpPanelText2">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="12" style="0"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="Pomoc:&#xa;a) Wyszukiwarka:&#xa; - korzystajac z pola wpisz imi&#x119;, nazwisko, lub id klienta nast&#x119;pnie zaznacz tego,&#xa; kt&#xf3;ry Ci&#x119; interesuje. Na g&#xf3;rze znajduje si&#x119; pole wy&#x15b;wietlaj&#x105;ce aktualnie zaznaczonego &#xa;klienta. Wszystkie kolejne operacje wykonane w innych zak&#x142;adkach b&#x119;d&#x105; dotyczy&#x142;y&#xa; tego w&#x142;asnie u&#x17c;ytkownika.&#xa;- korzystaj&#x105;c z przycisku skanuj kart&#x119;, po jego naci&#x15b;ni&#x119;ciu nale&#x17c;y przy&#x142;o&#x17c;yc kart&#x119; do &#xa;czytnika. Klient zostanie wyszukany i ustawiony jako aktywny.&#xa;b) Za&#x142;o&#x17c; konto klienta&#xa;- widok pozwalaj&#x105;cy stworzyc konto dla nowego klienta&#xa;c) Edytuj klienta&#xa;- widok pozwalaj&#x105;cy edytowa&#x107; dane klienta w przypadku zmiany/pomy&#x142;ki&#xa;d) Karty klienta&#xa;- panel analogiczny do tego, kt&#xf3;ry posiada ka&#x17c;dy u&#x17c;ytkownik po zalogowaniu&#xa;- pozwala na do&#x142;adowywanie konta i przydzielanie punkt&#xf3;w do poszczeg&#xf3;lnych kart i &#xa;tworzenie nowych kart oraz ich wydawanie.&#xa;e) nat&#x119;zenie stoku jest to niezwi&#x105;zany z konkretnym klientem podgl&#x105;d na obci&#x105;zenie&#xa; stoku w danym momencie&#xa;f) kontakt&#xa;- widok z danymi kontaktowymi stoku"/>
+                    <Property name="name" type="java.lang.String" value="CashierHelpPanelText2" noResource="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="CashierContainer">
           <Properties>
             <Property name="name" type="java.lang.String" value="CashierContainer" noResource="true"/>
@@ -1837,6 +1903,30 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="CashierHelpButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pomoc"/>
+            <Property name="actionCommand" type="java.lang.String" value="CashierHelpButton"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[67, 23]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[67, 23]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="CashierHelpButton" noResource="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[67, 23]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CashierHelpButtonActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="630" width="140" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JButton" name="ClientCardsButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Karty klienta"/>
