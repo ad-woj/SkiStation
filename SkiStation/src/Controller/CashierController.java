@@ -25,7 +25,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  * Klasa obsługująca funkcje dostępne w panelu kasjera
- * @author Bluu
+ * @author Sebastian
  */
 public class CashierController {
  

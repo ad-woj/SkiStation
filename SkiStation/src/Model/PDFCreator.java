@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.io.IOException;
@@ -12,28 +7,36 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 /**
- *
- * @author Bluu
+ * Klasa tworząca PDF z kartą do wydruku
+ * @author Sebastian
  */
 public class PDFCreator {
     
+      /**
+     * Tworzy PDF z kartą na podstawie listy zawartości podanej jako argument
+     * @param content dane potrzebne do wypelnienia pól w karcie
+     * @throws java.io.IOException
+     */
     public void create(String[][] content) throws IOException{
-    PDDocument doc = new PDDocument();
-    PDPage page = new PDPage();
-    doc.addPage( page );
-    PDPageContentStream contentStream = new PDPageContentStream(doc, page);
+        try (PDDocument doc = new PDDocument()) {
+            PDPage page = new PDPage();
+            doc.addPage( page );
+            try (PDPageContentStream contentStream = new PDPageContentStream(doc, page)) {
+                drawTable(page, contentStream, 700, 100, content);
+            }
+            doc.save("ClientCard.pdf" );
+        }
+    } 
 
-    drawTable(page, contentStream, 700, 100, content);
-
-    contentStream.close();
-    doc.save("ClientCard.pdf" );
-    doc.close();
-} 
-
+     /**
+     * Rysuje tabele w dokumencie PDF
+     * @param content dane potrzebne do wypelnienia pól w karcie
+     * @throws java.io.IOException
+     */
     private void drawTable(PDPage page, PDPageContentStream contentStream,
                              float y, float margin,
                              String[][] content) throws IOException {
-         final int rows = content.length;
+        final int rows = content.length;
         final int cols = content[0].length;
         final float rowHeight = 20f;
         final float tableWidth = page.getCropBox().getWidth() - margin - margin;
