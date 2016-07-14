@@ -22,7 +22,7 @@ import org.hibernate.Transaction;
 
 /**
  * Klasa pobierajaca dane i zapisująca je do tabeli Cards w bazie danych
- * @author MG
+ * @author Mateusz
  */
 public class CardController {
 

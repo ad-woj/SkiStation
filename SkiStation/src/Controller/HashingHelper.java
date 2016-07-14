@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 
 /**
  * Klasa służąca do szyfrowania haseł użytkowników
- * @author MG
+ * @author Mateusz
  */
 public class HashingHelper {
 

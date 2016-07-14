@@ -15,11 +15,16 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
- *
- * @author MG
+ * Klasa kontrolera wykonująca operacje dotyczące transakcji na stoku
+ * @author Mateusz
  */
 public class SlopeController {
 
+   /**
+    * Funkcja sprawdzająca obciążenie każdej bramki stoku z ostatniej godziny
+    * @param logger - przechowuje informacje o niepowodzeniu operacji/braku stokow
+    * @return - lista obiektów przechowujących dane nt. każdej bramki stoku
+    */
     public static List<Object[]> getTrafficList(StringBuilder logger) {
         try {
             SimpleDateFormat dateHelper = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -38,11 +43,9 @@ public class SlopeController {
                                   "GROUP BY t.terminalid", currentDate, hourBefore));
             List< Object[]> queryList = query.list();
             if (queryList.isEmpty()) {
-                System.out.println("Traffic list select error or no Slopes defined.");
                 logger.append("Traffic list select error or no Slopes defined.");
                 return null;
             } else {
-                //debug
                 for (Object[] row : queryList) {
                     System.out.println("Ilosc " + row[0]);
                     System.out.println("ID " + row[1]);

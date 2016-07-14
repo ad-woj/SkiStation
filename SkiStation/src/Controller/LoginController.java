@@ -13,7 +13,7 @@ import org.hibernate.Session;
 import Model.ViewSwitcher;
 /**
  * Klasa obsługująca logowanie użytkownika do systemu
- * @author MG
+ * @author Mateusz
  */
 public class LoginController {
     
