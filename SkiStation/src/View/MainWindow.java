@@ -63,6 +63,7 @@ public class MainWindow extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         Login = new javax.swing.JPanel();
+        LoginPageHelpButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
@@ -83,6 +84,7 @@ public class MainWindow extends javax.swing.JFrame {
         RepeatPasswordLabel = new javax.swing.JLabel();
         RepeatPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
+        RegistrationPageHelpButton = new javax.swing.JButton();
         Name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Surname = new javax.swing.JTextField();
@@ -333,6 +335,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         userActiveCheckboxInAdminPanel = new javax.swing.JCheckBox();
+        AdminPanelHelpButton = new javax.swing.JButton();
         AdminLogoutButton = new javax.swing.JButton();
         AdminViewTitleLabel = new javax.swing.JLabel();
         AdminPanelBackButton = new javax.swing.JButton();
@@ -351,6 +354,7 @@ public class MainWindow extends javax.swing.JFrame {
         PrintCardDataOkButton = new javax.swing.JButton();
         PrintCardDataTextPanel = new javax.swing.JScrollPane();
         PrintCardDataText = new javax.swing.JTextArea();
+        UserPanelMyCardsHelpButton = new javax.swing.JButton();
         UserBuyPointsPanel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         BuyAndPayButton = new javax.swing.JButton();
@@ -449,6 +453,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         Login.setLayout(null);
 
+        LoginPageHelpButton.setText("Pomoc");
+        LoginPageHelpButton.setName("LoginPageHelpButton"); // NOI18N
+        LoginPageHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginPageHelpButtonActionPerformed(evt);
+            }
+        });
+        Login.add(LoginPageHelpButton);
+        LoginPageHelpButton.setBounds(590, 650, 90, 30);
+
         jButton2.setText("Symulator");
         jButton2.setName("jButton2"); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +473,7 @@ public class MainWindow extends javax.swing.JFrame {
         Login.add(jButton2);
         jButton2.setBounds(10, 650, 140, 40);
 
-        jButton4.setText("test help");
+        jButton4.setText("Szablon pomocy");
         jButton4.setName("jButton4"); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -608,6 +622,16 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(29, 14));
         Register.add(jLabel2);
         jLabel2.setBounds(370, 150, 50, 14);
+
+        RegistrationPageHelpButton.setText("Pomoc");
+        RegistrationPageHelpButton.setName("RegistrationPageHelpButton"); // NOI18N
+        RegistrationPageHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrationPageHelpButtonActionPerformed(evt);
+            }
+        });
+        Register.add(RegistrationPageHelpButton);
+        RegistrationPageHelpButton.setBounds(590, 650, 90, 30);
 
         Name.setName("Name"); // NOI18N
         Name.addActionListener(new java.awt.event.ActionListener() {
@@ -2236,10 +2260,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2952,6 +2976,16 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMainPanel.add(AdminContainerPanel);
         AdminContainerPanel.setBounds(50, 240, 600, 350);
 
+        AdminPanelHelpButton.setText("Pomoc");
+        AdminPanelHelpButton.setName("AdminPanelHelpButton"); // NOI18N
+        AdminPanelHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminPanelHelpButtonActionPerformed(evt);
+            }
+        });
+        AdminMainPanel.add(AdminPanelHelpButton);
+        AdminPanelHelpButton.setBounds(540, 580, 90, 30);
+
         AdminLogoutButton.setText("Wyloguj");
         AdminLogoutButton.setName("AdminLogoutButton"); // NOI18N
         AdminLogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3122,6 +3156,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserMyCardsPanel.add(PrintCardDataPanel);
         PrintCardDataPanel.setBounds(20, 20, 470, 490);
+
+        UserPanelMyCardsHelpButton.setText("Pomoc");
+        UserPanelMyCardsHelpButton.setName("UserPanelMyCardsHelpButton"); // NOI18N
+        UserPanelMyCardsHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserPanelMyCardsHelpButtonActionPerformed(evt);
+            }
+        });
+        UserMyCardsPanel.add(UserPanelMyCardsHelpButton);
+        UserPanelMyCardsHelpButton.setBounds(400, 500, 110, 30);
 
         UserContainerPanel.add(UserMyCardsPanel, "userMyCards");
 
@@ -5400,6 +5444,22 @@ public class MainWindow extends javax.swing.JFrame {
         new HelpWindow("test");
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void LoginPageHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginPageHelpButtonActionPerformed
+        new HelpWindow("LoginPageHelp");
+    }//GEN-LAST:event_LoginPageHelpButtonActionPerformed
+
+    private void RegistrationPageHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationPageHelpButtonActionPerformed
+        new HelpWindow("RegistrationPageHelp");
+    }//GEN-LAST:event_RegistrationPageHelpButtonActionPerformed
+
+    private void AdminPanelHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelHelpButtonActionPerformed
+        new HelpWindow("AdminPanelHelp");
+    }//GEN-LAST:event_AdminPanelHelpButtonActionPerformed
+
+    private void UserPanelMyCardsHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPanelMyCardsHelpButtonActionPerformed
+        new HelpWindow("CardPanelHelp");
+    }//GEN-LAST:event_UserPanelMyCardsHelpButtonActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -5477,6 +5537,9 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -5583,6 +5646,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel AdminMenuPanel;
     private javax.swing.JButton AdminMyAccountButton;
     private javax.swing.JButton AdminPanelBackButton;
+    private javax.swing.JButton AdminPanelHelpButton;
     private javax.swing.JRadioButton AdminRadio;
     private javax.swing.JLabel AdminViewTitleLabel;
     private javax.swing.JPanel AttractionListPanel;
@@ -5693,6 +5757,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField LoginEditTextfield1;
     private javax.swing.JTextField LoginEditTextfield2;
     private javax.swing.JLabel LoginLabel;
+    private javax.swing.JButton LoginPageHelpButton;
     private javax.swing.JTextField LoginTextField;
     private javax.swing.JTextField LoginTextField1;
     private javax.swing.JTextField LoginTextField2;
@@ -5763,6 +5828,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel RegisterBackgroundImage1;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JLabel RegisterMessageLabel;
+    private javax.swing.JButton RegistrationPageHelpButton;
     private javax.swing.JButton RemoveProductButton;
     private javax.swing.JPasswordField RepeatPassword;
     private javax.swing.JLabel RepeatPasswordLabel;
@@ -5828,6 +5894,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel UserManagmentAdmintPanel;
     private javax.swing.JButton UserMyAccountButton;
     private javax.swing.JPanel UserMyCardsPanel;
+    private javax.swing.JButton UserPanelMyCardsHelpButton;
     private javax.swing.JRadioButton UserRadio;
     private javax.swing.ButtonGroup UserRoleChooseGroup;
     private javax.swing.JTextField UserSearchInputTextField;
