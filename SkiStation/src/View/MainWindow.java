@@ -98,10 +98,6 @@ public class MainWindow extends javax.swing.JFrame {
         RegisterButton = new javax.swing.JButton();
         RegisterBackgroundImage1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
-        CashierHelpPanel = new javax.swing.JPanel();
-        CashierHelpPanelOkButton = new javax.swing.JButton();
-        CashierHelpPanelTextPanel = new javax.swing.JScrollPane();
-        CashierHelpPanelText2 = new javax.swing.JTextArea();
         CashierContainer = new javax.swing.JPanel();
         ClientAccountEditPanel = new javax.swing.JPanel();
         MyAccountLabel2 = new javax.swing.JLabel();
@@ -743,37 +739,6 @@ public class MainWindow extends javax.swing.JFrame {
         CashierPanel.setName("CashierPanel"); // NOI18N
         CashierPanel.setPreferredSize(new java.awt.Dimension(700, 700));
         CashierPanel.setLayout(null);
-
-        CashierHelpPanel.setBackground(new java.awt.Color(204, 204, 204));
-        CashierHelpPanel.setName("CashierHelpPanel"); // NOI18N
-        CashierHelpPanel.setLayout(null);
-
-        CashierHelpPanelOkButton.setText("OK");
-        CashierHelpPanelOkButton.setName("CashierHelpPanelOkButton"); // NOI18N
-        CashierHelpPanelOkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CashierHelpPanelOkButtonActionPerformed(evt);
-            }
-        });
-        CashierHelpPanel.add(CashierHelpPanelOkButton);
-        CashierHelpPanelOkButton.setBounds(210, 450, 47, 23);
-
-        CashierHelpPanelTextPanel.setName("CashierHelpPanelTextPanel"); // NOI18N
-
-        CashierHelpPanelText2.setEditable(false);
-        CashierHelpPanelText2.setColumns(20);
-        CashierHelpPanelText2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        CashierHelpPanelText2.setLineWrap(true);
-        CashierHelpPanelText2.setRows(5);
-        CashierHelpPanelText2.setText("Pomoc:\na) Wyszukiwarka:\n - korzystajac z pola wpisz imię, nazwisko, lub id klienta następnie zaznacz tego,\n który Cię interesuje. Na górze znajduje się pole wyświetlające aktualnie zaznaczonego \nklienta. Wszystkie kolejne operacje wykonane w innych zakładkach będą dotyczyły\n tego własnie użytkownika.\n- korzystając z przycisku skanuj kartę, po jego naciśnięciu należy przyłożyc kartę do \nczytnika. Klient zostanie wyszukany i ustawiony jako aktywny.\nb) Założ konto klienta\n- widok pozwalający stworzyc konto dla nowego klienta\nc) Edytuj klienta\n- widok pozwalający edytować dane klienta w przypadku zmiany/pomyłki\nd) Karty klienta\n- panel analogiczny do tego, który posiada każdy użytkownik po zalogowaniu\n- pozwala na doładowywanie konta i przydzielanie punktów do poszczególnych kart i \ntworzenie nowych kart oraz ich wydawanie.\ne) natęzenie stoku jest to niezwiązany z konkretnym klientem podgląd na obciązenie\n stoku w danym momencie\nf) kontakt\n- widok z danymi kontaktowymi stoku");
-        CashierHelpPanelText2.setName("CashierHelpPanelText2"); // NOI18N
-        CashierHelpPanelTextPanel.setViewportView(CashierHelpPanelText2);
-
-        CashierHelpPanel.add(CashierHelpPanelTextPanel);
-        CashierHelpPanelTextPanel.setBounds(10, 20, 440, 420);
-
-        CashierPanel.add(CashierHelpPanel);
-        CashierHelpPanel.setBounds(200, 150, 470, 490);
 
         CashierContainer.setName("CashierContainer"); // NOI18N
         CashierContainer.setOpaque(false);
@@ -2261,10 +2226,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -5394,17 +5359,12 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userActiveCheckboxInAdminPanelActionPerformed
 
-    private void CashierHelpPanelOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierHelpPanelOkButtonActionPerformed
-        CashierHelpPanel.setVisible(false);
-    }//GEN-LAST:event_CashierHelpPanelOkButtonActionPerformed
-
     private void CashierHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierHelpButtonActionPerformed
-        CashierHelpPanel.setVisible(true);
+        new HelpWindow("CashierPanelHelp");
     }//GEN-LAST:event_CashierHelpButtonActionPerformed
 
     private void LoginAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_LoginAncestorAdded
         //Set overlapping panels visibility to false
-        CashierHelpPanel.setVisible(false);
         GetPrintCardPanel().setVisible(false);
         GetPrintCardPanel1().setVisible(false);
     }//GEN-LAST:event_LoginAncestorAdded
@@ -5625,10 +5585,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton CashierChangeModeToAdminButton;
     private javax.swing.JPanel CashierContainer;
     private javax.swing.JButton CashierHelpButton;
-    private javax.swing.JPanel CashierHelpPanel;
-    private javax.swing.JButton CashierHelpPanelOkButton;
-    private javax.swing.JTextArea CashierHelpPanelText2;
-    private javax.swing.JScrollPane CashierHelpPanelTextPanel;
     private javax.swing.JButton CashierModeButton;
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JRadioButton CashierRadio;
