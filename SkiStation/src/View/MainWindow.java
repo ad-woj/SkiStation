@@ -167,7 +167,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -1114,17 +1114,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         StationTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "ID", "Zjazd", "Natężenie (%)"
+                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -1138,6 +1135,13 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        DefaultTableCellRenderer centerRenderer2 = new DefaultTableCellRenderer();
+        centerRenderer2.setHorizontalAlignment (JLabel.CENTER);
+        StationTrafficTable.setDefaultRenderer (String.class, centerRenderer2);
+        StationTrafficTable.setDefaultRenderer (Long.class, centerRenderer2);
+        DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)StationTrafficTable.getTableHeader().getDefaultRenderer();
+        renderer2.setHorizontalAlignment (JLabel.CENTER);
+        StationTrafficTable.setEnabled(false);
         StationTrafficTable.setEnabled(false);
         StationTrafficTable.setName("StationTrafficTable"); // NOI18N
         StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -2075,11 +2079,11 @@ public class MainWindow extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Slope ID", "Traffic", "Overloaded"
+                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -2093,6 +2097,12 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment (JLabel.CENTER);
+        SlopeTraffic.setDefaultRenderer (String.class, centerRenderer);
+        SlopeTraffic.setDefaultRenderer (Long.class, centerRenderer);
+        DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)SlopeTraffic.getTableHeader().getDefaultRenderer();
+        renderer.setHorizontalAlignment (JLabel.CENTER);
         SlopeTraffic.setName("SlopeTraffic"); // NOI18N
         SlopeTrafficScrollPane.setViewportView(SlopeTraffic);
 
@@ -2261,10 +2271,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ProductFindText.setName("ProductFindText"); // NOI18N
         ProductFindText.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 ProductFindTextInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         ProductFindText.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3338,16 +3348,34 @@ public class MainWindow extends javax.swing.JFrame {
 
         UserTrafficTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID stoku", "Ruch z ost. godziny", "Przeciążenie"
             }
-        ));
-        UserTrafficTable.setName("UserTrafficTable"); // NOI18N
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        DefaultTableCellRenderer centerRenderer3 = new DefaultTableCellRenderer();
+        centerRenderer3.setHorizontalAlignment (JLabel.CENTER);
+        UserTrafficTable.setDefaultRenderer (String.class, centerRenderer3);
+        UserTrafficTable.setDefaultRenderer (Long.class, centerRenderer3);
+        DefaultTableCellRenderer renderer3 = (DefaultTableCellRenderer)UserTrafficTable.getTableHeader().getDefaultRenderer();
+        renderer3.setHorizontalAlignment (JLabel.CENTER);
+        UserTrafficTable.setName("UserTrafficTable");
         UserTrafficScrollPane.setViewportView(UserTrafficTable);
 
         UserTraffic.add(UserTrafficScrollPane);
@@ -4416,12 +4444,12 @@ public class MainWindow extends javax.swing.JFrame {
                 
                 model.addRow(new Object[]{row[0], row[1].toString(), tempOverload});
             }
-            ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "slopeManagmentAdminPanel");
-            changeCard( view, true );
-            //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
+        }
+        ViewSwitcher view = new ViewSwitcher(getContentPane(), "adminPanelMain", AdminContainerPanel, "slopeManagmentAdminPanel");
+        changeCard(view, true);
+        //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Stok");
-        }
     }//GEN-LAST:event_SlopeButtonActionPerformed
 
     private void GatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GatesButtonActionPerformed
@@ -4824,10 +4852,9 @@ public class MainWindow extends javax.swing.JFrame {
                 
                 model.addRow(new Object[]{row[0], row[1].toString(), tempOverload});
             }
+        }
         ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "card6");
         changeCard(view, true);
-        
-        }
     }//GEN-LAST:event_SlopeTrafficButtonActionPerformed
 
     private void costSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costSumActionPerformed
