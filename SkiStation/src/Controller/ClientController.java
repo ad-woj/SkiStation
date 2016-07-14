@@ -55,7 +55,7 @@ public class ClientController {
     
     /**
      * Zwraca id klienta na podstawie loginu
-     * @param login
+     * @param login login klienta
      * @return id klienta
      */
     public static int GetClientIDFromLogin( String login ) {
@@ -76,7 +76,7 @@ public class ClientController {
     
     /**
      * zwraca punkty klienta nieprzydzielone do żadnej z kart
-     * @param clientID
+     * @param clientID id klienta
      * @return punkty klienta
      */
     public static int GetClientPoints( int clientID ) {
@@ -86,7 +86,7 @@ public class ClientController {
     
     /**
      * Zwraca obiekt klienta na podstawie id
-     * @param clientID
+     * @param clientID id klienta
      * @return obiekt klienta
      */
     public static Clients GetClient( int clientID ) {

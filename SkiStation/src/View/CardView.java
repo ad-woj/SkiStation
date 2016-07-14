@@ -21,7 +21,7 @@ import javax.swing.event.*;
 
 /**
  *
- * @author Marzena
+ * @author Marzena, Sebastian
  */
 public class CardView {
     private MainWindow parent;
@@ -191,9 +191,6 @@ public class CardView {
         PrintCardButton.setPreferredSize(new java.awt.Dimension(67, 23));
         UserMyCardsPanel.add(PrintCardButton);
         PrintCardButton.setBounds(450, positionY, 60, 23);
-        
-        parent.GetPrintCardPanel().setVisible(false);
-        parent.GetPrintCardPanel1().setVisible(false);
     }
     
     public void SetIndex( int i ) {
@@ -248,6 +245,12 @@ public class CardView {
         }
     } 
     
+    
+      /** 
+     * Obsługa wydrukowania karty przez klienta
+     * @param evt event naciśnięcia przycisku
+     * @throws IOException wyjątek wyrzucany w przypadku niepowodzenia zapisu do pliku PDF
+     */  
     private void PrintCardButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         parent.GetPrintCardPanel().setVisible(true);
         parent.GetPrintCardText().setText(GetCardPrintData(SessionController.GetLoggedUserData()));
@@ -255,6 +258,11 @@ public class CardView {
         
     }
         
+     /** 
+     * Obsługa wydania (wydrukowania) karty klientowi przez kasjera
+     * @param evt event naciśnięcia przycisku
+     * @throws IOException wyjątek wyrzucany w przypadku niepowodzenia zapisu do pliku PDF
+     */ 
     private void GiveOutCardButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         parent.GetPrintCardPanel1().setVisible(true);
         parent.GetPrintCardText1().setText(GetCardPrintData(CashierController.GetSelectedUserData()));
@@ -327,6 +335,11 @@ public class CardView {
         return true;
     }
     
+     /** 
+     * Pobranie tekstu z danymi użytkownika do wyswietlenia w aplikacji jako podsumowanie wydruku karty
+     * @param user użytkownik, którego dane zostaną przetworzone
+     * @return zwraca text gotowy do wyswietlenia z danymi karty użytkownika
+     */ 
     private String GetCardPrintData(Users user)
     {
         if(user==null)
@@ -343,6 +356,11 @@ public class CardView {
         return text;
     }
     
+     /** 
+     * Pobranie danych potrzebnych do wydruku PDF z karta użytkownika
+     * @param user użytkownik, którego dane zostaną przetworzone
+     * @return zwraca tablice tekstów potrzebną do wypelniania tabeli przy eksporcie karty do PDF
+     */ 
     private String[][] GetCardPDFData(Users user)
     {
         if(user==null)

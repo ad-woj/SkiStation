@@ -6,7 +6,7 @@
 package Model;
 import java.awt.Container;
 /**
- *
+ * 
  * @author Marzena
  */
 public class ViewSwitcher {

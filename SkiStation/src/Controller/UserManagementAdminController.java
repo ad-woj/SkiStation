@@ -5,14 +5,10 @@
  */
 package Controller;
 
-import DBClasses.Addresses;
-import DBClasses.Clients;
 import DBClasses.Employees;
 import DBClasses.Users;
 import Tools.HibernateUtil;
 import java.util.List;
-import java.util.Set;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;

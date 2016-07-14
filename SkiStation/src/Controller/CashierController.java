@@ -42,7 +42,7 @@ public class CashierController {
     
     /**
      * Zwraca listę użytkowników, których login, imię lub nazwisko zawiera podany ciąg znaków
-     * @param text
+     * @param text tekst wykorzystywany jako wzorzec do wyszukiwania w bazie
      * @return lista użytkowników
      */
     public List GetUsersList(String text)
@@ -158,7 +158,7 @@ public class CashierController {
     
     /**
      * Zwraca liczbę osób korzystających w danej chwili z atrakcji
-     * @param attraction
+     * @param attraction atrakcja z której zostanie odczytane natęzenie
      * @return liczba osób korzystających w danej chwili z atrakcji
      */
     public int GetSkiAttractionTraffic(Attraction attraction)
@@ -192,7 +192,7 @@ public class CashierController {
     
     /**
      * Zwraca uzytkownika wybranego do edycji
-     * @return 
+     * @return użytkownik zaznaczony w trybie kasjera
      */
     public static Users GetSelectedUserData()
     {

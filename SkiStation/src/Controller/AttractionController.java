@@ -29,7 +29,7 @@ public class AttractionController {
      * @param name - nazwa atrakcji
      * @param type - typ aktrakcji
      * @param message - wiadomość o powodzeniu operacji
-     * @return 
+     * @return zwraca nowo utworzoną atrakcję
      */
     public Attraction addAttraction(String name, String type, StringBuilder message) {
  
