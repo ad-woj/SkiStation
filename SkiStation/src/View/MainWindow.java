@@ -4356,7 +4356,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void UserChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserChangeModeToAdminButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "adminMenuPanel");
         changeCard( view, true );
-//changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_UserChangeModeToAdminButtonActionPerformed
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateUserActionPerformed
@@ -4432,7 +4431,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void PriceListButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "productsManagementPanel");
         changeCard( view, true );
-         //changeCard(AdminContainerPanel, "card11", true);
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Cennik");
     }                                               
@@ -4456,7 +4454,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
         ViewSwitcher view = new ViewSwitcher(getContentPane(), "adminPanelMain", AdminContainerPanel, "slopeManagmentAdminPanel");
         changeCard(view, true);
-        //changeCard(AdminContainerPanel, "slopeManagmentAdminPanel", true);
         AdminPanelBackButton.setEnabled(true);
         AdminViewTitleLabel.setText("Stok");
     }//GEN-LAST:event_SlopeButtonActionPerformed
@@ -4497,13 +4494,11 @@ public class MainWindow extends javax.swing.JFrame {
     private void NewProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProductButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductAdminPanel");
         changeCard( view, true );
-//changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_NewProductButtonActionPerformed
 
     private void EditProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProductButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "editProductAdminPanel");
         changeCard( view, true );
-        //changeCard(AdminContainerPanel, "editProductAdminPanel", true);
     }//GEN-LAST:event_EditProductButtonActionPerformed
 
     private void EditTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditTerminalButtonActionPerformed
@@ -4551,7 +4546,6 @@ public class MainWindow extends javax.swing.JFrame {
             case "Cashier":
                 CashierRadio.setSelected(true);
         }
-        //changeCard(AdminContainerPanel, "editUserAdminPanel", true);
     }//GEN-LAST:event_EditUserButtonActionPerformed
 
     private void SearchUserTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchUserTextFieldActionPerformed
@@ -4563,13 +4557,11 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductToPriceListPanel");
         changeCard( view, true );
-        //changeCard(AdminContainerPanel, "addProductToPriceListPanel", true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addProductAdminPanel");
         changeCard( view, true );
-        //changeCard(AdminContainerPanel, "addProductAdminPanel", true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void EditClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditClientButtonActionPerformed
@@ -4577,13 +4569,11 @@ public class MainWindow extends javax.swing.JFrame {
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "myAccountPanel");
         SetAccountInfo( CashierController.GetSelectedUser() );
         changeCard( view, true );
-        //changeCard(CashierContainer, "ClientAccountEditPanel", true);
     }//GEN-LAST:event_EditClientButtonActionPerformed
 
     private void ContactButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButton3ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "ContactPanel");
         changeCard( view, true );
-        //changeCard(CashierContainer, "ContactPanel", true);
     }//GEN-LAST:event_ContactButton3ActionPerformed
 
     private void NewAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAccountButtonActionPerformed
@@ -4615,13 +4605,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
         cardViewList.clear();
         DisplayCards(UserMyCardsPanel, SessionController.GetUserLogged());
-        //changeCard(getContentPane(), "UserMainPanel", true);
     }//GEN-LAST:event_ClientModeButton1ActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "SearchPanel" );
         changeCard( view, true );
-        //changeCard(CashierContainer, "SearchPanel", true);  
         System.out.println("SearchPanel");
     }//GEN-LAST:event_SearchButtonActionPerformed
 
@@ -4678,7 +4666,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void SlopeTrafficButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButton1ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "cashierPanel", CashierContainer, "StationTrafficPanel" );
         changeCard( view, true );
-        //changeCard(CashierContainer, "StationTrafficPanel", true);
     }//GEN-LAST:event_SlopeTrafficButton1ActionPerformed
 
     private void StationTrafficTableShowed(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_StationTrafficTableShowed
@@ -4710,7 +4697,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
         cardViewList.clear();
         DisplayCards(ClientCardsPanel, CashierController.GetSelectedUser());
-        //changeCard(CashierContainer, "ClientCardsPanel", true);
     }//GEN-LAST:event_ClientCardsButton1ActionPerformed
 
     private void IDEditTextfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDEditTextfield2ActionPerformed
@@ -4755,8 +4741,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "addPriceListAdminPanel");
-        changeCard( view, true );
-        //changeCard(AdminContainerPanel, "addPriceListAdminPanel", true);      
+        changeCard( view, true );     
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void AddNewProductButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewProductButton1ActionPerformed
@@ -4799,7 +4784,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void CashierChangeModeToAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierChangeModeToAdminButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "adminMenuPanel");
         changeCard( view, true );
-        //changeCard(getContentPane(), "adminPanelMain", true);
     }//GEN-LAST:event_CashierChangeModeToAdminButtonActionPerformed
 
     private void BuyPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuyPointsButtonActionPerformed
@@ -4810,7 +4794,6 @@ public class MainWindow extends javax.swing.JFrame {
         if (Integer.parseInt(pointsSum.getText()) != 0) {
             ViewSwitcher view = new ViewSwitcher(getContentPane(), "UserMainPanel", UserContainerPanel, "userChoosePaymentMethod");
             changeCard(view, true);
-            //changeCard(UserContainerPanel, "userChoosePaymentMethod", true);
             buyPackagePointsMessage.setText("");
         } else {
             buyPackagePointsMessage.setText("Choose at least one package");
@@ -4828,7 +4811,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "AttractionsEditAddPanel" );
         changeCard( view, true );
-        //changeCard(AttractionManagementAdminPanel,"AttractionsEditAddPanel",true);
     }//GEN-LAST:event_NewAttractionButtonActionPerformed
 
     private void SearchAttractionTextFieldTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchAttractionTextFieldTyped
@@ -4842,7 +4824,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void ContactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "UserMainPanel", UserContainerPanel, "UserContactPanel" );
         changeCard( view, true );
-        //changeCard(UserContainerPanel, "UserContactPanel", true);
     }//GEN-LAST:event_ContactButtonActionPerformed
 
     private void SlopeTrafficButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlopeTrafficButtonActionPerformed

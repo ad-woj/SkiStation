@@ -20,26 +20,72 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 /**
- *
+ * Klasa pomocnicza używana do wyświetlania dynamicznej listy kart klienta.
+ * Ułatwia dodawanie, usuwanie kart oraz przydzielanie do nich punktów
  * @author Marzena, Sebastian
  */
 public class CardView {
+    /**
+     * obiekt okna głównego aplikacji przechowywany w celu umożliwienia dostępu do metod obiektu
+     */
     private MainWindow parent;
+    /**
+     * panel, w którym wyświetlane są karty
+     */
     private JPanel UserMyCardsPanel;
+    /**
+     * indeks danego obiektu CardView w liście
+     */
     private int myIndex;
+    /**
+     * pole tekstowe wyświetlające id karty
+     */
     private JTextField IDTextField;
+    /**
+     * pole tekstowe wyświetlające datę aktywacji karty
+     */
     private JTextField ActivationDateTextField;
+    /**
+     * pole tekstowe wyświetlające datę ważności karty
+     */
     private JTextField ExpirationDateTextField;
+    /**
+     * pole tekstowe wyświetlające liczbę punktów na karcie
+     */
     private JTextField PointsTextField;
+    /**
+     * przycisk służący do inkrementacji liczby punktów na karcie
+     */
     private JButton AddPointsButton;
+    /**
+     * przycisk służący do dekrementacji liczby punktów na karcie
+     */
     private JButton SubtractPointsButton;
+    /**
+     * przycisk służący do usuwania karty
+     */
     private JButton RemoveCardButton;
+    /**
+     * przycisk służący do drukowania danych karty
+     */
     private JButton PrintCardButton;
+    /**
+     * flaga informująca czy potrzebne jest odświeżenie tekstu w polu tekstowym punktów
+     */
     private Boolean ignoreTextChange = true;
+    /**
+     * flaga informująca czy punkty zostały wpisane do pola tekstowego ręcznie
+     */
     private Boolean textUpdateNeeded = false;
     
-    public CardView( int index, int positionY, JPanel panel, MainWindow mw ) {
-        
+    /**
+     * Konstruktor inicjalizujący wszystkie pola potrzebne do wyświetlenia danych i edycji karty
+     * @param index - indeks obiektu w liście obiektów CardView w oknie głównym
+     * @param positionY - pozycja y rysowania komponentów na panelu
+     * @param panel - pozycja startowa x (od lewej strony), od której zaczyna się rysowanie komponentów
+     * @param mw - obiekt okna głównego aplikacji
+     */
+    public CardView( int index, int positionY, JPanel panel, MainWindow mw ) {        
         
         IDTextField = new javax.swing.JTextField();
         ActivationDateTextField = new javax.swing.JTextField();
@@ -193,10 +239,21 @@ public class CardView {
         PrintCardButton.setBounds(450, positionY, 60, 23);
     }
     
+    /**
+     * ustawia indeks obiektu w liście
+     * @param i - indeks obiektu w liście
+     */
     public void SetIndex( int i ) {
         myIndex = i;
     }
     
+    /**
+     * Ustawia tekst w polach tekstowych widoku karty
+     * @param ID - id karty
+     * @param startDate - data wydania karty
+     * @param endDate - data ważności karty
+     * @param points - punkty na karcie
+     */
     public void SetTextFields( int ID, Date startDate, Date endDate, int points ){
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String sd = df.format(startDate);
@@ -207,6 +264,11 @@ public class CardView {
         PointsTextField.setText(Integer.toString(points));
     }
     
+    /**
+     * Przesuwa widok karty o jedną pozycję wyżej. Metoda wywoływana, gdy karta
+     * niebędąca ostatnią na liście zostanie usunięta
+     * @param distance - o ile w górę należy przesunąć komponenty
+     */
     public void SlideUp( int distance ) {
         Point position = IDTextField.getLocation();
         IDTextField.setLocation( position.x, position.y - distance );
@@ -226,6 +288,9 @@ public class CardView {
         PrintCardButton.setLocation( position.x, position.y - distance );
     }
     
+    /**
+     * Usuwa komponenty widoku karty z panelu
+     */
     public void DeleteView(){
         UserMyCardsPanel.remove(IDTextField);
         UserMyCardsPanel.remove(ActivationDateTextField);
@@ -238,6 +303,10 @@ public class CardView {
         UserMyCardsPanel.repaint();
     }
 
+    /**
+     * Usuwa kartę użytkownika i komponenty widoku karty z panelu
+     * @param evt - zdarzenie naciśnięcia przycisku
+     */
     private void RemoveCardButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         if( CardController.DeleteCard(Integer.decode(IDTextField.getText())) ) {
             DeleteView();
@@ -270,6 +339,10 @@ public class CardView {
         
     }
     
+    /**
+     * Dekrementuje liczbę punktów na karcie i aktualizuje tekst w polu tekstowym
+     * @param evt - zdarzenie naciśnięcia przycisku
+     */
     private void SubtractPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         ignoreTextChange = true;                                                     
         int points = Integer.decode(PointsTextField.getText()) - 1;
@@ -284,6 +357,10 @@ public class CardView {
         }
     }
     
+    /**
+     * Inkrementuje liczbę punktów na karcie i aktualizuje tekst w polu tekstowym
+     * @param evt - zdarzenie naciśnięcia przycisku
+     */
     private void AddPointsButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         ignoreTextChange = true;
         int points = Integer.decode(PointsTextField.getText()) + 1;
@@ -298,7 +375,11 @@ public class CardView {
         }
     }
 
-    
+    /**
+     * Sprawdza, czy tekst w polu tekstowym punktów jest poprawną liczbą dziesiętną oraz aktualizuje
+     * liczbę punktów na karcie w bazie danych. Metoda wywoływana w przypadku ręcznego wpisywania punktów
+     * w polu tekstowym
+     */
     private void PointsTextChanged() {
         if( ignoreTextChange ) {
             ignoreTextChange = false;
@@ -326,6 +407,11 @@ public class CardView {
             textUpdateNeeded = true;            
     }
     
+    /**
+     * Sprawdza czy dany ciąg znaków jest poprawną liczbą dziesiętną
+     * @param in - ciąg znaków do sprawdzenia
+     * @return - czy tekst jest liczbą
+     */
     private Boolean isStringNumeric( String in ) {
         if( in.length() == 0 )
             return false;

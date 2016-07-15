@@ -14,8 +14,15 @@ import View.*;
  */
 public class KeyboardEventHandler implements KeyListener {
     
+    /**
+     * obiekt przechowujący główne okno aplikacji w celu umożliwienia korzystania z jego metod
+     */
     static MainWindow mainWindow;
     
+    /**
+     * Domyslny konstruktor, zachowuje obiekt głównego okna aplikacji
+     * @param mw - obiekt głównego okna aplikacji
+     */
     public KeyboardEventHandler( MainWindow mw ){
         mainWindow = mw;
     }

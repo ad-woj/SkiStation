@@ -29,7 +29,11 @@ import org.hibernate.criterion.Restrictions;
  */
 public class CashierController {
  
+    /**
+     * obiekt przechowujący użytkownika wybranego do edycji w panelu kasjera
+     */
     private static Users selectedUser;
+    
     private Session s;
     
     /**
