@@ -191,6 +191,7 @@ public class MainWindow extends javax.swing.JFrame {
         GatesButton = new javax.swing.JButton();
         CashierModeButton = new javax.swing.JButton();
         ClientModeButton = new javax.swing.JButton();
+        AdminMainPanelHelpButton = new javax.swing.JButton();
         GateProductsPanel = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -237,6 +238,7 @@ public class MainWindow extends javax.swing.JFrame {
         PriceListFromLabel = new javax.swing.JLabel();
         PriceListToLabel = new javax.swing.JLabel();
         NewPriceListResult = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         PriceListManagmentAdmintPanel = new javax.swing.JPanel();
         SearchProductTextField = new javax.swing.JTextField();
         FindProductButton = new javax.swing.JButton();
@@ -254,6 +256,7 @@ public class MainWindow extends javax.swing.JFrame {
         FindUserButton = new javax.swing.JButton();
         SearchUserTextField = new javax.swing.JTextField();
         EditUserButton = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         ProductsManagmentAdminPanel = new javax.swing.JPanel();
         ProductsTables = new javax.swing.JTabbedPane();
         jSplitPane1 = new javax.swing.JSplitPane();
@@ -277,6 +280,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        AdminProductPanelHelpButton = new javax.swing.JButton();
         AttractionsEditAddPanel = new javax.swing.JPanel();
         AttractionNameTextField = new javax.swing.JTextField();
         TerminalNameLabel = new javax.swing.JLabel();
@@ -335,7 +339,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         userActiveCheckboxInAdminPanel = new javax.swing.JCheckBox();
-        AdminPanelHelpButton = new javax.swing.JButton();
+        AdminUserEditHelpButton = new javax.swing.JButton();
         AdminLogoutButton = new javax.swing.JButton();
         AdminViewTitleLabel = new javax.swing.JLabel();
         AdminPanelBackButton = new javax.swing.JButton();
@@ -1485,6 +1489,16 @@ public class MainWindow extends javax.swing.JFrame {
         AdminMenuPanel.add(ClientModeButton);
         ClientModeButton.setBounds(290, 200, 160, 80);
 
+        AdminMainPanelHelpButton.setText("Pomoc");
+        AdminMainPanelHelpButton.setName("AdminMainPanelHelpButton"); // NOI18N
+        AdminMainPanelHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminMainPanelHelpButtonActionPerformed(evt);
+            }
+        });
+        AdminMenuPanel.add(AdminMainPanelHelpButton);
+        AdminMainPanelHelpButton.setBounds(483, 320, 100, 23);
+
         AdminContainerPanel.add(AdminMenuPanel, "adminMenuPanel");
 
         GateProductsPanel.setName("gatesProductsPanel"); // NOI18N
@@ -1959,6 +1973,11 @@ public class MainWindow extends javax.swing.JFrame {
         AddPriceList.add(NewPriceListResult);
         NewPriceListResult.setBounds(290, 130, 240, 110);
 
+        jButton5.setText("jButton5");
+        jButton5.setName("jButton5"); // NOI18N
+        AddPriceList.add(jButton5);
+        jButton5.setBounds(440, 270, 73, 23);
+
         AdminContainerPanel.add(AddPriceList, "addPriceListAdminPanel");
 
         PriceListManagmentAdmintPanel.setName("PriceListManagmentAdmintPanel"); // NOI18N
@@ -2191,6 +2210,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserManagmentAdmintPanel.add(EditUserButton);
         EditUserButton.setBounds(470, 50, 120, 30);
+
+        jButton8.setText("Pomoc");
+        jButton8.setName("jButton8"); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        UserManagmentAdmintPanel.add(jButton8);
+        jButton8.setBounds(483, 320, 100, 23);
 
         AdminContainerPanel.add(UserManagmentAdmintPanel, "userManagmentAdminPanel");
 
@@ -2449,6 +2478,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         ProductsManagmentAdminPanel.add(jButton11);
         jButton11.setBounds(430, 190, 160, 30);
+
+        AdminProductPanelHelpButton.setText("Pomoc");
+        AdminProductPanelHelpButton.setName("AdminProductPanelHelpButton"); // NOI18N
+        AdminProductPanelHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminProductPanelHelpButtonActionPerformed(evt);
+            }
+        });
+        ProductsManagmentAdminPanel.add(AdminProductPanelHelpButton);
+        AdminProductPanelHelpButton.setBounds(490, 320, 100, 23);
 
         AdminContainerPanel.add(ProductsManagmentAdminPanel, "productsManagementPanel");
 
@@ -2971,20 +3010,20 @@ public class MainWindow extends javax.swing.JFrame {
         EditUserAdmintPanel.add(userActiveCheckboxInAdminPanel);
         userActiveCheckboxInAdminPanel.setBounds(180, 270, 30, 23);
 
+        AdminUserEditHelpButton.setText("Pomoc");
+        AdminUserEditHelpButton.setName("AdminUserEditHelpButton"); // NOI18N
+        AdminUserEditHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminUserEditHelpButtonActionPerformed(evt);
+            }
+        });
+        EditUserAdmintPanel.add(AdminUserEditHelpButton);
+        AdminUserEditHelpButton.setBounds(459, 10, 110, 23);
+
         AdminContainerPanel.add(EditUserAdmintPanel, "editUserAdminPanel");
 
         AdminMainPanel.add(AdminContainerPanel);
         AdminContainerPanel.setBounds(50, 240, 600, 350);
-
-        AdminPanelHelpButton.setText("Pomoc");
-        AdminPanelHelpButton.setName("AdminPanelHelpButton"); // NOI18N
-        AdminPanelHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminPanelHelpButtonActionPerformed(evt);
-            }
-        });
-        AdminMainPanel.add(AdminPanelHelpButton);
-        AdminPanelHelpButton.setBounds(540, 580, 90, 30);
 
         AdminLogoutButton.setText("Wyloguj");
         AdminLogoutButton.setName("AdminLogoutButton"); // NOI18N
@@ -5433,13 +5472,25 @@ public class MainWindow extends javax.swing.JFrame {
         new HelpWindow("RegistrationPageHelp");
     }//GEN-LAST:event_RegistrationPageHelpButtonActionPerformed
 
-    private void AdminPanelHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPanelHelpButtonActionPerformed
-        new HelpWindow("AdminPanelHelp");
-    }//GEN-LAST:event_AdminPanelHelpButtonActionPerformed
-
     private void UserPanelMyCardsHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPanelMyCardsHelpButtonActionPerformed
         new HelpWindow("CardPanelHelp");
     }//GEN-LAST:event_UserPanelMyCardsHelpButtonActionPerformed
+
+    private void AdminMainPanelHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminMainPanelHelpButtonActionPerformed
+        new HelpWindow("AdminMainPanelHelp");
+    }//GEN-LAST:event_AdminMainPanelHelpButtonActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        new HelpWindow("AdminUsersPanelHelp");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void AdminUserEditHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminUserEditHelpButtonActionPerformed
+        new HelpWindow("AdminUserEditPanelHelp");
+    }//GEN-LAST:event_AdminUserEditHelpButtonActionPerformed
+
+    private void AdminProductPanelHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProductPanelHelpButtonActionPerformed
+        new HelpWindow("AdminProductPanelHelp");
+    }//GEN-LAST:event_AdminProductPanelHelpButtonActionPerformed
 
     private void FillTerminalList(String name)
     {  
@@ -5624,11 +5675,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel AdminContainerPanel;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
+    private javax.swing.JButton AdminMainPanelHelpButton;
     private javax.swing.JPanel AdminMenuPanel;
     private javax.swing.JButton AdminMyAccountButton;
     private javax.swing.JButton AdminPanelBackButton;
-    private javax.swing.JButton AdminPanelHelpButton;
+    private javax.swing.JButton AdminProductPanelHelpButton;
     private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JButton AdminUserEditHelpButton;
     private javax.swing.JLabel AdminViewTitleLabel;
     private javax.swing.JPanel AttractionListPanel;
     private javax.swing.JTable AttractionListTable2;
@@ -5892,8 +5945,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
