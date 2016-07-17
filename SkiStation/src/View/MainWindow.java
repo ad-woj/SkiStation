@@ -4437,7 +4437,7 @@ public class MainWindow extends javax.swing.JFrame {
         if( PasswordEditTextfield1.getText().contentEquals(PasswordEditTextfield3.getText()) ) {
             AccountInfo info = new AccountInfo();
             info.name = NameEditTextfield1.getText();
-            info.surname = SurnameEditTextfield.getText();
+            info.surname = SurnameEditTextfield1.getText();
             info.login = LoginEditTextfield1.getText();
             info.password = PasswordEditTextfield1.getText();
             info.documentNumber = DocumentEditTextfield1.getText();
