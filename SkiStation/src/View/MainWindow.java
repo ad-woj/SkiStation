@@ -165,7 +165,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<String>();
+        ResultList = new javax.swing.JList<>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -205,6 +205,7 @@ public class MainWindow extends javax.swing.JFrame {
         GatesProductsAwailableProducts = new javax.swing.JTable();
         jScrollPane18 = new javax.swing.JScrollPane();
         GatesProductsGatesList = new javax.swing.JTable();
+        GateProductsHelp = new javax.swing.JButton();
         EditProductPanel = new javax.swing.JPanel();
         ActualizeProductButton = new javax.swing.JButton();
         ActualizePriceTextField = new javax.swing.JTextField();
@@ -302,19 +303,19 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionListPanel = new javax.swing.JPanel();
         FindAttractionButton = new javax.swing.JButton();
         SearchAttractionTextField = new javax.swing.JTextField();
-        EditAttractionButton = new javax.swing.JButton();
         NewAttractionButton = new javax.swing.JButton();
         AttractionTable = new javax.swing.JScrollPane();
         AttractionListTable2 = new javax.swing.JTable();
+        AttractionsAndGatesHelp = new javax.swing.JButton();
         GatesManagementAdminPanel = new javax.swing.JPanel();
         TerminalListPanel = new javax.swing.JPanel();
         FindTerminalButton = new javax.swing.JButton();
         SearchTerminalTextField = new javax.swing.JTextField();
-        EditTerminalButton = new javax.swing.JButton();
         NewTerminalButton = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         TerminalListTable = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        AttractionsAndGatesHelp2 = new javax.swing.JButton();
         EditUserAdmintPanel = new javax.swing.JPanel();
         UpdateUser = new javax.swing.JButton();
         LoginTextField2 = new javax.swing.JTextField();
@@ -415,6 +416,7 @@ public class MainWindow extends javax.swing.JFrame {
         CountryEditLabel4 = new javax.swing.JLabel();
         userActiveCheckboxInMyAccountPanel = new javax.swing.JCheckBox();
         Symulator = new javax.swing.JPanel();
+        SymulatotHelp = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -447,12 +449,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         Login.setName("LoginPanel"); // NOI18N
         Login.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 LoginAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         Login.setLayout(null);
@@ -1138,12 +1140,12 @@ public class MainWindow extends javax.swing.JFrame {
         StationTrafficTable.setEnabled(false);
         StationTrafficTable.setName("StationTrafficTable"); // NOI18N
         StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 StationTrafficTableShowed(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(StationTrafficTable);
@@ -1394,12 +1396,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminMainPanel.setName("AdminMainPanel"); // NOI18N
         AdminMainPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AdminMainPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AdminMainPanel.setLayout(null);
@@ -1503,12 +1505,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         GateProductsPanel.setName("gatesProductsPanel"); // NOI18N
         GateProductsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GateProductsPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GateProductsPanel.setLayout(null);
@@ -1531,7 +1533,7 @@ public class MainWindow extends javax.swing.JFrame {
         GatesProductsAddFromGate.setBackground(new java.awt.Color(0, 0, 0));
         GatesProductsAddFromGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         GatesProductsAddFromGate.setForeground(new java.awt.Color(255, 255, 255));
-        GatesProductsAddFromGate.setText("<<<");
+        GatesProductsAddFromGate.setText("Dodaj");
         GatesProductsAddFromGate.setName("GatesProductsAddFromGate"); // NOI18N
         GatesProductsAddFromGate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1544,7 +1546,7 @@ public class MainWindow extends javax.swing.JFrame {
         GatesProductsRemoveFromGate.setBackground(new java.awt.Color(0, 0, 0));
         GatesProductsRemoveFromGate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         GatesProductsRemoveFromGate.setForeground(new java.awt.Color(255, 255, 255));
-        GatesProductsRemoveFromGate.setText(">>>>");
+        GatesProductsRemoveFromGate.setText("Usuń");
         GatesProductsRemoveFromGate.setName("GatesProductsRemoveFromGate"); // NOI18N
         GatesProductsRemoveFromGate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1641,12 +1643,12 @@ public class MainWindow extends javax.swing.JFrame {
         GatesProductsGatesList.setToolTipText("");
         GatesProductsGatesList.setName("GatesProductsGatesList"); // NOI18N
         GatesProductsGatesList.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GatesProductsGatesListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GatesProductsGatesList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1658,6 +1660,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         GateProductsPanel.add(jScrollPane18);
         jScrollPane18.setBounds(0, 30, 160, 260);
+
+        GateProductsHelp.setText("Pomoc");
+        GateProductsHelp.setName("GateProductsHelp"); // NOI18N
+        GateProductsHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GateProductsHelpActionPerformed(evt);
+            }
+        });
+        GateProductsPanel.add(GateProductsHelp);
+        GateProductsHelp.setBounds(520, 0, 80, 30);
 
         AdminContainerPanel.add(GateProductsPanel, "gatesProductsPanel");
 
@@ -1701,12 +1713,12 @@ public class MainWindow extends javax.swing.JFrame {
         AddProductToPriceListPanel.setName("AddProductToPriceListPanel"); // NOI18N
         AddProductToPriceListPanel.setOpaque(false);
         AddProductToPriceListPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AddProductToPriceListPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AddProductToPriceListPanel.setLayout(null);
@@ -1823,12 +1835,12 @@ public class MainWindow extends javax.swing.JFrame {
         ProductPriceListPriceLists.setToolTipText("");
         ProductPriceListPriceLists.setName("ProductPriceListPriceLists"); // NOI18N
         ProductPriceListPriceLists.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 ProductPriceListPriceListsAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         ProductPriceListPriceLists.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1912,12 +1924,12 @@ public class MainWindow extends javax.swing.JFrame {
         AddPriceList.setName("AddPriceList"); // NOI18N
         AddPriceList.setOpaque(false);
         AddPriceList.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AddPriceListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AddPriceList.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -2158,12 +2170,12 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserListTable.setName("UserListTable"); // NOI18N
         UserListTable.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 UserListTableAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane7.setViewportView(UserListTable);
@@ -2226,12 +2238,12 @@ public class MainWindow extends javax.swing.JFrame {
         ProductsManagmentAdminPanel.setName("ProductsManagmentAdminPanel"); // NOI18N
         ProductsManagmentAdminPanel.setOpaque(false);
         ProductsManagmentAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 ProductsManagmentAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         ProductsManagmentAdminPanel.setLayout(null);
@@ -2405,12 +2417,12 @@ public class MainWindow extends javax.swing.JFrame {
         });
         CurrentPricesTable.setName("CurrentPricesTable"); // NOI18N
         CurrentPricesTable.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 CurrentPricesTableAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane9.setViewportView(CurrentPricesTable);
@@ -2620,12 +2632,12 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionManagementAdminPanel.setName("AttractionManagementAdminPanel"); // NOI18N
         AttractionManagementAdminPanel.setOpaque(false);
         AttractionManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AttractionManagementAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AttractionManagementAdminPanel.setLayout(new java.awt.CardLayout());
@@ -2653,20 +2665,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         AttractionListPanel.add(SearchAttractionTextField);
         SearchAttractionTextField.setBounds(30, 20, 380, 30);
-
-        EditAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
-        EditAttractionButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        EditAttractionButton.setForeground(new java.awt.Color(255, 255, 255));
-        EditAttractionButton.setText("Edytuj");
-        EditAttractionButton.setBorder(null);
-        EditAttractionButton.setName("EditAttractionButton"); // NOI18N
-        EditAttractionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditAttractionButtonActionPerformed(evt);
-            }
-        });
-        AttractionListPanel.add(EditAttractionButton);
-        EditAttractionButton.setBounds(470, 50, 120, 30);
 
         NewAttractionButton.setBackground(new java.awt.Color(0, 0, 0));
         NewAttractionButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -2728,6 +2726,16 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionListPanel.add(AttractionTable);
         AttractionTable.setBounds(30, 50, 420, 260);
 
+        AttractionsAndGatesHelp.setText("Pomoc");
+        AttractionsAndGatesHelp.setName("AttractionsAndGatesHelp"); // NOI18N
+        AttractionsAndGatesHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttractionsAndGatesHelpActionPerformed(evt);
+            }
+        });
+        AttractionListPanel.add(AttractionsAndGatesHelp);
+        AttractionsAndGatesHelp.setBounds(470, 10, 110, 23);
+
         AttractionManagementAdminPanel.add(AttractionListPanel, "AttractionListPanel");
 
         AttractionsAndGatesPanel.addTab("Atrakcje", AttractionManagementAdminPanel);
@@ -2736,12 +2744,12 @@ public class MainWindow extends javax.swing.JFrame {
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
         GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GatesManagementAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GatesManagementAdminPanel.setLayout(new java.awt.CardLayout());
@@ -2764,20 +2772,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         TerminalListPanel.add(SearchTerminalTextField);
         SearchTerminalTextField.setBounds(30, 20, 380, 30);
-
-        EditTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
-        EditTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        EditTerminalButton.setForeground(new java.awt.Color(255, 255, 255));
-        EditTerminalButton.setText("Edytuj");
-        EditTerminalButton.setBorder(null);
-        EditTerminalButton.setName("EditTerminalButton"); // NOI18N
-        EditTerminalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditTerminalButtonActionPerformed(evt);
-            }
-        });
-        TerminalListPanel.add(EditTerminalButton);
-        EditTerminalButton.setBounds(470, 50, 120, 30);
 
         NewTerminalButton.setBackground(new java.awt.Color(0, 0, 0));
         NewTerminalButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -2835,7 +2829,7 @@ public class MainWindow extends javax.swing.JFrame {
         TerminalListPanel.add(jScrollPane6);
         jScrollPane6.setBounds(30, 50, 420, 260);
 
-        jButton3.setText("zarzadzaj");
+        jButton3.setText("Zarzadzaj");
         jButton3.setName("jButton3"); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2844,6 +2838,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         TerminalListPanel.add(jButton3);
         jButton3.setBounds(470, 250, 120, 23);
+
+        AttractionsAndGatesHelp2.setText("Pomoc");
+        AttractionsAndGatesHelp2.setName("AttractionsAndGatesHelp2"); // NOI18N
+        AttractionsAndGatesHelp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttractionsAndGatesHelp2ActionPerformed(evt);
+            }
+        });
+        TerminalListPanel.add(AttractionsAndGatesHelp2);
+        AttractionsAndGatesHelp2.setBounds(470, 10, 110, 23);
 
         GatesManagementAdminPanel.add(TerminalListPanel, "card8");
 
@@ -3159,12 +3163,12 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyCardsPanel.setName("UserMyCardsPanel"); // NOI18N
         UserMyCardsPanel.setOpaque(false);
         UserMyCardsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 UserMyCardsPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         UserMyCardsPanel.setLayout(null);
@@ -3643,15 +3647,25 @@ public class MainWindow extends javax.swing.JFrame {
 
         Symulator.setName("Symulator"); // NOI18N
         Symulator.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 SymulatorAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
         });
         Symulator.setLayout(null);
+
+        SymulatotHelp.setText("Pomoc");
+        SymulatotHelp.setName("SymulatotHelp"); // NOI18N
+        SymulatotHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SymulatotHelpActionPerformed(evt);
+            }
+        });
+        Symulator.add(SymulatotHelp);
+        SymulatotHelp.setBounds(579, 160, 110, 23);
 
         jLabel9.setText("Cards");
         jLabel9.setName("jLabel9"); // NOI18N
@@ -3768,12 +3782,12 @@ public class MainWindow extends javax.swing.JFrame {
         SymulatorCardsList.setToolTipText("");
         SymulatorCardsList.setName("SymulatorCardsList"); // NOI18N
         SymulatorCardsList.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 SymulatorCardsListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         SymulatorCardsList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4540,10 +4554,6 @@ public class MainWindow extends javax.swing.JFrame {
         changeCard( view, true );
     }//GEN-LAST:event_EditProductButtonActionPerformed
 
-    private void EditTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditTerminalButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditTerminalButtonActionPerformed
-
     private void NewTerminalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTerminalButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "TerminalsEditAddPanel" );
         changeCard( view, true );
@@ -4842,10 +4852,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void CashierRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CashierRadioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CashierRadioActionPerformed
-
-    private void EditAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditAttractionButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditAttractionButtonActionPerformed
 
     private void NewAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewAttractionButtonActionPerformed
         ViewSwitcher view = new ViewSwitcher( getContentPane(), "adminPanelMain", AdminContainerPanel, "AttractionsEditAddPanel" );
@@ -5492,6 +5498,22 @@ public class MainWindow extends javax.swing.JFrame {
         new HelpWindow("AdminPricelistPanelHelp");
     }//GEN-LAST:event_AdminProductPanelHelpButtonActionPerformed
 
+    private void SymulatotHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SymulatotHelpActionPerformed
+        new HelpWindow("SymulatorHelp");
+    }//GEN-LAST:event_SymulatotHelpActionPerformed
+
+    private void AttractionsAndGatesHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionsAndGatesHelpActionPerformed
+        new HelpWindow("AttractionsHelp");
+    }//GEN-LAST:event_AttractionsAndGatesHelpActionPerformed
+
+    private void GateProductsHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GateProductsHelpActionPerformed
+        new HelpWindow("GateProductsHelp");
+    }//GEN-LAST:event_GateProductsHelpActionPerformed
+
+    private void AttractionsAndGatesHelp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionsAndGatesHelp2ActionPerformed
+       new HelpWindow("TerminalsHelp"); 
+    }//GEN-LAST:event_AttractionsAndGatesHelp2ActionPerformed
+
     private void FillTerminalList(String name)
     {  
         TerminalController tc = new TerminalController();
@@ -5690,6 +5712,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane AttractionTable;
     private javax.swing.JComboBox AttractionTypeComboBox;
     private javax.swing.JLabel AttractionTypeLabel;
+    private javax.swing.JButton AttractionsAndGatesHelp;
+    private javax.swing.JButton AttractionsAndGatesHelp2;
     private javax.swing.JTabbedPane AttractionsAndGatesPanel;
     private javax.swing.JPanel AttractionsEditAddPanel;
     private javax.swing.JButton BackButton;
@@ -5747,7 +5771,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField DocumentEditTextfield2;
     private javax.swing.JTextField DocumentNumber;
     private javax.swing.JTextField DocumentTextField2;
-    private javax.swing.JButton EditAttractionButton;
     private javax.swing.JButton EditClientButton;
     private javax.swing.JButton EditDetailsButton;
     private javax.swing.JButton EditDetailsButton2;
@@ -5763,13 +5786,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel EditPasswordLabel3;
     private javax.swing.JButton EditProductButton;
     private javax.swing.JPanel EditProductPanel;
-    private javax.swing.JButton EditTerminalButton;
     private javax.swing.JPanel EditUserAdmintPanel;
     private javax.swing.JButton EditUserButton;
     private javax.swing.JButton FindAttractionButton;
     private javax.swing.JButton FindProductButton;
     private javax.swing.JButton FindTerminalButton;
     private javax.swing.JButton FindUserButton;
+    private javax.swing.JButton GateProductsHelp;
     private javax.swing.JPanel GateProductsPanel;
     private javax.swing.JButton GatesButton;
     private javax.swing.JPanel GatesManagementAdminPanel;
@@ -5910,6 +5933,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable SymulatorProductList;
     private javax.swing.JLabel SymulatorResultLabel;
     private javax.swing.JTable SymulatorTerminalList;
+    private javax.swing.JButton SymulatotHelp;
     private javax.swing.JPanel TerminalListPanel;
     private javax.swing.JTable TerminalListTable;
     private javax.swing.JLabel TerminalNameLabel;
