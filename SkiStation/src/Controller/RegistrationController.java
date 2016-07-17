@@ -92,6 +92,7 @@ public class RegistrationController {
            newUser.setSurname(surname);
            newUser.setDocumentnumber(documentNumber);
            newUser.setAddresses(newAddress);
+           newUser.setActive(true);
            
            s.saveOrUpdate(newUser);
            

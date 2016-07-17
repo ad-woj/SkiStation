@@ -1421,6 +1421,7 @@
                   <Dimension value="[700, 700]"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="StationTrafficPanel" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -1472,6 +1473,7 @@
                   <Dimension value="[700, 700]"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="ContactPanel" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -1709,7 +1711,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="590" y="10" width="100" height="-1"/>
+              <AbsoluteConstraints x="580" y="10" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1778,7 +1780,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="10" width="110" height="-1"/>
+              <AbsoluteConstraints x="480" y="10" width="100" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1801,7 +1803,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="10" width="150" height="-1"/>
+              <AbsoluteConstraints x="330" y="10" width="150" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4868,7 +4870,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="220" width="125" height="30"/>
+              <AbsoluteConstraints x="20" y="190" width="140" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4891,7 +4893,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="160" width="125" height="30"/>
+              <AbsoluteConstraints x="20" y="130" width="140" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4914,7 +4916,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="190" width="125" height="30"/>
+              <AbsoluteConstraints x="20" y="160" width="140" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -5389,6 +5391,7 @@
             <Container class="javax.swing.JPanel" name="UserTraffic">
               <Properties>
                 <Property name="name" type="java.lang.String" value="UserTraffic" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -5424,7 +5427,7 @@
         <Component class="javax.swing.JLabel" name="jLabel27">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/myacoount.jpg"/>
+              <Image iconType="3" name="/Images/clientPage.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Moje Konto"/>
             <Property name="name" type="java.lang.String" value="jLabel27" noResource="true"/>
