@@ -5489,7 +5489,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminUserEditHelpButtonActionPerformed
 
     private void AdminProductPanelHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminProductPanelHelpButtonActionPerformed
-        new HelpWindow("AdminProductPanelHelp");
+        new HelpWindow("AdminPricelistPanelHelp");
     }//GEN-LAST:event_AdminProductPanelHelpButtonActionPerformed
 
     private void FillTerminalList(String name)
