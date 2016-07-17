@@ -149,6 +149,7 @@ CREATE TABLE Users
     name                VARCHAR (50) NOT NULL ,
     surName             VARCHAR (50) NOT NULL ,
     documentNumber      VARCHAR (30) NOT NULL ,
+    active              BOOLEAN NOT NULL DEFAULT TRUE ,
     Addresses_addressID INTEGER
   ) ;
 ALTER TABLE Users ADD CONSTRAINT Users_PK PRIMARY KEY ( userID ) ;

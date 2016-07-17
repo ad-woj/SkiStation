@@ -65,7 +65,6 @@ public class MainWindow extends javax.swing.JFrame {
         Login = new javax.swing.JPanel();
         LoginPageHelpButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
         LoginTextField = new javax.swing.JTextField();
         MessageLabel = new javax.swing.JLabel();
@@ -165,7 +164,7 @@ public class MainWindow extends javax.swing.JFrame {
         SearchPanel = new javax.swing.JPanel();
         UserSearchInputTextField = new javax.swing.JTextField();
         ResultListPanel = new javax.swing.JScrollPane();
-        ResultList = new javax.swing.JList<>();
+        ResultList = new javax.swing.JList<String>();
         SearchButton2 = new javax.swing.JButton();
         CardScanStatusTextField = new javax.swing.JTextField();
         CardScanButton = new javax.swing.JButton();
@@ -212,6 +211,7 @@ public class MainWindow extends javax.swing.JFrame {
         ActualizeProductNameText = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        AdminEditProductHelpButton = new javax.swing.JButton();
         AddProductToPriceListPanel = new javax.swing.JPanel();
         ProductPriceListAddItemPrice = new javax.swing.JButton();
         ProductPriceListResult = new javax.swing.JLabel();
@@ -225,6 +225,7 @@ public class MainWindow extends javax.swing.JFrame {
         ProductPriceListPriceLists = new javax.swing.JTable();
         ProductPriceItemPriceField = new javax.swing.JTextField();
         ProductPriceListPriceListFind = new javax.swing.JTextField();
+        AdminAddProductToPricelistHelpButton = new javax.swing.JButton();
         AddProductPanel = new javax.swing.JPanel();
         AddNewProductButton1 = new javax.swing.JButton();
         NewProductNameTextField1 = new javax.swing.JTextField();
@@ -232,6 +233,7 @@ public class MainWindow extends javax.swing.JFrame {
         NewProductResult1 = new javax.swing.JLabel();
         NewProductPriceTextField = new javax.swing.JTextField();
         ProductPriceLabel = new javax.swing.JLabel();
+        AdminAddProductHelpButton = new javax.swing.JButton();
         AddPriceList = new javax.swing.JPanel();
         NewPriceListButton = new javax.swing.JButton();
         NewPriceListDateFrom = new javax.swing.JTextField();
@@ -239,7 +241,7 @@ public class MainWindow extends javax.swing.JFrame {
         PriceListFromLabel = new javax.swing.JLabel();
         PriceListToLabel = new javax.swing.JLabel();
         NewPriceListResult = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        AdminAddPricelistHelpButton = new javax.swing.JButton();
         PriceListManagmentAdmintPanel = new javax.swing.JPanel();
         SearchProductTextField = new javax.swing.JTextField();
         FindProductButton = new javax.swing.JButton();
@@ -251,6 +253,7 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeManagementAdminPanel = new javax.swing.JPanel();
         SlopeTrafficScrollPane = new javax.swing.JScrollPane();
         SlopeTraffic = new javax.swing.JTable();
+        AdminSlopeManagementHelpButton = new javax.swing.JButton();
         UserManagmentAdmintPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         UserListTable = new javax.swing.JTable();
@@ -290,6 +293,7 @@ public class MainWindow extends javax.swing.JFrame {
         AddAttractionButton = new javax.swing.JButton();
         AttractionTypeLabel = new javax.swing.JLabel();
         AddAttractionMessage = new javax.swing.JLabel();
+        AdminAttractionsEditHelpButton = new javax.swing.JButton();
         TerminalsEditAddPanel = new javax.swing.JPanel();
         LockTimeLabel1 = new javax.swing.JLabel();
         CancelAddTerminalButton1 = new javax.swing.JButton();
@@ -298,6 +302,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         ChosenAttractionLabel = new javax.swing.JLabel();
         AddTerminalMessageLabel = new javax.swing.JLabel();
+        AdminTerminalsEditHelpButton = new javax.swing.JButton();
         AttractionsAndGatesPanel = new javax.swing.JTabbedPane();
         AttractionManagementAdminPanel = new javax.swing.JPanel();
         AttractionListPanel = new javax.swing.JPanel();
@@ -372,6 +377,7 @@ public class MainWindow extends javax.swing.JFrame {
         pointsSum = new javax.swing.JTextField();
         buyPackagePointsMessage = new javax.swing.JLabel();
         buyPointsPackageBackButton = new javax.swing.JButton();
+        UserBuyPointsHelpButton = new javax.swing.JButton();
         UserContactPanel = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -449,12 +455,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         Login.setName("LoginPanel"); // NOI18N
         Login.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 LoginAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         Login.setLayout(null);
@@ -478,16 +484,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         Login.add(jButton2);
         jButton2.setBounds(10, 650, 140, 40);
-
-        jButton4.setText("Szablon pomocy");
-        jButton4.setName("jButton4"); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        Login.add(jButton4);
-        jButton4.setBounds(210, 300, 240, 23);
 
         LoginButton.setText("Zaloguj");
         LoginButton.setName("LoginPanel"); // NOI18N
@@ -1140,12 +1136,12 @@ public class MainWindow extends javax.swing.JFrame {
         StationTrafficTable.setEnabled(false);
         StationTrafficTable.setName("StationTrafficTable"); // NOI18N
         StationTrafficTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 StationTrafficTableShowed(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(StationTrafficTable);
@@ -1396,12 +1392,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         AdminMainPanel.setName("AdminMainPanel"); // NOI18N
         AdminMainPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AdminMainPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AdminMainPanel.setLayout(null);
@@ -1505,12 +1501,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         GateProductsPanel.setName("gatesProductsPanel"); // NOI18N
         GateProductsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GateProductsPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GateProductsPanel.setLayout(null);
@@ -1643,12 +1639,12 @@ public class MainWindow extends javax.swing.JFrame {
         GatesProductsGatesList.setToolTipText("");
         GatesProductsGatesList.setName("GatesProductsGatesList"); // NOI18N
         GatesProductsGatesList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GatesProductsGatesListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GatesProductsGatesList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1707,18 +1703,28 @@ public class MainWindow extends javax.swing.JFrame {
         EditProductPanel.add(jLabel18);
         jLabel18.setBounds(30, 50, 120, 14);
 
+        AdminEditProductHelpButton.setText("Pomoc");
+        AdminEditProductHelpButton.setName("AdminEditProductHelpButton"); // NOI18N
+        AdminEditProductHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminEditProductHelpButtonActionPerformed(evt);
+            }
+        });
+        EditProductPanel.add(AdminEditProductHelpButton);
+        AdminEditProductHelpButton.setBounds(469, 320, 120, 23);
+
         AdminContainerPanel.add(EditProductPanel, "editProductAdminPanel");
         EditProductPanel.getAccessibleContext().setAccessibleName("");
 
         AddProductToPriceListPanel.setName("AddProductToPriceListPanel"); // NOI18N
         AddProductToPriceListPanel.setOpaque(false);
         AddProductToPriceListPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AddProductToPriceListPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AddProductToPriceListPanel.setLayout(null);
@@ -1835,12 +1841,12 @@ public class MainWindow extends javax.swing.JFrame {
         ProductPriceListPriceLists.setToolTipText("");
         ProductPriceListPriceLists.setName("ProductPriceListPriceLists"); // NOI18N
         ProductPriceListPriceLists.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 ProductPriceListPriceListsAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         ProductPriceListPriceLists.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1870,6 +1876,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         AddProductToPriceListPanel.add(ProductPriceListPriceListFind);
         ProductPriceListPriceListFind.setBounds(0, 0, 200, 30);
+
+        AdminAddProductToPricelistHelpButton.setText("Pomoc");
+        AdminAddProductToPricelistHelpButton.setName("AdminAddProductToPricelistHelpButton"); // NOI18N
+        AdminAddProductToPricelistHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminAddProductToPricelistHelpButtonActionPerformed(evt);
+            }
+        });
+        AddProductToPriceListPanel.add(AdminAddProductToPricelistHelpButton);
+        AdminAddProductToPricelistHelpButton.setBounds(179, 310, 110, 23);
 
         AdminContainerPanel.add(AddProductToPriceListPanel, "addProductToPriceListPanel");
         AddProductToPriceListPanel.getAccessibleContext().setAccessibleName("");
@@ -1919,17 +1935,27 @@ public class MainWindow extends javax.swing.JFrame {
         AddProductPanel.add(ProductPriceLabel);
         ProductPriceLabel.setBounds(30, 110, 190, 14);
 
+        AdminAddProductHelpButton.setText("Pomoc");
+        AdminAddProductHelpButton.setName("AdminAddProductHelpButton"); // NOI18N
+        AdminAddProductHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminAddProductHelpButtonActionPerformed(evt);
+            }
+        });
+        AddProductPanel.add(AdminAddProductHelpButton);
+        AdminAddProductHelpButton.setBounds(479, 320, 100, 23);
+
         AdminContainerPanel.add(AddProductPanel, "addProductAdminPanel");
 
         AddPriceList.setName("AddPriceList"); // NOI18N
         AddPriceList.setOpaque(false);
         AddPriceList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AddPriceListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AddPriceList.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1985,10 +2011,15 @@ public class MainWindow extends javax.swing.JFrame {
         AddPriceList.add(NewPriceListResult);
         NewPriceListResult.setBounds(290, 130, 240, 110);
 
-        jButton5.setText("jButton5");
-        jButton5.setName("jButton5"); // NOI18N
-        AddPriceList.add(jButton5);
-        jButton5.setBounds(440, 270, 73, 23);
+        AdminAddPricelistHelpButton.setText("Pomoc");
+        AdminAddPricelistHelpButton.setName("AdminAddPricelistHelpButton"); // NOI18N
+        AdminAddPricelistHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminAddPricelistHelpButtonActionPerformed(evt);
+            }
+        });
+        AddPriceList.add(AdminAddPricelistHelpButton);
+        AdminAddPricelistHelpButton.setBounds(490, 310, 100, 23);
 
         AdminContainerPanel.add(AddPriceList, "addPriceListAdminPanel");
 
@@ -2129,6 +2160,16 @@ public class MainWindow extends javax.swing.JFrame {
         SlopeManagementAdminPanel.add(SlopeTrafficScrollPane);
         SlopeTrafficScrollPane.setBounds(0, 0, 600, 230);
 
+        AdminSlopeManagementHelpButton.setText("Pomoc");
+        AdminSlopeManagementHelpButton.setName("AdminSlopeManagementHelpButton"); // NOI18N
+        AdminSlopeManagementHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminSlopeManagementHelpButtonActionPerformed(evt);
+            }
+        });
+        SlopeManagementAdminPanel.add(AdminSlopeManagementHelpButton);
+        AdminSlopeManagementHelpButton.setBounds(473, 320, 110, 23);
+
         AdminContainerPanel.add(SlopeManagementAdminPanel, "slopeManagmentAdminPanel");
 
         UserManagmentAdmintPanel.setName("UserManagmentAdmintPanel"); // NOI18N
@@ -2170,12 +2211,12 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserListTable.setName("UserListTable"); // NOI18N
         UserListTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 UserListTableAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane7.setViewportView(UserListTable);
@@ -2238,12 +2279,12 @@ public class MainWindow extends javax.swing.JFrame {
         ProductsManagmentAdminPanel.setName("ProductsManagmentAdminPanel"); // NOI18N
         ProductsManagmentAdminPanel.setOpaque(false);
         ProductsManagmentAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 ProductsManagmentAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         ProductsManagmentAdminPanel.setLayout(null);
@@ -2417,12 +2458,12 @@ public class MainWindow extends javax.swing.JFrame {
         });
         CurrentPricesTable.setName("CurrentPricesTable"); // NOI18N
         CurrentPricesTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 CurrentPricesTableAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane9.setViewportView(CurrentPricesTable);
@@ -2564,6 +2605,16 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionsEditAddPanel.add(AddAttractionMessage);
         AddAttractionMessage.setBounds(150, 270, 180, 30);
 
+        AdminAttractionsEditHelpButton.setText("Pomoc");
+        AdminAttractionsEditHelpButton.setName("AdminAttractionsEditHelpButton"); // NOI18N
+        AdminAttractionsEditHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminAttractionsEditHelpButtonActionPerformed(evt);
+            }
+        });
+        AttractionsEditAddPanel.add(AdminAttractionsEditHelpButton);
+        AdminAttractionsEditHelpButton.setBounds(463, 320, 120, 23);
+
         AdminContainerPanel.add(AttractionsEditAddPanel, "AttractionsEditAddPanel");
 
         TerminalsEditAddPanel.setName("TerminalsEditAddPanel"); // NOI18N
@@ -2623,6 +2674,16 @@ public class MainWindow extends javax.swing.JFrame {
         TerminalsEditAddPanel.add(AddTerminalMessageLabel);
         AddTerminalMessageLabel.setBounds(150, 244, 220, 20);
 
+        AdminTerminalsEditHelpButton.setText("Pomoc");
+        AdminTerminalsEditHelpButton.setName("AdminTerminalsEditHelpButton"); // NOI18N
+        AdminTerminalsEditHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminTerminalsEditHelpButtonActionPerformed(evt);
+            }
+        });
+        TerminalsEditAddPanel.add(AdminTerminalsEditHelpButton);
+        AdminTerminalsEditHelpButton.setBounds(463, 320, 120, 23);
+
         AdminContainerPanel.add(TerminalsEditAddPanel, "TerminalsEditAddPanel");
         TerminalsEditAddPanel.getAccessibleContext().setAccessibleName("");
 
@@ -2632,12 +2693,12 @@ public class MainWindow extends javax.swing.JFrame {
         AttractionManagementAdminPanel.setName("AttractionManagementAdminPanel"); // NOI18N
         AttractionManagementAdminPanel.setOpaque(false);
         AttractionManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 AttractionManagementAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         AttractionManagementAdminPanel.setLayout(new java.awt.CardLayout());
@@ -2744,12 +2805,12 @@ public class MainWindow extends javax.swing.JFrame {
         GatesManagementAdminPanel.setName("GatesManagementAdminPanel"); // NOI18N
         GatesManagementAdminPanel.setOpaque(false);
         GatesManagementAdminPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 GatesManagementAdminPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         GatesManagementAdminPanel.setLayout(new java.awt.CardLayout());
@@ -3163,12 +3224,12 @@ public class MainWindow extends javax.swing.JFrame {
         UserMyCardsPanel.setName("UserMyCardsPanel"); // NOI18N
         UserMyCardsPanel.setOpaque(false);
         UserMyCardsPanel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 UserMyCardsPanelAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         UserMyCardsPanel.setLayout(null);
@@ -3297,6 +3358,16 @@ public class MainWindow extends javax.swing.JFrame {
         });
         UserBuyPointsPanel.add(buyPointsPackageBackButton);
         buyPointsPackageBackButton.setBounds(30, 400, 100, 40);
+
+        UserBuyPointsHelpButton.setText("Pomoc");
+        UserBuyPointsHelpButton.setName("UserBuyPointsHelpButton"); // NOI18N
+        UserBuyPointsHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserBuyPointsHelpButtonActionPerformed(evt);
+            }
+        });
+        UserBuyPointsPanel.add(UserBuyPointsHelpButton);
+        UserBuyPointsHelpButton.setBounds(363, 400, 120, 23);
 
         UserContainerPanel.add(UserBuyPointsPanel, "userBuyPoints");
 
@@ -3647,12 +3718,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         Symulator.setName("Symulator"); // NOI18N
         Symulator.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 SymulatorAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         Symulator.setLayout(null);
@@ -3782,12 +3853,12 @@ public class MainWindow extends javax.swing.JFrame {
         SymulatorCardsList.setToolTipText("");
         SymulatorCardsList.setName("SymulatorCardsList"); // NOI18N
         SymulatorCardsList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 SymulatorCardsListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         SymulatorCardsList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -5466,10 +5537,6 @@ public class MainWindow extends javax.swing.JFrame {
         GetPrintCardPanel1().setVisible(false);
     }//GEN-LAST:event_LoginAncestorAdded
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new HelpWindow("test");
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void LoginPageHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginPageHelpButtonActionPerformed
         new HelpWindow("LoginPageHelp");
     }//GEN-LAST:event_LoginPageHelpButtonActionPerformed
@@ -5513,6 +5580,38 @@ public class MainWindow extends javax.swing.JFrame {
     private void AttractionsAndGatesHelp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttractionsAndGatesHelp2ActionPerformed
        new HelpWindow("TerminalsHelp"); 
     }//GEN-LAST:event_AttractionsAndGatesHelp2ActionPerformed
+
+    private void AdminAddProductHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminAddProductHelpButtonActionPerformed
+       new HelpWindow("AdminAddProductHelp");
+    }//GEN-LAST:event_AdminAddProductHelpButtonActionPerformed
+
+    private void AdminEditProductHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminEditProductHelpButtonActionPerformed
+       new HelpWindow("AdminAddProductHelp");
+    }//GEN-LAST:event_AdminEditProductHelpButtonActionPerformed
+
+    private void AdminAddProductToPricelistHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminAddProductToPricelistHelpButtonActionPerformed
+       new HelpWindow("AdminAddProductToPricelistHelp");
+    }//GEN-LAST:event_AdminAddProductToPricelistHelpButtonActionPerformed
+
+    private void AdminAddPricelistHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminAddPricelistHelpButtonActionPerformed
+       new HelpWindow("AdminAddPricelistHelp");
+    }//GEN-LAST:event_AdminAddPricelistHelpButtonActionPerformed
+
+    private void AdminSlopeManagementHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSlopeManagementHelpButtonActionPerformed
+       new HelpWindow("AdminSlopeManagementHelp");
+    }//GEN-LAST:event_AdminSlopeManagementHelpButtonActionPerformed
+
+    private void AdminAttractionsEditHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminAttractionsEditHelpButtonActionPerformed
+       new HelpWindow("AdminAttractionsEditHelp");
+    }//GEN-LAST:event_AdminAttractionsEditHelpButtonActionPerformed
+
+    private void AdminTerminalsEditHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminTerminalsEditHelpButtonActionPerformed
+       new HelpWindow("AdminTerminalsEditHelp");
+    }//GEN-LAST:event_AdminTerminalsEditHelpButtonActionPerformed
+
+    private void UserBuyPointsHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserBuyPointsHelpButtonActionPerformed
+       new HelpWindow("UserBuyPointsHelp");
+    }//GEN-LAST:event_UserBuyPointsHelpButtonActionPerformed
 
     private void FillTerminalList(String name)
     {  
@@ -5693,8 +5792,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel AddProductToPriceListPanel;
     private javax.swing.JButton AddTerminalButton1;
     private javax.swing.JLabel AddTerminalMessageLabel;
+    private javax.swing.JButton AdminAddPricelistHelpButton;
+    private javax.swing.JButton AdminAddProductHelpButton;
+    private javax.swing.JButton AdminAddProductToPricelistHelpButton;
+    private javax.swing.JButton AdminAttractionsEditHelpButton;
     private javax.swing.JLabel AdminBackgroundLabel;
     private javax.swing.JPanel AdminContainerPanel;
+    private javax.swing.JButton AdminEditProductHelpButton;
     private javax.swing.JButton AdminLogoutButton;
     private javax.swing.JPanel AdminMainPanel;
     private javax.swing.JButton AdminMainPanelHelpButton;
@@ -5703,6 +5807,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton AdminPanelBackButton;
     private javax.swing.JButton AdminProductPanelHelpButton;
     private javax.swing.JRadioButton AdminRadio;
+    private javax.swing.JButton AdminSlopeManagementHelpButton;
+    private javax.swing.JButton AdminTerminalsEditHelpButton;
     private javax.swing.JButton AdminUserEditHelpButton;
     private javax.swing.JLabel AdminViewTitleLabel;
     private javax.swing.JPanel AttractionListPanel;
@@ -5941,6 +6047,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel UpdateResultLabel;
     private javax.swing.JButton UpdateUser;
     private javax.swing.JLabel UserBackgroundLabel3;
+    private javax.swing.JButton UserBuyPointsHelpButton;
     private javax.swing.JPanel UserBuyPointsPanel;
     private javax.swing.JButton UserChangeModeToAdminButton;
     private javax.swing.JPanel UserChoosePaymentMethodPanel;
@@ -5968,8 +6075,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
