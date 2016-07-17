@@ -1099,6 +1099,7 @@ public class MainWindow extends javax.swing.JFrame {
         StationTrafficPanel.setMaximumSize(new java.awt.Dimension(700, 700));
         StationTrafficPanel.setMinimumSize(new java.awt.Dimension(700, 700));
         StationTrafficPanel.setName("StationTrafficPanel"); // NOI18N
+        StationTrafficPanel.setOpaque(false);
         StationTrafficPanel.setLayout(null);
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
@@ -1154,6 +1155,7 @@ public class MainWindow extends javax.swing.JFrame {
         ContactPanel.setMaximumSize(new java.awt.Dimension(700, 700));
         ContactPanel.setMinimumSize(new java.awt.Dimension(700, 700));
         ContactPanel.setName("ContactPanel"); // NOI18N
+        ContactPanel.setOpaque(false);
         ContactPanel.setLayout(null);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
@@ -1275,7 +1277,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(LogoutButton);
-        LogoutButton.setBounds(590, 10, 100, 23);
+        LogoutButton.setBounds(580, 10, 80, 23);
 
         EditClientButton.setText("Edytuj klienta");
         EditClientButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1314,7 +1316,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(ClientModeButton1);
-        ClientModeButton1.setBounds(460, 10, 110, 23);
+        ClientModeButton1.setBounds(480, 10, 100, 23);
 
         CashierChangeModeToAdminButton.setText("Tryb administratora");
         CashierChangeModeToAdminButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -1327,7 +1329,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(CashierChangeModeToAdminButton);
-        CashierChangeModeToAdminButton.setBounds(310, 10, 150, 23);
+        CashierChangeModeToAdminButton.setBounds(330, 10, 150, 23);
 
         SearchButton.setText("Wyszukiwarka");
         SearchButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3189,7 +3191,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMainPanel.add(ContactButton);
-        ContactButton.setBounds(20, 220, 125, 30);
+        ContactButton.setBounds(20, 190, 140, 30);
 
         MyCardsButton.setText("Moje karty");
         MyCardsButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3202,7 +3204,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMainPanel.add(MyCardsButton);
-        MyCardsButton.setBounds(20, 160, 125, 30);
+        MyCardsButton.setBounds(20, 130, 140, 30);
 
         SlopeTrafficButton.setText("Natężenie stoku");
         SlopeTrafficButton.setMaximumSize(new java.awt.Dimension(67, 23));
@@ -3215,7 +3217,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         UserMainPanel.add(SlopeTrafficButton);
-        SlopeTrafficButton.setBounds(20, 190, 125, 30);
+        SlopeTrafficButton.setBounds(20, 160, 140, 30);
 
         UserContainerPanel.setName("UserContainerPanel"); // NOI18N
         UserContainerPanel.setOpaque(false);
@@ -3466,6 +3468,7 @@ public class MainWindow extends javax.swing.JFrame {
         UserContainerPanel.add(UserChoosePaymentMethodPanel, "userChoosePaymentMethod");
 
         UserTraffic.setName("UserTraffic"); // NOI18N
+        UserTraffic.setOpaque(false);
 
         UserTrafficScrollPane.setName("UserTrafficScrollPane"); // NOI18N
 
@@ -3508,7 +3511,7 @@ public class MainWindow extends javax.swing.JFrame {
         UserMainPanel.add(UserContainerPanel);
         UserContainerPanel.setBounds(170, 150, 530, 550);
 
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/myacoount.jpg"))); // NOI18N
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clientPage.jpg"))); // NOI18N
         jLabel27.setText("Moje Konto");
         jLabel27.setName("jLabel27"); // NOI18N
         UserMainPanel.add(jLabel27);
